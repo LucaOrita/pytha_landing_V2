@@ -4,7 +4,11 @@
       "Bash(npm ls:*)",
       "Bash(npm install:*)",
       "Bash(mkdir -p \"/c/Users/orita/OneDrive/Desktop/Dacoda Site/site_test/src/app/api/agent\")",
-      "Bash(mkdir -p \"/c/Users/orita/OneDrive/Desktop/Dacoda Site/site_test/src/app/cerere-oferta\")"
+      "Bash(mkdir -p \"/c/Users/orita/OneDrive/Desktop/Dacoda Site/site_test/src/app/cerere-oferta\")",
+      "Bash(npx eslint:*)",
+      "Bash(npx tsc:*)",
+      "Bash(taskkill //F //FI 'WINDOWTITLE eq *3099*')",
+      "Bash(netstat -ano)"
     ]
   }
 }

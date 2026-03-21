@@ -7,13 +7,10 @@ const BLOGS_PATH = path.join(process.cwd(), 'src/blog');
 export type BlogPost = {
   slug: string;
   title: string;
-  description: string;
+  excerpt: string;
+  category: string;
   date: string;
-  author: string;
-  tags: string[];
-  coverImage: string;
-  featured: boolean;
-  tagline: string;
+  readTime: string;
   content: string;
 };
 
@@ -31,14 +28,11 @@ export function getBlogBySlug(slug: string): BlogPost {
 
   return {
     slug: realSlug,
-    title: data.title,
-    description: data.description || data.intro || '',
-    date: data.date || data.published || '',
-    author: data.author || '',
-    tags: data.tags || [],
-    coverImage: data.coverImage || data.image || '',
-    featured: data.featured || false,
-    tagline: data.tagline || '',
+    title: data.title || '',
+    excerpt: data.excerpt || data.description || '',
+    category: data.category || 'General',
+    date: data.date || '',
+    readTime: data.readTime || '',
     content: content,
   };
 }
@@ -53,4 +47,19 @@ export function getAllBlogs(limit?: number): BlogPost[] {
       return dateB.getTime() - dateA.getTime();
     });
   return limit ? posts.slice(0, limit) : posts;
+}
+
+export function getRelatedPosts(
+  currentSlug: string,
+  category: string,
+  limit = 3,
+): BlogPost[] {
+  const all = getAllBlogs();
+  const sameCategory = all.filter(
+    (p) => p.slug !== currentSlug && p.category === category,
+  );
+  const others = all.filter(
+    (p) => p.slug !== currentSlug && p.category !== category,
+  );
+  return [...sameCategory, ...others].slice(0, limit);
 }
