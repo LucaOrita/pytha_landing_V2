@@ -1,19 +1,23 @@
-import ZippayContentsSection from '@/components/sections/zippay-contents-section';
-import ZippayCtaSection from '@/components/sections/zippay-cta-section';
-import ZippayFeatureQuad from '@/components/sections/zippay-feature-quad';
-import ZippayFeaturesSection from '@/components/sections/zippay-features-section';
-import ZippayHero from '@/components/sections/zippay-hero';
-import ZippayTestimonialsSection from '@/components/sections/zippay-testimonials-section';
+import DacodaBlogPreview from '@/components/sections/dacoda-blog-preview';
+import DacodaCta from '@/components/sections/dacoda-cta';
+import DacodaHero from '@/components/sections/dacoda-hero';
+import DacodaServices from '@/components/sections/dacoda-services';
+import DacodaStats from '@/components/sections/dacoda-stats';
+import DacodaTestimonials from '@/components/sections/dacoda-testimonials';
+import DacodaTrustBar from '@/components/sections/dacoda-trust-bar';
+import DacodaWhy from '@/components/sections/dacoda-why';
 
 export default function Home() {
   return (
     <>
-      <ZippayHero />
-      <ZippayFeaturesSection />
-      <ZippayContentsSection />
-      <ZippayFeatureQuad />
-      <ZippayTestimonialsSection />
-      <ZippayCtaSection />
+      <DacodaHero />
+      <DacodaTrustBar />
+      <DacodaWhy />
+      <DacodaServices />
+      <DacodaStats />
+      <DacodaTestimonials />
+      <DacodaBlogPreview />
+      <DacodaCta />
     </>
   );
 }

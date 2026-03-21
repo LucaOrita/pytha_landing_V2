@@ -1,18 +1,17 @@
-"use client";
+'use client';
 
-import { useCallback, useEffect, useRef, useState } from "react";
-
-import { cn } from "@/lib/utils";
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
+} from '@/components/ui/accordion';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
-type Category = "Support" | "Account" | "Features" | "Security" | "Other";
+type Category = 'Support' | 'Account' | 'Features' | 'Security' | 'Other';
 
 interface FAQItem {
   question: string;
@@ -23,103 +22,103 @@ interface FAQItem {
 const faqItems: FAQItem[] = [
   // Support Questions
   {
-    category: "Support",
-    question: "Is there a free version?",
+    category: 'Support',
+    question: 'Is there a free version?',
     answer:
-      "Yes! We offer a generous free plan with just enough features except that one feature you really want! Our strategy is to get your credit card details on file then steadily double our prices against inflation rates.",
+      'Yes! We offer a generous free plan with just enough features except that one feature you really want! Our strategy is to get your credit card details on file then steadily double our prices against inflation rates.',
   },
   {
-    category: "Support",
-    question: "Is support free, or do I need to Perplexity everything?",
+    category: 'Support',
+    question: 'Is support free, or do I need to Perplexity everything?',
     answer:
-      "We pride ourselves on our comprehensive support system. Our chatbot will happily redirect you to our documentation, which will then redirect you back to the chatbot.",
+      'We pride ourselves on our comprehensive support system. Our chatbot will happily redirect you to our documentation, which will then redirect you back to the chatbot.',
   },
   {
-    category: "Support",
-    question: "What if I need immediate assistance?",
+    category: 'Support',
+    question: 'What if I need immediate assistance?',
     answer:
-      "Our AI support team will get back to you in approximately 3-5 business years.",
+      'Our AI support team will get back to you in approximately 3-5 business years.',
   },
   // Account Questions
   {
-    category: "Account",
-    question: "How do I update my account without breaking my laptop?",
+    category: 'Account',
+    question: 'How do I update my account without breaking my laptop?',
     answer:
-      "Our platform is designed to be extremely user-friendly. Just follow our simple 47-step process, and you should be fine!",
+      'Our platform is designed to be extremely user-friendly. Just follow our simple 47-step process, and you should be fine!',
   },
   {
-    category: "Account",
-    question: "How do I update my account without breaking the universe?",
-    answer: "Just be very careful not to press any buttons too hard.",
+    category: 'Account',
+    question: 'How do I update my account without breaking the universe?',
+    answer: 'Just be very careful not to press any buttons too hard.',
   },
   {
-    category: "Account",
-    question: "What happens if I forget my password?",
+    category: 'Account',
+    question: 'What happens if I forget my password?',
     answer: "You'll need to solve three riddles and defeat a dragon.",
   },
   // Features Questions
   {
-    category: "Features",
-    question: "Are you going to be subsumed by AI?",
+    category: 'Features',
+    question: 'Are you going to be subsumed by AI?',
     answer:
       "Probably! But until then, we'll keep pretending we're irreplaceable.",
   },
   {
-    category: "Features",
-    question: "What makes your platform unique?",
+    category: 'Features',
+    question: 'What makes your platform unique?',
     answer:
-      "We use at least 7 different types of AI, and none of them work together!",
+      'We use at least 7 different types of AI, and none of them work together!',
   },
   {
-    category: "Features",
-    question: "Do you support integration with other tools?",
-    answer: "We integrate with everything except the tools you actually use.",
+    category: 'Features',
+    question: 'Do you support integration with other tools?',
+    answer: 'We integrate with everything except the tools you actually use.',
   },
   // Security Questions
   {
-    category: "Security",
-    question: "How secure is my data?",
+    category: 'Security',
+    question: 'How secure is my data?',
     answer:
       'We use military-grade encryption, but our password is "password123".',
   },
   {
-    category: "Security",
-    question: "What happens in case of a data breach?",
+    category: 'Security',
+    question: 'What happens in case of a data breach?',
     answer:
       "We'll send you a very apologetic email with a $5 gift card to your local coffee shop.",
   },
   {
-    category: "Security",
-    question: "Do you have a backup system?",
+    category: 'Security',
+    question: 'Do you have a backup system?',
     answer:
-      "Yes, we back up everything to a USB stick that we keep in a very safe place... somewhere.",
+      'Yes, we back up everything to a USB stick that we keep in a very safe place... somewhere.',
   },
   // Other Questions
   {
-    category: "Other",
-    question: "Why is your pricing so complicated?",
+    category: 'Other',
+    question: 'Why is your pricing so complicated?',
     answer:
       "Because simple pricing would make it too easy for you to understand what you're paying for.",
   },
   {
-    category: "Other",
-    question: "Do you offer refunds?",
+    category: 'Other',
+    question: 'Do you offer refunds?',
     answer:
       "Yes, but only if you can prove you're from an alternate dimension.",
   },
   {
-    category: "Other",
+    category: 'Other',
     question: "What's your roadmap look like?",
     answer: "It's more of a road-squiggle, really. We're agile!",
   },
 ];
 
 const categories: Category[] = [
-  "Support",
-  "Account",
-  "Features",
-  "Security",
-  "Other",
+  'Support',
+  'Account',
+  'Features',
+  'Security',
+  'Other',
 ];
 
 const TOP_PADDING = 300;
@@ -129,7 +128,7 @@ interface Faq12Props {
 }
 
 const Faq12 = ({ className }: Faq12Props) => {
-  const [activeCategory, setActiveCategory] = useState<Category>("Support");
+  const [activeCategory, setActiveCategory] = useState<Category>('Support');
   const observerRef = useRef<IntersectionObserver | null>(null);
   const isScrollingRef = useRef(false);
   const categoryRefs = useRef<Record<Category, HTMLDivElement | null>>({
@@ -179,7 +178,7 @@ const Faq12 = ({ className }: Faq12Props) => {
 
           if (entry) {
             const category = entry.target.getAttribute(
-              "data-category",
+              'data-category',
             ) as Category;
             if (category) {
               setActiveCategory(category);
@@ -196,7 +195,7 @@ const Faq12 = ({ className }: Faq12Props) => {
 
     Object.entries(categoryRefs.current).forEach(([category, element]) => {
       if (element) {
-        element.setAttribute("data-category", category);
+        element.setAttribute('data-category', category);
         observerRef.current?.observe(element);
       }
     });
@@ -223,7 +222,7 @@ const Faq12 = ({ className }: Faq12Props) => {
     const element = document.getElementById(`faq-${category.toLowerCase()}`);
     if (element) {
       element.style.scrollMargin = `${TOP_PADDING}px`;
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
       setTimeout(() => {
         isScrollingRef.current = false;
@@ -234,7 +233,7 @@ const Faq12 = ({ className }: Faq12Props) => {
   return (
     <section
       className={cn(
-        "min-h-screen bg-[#F2F2F2] py-32 dark:bg-[#24242B]",
+        'min-h-screen bg-[#F2F2F2] py-32 dark:bg-[#24242B]',
         className,
       )}
     >
@@ -243,7 +242,7 @@ const Faq12 = ({ className }: Faq12Props) => {
           <h1 className="text-center text-4xl font-semibold tracking-tight sm:text-5xl">
             We've got answers
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-center text-balance text-muted-foreground">
+          <p className="text-muted-foreground mx-auto mt-4 max-w-xl text-center text-balance">
             This really should be an LLM but we're waiting for RAG to truly
             reach commodity stage before we touch it.
           </p>
@@ -259,8 +258,8 @@ const Faq12 = ({ className }: Faq12Props) => {
                 onClick={() => handleCategoryClick(category)}
                 className={`justify-start text-left text-xl transition-colors ${
                   activeCategory === category
-                    ? "font-semibold"
-                    : "font-normal hover:opacity-75"
+                    ? 'font-semibold'
+                    : 'font-normal hover:opacity-75'
                 }`}
               >
                 {category}
@@ -285,9 +284,9 @@ const Faq12 = ({ className }: Faq12Props) => {
                   className={cn(
                     `rounded-xl`,
                     activeCategory === category
-                      ? "bg-background"
-                      : "bg-background/40",
-                    "px-6",
+                      ? 'bg-background'
+                      : 'bg-background/40',
+                    'px-6',
                   )}
                   style={{
                     scrollMargin: `${TOP_PADDING}px`,
@@ -303,12 +302,12 @@ const Faq12 = ({ className }: Faq12Props) => {
                       <AccordionItem
                         key={i}
                         value={`${category}-${i}`}
-                        className="border-b border-muted last:border-0"
+                        className="border-muted border-b last:border-0"
                       >
                         <AccordionTrigger className="text-base font-medium hover:no-underline">
                           {item.question}
                         </AccordionTrigger>
-                        <AccordionContent className="text-base font-medium text-muted-foreground">
+                        <AccordionContent className="text-muted-foreground text-base font-medium">
                           {item.answer}
                         </AccordionContent>
                       </AccordionItem>

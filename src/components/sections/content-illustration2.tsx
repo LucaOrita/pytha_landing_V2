@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import * as React from 'react';
 
 type ContentIllustration2Props = {
@@ -23,7 +23,7 @@ const slideFrom = (
   show: {
     opacity: 1,
     x: 0,
-    transition: { duration, ease: [0.22, 1, 0.36, 1], delay },
+    transition: { duration, ease: [0.22, 1, 0.36, 1] as const, delay },
   },
 });
 

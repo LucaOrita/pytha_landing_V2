@@ -1,4 +1,4 @@
-import type { AnimationSequence } from 'framer-motion';
+import type { AnimationSequence } from 'motion/react';
 
 export const expenseSequence: AnimationSequence = [
   [

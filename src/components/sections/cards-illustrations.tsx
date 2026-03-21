@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import * as React from 'react';
 
 type CardsIllustrationProps = {
@@ -18,7 +18,7 @@ const slideUpFade = (delay = 0, y = 40, duration = 0.6) => ({
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration, ease: [0.22, 1, 0.36, 1], delay },
+    transition: { duration, ease: [0.22, 1, 0.36, 1] as const, delay },
   },
 });
 

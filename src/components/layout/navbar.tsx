@@ -1,291 +1,280 @@
 'use client';
 
-import { ChevronRight } from 'lucide-react';
-import Image from 'next/image';
+import { ChevronDown, ChevronRight, Menu, X } from 'lucide-react';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-import { Button } from '@/components/ui/button';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from '@/components/ui/navigation-menu';
 import { cn } from '@/lib/utils';
 
-import { ThemeToggle } from '../theme-toggle';
+const SERVICII_LINKS = [
+  { title: 'Transport Rutier', href: '/servicii/transport-rutier' },
+  { title: 'Transport ADR', href: '/servicii/transport-adr' },
+  { title: 'Transport Frigorific', href: '/servicii/transport-frigorific' },
+  { title: 'Transport Agabaritic', href: '/servicii/transport-agabaritic' },
+  { title: 'Aerian & Maritim', href: '/servicii/aerian-maritim' },
+];
+
+const NAV_LINKS = [
+  { label: 'Servicii', href: '/servicii', hasDropdown: true },
+  { label: 'Rute', href: '/rute' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Despre noi', href: '/despre-noi' },
+  { label: 'Contact', href: '/contact' },
+];
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [serviciiOpen, setServiciiOpen] = useState(false);
+  const [desktopServiciiOpen, setDesktopServiciiOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
-    if (isMenuOpen) {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (mobileOpen) {
       document.body.classList.add('overflow-hidden');
     } else {
       document.body.classList.remove('overflow-hidden');
     }
+    return () => document.body.classList.remove('overflow-hidden');
+  }, [mobileOpen]);
 
-    // Cleanup on unmount
-    return () => {
-      document.body.classList.remove('overflow-hidden');
-    };
-  }, [isMenuOpen]);
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+    setServiciiOpen(false);
+  }, [pathname]);
 
-  const ITEMS = [
-    { label: 'Home', href: '/' },
-    {
-      label: 'Product',
-      href: '#product',
-      dropdownItems: [
-        {
-          title: 'Feature - AI Efficiency',
-          href: '/feature1',
-        },
-        { title: 'Feature - Spend Management', href: '/feature2' },
-      ],
-    },
-    { label: 'Integrations', href: '/integrations' },
-    { label: 'About us', href: '/about' },
-    { label: 'Pricing', href: '/pricing' },
-    { label: 'FAQ', href: '/faq' },
-    {
-      label: 'Blog',
-      href: '/blog',
-    },
-    { label: 'Contact', href: '/contact' },
-  ];
-
-  const bgColor = 'bg-background';
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === '/';
+    return pathname.startsWith(href);
+  };
 
   return (
     <header
       className={cn(
-        'relative z-50 h-16 border-b border-b-gray-50 px-2.5 lg:h-22 lg:px-0',
-        bgColor,
+        'fixed top-0 right-0 left-0 z-50 transition-all duration-300',
+        scrolled ? 'bg-white shadow-sm' : 'bg-transparent',
       )}
     >
-      <div className="container flex h-16 items-center lg:h-22">
-        <div className="flex w-full items-center justify-between px-3.5 lg:px-6">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <Image
-              src="/images/layout/logo.svg"
-              alt="logo"
-              width={129}
-              height={32}
-              className="invert-0 dark:invert"
-            />
-          </Link>
+      <div className="container flex h-16 items-center justify-between px-4 lg:h-20 lg:px-6">
+        {/* Logo */}
+        <Link href="/" className="flex flex-col leading-none">
+          <span className="text-dacoda-orange text-xl font-bold tracking-wide">
+            DACODA
+          </span>
+          <span
+            className={cn(
+              'text-[10px] tracking-wider transition-colors duration-300',
+              scrolled ? 'text-dacoda-gray' : 'text-white/70',
+            )}
+          >
+            Expediții Rutiere
+          </span>
+        </Link>
 
-          {/* Desktop Navigation */}
-          <div className="flex items-center justify-center">
-            <NavigationMenu className="mr-4 hidden items-center gap-8 lg:flex">
-              <NavigationMenuList>
-                {ITEMS.map((link) =>
-                  link.dropdownItems ? (
-                    <NavigationMenuItem
-                      key={link.label}
-                      className="text-body-sm-medium"
-                    >
-                      <NavigationMenuTrigger
-                        className={cn(
-                          'text-foreground text-body-sm-medium bg-transparent',
-                          'hover:bg-transparent focus:bg-transparent active:bg-transparent',
-                          'hover:text-muted-foreground focus:text-muted-foreground',
-                          'data-[state=open]:text-muted-foreground data-[state=open]:bg-transparent',
-                          'transition-none',
-                        )}
-                      >
-                        {link.label}
-                      </NavigationMenuTrigger>
-                      <NavigationMenuContent
-                        className={cn('bg-gray-0 rounded-2xl')}
-                      >
-                        <ul className="bg-gray-0 w-[400px] p-3">
-                          {link.dropdownItems.map((item) => (
-                            <li key={item.title}>
-                              <NavigationMenuLink asChild>
-                                <Link
-                                  href={item.href}
-                                  className="hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground flex items-center rounded-xl p-3 leading-none no-underline outline-hidden transition-colors select-none hover:bg-gray-50"
-                                >
-                                  <div className="flex gap-2">
-                                    <div className="space-y-1.5">
-                                      <div className="text-foreground text-body-sm-medium leading-none font-medium">
-                                        {item.title}
-                                      </div>
-                                    </div>
-                                  </div>
-                                </Link>
-                              </NavigationMenuLink>
-                            </li>
-                          ))}
-                        </ul>
-                      </NavigationMenuContent>
-                    </NavigationMenuItem>
-                  ) : (
-                    <NavigationMenuItem key={link.label}>
-                      <Link
-                        href={link.href}
-                        className={cn(
-                          'text-foreground hover:text-muted-foreground text-body-sm-medium p-2',
-                        )}
-                      >
-                        {link.label}
-                      </Link>
-                    </NavigationMenuItem>
-                  ),
-                )}
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
-          {/* Auth Buttons */}
-          <div className="flex items-center gap-2.5">
-            <div
-              className={`transition-opacity duration-300 ${isMenuOpen ? 'max-lg:pointer-events-none max-lg:opacity-0' : 'opacity-100'}`}
-            >
-              <ThemeToggle />
-            </div>
-            <Link href="/login" className="hidden lg:block">
-              <Button size="sm" variant="secondary">
-                Sign In
-              </Button>
-            </Link>
-            <Link href="/login" className="hidden lg:block">
-              <Button size="sm">Get Started</Button>
-            </Link>
-
-            {/* Hamburger Menu Button (Mobile Only) */}
-            <button
-              className="text-muted-foreground relative flex size-8 lg:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <span className="sr-only">Open main menu</span>
-              <div className="absolute top-1/2 left-1/2 block w-[18px] -translate-x-1/2 -translate-y-1/2">
-                <span
-                  aria-hidden="true"
-                  className={`absolute block h-0.5 w-full rounded-full bg-gray-900 transition duration-500 ease-in-out ${isMenuOpen ? 'rotate-45' : '-translate-y-1.5'}`}
-                ></span>
-                <span
-                  aria-hidden="true"
-                  className={`absolute block h-0.5 w-full rounded-full bg-gray-900 transition duration-500 ease-in-out ${isMenuOpen ? 'opacity-0' : ''}`}
-                ></span>
-                <span
-                  aria-hidden="true"
-                  className={`absolute block h-0.5 w-full rounded-full bg-gray-900 transition duration-500 ease-in-out ${isMenuOpen ? '-rotate-45' : 'translate-y-1.5'}`}
-                ></span>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu Overlay */}
-      <div
-        className={cn(
-          'absolute inset-x-0 top-full container flex h-[calc(100vh-64px)] flex-col px-2.5 lg:px-0',
-          'transition duration-300 ease-in-out lg:hidden',
-          isMenuOpen
-            ? 'pointer-events-auto translate-y-0 opacity-100'
-            : 'pointer-events-none -translate-y-full opacity-0',
-          bgColor,
-        )}
-      >
-        <div className="flex h-[calc(100vh-80px)] flex-col px-5">
-          <nav className="mt-6 flex flex-1 flex-col gap-6">
-            {ITEMS.map((link) =>
-              link.dropdownItems ? (
-                <div key={link.label} className="">
-                  <button
-                    onClick={() =>
-                      setOpenDropdown(
-                        openDropdown === link.label ? null : link.label,
-                      )
-                    }
-                    className="text-foreground text-body-lg-medium flex w-full items-center justify-between tracking-[-0.36px]"
-                    aria-label={`${link.label} menu`}
-                    aria-expanded={openDropdown === link.label}
-                  >
-                    {link.label}
-                    <ChevronRight
-                      className={cn(
-                        'h-4 w-4 transition-transform',
-                        openDropdown === link.label ? 'rotate-90' : '',
-                      )}
-                      aria-hidden="true"
-                    />
-                  </button>
-                  <div
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-1 md:flex">
+          {NAV_LINKS.map((link) =>
+            link.hasDropdown ? (
+              <div
+                key={link.label}
+                className="relative"
+                onMouseEnter={() => setDesktopServiciiOpen(true)}
+                onMouseLeave={() => setDesktopServiciiOpen(false)}
+              >
+                <button
+                  className={cn(
+                    'flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-300',
+                    isActive('/servicii')
+                      ? 'text-dacoda-orange'
+                      : scrolled
+                        ? 'text-dacoda-navy hover:text-dacoda-orange'
+                        : 'text-white hover:text-white/80',
+                  )}
+                  onClick={() => setDesktopServiciiOpen(!desktopServiciiOpen)}
+                >
+                  {link.label}
+                  <ChevronDown
                     className={cn(
-                      'ml-1 space-y-3 overflow-hidden border-b border-b-gray-50 transition-all',
-                      openDropdown === link.label
-                        ? 'mt-3 max-h-[1000px] pb-6 opacity-100'
-                        : 'max-h-0 opacity-0',
+                      'h-3.5 w-3.5 transition-transform duration-200',
+                      desktopServiciiOpen ? 'rotate-180' : '',
                     )}
-                  >
-                    {link.dropdownItems.map((item) => (
+                  />
+                </button>
+
+                {/* Desktop Dropdown */}
+                <div
+                  className={cn(
+                    'absolute top-full left-0 pt-2 transition-all duration-200',
+                    desktopServiciiOpen
+                      ? 'pointer-events-auto translate-y-0 opacity-100'
+                      : 'pointer-events-none -translate-y-2 opacity-0',
+                  )}
+                >
+                  <div className="w-56 rounded-xl border border-gray-100 bg-white p-2 shadow-lg">
+                    {SERVICII_LINKS.map((item) => (
                       <Link
-                        key={item.title}
+                        key={item.href}
                         href={item.href}
-                        onClick={() => {
-                          setIsMenuOpen(false);
-                          setOpenDropdown(null);
-                        }}
-                        className="hover:bg-accent flex items-start gap-3 rounded-xl p-2"
+                        className={cn(
+                          'block rounded-lg px-3 py-2.5 text-sm transition-colors',
+                          isActive(item.href)
+                            ? 'bg-dacoda-orange-light text-dacoda-orange font-medium'
+                            : 'text-dacoda-navy hover:bg-dacoda-orange-light hover:text-dacoda-orange',
+                        )}
                       >
-                        <div>
-                          <div className="text-foreground font-medium">
-                            {item.title}
-                          </div>
-                        </div>
+                        {item.title}
                       </Link>
                     ))}
                   </div>
                 </div>
-              ) : (
-                <Link
-                  key={link.label}
-                  href={link.href}
+              </div>
+            ) : (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={cn(
+                  'rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-300',
+                  isActive(link.href)
+                    ? 'text-dacoda-orange'
+                    : scrolled
+                      ? 'text-dacoda-navy hover:text-dacoda-orange'
+                      : 'text-white hover:text-white/80',
+                )}
+              >
+                {link.label}
+              </Link>
+            ),
+          )}
+        </nav>
+
+        {/* Desktop CTA Buttons */}
+        <div className="hidden items-center gap-3 md:flex">
+          <Link
+            href="/transportatori"
+            className="border-dacoda-orange text-dacoda-orange hover:bg-dacoda-orange-light rounded-xl border px-4 py-2 text-sm font-medium transition-colors duration-200"
+          >
+            Devino transportator
+          </Link>
+          <Link
+            href="/cerere-oferta"
+            className="bg-dacoda-orange hover:bg-dacoda-orange-dark rounded-xl px-4 py-2 text-sm font-medium text-white transition-colors duration-200"
+          >
+            Cere ofertă
+          </Link>
+        </div>
+
+        {/* Hamburger (Mobile) */}
+        <button
+          className={cn(
+            'relative flex size-10 items-center justify-center rounded-lg md:hidden',
+            scrolled ? 'text-dacoda-navy' : 'text-white',
+          )}
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Meniu principal"
+        >
+          {mobileOpen ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <Menu className="h-6 w-6" />
+          )}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={cn(
+          'fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto bg-white transition-all duration-300 md:hidden',
+          mobileOpen
+            ? 'pointer-events-auto translate-x-0 opacity-100'
+            : 'pointer-events-none translate-x-full opacity-0',
+        )}
+      >
+        <nav className="container flex flex-col gap-1 px-4 pt-6">
+          {NAV_LINKS.map((link) =>
+            link.hasDropdown ? (
+              <div key={link.label}>
+                <button
+                  onClick={() => setServiciiOpen(!serviciiOpen)}
                   className={cn(
-                    'text-foreground text-body-lg-medium tracking-[-0.36px]',
+                    'flex w-full items-center justify-between rounded-lg px-3 py-3 text-lg font-medium',
+                    isActive('/servicii')
+                      ? 'text-dacoda-orange'
+                      : 'text-dacoda-navy',
                   )}
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   {link.label}
-                </Link>
-              ),
-            )}
-            <div className="flex flex-col gap-3 pb-20 sm:flex-row sm:gap-4">
-              <Link href="/login">
-                <Button
-                  variant="secondary"
-                  className="w-full"
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                    setOpenDropdown(null);
-                  }}
+                  <ChevronRight
+                    className={cn(
+                      'h-5 w-5 transition-transform duration-200',
+                      serviciiOpen ? 'rotate-90' : '',
+                    )}
+                  />
+                </button>
+                <div
+                  className={cn(
+                    'overflow-hidden transition-all duration-300',
+                    serviciiOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0',
+                  )}
                 >
-                  Sign In
-                </Button>
+                  <div className="border-dacoda-orange-light ml-3 space-y-1 border-l-2 pb-2 pl-3">
+                    {SERVICII_LINKS.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className={cn(
+                          'block rounded-lg px-3 py-2 text-sm transition-colors',
+                          isActive(item.href)
+                            ? 'text-dacoda-orange font-medium'
+                            : 'text-dacoda-gray hover:text-dacoda-navy',
+                        )}
+                      >
+                        {item.title}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={cn(
+                  'rounded-lg px-3 py-3 text-lg font-medium',
+                  isActive(link.href)
+                    ? 'text-dacoda-orange'
+                    : 'text-dacoda-navy',
+                )}
+              >
+                {link.label}
               </Link>
-              <Link href="/login">
-                <Button
-                  className="w-full"
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                    setOpenDropdown(null);
-                  }}
-                >
-                  Get Started
-                </Button>
-              </Link>
-            </div>
-          </nav>
-        </div>
+            ),
+          )}
+
+          {/* Mobile CTA Buttons */}
+          <div className="mt-6 flex flex-col gap-3 px-3 pb-10">
+            <Link
+              href="/transportatori"
+              className="border-dacoda-orange text-dacoda-orange rounded-xl border py-3 text-center text-sm font-medium transition-colors"
+            >
+              Devino transportator
+            </Link>
+            <Link
+              href="/cerere-oferta"
+              className="bg-dacoda-orange rounded-xl py-3 text-center text-sm font-medium text-white transition-colors"
+            >
+              Cere ofertă
+            </Link>
+          </div>
+        </nav>
       </div>
     </header>
   );

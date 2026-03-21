@@ -35,6 +35,15 @@
   --chart-4: var(--warning-100);
   --chart-5: var(--success-100);
 
+  /* Dacoda Brand */
+  --dacoda-navy: #0D1F3C;
+  --dacoda-navy-light: #162d52;
+  --dacoda-orange: #E8931A;
+  --dacoda-orange-light: #FEF0EA;
+  --dacoda-orange-dark: #c4780f;
+  --dacoda-gray: #6B7A8D;
+  --dacoda-light: #F5F6F8;
+
   /* Tailwind Color Overrides */
   --gray-0: oklch(100% 0 0); /* #FFFFFF */
   --gray-25: oklch(98.04% 0 0); /* #FAFAFA */
@@ -282,6 +291,15 @@
   --color-aqua-100: var(--aqua-100);
   --color-aqua-200: var(--aqua-200);
   --color-aqua-300: var(--aqua-300);
+
+  /* Dacoda brand → Tailwind utilities */
+  --color-dacoda-navy: var(--dacoda-navy);
+  --color-dacoda-navy-light: var(--dacoda-navy-light);
+  --color-dacoda-orange: var(--dacoda-orange);
+  --color-dacoda-orange-light: var(--dacoda-orange-light);
+  --color-dacoda-orange-dark: var(--dacoda-orange-dark);
+  --color-dacoda-gray: var(--dacoda-gray);
+  --color-dacoda-light: var(--dacoda-light);
 
   /* extras */
   --spacing-9xl: 100rem;

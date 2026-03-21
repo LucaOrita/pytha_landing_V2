@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -v '.png$')",
+      "Bash(grep -v '.jpg$')",
+      "Bash(grep -v '.jpeg$')",
+      "Bash(grep -v '.webp$')",
+      "Bash(grep -v '.ico$')",
+      "Bash(grep -v '.svg$')",
+      "Bash(npx next:*)",
+      "Bash(npx prettier:*)",
+      "Bash(taskkill //F //IM node.exe)"
+    ]
+  }
+}
