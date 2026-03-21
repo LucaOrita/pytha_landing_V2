@@ -100,7 +100,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ro" suppressHydrationWarning>
-      <body className={`h-screen ${satoshi.variable} antialiased`}>
+      <body
+        className={`h-screen ${satoshi.variable} antialiased`}
+        suppressHydrationWarning
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
