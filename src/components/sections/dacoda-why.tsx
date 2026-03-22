@@ -1,4 +1,5 @@
 import { MapPin, Phone, Shield, Users } from 'lucide-react';
+import Image from 'next/image';
 
 const cards = [
   {
@@ -25,23 +26,59 @@ const cards = [
 
 export default function DacodaWhy() {
   return (
-    <section style={{ backgroundColor: 'var(--dacoda-light)' }}>
-      <div className="container px-4 py-16 lg:px-6 lg:py-24">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Left — title */}
-          <div className="max-w-md">
-            <h2 className="text-dacoda-navy text-3xl font-bold md:text-4xl">
-              Ce înseamnă să lucrezi cu noi
-            </h2>
-            <div className="bg-dacoda-orange mt-4 h-0.5 w-12" />
-            <p className="text-dacoda-gray mt-6 text-base leading-relaxed md:text-lg">
-              Nu suntem un simplu intermediar. Suntem echipa care cunoaște
-              fiecare rută, fiecare risc și fiecare soluție.
-            </p>
+    <section
+      className="py-16 lg:py-20"
+      style={{ backgroundColor: 'var(--dacoda-light)' }}
+    >
+      <div className="container px-4 lg:px-6">
+        {/* Titlu centrat sus */}
+        <div className="mb-12 text-center">
+          <h2
+            className="mb-3 text-3xl font-bold"
+            style={{ color: 'var(--dacoda-navy)' }}
+          >
+            Ce înseamnă să lucrezi cu noi
+          </h2>
+          <p className="mx-auto max-w-xl text-gray-500">
+            Nu suntem un simplu intermediar. Suntem echipa care cunoaște fiecare
+            rută, fiecare risc și fiecare soluție.
+          </p>
+        </div>
+
+        {/* 2 coloane: stânga foto, dreapta carduri */}
+        <div className="grid items-center gap-10 lg:grid-cols-2">
+          {/* Coloana stânga — fotografie reală */}
+          <div
+            className="relative overflow-hidden rounded-2xl"
+            style={{ height: '480px' }}
+          >
+            <Image
+              src="/images/agabaritic/2.png"
+              alt="Transport agabaritic tractoare — DACODA SRL experiență 32 ani"
+              fill
+              className="object-cover"
+              style={{ objectPosition: 'center 40%' }}
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+            {/* Overlay cu stats */}
+            <div
+              className="absolute right-0 bottom-0 left-0 p-5"
+              style={{
+                background:
+                  'linear-gradient(to top, rgba(13,31,60,0.9) 0%, transparent 100%)',
+              }}
+            >
+              <p className="text-sm font-medium text-white/70">
+                Transport executat de Dacoda
+              </p>
+              <p className="mt-1 text-lg font-bold text-white">
+                4 tractoare John Deere — platformă specială
+              </p>
+            </div>
           </div>
 
-          {/* Right — 2×2 grid */}
-          <div className="grid gap-4 sm:grid-cols-2">
+          {/* Coloana dreapta — cele 4 carduri */}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {cards.map((card) => (
               <div
                 key={card.title}

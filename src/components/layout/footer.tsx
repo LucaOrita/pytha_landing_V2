@@ -1,4 +1,5 @@
 import { Facebook, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const SERVICII = [
@@ -32,9 +33,13 @@ export default function Footer() {
           <div className="space-y-5 sm:col-span-2 lg:col-span-1">
             <div>
               <Link href="/" className="inline-block">
-                <span className="text-dacoda-orange text-2xl font-bold tracking-wide">
-                  DACODA
-                </span>
+                <Image
+                  src="/images/logo-dacoda.png"
+                  alt="DACODA — Expediții Rutiere"
+                  width={140}
+                  height={59}
+                  className="h-10 w-auto brightness-0 invert"
+                />
               </Link>
               <p className="mt-1 text-sm font-medium text-white/80">
                 Siguranță și Predictibilitate

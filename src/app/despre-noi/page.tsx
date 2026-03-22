@@ -10,6 +10,7 @@ import {
   Zap,
 } from 'lucide-react';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -113,7 +114,7 @@ export default function DespreNoiPage() {
       {/* Povestea noastră */}
       <section className="bg-white">
         <div className="container px-4 py-16 lg:px-6 lg:py-24">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             {/* Left — text */}
             <div>
               <p className="text-dacoda-orange mb-3 text-xs font-medium tracking-widest uppercase">
@@ -143,20 +144,41 @@ export default function DespreNoiPage() {
               </div>
             </div>
 
-            {/* Right — cifre */}
-            <div className="flex flex-col justify-center space-y-6">
-              {cifre.map((item) => (
-                <div
-                  key={item.label}
-                  className="border-dacoda-orange flex items-center gap-4 border-l-[3px] pl-4"
-                >
-                  <span className="text-dacoda-orange text-2xl font-bold md:text-3xl">
-                    {item.value}
-                  </span>
-                  <span className="text-dacoda-gray text-sm">{item.label}</span>
-                </div>
-              ))}
+            {/* Right — fotografie */}
+            <div
+              className="relative overflow-hidden rounded-2xl shadow-lg"
+              style={{ height: '420px' }}
+            >
+              <Image
+                src="/images/agabaritic/11Lili.png"
+                alt="Transport DACODA SRL — Volvo FH convoi excepțional 32 ani experiență"
+                fill
+                className="object-cover"
+                style={{ objectPosition: 'center 35%' }}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div
+                className="absolute top-4 left-4 rounded-full px-4 py-2 text-sm font-semibold text-white"
+                style={{ backgroundColor: 'var(--dacoda-navy)' }}
+              >
+                Din 1993 — 32 ani
+              </div>
             </div>
+          </div>
+
+          {/* Cifre — bar orizontal */}
+          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            {cifre.map((item) => (
+              <div
+                key={item.label}
+                className="border-dacoda-orange border-l-[3px] pl-4"
+              >
+                <span className="text-dacoda-orange text-2xl font-bold">
+                  {item.value}
+                </span>
+                <p className="text-dacoda-gray text-sm">{item.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

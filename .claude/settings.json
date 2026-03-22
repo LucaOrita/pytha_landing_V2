@@ -17,7 +17,14 @@
       "Bash(curl -s http://localhost:3000/)",
       "Bash(rmdir src/integrations/)",
       "Bash(rmdir public/images/homepage/)",
-      "Bash(rm -rf public/images/homepage/)"
+      "Bash(rm -rf public/images/homepage/)",
+      "Read(//c/Users/orita/OneDrive/Desktop/**)",
+      "Bash(ls c:/Users/orita/OneDrive/Desktop/*.png c:/Users/orita/OneDrive/Desktop/*.jpg c:/Users/orita/OneDrive/Desktop/*.svg)",
+      "Read(//c/Users/orita/**)",
+      "Bash(find /c/Users/orita -maxdepth 5 -type f -name 9Lili* -o -name 11Lili*)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\orita\\Downloads\\Mica vectorizare logo Dacoda"
     ]
   }
 }

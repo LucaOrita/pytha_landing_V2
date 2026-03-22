@@ -14,13 +14,13 @@ const stats = [
 ];
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 1, y: 6 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.1 + i * 0.2,
-      duration: 0.6,
+      delay: 0.05 + i * 0.08,
+      duration: 0.35,
       ease: 'easeOut' as const,
     },
   }),
@@ -110,7 +110,7 @@ export default function DacodaHero() {
 
       {/* Bottom stats bar */}
       <motion.div
-        className="absolute right-0 bottom-0 left-0 border-t border-white/10 bg-white/5 backdrop-blur-sm"
+        className="absolute right-0 bottom-0 left-0 border-t border-white/10 bg-black/25"
         variants={fadeUp}
         initial="hidden"
         animate="visible"

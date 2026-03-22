@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   // output: 'export',  // comentat: folosim server mode pentru API routes
   images: {
-    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',

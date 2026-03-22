@@ -148,7 +148,6 @@ export default function TransportFrigorificPage() {
             alt="Camion frigorific transport temperatură controlată"
             fill
             className="object-cover opacity-25"
-            priority
             sizes="100vw"
           />
         </div>

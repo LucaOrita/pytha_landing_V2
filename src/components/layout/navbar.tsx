@@ -1,6 +1,7 @@
 'use client';
 
 import { ChevronDown, ChevronRight, Menu, X } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -66,18 +67,18 @@ const Navbar = () => {
     >
       <div className="container flex h-16 items-center justify-between px-4 lg:h-20 lg:px-6">
         {/* Logo */}
-        <Link href="/" className="flex flex-col leading-none">
-          <span className="text-dacoda-orange text-xl font-bold tracking-wide">
-            DACODA
-          </span>
-          <span
+        <Link href="/" className="relative block">
+          <Image
+            src="/images/logo-dacoda.png"
+            alt="DACODA — Expediții Rutiere"
+            width={140}
+            height={59}
             className={cn(
-              'text-[10px] tracking-wider transition-colors duration-300',
-              scrolled ? 'text-dacoda-gray' : 'text-white/70',
+              'h-10 w-auto transition-all duration-300 lg:h-12',
+              scrolled ? 'brightness-0' : 'brightness-0 invert',
             )}
-          >
-            Expediții Rutiere
-          </span>
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}

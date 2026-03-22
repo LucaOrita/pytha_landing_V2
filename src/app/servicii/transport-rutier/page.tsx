@@ -255,7 +255,6 @@ export default function TransportRutierPage() {
             alt="Camion TIR transport rutier internațional"
             fill
             className="object-cover opacity-25"
-            priority
             sizes="100vw"
           />
         </div>

@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     url: 'https://dacoda.ro/servicii/transport-agabaritic',
     images: [
       {
-        url: '/images/agabaritic/11Lili.jpg',
+        url: '/images/agabaritic/11Lili.png',
         width: 1152,
         height: 2048,
         alt: 'Transport agabaritic DACODA SRL',
@@ -50,28 +50,28 @@ const criteria = [
 
 const galleryPhotos = [
   {
-    src: '/images/agabaritic/2.jpg',
-    alt: 'Transport agabaritic utilaj agricol DACODA',
+    src: '/images/agabaritic/2.png',
+    alt: 'Transport tractoare John Deere pe platformă — DACODA SRL',
   },
   {
-    src: '/images/agabaritic/3.jpg',
-    alt: 'Lowboy transport marfă supradimensionată DACODA',
+    src: '/images/agabaritic/4.png',
+    alt: 'Transport utilaj agricol extensibil pe lowboy — DACODA SRL',
   },
   {
-    src: '/images/agabaritic/4.jpg',
-    alt: 'Convoi excepțional transport agabaritic România',
+    src: '/images/agabaritic/8.png',
+    alt: 'Transport echipament Hydrog pe platformă — DACODA SRL',
   },
   {
-    src: '/images/agabaritic/5.jpg',
-    alt: 'Transport utilaje grele Europa DACODA SRL',
+    src: '/images/agabaritic/9Lili.png',
+    alt: 'Transport agabaritic convoi excepțional — DACODA SRL',
   },
   {
-    src: '/images/agabaritic/6.jpg',
-    alt: 'Marfă agabaritică pe platformă specializată',
+    src: '/images/agabaritic/11Lili.png',
+    alt: 'Volvo FH convoi exceptionnel transport marfă industrială — DACODA SRL',
   },
   {
-    src: '/images/agabaritic/7.jpg',
-    alt: 'Transport excepțional utilaje industriale DACODA',
+    src: '/images/agabaritic/5.png',
+    alt: 'Transport utilaje agricole pe lowboy — DACODA SRL',
   },
 ];
 
@@ -236,128 +236,156 @@ export default function TransportAgabariticPage() {
 
           <div className="grid gap-6 md:grid-cols-3">
             {/* CARD 1 — AT→BG / GOWEIL */}
-            <div className="overflow-hidden rounded-xl border border-gray-200">
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
+            <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
+              <div className="relative h-52 w-full overflow-hidden bg-gray-100">
                 <Image
-                  src="/images/agabaritic/1.jpg"
+                  src="/images/agabaritic/1.png"
                   alt="Transport agabaritic utilaj agricol pe lowboy — ruta Austria Bulgaria DACODA SRL"
                   fill
-                  className="object-cover"
-                  style={{ objectPosition: 'center 30%' }}
+                  className="object-cover transition-transform duration-500 hover:scale-105"
+                  style={{ objectPosition: 'center 40%' }}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                <div className="absolute top-3 left-3 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
-                  AT &rarr; BG
+                <div className="absolute top-3 left-3">
+                  <span
+                    className="rounded-full px-3 py-1 text-xs font-bold text-white"
+                    style={{ backgroundColor: 'var(--dacoda-navy)' }}
+                  >
+                    AT → BG
+                  </span>
                 </div>
               </div>
               <div className="p-5">
                 <p
-                  className="mb-1 text-xs font-medium tracking-wider uppercase"
+                  className="mb-1 text-xs font-semibold tracking-wider uppercase"
                   style={{ color: 'var(--dacoda-orange)' }}
                 >
                   Caz real
                 </p>
                 <h3
-                  className="mb-3 text-lg font-semibold"
+                  className="mb-3 text-lg font-bold"
                   style={{ color: 'var(--dacoda-navy)' }}
                 >
-                  Austria &rarr; Bulgaria
+                  Austria → Bulgaria
                 </h3>
-                <div className="space-y-1 text-sm text-gray-600">
+                <div className="space-y-1 text-sm text-gray-500">
                   <p>
-                    <strong>Dimensiuni:</strong> 11.7 &times; 2.5 &times; 3.1 m
+                    <span className="font-medium text-gray-700">
+                      Dimensiuni:
+                    </span>{' '}
+                    11.7 × 2.5 × 3.1 m
                   </p>
                   <p>
-                    <strong>Greutate:</strong> 15 tone
+                    <span className="font-medium text-gray-700">Greutate:</span>{' '}
+                    15 tone
                   </p>
                   <p>
-                    <strong>Client:</strong> GOWEIL Maschinenbau GmbH
+                    <span className="font-medium text-gray-700">Client:</span>{' '}
+                    GOWEIL Maschinenbau GmbH
                   </p>
                 </div>
               </div>
             </div>
 
             {/* CARD 2 — DE→RO / FARMTECH */}
-            <div className="overflow-hidden rounded-xl border border-gray-200">
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
+            <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
+              <div className="relative h-52 w-full overflow-hidden bg-gray-100">
                 <Image
-                  src="/images/agabaritic/11Lili.jpg"
-                  alt="Transport agabaritic convoi excepțional Volvo pe lowboy — ruta Germania România DACODA SRL"
+                  src="/images/agabaritic/7.png"
+                  alt="Transport agabaritic Wirtgen ruta Germania Romania — DACODA SRL"
                   fill
-                  className="object-cover"
-                  style={{ objectPosition: 'center 25%' }}
+                  className="object-cover transition-transform duration-500 hover:scale-105"
+                  style={{ objectPosition: 'center 40%' }}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                <div className="absolute top-3 left-3 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
-                  DE &rarr; RO
+                <div className="absolute top-3 left-3">
+                  <span
+                    className="rounded-full px-3 py-1 text-xs font-bold text-white"
+                    style={{ backgroundColor: 'var(--dacoda-navy)' }}
+                  >
+                    DE → RO
+                  </span>
                 </div>
               </div>
               <div className="p-5">
                 <p
-                  className="mb-1 text-xs font-medium tracking-wider uppercase"
+                  className="mb-1 text-xs font-semibold tracking-wider uppercase"
                   style={{ color: 'var(--dacoda-orange)' }}
                 >
                   Caz real
                 </p>
                 <h3
-                  className="mb-3 text-lg font-semibold"
+                  className="mb-3 text-lg font-bold"
                   style={{ color: 'var(--dacoda-navy)' }}
                 >
-                  Germania &rarr; Rom&acirc;nia
+                  Germania → România
                 </h3>
-                <div className="space-y-1 text-sm text-gray-600">
+                <div className="space-y-1 text-sm text-gray-500">
                   <p>
-                    <strong>Dimensiuni:</strong> 13.7 &times; 2.55 &times; 3.2 m
-                    (dep&#259;&#537;it)
+                    <span className="font-medium text-gray-700">
+                      Dimensiuni:
+                    </span>{' '}
+                    13.7 × 2.55 × 3.2 m
                   </p>
                   <p>
-                    <strong>Greutate:</strong> 17 tone
+                    <span className="font-medium text-gray-700">Greutate:</span>{' '}
+                    17 tone
                   </p>
                   <p>
-                    <strong>Client:</strong> FARMTECH
+                    <span className="font-medium text-gray-700">Client:</span>{' '}
+                    FARMTECH
                   </p>
                 </div>
               </div>
             </div>
 
             {/* CARD 3 — BE→RO / REMAT */}
-            <div className="overflow-hidden rounded-xl border border-gray-200">
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
+            <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
+              <div className="relative h-52 w-full overflow-hidden bg-gray-100">
                 <Image
-                  src="/images/agabaritic/9Lili.jpg"
-                  alt="Transport agabaritic marfă grea supradimensionată — ruta Belgia România DACODA SRL"
+                  src="/images/agabaritic/3.png"
+                  alt="Transport agabaritic Strautmann marfă masivă ruta Belgia Romania — DACODA SRL"
                   fill
-                  className="object-cover"
-                  style={{ objectPosition: 'center 30%' }}
+                  className="object-cover transition-transform duration-500 hover:scale-105"
+                  style={{ objectPosition: 'center 40%' }}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                <div className="absolute top-3 left-3 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
-                  BE &rarr; RO
+                <div className="absolute top-3 left-3">
+                  <span
+                    className="rounded-full px-3 py-1 text-xs font-bold text-white"
+                    style={{ backgroundColor: 'var(--dacoda-navy)' }}
+                  >
+                    BE → RO
+                  </span>
                 </div>
               </div>
               <div className="p-5">
                 <p
-                  className="mb-1 text-xs font-medium tracking-wider uppercase"
+                  className="mb-1 text-xs font-semibold tracking-wider uppercase"
                   style={{ color: 'var(--dacoda-orange)' }}
                 >
                   Caz real
                 </p>
                 <h3
-                  className="mb-3 text-lg font-semibold"
+                  className="mb-3 text-lg font-bold"
                   style={{ color: 'var(--dacoda-navy)' }}
                 >
-                  Belgia &rarr; Rom&acirc;nia
+                  Belgia → România
                 </h3>
-                <div className="space-y-1 text-sm text-gray-600">
+                <div className="space-y-1 text-sm text-gray-500">
                   <p>
-                    <strong>Dimensiuni:</strong> 11 &times; 2.85 &times; 3.4 m
-                    (dep&#259;&#537;it)
+                    <span className="font-medium text-gray-700">
+                      Dimensiuni:
+                    </span>{' '}
+                    11 × 2.85 × 3.4 m
                   </p>
                   <p>
-                    <strong>Greutate:</strong> 32 tone
+                    <span className="font-medium text-gray-700">Greutate:</span>{' '}
+                    32 tone
                   </p>
                   <p>
-                    <strong>Client:</strong> REMAT MARAMURES
+                    <span className="font-medium text-gray-700">Client:</span>{' '}
+                    REMAT MARAMURES
                   </p>
                 </div>
               </div>
@@ -400,23 +428,23 @@ export default function TransportAgabariticPage() {
           >
             Din transporturile noastre
           </h2>
-          <p className="mb-10 text-center text-gray-500">
-            Fotografii reale din transporturile agabaritice organizate de DACODA
-            SRL
+          <p className="mb-8 text-center text-sm text-gray-500">
+            Fotografii reale din operațiunile DACODA SRL
           </p>
 
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
             {galleryPhotos.map((photo, i) => (
               <div
                 key={i}
-                className="relative aspect-[3/2] overflow-hidden rounded-lg"
+                className="relative overflow-hidden rounded-xl bg-gray-100"
+                style={{ aspectRatio: '4/3' }}
               >
                 <Image
                   src={photo.src}
                   alt={photo.alt}
                   fill
                   className="object-cover transition-transform duration-300 hover:scale-105"
-                  style={{ objectPosition: 'center 30%' }}
+                  style={{ objectPosition: 'center 40%' }}
                   sizes="(max-width: 768px) 50vw, 33vw"
                 />
               </div>

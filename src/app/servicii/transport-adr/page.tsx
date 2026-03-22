@@ -143,7 +143,6 @@ export default function TransportAdrPage() {
             alt="Transport ADR mărfuri periculoase"
             fill
             className="object-cover opacity-25"
-            priority
             sizes="100vw"
           />
         </div>
