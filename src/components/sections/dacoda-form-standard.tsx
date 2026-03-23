@@ -273,7 +273,10 @@ export default function DacodaFormStandard({ defaultValues }: Props) {
               control={control}
               render={({ field }) => (
                 <Select value={field.value} onValueChange={field.onChange}>
-                  <SelectTrigger className="mt-1 h-11" aria-label="Țară origine">
+                  <SelectTrigger
+                    className="mt-1 h-11"
+                    aria-label="Țară origine"
+                  >
                     <SelectValue placeholder="Selectează țara" />
                   </SelectTrigger>
                   <SelectContent>
@@ -344,7 +347,10 @@ export default function DacodaFormStandard({ defaultValues }: Props) {
               control={control}
               render={({ field }) => (
                 <Select value={field.value} onValueChange={field.onChange}>
-                  <SelectTrigger className="mt-1 h-11" aria-label="Țară destinație">
+                  <SelectTrigger
+                    className="mt-1 h-11"
+                    aria-label="Țară destinație"
+                  >
                     <SelectValue placeholder="Selectează țara" />
                   </SelectTrigger>
                   <SelectContent>
@@ -557,7 +563,12 @@ export default function DacodaFormStandard({ defaultValues }: Props) {
             <Label htmlFor="dataLivrare">
               Data livrare{flex === 'fix' ? ' (exactă)' : ' (până la)'}
             </Label>
-            <Input type="date" id="dataLivrare" className="mt-1" {...register('dataLivrare')} />
+            <Input
+              type="date"
+              id="dataLivrare"
+              className="mt-1"
+              {...register('dataLivrare')}
+            />
           </div>
         )}
       </fieldset>
