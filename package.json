@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "author": "Shadcnblocks.com",
   "private": true,
+  "browserslist": [
+    "chrome >= 87",
+    "firefox >= 78",
+    "safari >= 14",
+    "edge >= 88"
+  ],
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

@@ -175,7 +175,11 @@ export default function DacodaFormAgent() {
 
           {/* Input */}
           <div className="mt-3 flex gap-2">
+            <label htmlFor="agent-input" className="sr-only">
+              Scrie răspunsul tău
+            </label>
             <Input
+              id="agent-input"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
@@ -187,6 +191,7 @@ export default function DacodaFormAgent() {
               onClick={sendMessage}
               disabled={loading || !input.trim()}
               className="bg-dacoda-orange hover:bg-dacoda-orange-dark flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-white transition-colors disabled:opacity-60"
+              aria-label="Trimite mesaj"
             >
               <Send className="h-4 w-4" />
             </button>

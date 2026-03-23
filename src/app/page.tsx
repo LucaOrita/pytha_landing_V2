@@ -1,14 +1,18 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 
 import DacodaBlogPreview from '@/components/sections/dacoda-blog-preview';
-import DacodaCta from '@/components/sections/dacoda-cta';
 import DacodaHero from '@/components/sections/dacoda-hero';
 import DacodaPartners from '@/components/sections/dacoda-partners';
 import DacodaServices from '@/components/sections/dacoda-services';
-import DacodaStats from '@/components/sections/dacoda-stats';
-import DacodaTestimonials from '@/components/sections/dacoda-testimonials';
 import DacodaTrustBar from '@/components/sections/dacoda-trust-bar';
 import DacodaWhy from '@/components/sections/dacoda-why';
+
+const DacodaStats = dynamic(() => import('@/components/sections/dacoda-stats'));
+const DacodaTestimonials = dynamic(
+  () => import('@/components/sections/dacoda-testimonials'),
+);
+const DacodaCta = dynamic(() => import('@/components/sections/dacoda-cta'));
 
 export const metadata: Metadata = {
   title: {

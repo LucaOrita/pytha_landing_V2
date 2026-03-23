@@ -325,6 +325,7 @@ export default function TransportatoriClient() {
 
                 <select
                   name="capacitate"
+                  aria-label="Capacitate camion"
                   value={form.capacitate}
                   onChange={handleChange}
                   className={`${inputClass} ${!form.capacitate ? 'text-gray-400' : ''}`}

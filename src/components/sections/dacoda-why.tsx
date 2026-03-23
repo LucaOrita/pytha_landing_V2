@@ -58,6 +58,7 @@ export default function DacodaWhy() {
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
+              quality={65}
             />
             <div
               className="absolute right-0 bottom-0 left-0 px-5 py-4"
@@ -66,7 +67,7 @@ export default function DacodaWhy() {
                   'linear-gradient(to top,rgba(13,31,60,.85) 0%,transparent 100%)',
               }}
             >
-              <p className="text-xs" style={{ color: 'rgba(255,255,255,.6)' }}>
+              <p className="text-xs" style={{ color: 'rgba(255,255,255,.75)' }}>
                 Transport executat de DACODA SRL
               </p>
               <p className="mt-1 text-sm font-semibold text-white">

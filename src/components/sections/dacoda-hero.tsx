@@ -1,7 +1,4 @@
-'use client';
-
 import { ArrowRight } from 'lucide-react';
-import { motion } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -12,19 +9,6 @@ const stats = [
   { value: '3.500+', label: 'transportatori parteneri' },
   { value: '40+', label: 'țări acoperite' },
 ];
-
-const fadeUp = {
-  hidden: { opacity: 1, y: 6 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.05 + i * 0.08,
-      duration: 0.35,
-      ease: 'easeOut' as const,
-    },
-  }),
-};
 
 export default function DacodaHero() {
   return (
@@ -44,53 +28,41 @@ export default function DacodaHero() {
           className="object-cover opacity-20"
           priority
           sizes="100vw"
+          quality={40}
         />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container flex min-h-screen flex-col justify-center px-4 pt-20 pb-32 lg:px-6">
-        <motion.p
-          className="text-dacoda-orange/80 mb-4 text-xs font-medium tracking-widest uppercase md:text-sm"
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={0}
+        <p
+          className="hero-fade-up text-dacoda-orange/80 mb-4 text-xs font-medium tracking-widest uppercase md:text-sm"
+          style={{ animationDelay: '50ms' }}
         >
           Din 1993 &middot; Capital 100% rom&acirc;nesc &middot; 32 de ani
           &icirc;n transporturi
-        </motion.p>
+        </p>
 
-        <motion.h1
-          className="mb-6 max-w-3xl text-4xl font-bold text-white md:text-5xl lg:text-6xl"
-          style={{ lineHeight: 1.1 }}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={1}
+        <h1
+          className="hero-fade-up mb-6 max-w-3xl text-4xl font-bold text-white md:text-5xl lg:text-6xl"
+          style={{ lineHeight: 1.1, animationDelay: '130ms' }}
         >
           Partenerul tău de{' '}
           <span className="text-dacoda-orange">transport rutier</span>{' '}
           internațional
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          className="mb-8 max-w-2xl text-lg text-white/80 md:text-xl"
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={2}
+        <p
+          className="hero-fade-up mb-8 max-w-2xl text-lg text-white/80 md:text-xl"
+          style={{ animationDelay: '210ms' }}
         >
           De 32 de ani organizăm transporturi sigure și predictibile în Europa,
           CSI și Asia. Știm rutele, legislația și riscurile, ca să nu trebuiești
           tu să le știi.
-        </motion.p>
+        </p>
 
-        <motion.div
-          className="flex flex-wrap gap-4"
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={3}
+        <div
+          className="hero-fade-up flex flex-wrap gap-4"
+          style={{ animationDelay: '290ms' }}
         >
           <Link
             href="/cerere-oferta"
@@ -105,16 +77,13 @@ export default function DacodaHero() {
           >
             Vezi serviciile
           </Link>
-        </motion.div>
+        </div>
       </div>
 
       {/* Bottom stats bar */}
-      <motion.div
-        className="absolute right-0 bottom-0 left-0 border-t border-white/10 bg-black/25"
-        variants={fadeUp}
-        initial="hidden"
-        animate="visible"
-        custom={4}
+      <div
+        className="hero-fade-up absolute right-0 bottom-0 left-0 border-t border-white/10 bg-black/25"
+        style={{ animationDelay: '370ms' }}
       >
         <div className="container px-4 py-6 lg:px-6">
           <div className="flex flex-wrap items-center justify-between gap-6 md:gap-4">
@@ -124,7 +93,7 @@ export default function DacodaHero() {
                   <p className="text-dacoda-orange text-xl font-bold md:text-2xl">
                     {stat.value}
                   </p>
-                  <p className="text-xs text-white/60">{stat.label}</p>
+                  <p className="text-xs text-white/70">{stat.label}</p>
                 </div>
                 {i < stats.length - 1 && (
                   <div className="hidden h-8 w-px bg-white/10 md:block" />
@@ -133,7 +102,7 @@ export default function DacodaHero() {
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

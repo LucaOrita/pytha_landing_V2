@@ -267,13 +267,13 @@ export default function DacodaFormStandard({ defaultValues }: Props) {
 
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <Label>Țară origine *</Label>
+            <Label htmlFor="taraOrigine">Țară origine *</Label>
             <Controller
               name="taraOrigine"
               control={control}
               render={({ field }) => (
                 <Select value={field.value} onValueChange={field.onChange}>
-                  <SelectTrigger className="mt-1 h-11">
+                  <SelectTrigger className="mt-1 h-11" aria-label="Țară origine">
                     <SelectValue placeholder="Selectează țara" />
                   </SelectTrigger>
                   <SelectContent>
@@ -298,8 +298,9 @@ export default function DacodaFormStandard({ defaultValues }: Props) {
             )}
           </div>
           <div>
-            <Label>Oraș origine *</Label>
+            <Label htmlFor="orasOrigine">Oraș origine *</Label>
             <Input
+              id="orasOrigine"
               className="mt-1"
               placeholder="ex. București"
               {...register('orasOrigine')}
@@ -313,8 +314,9 @@ export default function DacodaFormStandard({ defaultValues }: Props) {
         </div>
 
         <div>
-          <Label>Adresă încărcare *</Label>
+          <Label htmlFor="adresaOrigine">Adresă încărcare *</Label>
           <Textarea
+            id="adresaOrigine"
             className="mt-1"
             rows={2}
             placeholder="Adresa completă de încărcare"
@@ -336,13 +338,13 @@ export default function DacodaFormStandard({ defaultValues }: Props) {
 
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <Label>Țară destinație *</Label>
+            <Label htmlFor="taraDestinatie">Țară destinație *</Label>
             <Controller
               name="taraDestinatie"
               control={control}
               render={({ field }) => (
                 <Select value={field.value} onValueChange={field.onChange}>
-                  <SelectTrigger className="mt-1 h-11">
+                  <SelectTrigger className="mt-1 h-11" aria-label="Țară destinație">
                     <SelectValue placeholder="Selectează țara" />
                   </SelectTrigger>
                   <SelectContent>
@@ -367,8 +369,9 @@ export default function DacodaFormStandard({ defaultValues }: Props) {
             )}
           </div>
           <div>
-            <Label>Oraș destinație *</Label>
+            <Label htmlFor="orasDestinatie">Oraș destinație *</Label>
             <Input
+              id="orasDestinatie"
               className="mt-1"
               placeholder="ex. München"
               {...register('orasDestinatie')}
@@ -382,8 +385,9 @@ export default function DacodaFormStandard({ defaultValues }: Props) {
         </div>
 
         <div>
-          <Label>Adresă livrare *</Label>
+          <Label htmlFor="adresaDestinatie">Adresă livrare *</Label>
           <Textarea
+            id="adresaDestinatie"
             className="mt-1"
             rows={2}
             placeholder="Adresa completă de livrare"
@@ -404,13 +408,13 @@ export default function DacodaFormStandard({ defaultValues }: Props) {
         </legend>
 
         <div>
-          <Label>Tonaj *</Label>
+          <Label htmlFor="tonaj">Tonaj *</Label>
           <Controller
             name="tonaj"
             control={control}
             render={({ field }) => (
               <Select value={field.value} onValueChange={field.onChange}>
-                <SelectTrigger className="mt-1 h-11">
+                <SelectTrigger className="mt-1 h-11" aria-label="Tonaj">
                   <SelectValue placeholder="Selectează tonajul" />
                 </SelectTrigger>
                 <SelectContent>
@@ -471,8 +475,9 @@ export default function DacodaFormStandard({ defaultValues }: Props) {
         </div>
 
         <div>
-          <Label>Descriere marfă *</Label>
+          <Label htmlFor="descriereMarfa">Descriere marfă *</Label>
           <Textarea
+            id="descriereMarfa"
             className="mt-1"
             rows={3}
             placeholder="Ce transportăm? (ex. piese auto, mobilă, echipamente industriale)"
@@ -486,8 +491,9 @@ export default function DacodaFormStandard({ defaultValues }: Props) {
         </div>
 
         <div>
-          <Label>Cerințe speciale</Label>
+          <Label htmlFor="cerinteSpeciale">Cerințe speciale</Label>
           <Textarea
+            id="cerinteSpeciale"
             className="mt-1"
             rows={2}
             placeholder="ex. temperatură specifică, documente vamale, escortă..."
@@ -504,9 +510,10 @@ export default function DacodaFormStandard({ defaultValues }: Props) {
 
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <Label>Data încărcare *</Label>
+            <Label htmlFor="dataIncarcare">Data încarcare *</Label>
             <Input
               type="date"
+              id="dataIncarcare"
               className="mt-1"
               {...register('dataIncarcare')}
             />
@@ -547,10 +554,10 @@ export default function DacodaFormStandard({ defaultValues }: Props) {
 
         {flex !== 'flexibil' && (
           <div className="sm:w-1/2">
-            <Label>
+            <Label htmlFor="dataLivrare">
               Data livrare{flex === 'fix' ? ' (exactă)' : ' (până la)'}
             </Label>
-            <Input type="date" className="mt-1" {...register('dataLivrare')} />
+            <Input type="date" id="dataLivrare" className="mt-1" {...register('dataLivrare')} />
           </div>
         )}
       </fieldset>
@@ -565,6 +572,7 @@ export default function DacodaFormStandard({ defaultValues }: Props) {
         </p>
         <div className="flex gap-3">
           <Input
+            id="buget"
             className="flex-1"
             placeholder="ex. 2500"
             {...register('buget')}
@@ -574,7 +582,7 @@ export default function DacodaFormStandard({ defaultValues }: Props) {
             control={control}
             render={({ field }) => (
               <Select value={field.value} onValueChange={field.onChange}>
-                <SelectTrigger className="h-11 w-24">
+                <SelectTrigger className="h-11 w-24" aria-label="Monedă">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -595,8 +603,9 @@ export default function DacodaFormStandard({ defaultValues }: Props) {
 
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <Label>Nume și prenume *</Label>
+            <Label htmlFor="numePrenume">Nume și prenume *</Label>
             <Input
+              id="numePrenume"
               className="mt-1"
               placeholder="Ion Popescu"
               {...register('numePrenume')}
@@ -608,8 +617,9 @@ export default function DacodaFormStandard({ defaultValues }: Props) {
             )}
           </div>
           <div>
-            <Label>Firma *</Label>
+            <Label htmlFor="firma">Firma *</Label>
             <Input
+              id="firma"
               className="mt-1"
               placeholder="SC Exemplu SRL"
               {...register('firma')}
@@ -624,12 +634,13 @@ export default function DacodaFormStandard({ defaultValues }: Props) {
 
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <Label>Telefon *</Label>
+            <Label htmlFor="telefon">Telefon *</Label>
             <div className="mt-1 flex">
               <span className="border-input flex items-center rounded-l border border-r-0 bg-gray-50 px-3 text-sm text-gray-500">
                 +40
               </span>
               <Input
+                id="telefon"
                 className="rounded-l-none"
                 placeholder="785 225 446"
                 {...register('telefon')}
@@ -642,9 +653,10 @@ export default function DacodaFormStandard({ defaultValues }: Props) {
             )}
           </div>
           <div>
-            <Label>Email *</Label>
+            <Label htmlFor="email">Email *</Label>
             <Input
               type="email"
+              id="email"
               className="mt-1"
               placeholder="email@firma.ro"
               {...register('email')}

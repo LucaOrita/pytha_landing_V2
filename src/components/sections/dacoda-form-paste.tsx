@@ -61,7 +61,11 @@ export default function DacodaFormPaste() {
 
   return (
     <div className="space-y-4">
+      <label htmlFor="paste-textarea" className="sr-only">
+        Lipește textul transportului
+      </label>
       <Textarea
+        id="paste-textarea"
         value={text}
         onChange={(e) => setText(e.target.value)}
         rows={8}

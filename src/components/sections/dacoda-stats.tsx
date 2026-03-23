@@ -55,7 +55,7 @@ function StatCounter({ stat, inView }: { stat: StatItem; inView: boolean }) {
         {formatNumber(value)}
         {stat.suffix}
       </p>
-      <p className="mt-1 text-sm text-white/60">{stat.label}</p>
+      <p className="mt-1 text-sm text-white/70">{stat.label}</p>
     </div>
   );
 }

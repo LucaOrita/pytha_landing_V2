@@ -104,15 +104,15 @@ export default function Footer() {
 
           {/* Column 2 — Servicii */}
           <div>
-            <h4 className="mb-4 text-xs font-medium tracking-wider text-white/50 uppercase">
+            <h3 className="mb-4 text-xs font-medium tracking-wider text-white/50 uppercase">
               Servicii
-            </h4>
+            </h3>
             <ul className="space-y-3">
               {SERVICII.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="hover:text-dacoda-orange text-sm text-gray-400 transition-colors"
+                    className="hover:text-dacoda-orange text-sm text-gray-300 transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -123,15 +123,15 @@ export default function Footer() {
 
           {/* Column 3 — Companie */}
           <div>
-            <h4 className="mb-4 text-xs font-medium tracking-wider text-white/50 uppercase">
+            <h3 className="mb-4 text-xs font-medium tracking-wider text-white/50 uppercase">
               Companie
-            </h4>
+            </h3>
             <ul className="space-y-3">
               {COMPANIE.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="hover:text-dacoda-orange text-sm text-gray-400 transition-colors"
+                    className="hover:text-dacoda-orange text-sm text-gray-300 transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -142,21 +142,21 @@ export default function Footer() {
 
           {/* Column 4 — Legal */}
           <div>
-            <h4 className="mb-4 text-xs font-medium tracking-wider text-white/50 uppercase">
+            <h3 className="mb-4 text-xs font-medium tracking-wider text-white/50 uppercase">
               Legal
-            </h4>
+            </h3>
             <ul className="space-y-3">
               {LEGAL.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="hover:text-dacoda-orange text-sm text-gray-400 transition-colors"
+                    className="hover:text-dacoda-orange text-sm text-gray-300 transition-colors"
                   >
                     {link.name}
                   </Link>
                 </li>
               ))}
-              <li className="text-sm text-gray-400">
+              <li className="text-sm text-gray-300">
                 Licență intermediere transport
               </li>
             </ul>
@@ -164,9 +164,9 @@ export default function Footer() {
 
           {/* Column 5 — Puncte de lucru (rightmost) */}
           <div className="space-y-5">
-            <h4 className="mb-4 text-xs font-medium tracking-wider text-white/50 uppercase">
+            <h3 className="mb-4 text-xs font-medium tracking-wider text-white/50 uppercase">
               Puncte de lucru
-            </h4>
+            </h3>
 
             {/* București */}
             <div className="space-y-2 text-sm text-white/70">
@@ -232,7 +232,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <p className="text-xs text-white/40">CUI: 4989577</p>
+            <p className="text-xs text-white/60">CUI: 4989577</p>
           </div>
         </div>
 

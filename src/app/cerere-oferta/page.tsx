@@ -21,5 +21,25 @@ export const metadata: Metadata = {
 };
 
 export default function CerereOfertaPage() {
-  return <CerereOfertaClient />;
+  return (
+    <>
+      {/* Server-rendered hero — instant LCP, no JS needed */}
+      <section
+        className="pt-28 pb-12 lg:pt-32 lg:pb-16"
+        style={{ backgroundColor: 'var(--dacoda-navy)' }}
+      >
+        <div className="container px-4 text-center lg:px-6">
+          <h1 className="mb-3 text-3xl font-bold text-white md:text-4xl">
+            Cere o ofertă
+          </h1>
+          <p className="mx-auto max-w-xl text-base text-white/80">
+            Completează formularul sau lasă agentul să te ghideze. Răspundem în
+            maxim 2 ore în zilele lucrătoare.
+          </p>
+        </div>
+      </section>
+
+      <CerereOfertaClient />
+    </>
+  );
 }

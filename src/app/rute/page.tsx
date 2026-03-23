@@ -1,9 +1,13 @@
 import { ArrowRight, Phone } from 'lucide-react';
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 
-import DacodaEuropeMap from '@/components/sections/dacoda-europe-map';
 import Breadcrumb from '@/components/ui/breadcrumb';
+
+const DacodaEuropeMap = dynamic(
+  () => import('@/components/sections/dacoda-europe-map'),
+);
 
 export const metadata: Metadata = {
   title: 'Rute și destinații',

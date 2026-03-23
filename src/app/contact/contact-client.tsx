@@ -244,6 +244,7 @@ export default function ContactClient() {
                     />
                     <select
                       name="subject"
+                      aria-label="Subiect"
                       required
                       value={form.subject}
                       onChange={handleChange}

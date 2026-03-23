@@ -34,13 +34,13 @@
   --chart-5: var(--success-100);
 
   /* Dacoda Brand */
-  --dacoda-navy: #0D1F3C;
+  --dacoda-navy: #0d1f3c;
   --dacoda-navy-light: #162d52;
-  --dacoda-orange: #E8931A;
-  --dacoda-orange-light: #FEF0EA;
-  --dacoda-orange-dark: #c4780f;
-  --dacoda-gray: #6B7A8D;
-  --dacoda-light: #F5F6F8;
+  --dacoda-orange: #a86709;
+  --dacoda-orange-light: #fef0ea;
+  --dacoda-orange-dark: #7d4d07;
+  --dacoda-gray: #5d6b7d;
+  --dacoda-light: #f5f6f8;
 
   /* Tailwind Color Overrides */
   --gray-0: oklch(100% 0 0); /* #FFFFFF */
@@ -330,6 +330,17 @@
       transform: translateX(-100%);
     }
   }
+
+  @keyframes hero-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 /* --------------------------
@@ -341,6 +352,13 @@
   @media (min-width: 1200px) {
     max-width: 1200px;
   }
+}
+
+/* --------------------------
+   Hero fade-up animation
+--------------------------- */
+.hero-fade-up {
+  animation: hero-fade-up 0.35s ease-out both;
 }
 
 /* --------------------------
@@ -612,5 +630,7 @@ body {
 }
 
 @utility text-faux-bold {
-  text-shadow: 0.4px 0 0 currentColor, -0.4px 0 0 currentColor;
+  text-shadow:
+    0.4px 0 0 currentColor,
+    -0.4px 0 0 currentColor;
 }

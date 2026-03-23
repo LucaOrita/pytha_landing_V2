@@ -117,6 +117,7 @@ export default function DacodaCta() {
                 />
                 <select
                   name="cargoType"
+                  aria-label="Tip transport"
                   value={form.cargoType}
                   onChange={handleChange}
                   className="w-full appearance-none rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-sm text-white/50 transition-colors focus:border-[var(--dacoda-orange)] focus:outline-none"
@@ -150,7 +151,7 @@ export default function DacodaCta() {
               </form>
             )}
 
-            <p className="mt-4 text-center text-xs text-white/50">
+            <p className="mt-4 text-center text-xs text-white/70">
               Sau scrie-ne direct pe{' '}
               <a
                 href="https://wa.me/40785225446?text=Buna%20ziua%2C%20doresc%20o%20oferta%20pentru%20transport"

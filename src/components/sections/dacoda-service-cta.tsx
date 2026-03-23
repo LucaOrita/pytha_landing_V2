@@ -92,6 +92,7 @@ export default function DacodaServiceCta({
               />
               <select
                 name="cargoType"
+                aria-label="Tip transport"
                 value={form.cargoType}
                 onChange={handleChange}
                 className="w-full appearance-none rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-sm text-white/50 transition-colors focus:border-[var(--dacoda-orange)] focus:outline-none"
