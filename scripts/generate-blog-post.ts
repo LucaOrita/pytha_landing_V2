@@ -31,7 +31,7 @@ const client = new Anthropic();
 
 // Context complet despre Dacoda — injectat în fiecare prompt
 const DACODA_CONTEXT = `
-DACODA SRL este o casă de expediții fondată în 1993, capital 100% românesc, din Timișoara, România.
+DACODA SRL este o casă de expediții fondată în 1993, capital 100% românesc, din Bucuresti, România.
 Servicii: transport rutier internațional FTL/LTL/grupaj, ADR (cls 3-6, 8, 9), frigorific, agabaritic, aerian și maritim.
 Acoperire: Europa (toate țările UE), CSI (Ucraina, Kazakhstan, Georgia, Armenia, Azerbaidjan, Belarus, Rusia), Orient Mijlociu (Turcia, Iran, Liban, EAU), Asia (aerian/maritim).
 Cifre: 32 ani experiență, ~8.400 curse/an, 1.100+ clienți activi, 3.500+ transportatori parteneri, 40+ țări.
