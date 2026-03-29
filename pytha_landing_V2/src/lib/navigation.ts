@@ -36,6 +36,7 @@ export const NAV_LINKS: NavItem[] = [
       ],
     },
   },
+  { label: 'Preturi', href: '/preturi' },
   { label: 'Despre noi', href: '/despre-noi' },
   { label: 'Blog', href: '/blog' },
   { label: 'Docs', href: '/docs' },
