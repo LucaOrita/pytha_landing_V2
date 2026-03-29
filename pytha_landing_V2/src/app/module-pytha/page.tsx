@@ -4,12 +4,14 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import CadBidSection from '@/components/sections/cadbid-section';
 import ModuleSection, { type ModuleData } from '@/components/sections/module-section';
+import { PricingToggle } from '@/components/sections/pricing-toggle';
 import StickyModuleNav from '@/components/sections/sticky-module-nav';
 
 export const metadata: Metadata = {
-  title: 'Module PYTHA — Construieste-ti solutia perfecta',
+  title: 'Module PYTHA — Solutii CAD 3D modulare de la 590€',
   description:
-    'Descopera toate modulele PYTHA: Modeler Basic, Workshop, Nesting, CAM Interface, RadioLab, Parametrics, CadBid si multe altele. Alege doar ce ai nevoie.',
+    'Alege modulele PYTHA potrivite: Basic, Workshop, Nesting, CAM, RadioLab, CadBid. Licenta permanenta de la 590€ sau abonament lunar.',
+  openGraph: { title: 'Module PYTHA — Solutii CAD 3D modulare', type: 'website' },
 };
 
 const MODULES: ModuleData[] = [
@@ -22,15 +24,17 @@ const MODULES: ModuleData[] = [
       'Modelare intuitiva 2D si 3D, organizare perfecta a proiectelor, desene tehnice clare cu cote si sectiuni asociative, vizualizare cu raytracer de inalta performanta. Include interfete DWG, DXF, STEP, SKP, PDF, STL si multe altele.',
     features: [
       'Modelare hibrida 2D/3D cu solid modeling nativ',
+      'Operatii rapide: Extindere, Centrare, Rotire, Boolean (Unire, Intersectie)',
       'Cotare automata si generare planse tehnice',
       'Randare fotorealista integrata (motor raytracer)',
-      'Curbe, detectie contururi, text 3D, deformari speciale',
-      'Parametri SMART si actiuni dinamice (deschidere usi, sertare)',
-      'Creare si utilizare biblioteci personalizate',
-      'Export/import: DWG, DXF, 3DS, STEP, SVG, OBJ, SKP, PDF, STL',
+      'Gestionare layere, sectiuni, grupuri si atribute personalizate',
+      'Export/import: DWG, DXF, STL, OBJ, 3DS, PDF',
+      'Functii Smart: Extend, Equalize, Change Number, Change Radius',
     ],
     price: '4.950€',
-    priceNote: 'licenta permanenta / 99€ pe luna',
+    monthlyPrice: '99€',
+    priceNote: 'licenta permanenta',
+    video: '/bg/base.mp4',
   },
   {
     id: 'modul-generators',
@@ -47,7 +51,9 @@ const MODULES: ModuleData[] = [
       'Suport pentru plug-in-uri dezvoltate de utilizator',
     ],
     price: '1.150€',
-    priceNote: 'licenta permanenta / 26€ pe luna',
+    monthlyPrice: '26€',
+    priceNote: 'licenta permanenta',
+    video: '/videos/Generators & Plug–Ins.mp4',
   },
   {
     id: 'modul-workshop',
@@ -57,15 +63,16 @@ const MODULES: ModuleData[] = [
     description:
       'Transforma modelul 3D intr-un proiect pregatit pentru executie automata. Tip automat cu conectori Cam&Dowel, balamale sau dopuri — personalizat conform principiilor individuale de design.',
     features: [
-      'Recunoastere automata imbinari (Footprint)',
-      'Gaurire, dibluire, santuire, frezare automata in 3D',
-      'Aplicare automata canturi',
-      'Etichetare automata piese cu cod QR si barcode',
-      'Trasare automata piese una cate una',
-      'Interfata CAM Shaper Tool integrata',
+      'Recunoastere automata a imbinarilor (Footprint)',
+      'Gaurire, dibluire, santuire, frezare automata',
+      'Aplicare automata de canturi',
+      'Etichetare automata piese',
+      'Suport pentru reguli constructive personalizate',
     ],
     price: '2.450€',
-    priceNote: 'licenta permanenta / 55€ pe luna',
+    monthlyPrice: '55€',
+    priceNote: 'licenta permanenta',
+    video: '/videos/Modulul Workshop – conectează proiectarea cu producția.mp4',
   },
   {
     id: 'modul-parts-list',
@@ -75,14 +82,16 @@ const MODULES: ModuleData[] = [
     description:
       'Calcul pret per piesa, lungime sau suprafata. Export catre imprimanta sau CSV. Flexibilitate completa cu formate export pentru ERP, CRM, Excel, Word, XML, HTML.',
     features: [
-      'Atribute definite de utilizator',
-      'Dimensiuni taiere, dimensiuni finale, lungimi suplimentare',
-      'Canturi, material de baza, finisaj suprafata',
-      'Numere de pozitie si nume program CNC',
-      'Export CSV, XML, HTML, TXT si layout-uri custom',
+      'Creare automata de lista piese din modelul 3D',
+      'Atribute configurabile: material, dimensiuni, finisaje, greutate',
+      'Export Excel, CSV, TXT, HTML',
+      'Grupare si filtrare personalizata',
+      'Integrare directa in documentatie tehnica',
     ],
     price: '1.290€',
-    priceNote: 'licenta permanenta / 29€ pe luna',
+    monthlyPrice: '29€',
+    priceNote: 'licenta permanenta',
+    video: '/videos/Din model, în tabel control total asupra fiecărei piese.mp4',
   },
   {
     id: 'modul-parametrics',
@@ -92,14 +101,16 @@ const MODULES: ModuleData[] = [
     description:
       'Parametrizeaza-ti piesele si creaza o biblioteca de componente cu dimensiuni variabile, variante de design si functie de inlocuire rapida.',
     features: [
-      'Dimensiuni variabile (latime, inaltime, adancime)',
+      'Control variabil pentru dimensiuni (latime, inaltime, adancime)',
       'Formule, conditii si restrictii in configurare',
-      'Spatiu rezervat pentru variante de design',
+      'Actualizare automata a ansamblurilor',
       'Functie Replace pentru componente',
-      'Integrare parametrica in biblioteci de produse',
+      'Integrare parametrica in biblioteci',
     ],
     price: '640€',
-    priceNote: 'licenta permanenta / 14€ pe luna',
+    monthlyPrice: '14€',
+    priceNote: 'licenta permanenta',
+    video: '/videos/Modulul Parametric – proiectare inteligentă, adaptabilă și eficientă.mp4',
   },
   {
     id: 'modul-library',
@@ -117,6 +128,7 @@ const MODULES: ModuleData[] = [
     ],
     price: '820€',
     priceNote: 'achizitie unica (lifetime)',
+    video: '/videos/Modulul Bibliotecă – acces la zeci de mii de obiecte parametrice si decorative.mp4',
   },
   {
     id: 'modul-freeform',
@@ -133,7 +145,9 @@ const MODULES: ModuleData[] = [
       'Integrare nesting si workshop',
     ],
     price: '590€',
-    priceNote: 'licenta permanenta / 13€ pe luna',
+    monthlyPrice: '13€',
+    priceNote: 'licenta permanenta',
+    video: '/videos/Modulul Freeform – libertate geometrică pentru forme care ies din tipare.mp4',
   },
   {
     id: 'modul-nesting',
@@ -143,14 +157,16 @@ const MODULES: ModuleData[] = [
     description:
       'Optimizare eficienta si rapida a pieselor pe panouri — chiar si pentru contururi libere. Suporta materiale si grosimi diferite, minimizeaza pierderile.',
     features: [
-      'Nesting rectangular, cu dinti si de forma libera',
-      'Respectarea fibrei si marginii de siguranta',
+      'Nesting pentru piese rectangulare si contur liber',
+      'Respectarea fibrei si a marginii de siguranta',
       'Minimizare pierderi materiale',
-      'Gestionare stocuri panouri si resturi',
+      'Gestionare stocuri de panouri si resturi',
       'Export optimizat catre CNC',
     ],
     price: '1.100€',
-    priceNote: 'licenta permanenta / 25€ pe luna',
+    monthlyPrice: '25€',
+    priceNote: 'licenta permanenta',
+    video: '/videos/Modulul Nesting – optimizare avansată a debitării pentru orice tip de piesă.mp4',
   },
   {
     id: 'modul-cam',
@@ -160,14 +176,16 @@ const MODULES: ModuleData[] = [
     description:
       'Completarea ideala a Workshop-ului PYTHA. Suport nativ pentru cele mai utilizate formate din industrie, fara conversii suplimentare.',
     features: [
-      'WoodWop.mpr, WoodWop.dxf, AlphaCam',
-      'bSolid/b.works.cix, EasyWood DDX',
-      'NC Hops, EnRoute, Cobus Ncad, SCM Maestro',
-      'Format-4, F4integrate, Imawop, G-Code',
-      'PYTHA XML si configurare multipla postprocesoare',
+      'Export fisiere G-code, MPR, DXF, CIX, PGM etc.',
+      'Compatibilitate cu Homag, Biesse, SCM, Felder, DDX',
+      'Export automat de prelucrari: gaurire, frezare, conturare',
+      'Configurare multipla de postprocesoare',
+      'Eliminare necesitate softuri intermediare',
     ],
     price: '1.950€',
-    priceNote: 'licenta permanenta / 44€ pe luna',
+    monthlyPrice: '44€',
+    priceNote: 'licenta permanenta',
+    video: '/videos/CAM Interface – Conectivitate extinsă către orice tehnologie CNC.mp4',
   },
   {
     id: 'modul-radiolab',
@@ -177,16 +195,16 @@ const MODULES: ModuleData[] = [
     description:
       'Redare in timp real cu tehnica Radiosity. Miscare interactiva prin scena, simulare iluminat natural si LED, creare texturi si materiale, inregistrare video, suport VR.',
     features: [
-      'Simulare avansata iluminat (Radiosity) in timp real',
-      'Editare lumini, texturi, reflexii live',
+      'Simulare avansata de iluminat (Radiosity)',
+      'Editare lumini, texturi, reflexii in timp real',
       'Generare animatii si prezentari interactive',
-      'Export video, suport VR / Oculus Rift',
-      'Planificare profesionala iluminat, filtre avansate',
-      'Imbunatatiri HDR si IBL pentru compozitii foto',
-      'Aplicatie iOS si Android',
+      'Export video sau integrare VR',
+      'Randare rapida fara timp mare de calcul',
     ],
     price: '980€',
-    priceNote: 'licenta permanenta / 42€ pe luna',
+    monthlyPrice: '42€',
+    priceNote: 'licenta permanenta',
+    image: '/bg/radio.jpg',
   },
 ];
 
@@ -222,15 +240,17 @@ export default function ModulePythaPage() {
       {/* Sticky nav */}
       <StickyModuleNav />
 
-      {/* Module sections */}
-      <div className="divide-border divide-y">
-        {MODULES.map((mod, i) => (
-          <ModuleSection key={mod.id} module={mod} index={i} />
-        ))}
-      </div>
+      {/* Pricing toggle + Module sections */}
+      <PricingToggle>
+        <div className="divide-border divide-y">
+          {MODULES.map((mod, i) => (
+            <ModuleSection key={mod.id} module={mod} index={i} />
+          ))}
+        </div>
 
-      {/* CadBid — special pro card */}
-      <CadBidSection />
+        {/* CadBid — special pro card */}
+        <CadBidSection />
+      </PricingToggle>
 
       {/* Final CTA */}
       <section className="section-padding">

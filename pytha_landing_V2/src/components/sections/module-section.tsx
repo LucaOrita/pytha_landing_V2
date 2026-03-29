@@ -1,7 +1,11 @@
+'use client';
+
 import { Check } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
+import { usePricing } from '@/components/sections/pricing-toggle';
 import { cn } from '@/lib/utils';
 
 export interface ModuleData {
@@ -12,9 +16,12 @@ export interface ModuleData {
   description: string;
   features: string[];
   price: string;
+  monthlyPrice?: string;
   priceNote: string;
   ctaLabel?: string;
   ctaHref?: string;
+  video?: string;
+  image?: string;
 }
 
 export default function ModuleSection({
@@ -25,6 +32,9 @@ export default function ModuleSection({
   index: number;
 }) {
   const isEven = index % 2 === 0;
+  const { isMonthly } = usePricing();
+  const displayPrice = isMonthly && module.monthlyPrice ? module.monthlyPrice : module.price;
+  const displayNote = isMonthly && module.monthlyPrice ? 'pe luna' : module.priceNote;
 
   return (
     <section id={module.id} className="scroll-mt-36 py-12 md:py-16">
@@ -34,10 +44,33 @@ export default function ModuleSection({
           isEven ? 'lg:flex-row' : 'lg:flex-row-reverse',
         )}
       >
-        {/* Image placeholder */}
+        {/* Media */}
         <div className="flex-1">
-          <div className="bg-card dark:via-muted/10 dark:to-muted/30 flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-xl border shadow-sm bg-gradient-to-br from-transparent">
-            <span className="text-muted-foreground text-sm">Screenshot {module.title}</span>
+          <div className="overflow-hidden rounded-xl border shadow-sm">
+            {module.video ? (
+              <video
+                src={module.video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="aspect-[4/3] w-full object-cover"
+              />
+            ) : module.image ? (
+              <Image
+                src={module.image}
+                alt={module.title}
+                width={640}
+                height={480}
+                className="aspect-[4/3] w-full object-cover"
+                quality={65}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            ) : (
+              <div className="bg-muted flex aspect-[4/3] w-full items-center justify-center">
+                <span className="text-muted-foreground text-sm">{module.title}</span>
+              </div>
+            )}
           </div>
         </div>
 
@@ -57,7 +90,6 @@ export default function ModuleSection({
             {module.description}
           </p>
 
-          {/* Features list */}
           {module.features.length > 0 && (
             <ul className="mt-2 space-y-2">
               {module.features.map((feat) => (
@@ -71,13 +103,12 @@ export default function ModuleSection({
             </ul>
           )}
 
-          {/* Price + CTA */}
           <div className="mt-4 flex flex-wrap items-center gap-4">
             <div>
-              <span className="font-azeret-mono text-2xl font-medium md:text-3xl">
-                {module.price}
+              <span className="font-display text-2xl font-medium md:text-3xl">
+                {displayPrice}
               </span>
-              <span className="text-muted-foreground ml-2 text-sm">{module.priceNote}</span>
+              <span className="text-muted-foreground ml-2 text-sm">{displayNote}</span>
             </div>
             <Button size="sm" asChild>
               <Link href={module.ctaHref || `/solicita-oferta?modul=${module.id}`}>
