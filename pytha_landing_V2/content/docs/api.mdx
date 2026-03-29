@@ -1,52 +1,181 @@
 ---
-title: Referinta API si Export
-description: Formate de export, structura fisierelor si integrari disponibile in PYTHA
+title: Referinta Export si Formate
+description: Ghid complet — formate de export 3D, CNC, CSV si XML disponibile in PYTHA.
 ---
-
-# Referinta API si Export
-
-PYTHA ofera multiple formate de export si optiuni de integrare cu sisteme externe.
 
 ## Formate de export 3D
 
+PYTHA suporta export in cele mai utilizate formate CAD si vizualizare:
+
+<Tabs items={['CAD Standard', 'Vizualizare', 'Schimb date']}>
+
+<Tab value="CAD Standard">
 | Format | Extensie | Utilizare |
 |--------|----------|-----------|
-| DWG/DXF | .dwg, .dxf | AutoCAD, schite 2D |
-| STEP | .stp, .step | Schimb CAD universal |
-| STL | .stl | Imprimare 3D |
-| OBJ | .obj | Vizualizare, randare |
+| DWG | .dwg | AutoCAD, schite 2D/3D |
+| DXF | .dxf | Schimb universal 2D |
+| PDF | .pdf | Documentatie, planse tehnice |
+
+Exportul DWG/DXF pastreaza layerele, cotarile si atributele din modelul PYTHA.
+</Tab>
+
+<Tab value="Vizualizare">
+| Format | Extensie | Utilizare |
+|--------|----------|-----------|
+| STL | .stl | Imprimare 3D, prototipare |
+| OBJ | .obj | Vizualizare, randare externa |
 | 3DS | .3ds | Compatibilitate legacy |
 | SKP | .skp | SketchUp |
-| PDF | .pdf | Documentatie |
+
+Formatele de vizualizare exporta geometria cu materiale si texturi aplicate.
+</Tab>
+
+<Tab value="Schimb date">
+| Format | Extensie | Utilizare |
+|--------|----------|-----------|
+| STEP | .stp, .step | Schimb CAD universal (ISO) |
+| IGES | .igs | Schimb geometrie suprafete |
+
+STEP este recomandat pentru colaborarea cu alte sisteme CAD (SolidWorks, Inventor, etc.).
+</Tab>
+
+</Tabs>
 
 ## Export CNC
 
-| Format | Extensie | Masini compatibile |
-|--------|----------|-------------------|
-| G-Code | .nc, .gcode | Universal |
-| MPR | .mpr | Homag WoodWop |
-| CIX | .cix | Biesse bSolid |
-| PGM | .pgm | Diverse |
-| XML | .xml | Nesting, etichete |
+<div className="grid gap-4 md:grid-cols-2">
+  <Card>
+    <CardHeader>
+      <CardTitle>Formate per masina</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <CardDescription>
+        - **MPR** (.mpr) — Homag WoodWop
+        - **CIX** (.cix) — Biesse bSolid
+        - **G-Code** (.nc) — Universal
+        - **DDX** (.ddx) — EasyWood
+        - **PGM** (.pgm) — Diverse
+        - **XML** (.xml) — Nesting, etichete
+      </CardDescription>
+    </CardContent>
+  </Card>
 
-## Export date
+  <Card>
+    <CardHeader>
+      <CardTitle>Ce contine fisierul CNC</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <CardDescription>
+        - Coordonate gaurire (X, Y, Z, diametru)
+        - Traiectorii frezare (contur, buzunar)
+        - Informatii cant per muchie
+        - Referinte scule si viteze
+        - Secvente de prelucrare
+      </CardDescription>
+    </CardContent>
+  </Card>
+</div>
+
+[Detalii configurare postprocesor →](/docs/integrare-cnc)
+
+## Export date productie
 
 ### CSV — Liste piese
 
-Campuri disponibile:
-- Dimensiuni (L, l, H)
-- Material, cant, finisaj
-- Cantitate, numar serie
-- Nume program CNC
-- Atribute personalizate
+Campuri disponibile in exportul CSV:
+
+<Accordions>
+
+<Accordion title="Campuri standard">
+- Dimensiuni (Lungime, Latime, Grosime)
+- Material si decor
+- Cant per muchie (tip, grosime)
+- Cantitate
+- Numar de serie / cod piesa
+- Nume program CNC asociat
+</Accordion>
+
+<Accordion title="Campuri extinse">
+- Atribute personalizate (definite de utilizator)
+- Greutate calculata
+- Pret material (daca e configurat)
+- Pozitie in ansamblu (corp, nivel, zona)
+- Directie fibra
+</Accordion>
+
+</Accordions>
 
 ### XML — Etichete
 
-Suport pentru:
-- Coduri QR si barcode
-- Sabloane personalizabile
-- Integrare imprimante industriale
+Exportul XML genereaza date pentru imprimarea etichetelor:
+
+<div className="grid gap-4 md:grid-cols-2">
+  <Card>
+    <CardHeader>
+      <CardTitle>Continut eticheta</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <CardDescription>
+        - Cod QR sau Barcode
+        - Dimensiuni piesa
+        - Material si cant
+        - Pozitie in ansamblu
+        - Program CNC asociat
+      </CardDescription>
+    </CardContent>
+  </Card>
+
+  <Card>
+    <CardHeader>
+      <CardTitle>Compatibilitate</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <CardDescription>
+        - Imprimante industriale (Zebra, Brady)
+        - Sabloane personalizabile
+        - Multiple formate per eticheta
+        - Integrare cu nesting (eticheta per piesa taiata)
+      </CardDescription>
+    </CardContent>
+  </Card>
+</div>
+
+## Structura export tipic
+
+<Files>
+  <Folder name="Export_Proiect" defaultOpen>
+    <Folder name="CNC" defaultOpen>
+      <File name="Corp1_Lateral_L.mpr" />
+      <File name="Corp1_Lateral_R.mpr" />
+      <File name="Corp1_Baza.mpr" />
+    </Folder>
+    <Folder name="Nesting">
+      <File name="PAL_Alb_18mm.mpr" />
+      <File name="MDF_Raw_16mm.mpr" />
+    </Folder>
+    <Folder name="Liste">
+      <File name="CutList.csv" />
+      <File name="PartsList.csv" />
+    </Folder>
+    <Folder name="Etichete">
+      <File name="Labels.xml" />
+    </Folder>
+    <Folder name="Desene">
+      <File name="PlanseTehnice.pdf" />
+      <File name="Randari.png" />
+    </Folder>
+  </Folder>
+</Files>
 
 ## Plug-in API
 
-PYTHA ofera o interfata de programare deschisa pentru dezvoltarea de plug-in-uri custom. Contacteaza PYTHA Lab pentru documentatia dezvoltatorilor.
+PYTHA ofera o interfata de programare deschisa pentru dezvoltarea de plug-in-uri personalizate. Plug-in-urile pot:
+
+- Automatiza operatii repetitive
+- Crea generatoare custom de corpuri
+- Integra cu sisteme ERP externe
+- Genera rapoarte personalizate
+
+> **Nota**: Contacteaza PYTHA Lab GmbH pentru documentatia dezvoltatorilor si SDK-ul de plug-in-uri.
+
+[Inapoi la Module →](/docs/module) | [Programeaza demo →](/solicita-prezentare)

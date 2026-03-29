@@ -1,30 +1,137 @@
 ---
 title: Instalare si Configurare
-description: Cum instalezi si configurezi PYTHA 3D CAD pe statia ta de lucru
+description: Cerinte de sistem, pasi de instalare si configurare initiala PYTHA 3D-CAD.
 ---
-
-# Instalare PYTHA
 
 ## Cerinte de sistem
 
-- Windows 10/11 (64-bit)
-- Procesor: Intel i5 / AMD Ryzen 5 sau superior
-- RAM: minim 8GB (recomandat 16GB)
-- GPU: dedicat cu suport OpenGL 4.0+
-- Spatiu disc: 2GB pentru instalare
+Inainte de instalare, verifica ca statia de lucru indeplineste cerintele minime:
+
+<div className="grid gap-4 md:grid-cols-2">
+  <Card>
+    <CardHeader>
+      <CardTitle>Cerinte minime</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <CardDescription>
+        - Windows 10/11 (64-bit)
+        - Procesor: Intel i5 / AMD Ryzen 5
+        - RAM: 8 GB
+        - GPU: dedicat cu OpenGL 4.0+
+        - Spatiu disc: 2 GB
+      </CardDescription>
+    </CardContent>
+  </Card>
+
+  <Card>
+    <CardHeader>
+      <CardTitle>Recomandat</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <CardDescription>
+        - Windows 11 (64-bit)
+        - Procesor: Intel i7 / AMD Ryzen 7
+        - RAM: 16 GB
+        - GPU: NVIDIA GTX 1660+ sau AMD RX 5700+
+        - SSD cu 4+ GB liberi
+      </CardDescription>
+    </CardContent>
+  </Card>
+</div>
 
 ## Pasi de instalare
 
-1. Descarca pachetul de instalare de pe [pytha.com](https://pytha.com)
-2. Ruleaza installerul ca Administrator
-3. Selecteaza modulele dorite
-4. Activeaza licenta cu cheia primita
+<Steps>
+
+<Step>
+### Descarca pachetul de instalare
+
+Contacteaza echipa AdLine Industries sau acceseaza zona de download de pe [pytha.com](https://pytha.com). Vei primi un link de descarcare si o cheie de licenta.
+</Step>
+
+<Step>
+### Ruleaza installerul
+
+Deschide fisierul descărcat ca **Administrator** (click dreapta → Run as Administrator). Urmeaza pasii din wizard — selecteaza modulele dorite si directorul de instalare.
+</Step>
+
+<Step>
+### Activeaza licenta
+
+La prima pornire, introdu cheia de licenta primita. Activarea se face online (necesita conexiune la internet o singura data).
+</Step>
+
+<Step>
+### Configureaza mediul de lucru
+
+Seteaza unitatile de masura, template-ul de proiect si conexiunea CNC. Detalii in sectiunea urmatoare.
+</Step>
+
+</Steps>
 
 ## Configurare initiala
 
-Dupa instalare, configureaza:
-- **Unitati de masura** — mm sau inch
-- **Template proiect** — mobilier, arhitectura, sau personalizat
-- **Conexiune CNC** — selecteaza postprocesorul potrivit masinii tale
+Dupa instalare, configureaza aceste setari esentiale:
 
-> **Nota**: Contacteaza echipa AdLine Industries pentru asistenta la instalare: +40 742 065 376
+<Tabs items={['Unitati de masura', 'Template proiect', 'Conexiune CNC']}>
+
+<Tab value="Unitati de masura">
+Deschide **Settings → General** si selecteaza:
+- **mm** (standard in Romania si Europa)
+- **inch** (doar pentru proiecte destinate pietei nord-americane)
+
+Toate cotarile, exporturile si listele de piese vor folosi unitatea selectata.
+</Tab>
+
+<Tab value="Template proiect">
+PYTHA ofera template-uri predefinite:
+- **Mobilier** — setat pentru PAL, MDF, cant ABS (cel mai frecvent)
+- **Arhitectura** — setat pentru materiale de constructii
+- **Personalizat** — configureaza de la zero
+
+Selecteaza din **Settings → Project Defaults**.
+</Tab>
+
+<Tab value="Conexiune CNC">
+Selecteaza producatorul masinii tale CNC din **Settings → CAM Interface**:
+- Homag (WoodWop)
+- Biesse (bSolid)
+- SCM
+- Felder
+- G-code generic
+
+Configureaza vitezele si sculele specifice masinii tale. [Detalii integrare CNC →](/docs/integrare-cnc)
+</Tab>
+
+</Tabs>
+
+## Structura fisierelor PYTHA
+
+<Files>
+  <Folder name="PYTHA" defaultOpen>
+    <Folder name="Projects" defaultOpen>
+      <File name="Project1.pytha" />
+      <File name="Project2.pytha" />
+    </Folder>
+    <Folder name="Library">
+      <File name="Hardware.lib" />
+      <File name="Materials.lib" />
+    </Folder>
+    <Folder name="Templates">
+      <File name="Kitchen.template" />
+      <File name="Wardrobe.template" />
+    </Folder>
+    <Folder name="Export">
+      <File name="CNC_Output/" />
+      <File name="PDF_Output/" />
+    </Folder>
+  </Folder>
+</Files>
+
+## Urmatorul pas
+
+> **Nota**: Echipa AdLine Industries ofera asistenta gratuita la prima instalare. Suna la **+40 742 065 376** sau trimite email la pytha@adlineindustries.ro.
+
+- Exploreaza [Modulele disponibile](/docs/module)
+- Configureaza [Integrarea CNC](/docs/integrare-cnc)
+- Consulta [Intrebari frecvente](/docs/faq)

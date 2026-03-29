@@ -6,6 +6,14 @@ import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import type { MDXComponents } from 'mdx/types';
 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
     ...defaultMdxComponents,
@@ -19,6 +27,11 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     Steps,
     Tab,
     Tabs,
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     pre: ({ ref: _ref, ...props }) => (
       <CodeBlock {...props}>

@@ -1,28 +1,151 @@
 ---
 title: Integrare CNC
-description: Cum conectezi PYTHA cu masinile CNC din atelierul tau
+description: Cum conectezi PYTHA cu masinile CNC — formate suportate, configurare postprocesor, flux de lucru.
 ---
-
-# Integrare CNC
-
-PYTHA exporta direct catre cele mai populare formate CNC industriale.
 
 ## Formate suportate
 
-- **WoodWop (.mpr)** — Homag, Weeke
-- **bSolid (.cix)** — Biesse
-- **AlphaCam** — Vero Software
-- **G-Code** — universal
-- **DDX** — EasyWood
-- **SCM Maestro** — SCM Group
+PYTHA exporta direct catre cele mai populare formate CNC industriale, fara conversii intermediare.
+
+<Tabs items={['Homag', 'Biesse', 'Alte formate']}>
+
+<Tab value="Homag">
+### Homag / Weeke (WoodWop)
+
+Format: **MPR** (.mpr)
+
+Export direct compatibil cu WoodWop. Include:
+- Coordonate gaurire (X, Y, Z, diametru, adancime)
+- Frezari de contur si de buzunar
+- Aplicare cant automat
+- Referinte scule din biblioteca WoodWop
+
+```
+Masini compatibile:
+- Homag Venture / Centateq
+- Weeke Vantech / Optimat
+- Homag Drillteq
+```
+</Tab>
+
+<Tab value="Biesse">
+### Biesse (bSolid)
+
+Format: **CIX** (.cix)
+
+Export nativ pentru bSolid/bNest. Include:
+- Operatii complete de gaurire si frezare
+- Informatii de cant per piesa
+- Secvente de prelucrare optimizate
+
+```
+Masini compatibile:
+- Biesse Rover
+- Biesse Skipper
+- Biesse Akron (cantuitoare)
+```
+</Tab>
+
+<Tab value="Alte formate">
+### Alte formate CNC
+
+| Format | Extensie | Masini |
+|--------|----------|--------|
+| G-Code | .nc, .gcode | Universal |
+| DDX | .ddx | EasyWood |
+| PGM | .pgm | Diverse |
+| XML | .xml | Nesting, etichete |
+| SCM Maestro | .pgmx | SCM Group |
+| Felder | .nc | Felder / Format4 |
+</Tab>
+
+</Tabs>
 
 ## Configurare postprocesor
 
-1. Deschide Settings → CAM Interface
-2. Selecteaza producatorul masinii
-3. Configureaza parametrii specifici (viteze, scule)
-4. Testeaza cu un proiect simplu
+<Steps>
 
-## Flux de lucru tipic
+<Step>
+### Selecteaza producatorul
 
-Design 3D → Workshop (imbinari) → Nesting (debitare) → Export CNC → Productie
+Deschide **Settings → CAM Interface** si selecteaza producatorul masinii tale din lista.
+</Step>
+
+<Step>
+### Configureaza parametrii
+
+Seteaza parametrii specifici masinii:
+- Viteze de avans si rotatie
+- Biblioteca de scule (diametre, lungimi)
+- Origini de referinta (stanga-jos, centru)
+- Offset-uri specifice
+</Step>
+
+<Step>
+### Testeaza cu un proiect simplu
+
+Creeaza un corp de test cu cateva gauriri si o frezare de contur. Exporta si verifica fisierul in simulatorul masinii tale.
+</Step>
+
+<Step>
+### Valideaza pe masina
+
+Ruleaza primul program CNC pe o piesa de test (rest de material). Verifica pozitiile de gaurire si traiectele de frezare.
+</Step>
+
+</Steps>
+
+## Flux de lucru complet
+
+```
+Design 3D (Basic)
+    ↓
+Workshop (atribuire operatii CNC)
+    ↓
+Nesting (optimizare taiere panouri)
+    ↓
+CAM Interface (export fisier CNC)
+    ↓
+Masina CNC (productie)
+```
+
+## Structura fisierelor exportate
+
+<Files>
+  <Folder name="Export_CNC" defaultOpen>
+    <Folder name="Proiect_Bucatarie" defaultOpen>
+      <File name="Corp_1_lateral_stg.mpr" />
+      <File name="Corp_1_lateral_drp.mpr" />
+      <File name="Corp_1_baza.mpr" />
+      <File name="Corp_1_polita.mpr" />
+      <File name="Nesting_PAL_Alb.mpr" />
+      <File name="Nesting_PAL_Stejar.mpr" />
+    </Folder>
+    <Folder name="Etichete">
+      <File name="Labels_QR.xml" />
+      <File name="CutList.csv" />
+    </Folder>
+  </Folder>
+</Files>
+
+## Intrebari frecvente CNC
+
+<Accordions>
+
+<Accordion title="Pot folosi PYTHA cu masini second-hand?">
+Da, atata timp cat masina accepta unul din formatele suportate (G-code fiind cel mai universal). Configureaza postprocesorul conform specificatiilor masinii.
+</Accordion>
+
+<Accordion title="Ce se intampla daca masina mea nu e in lista?">
+Contacteaza echipa AdLine — putem crea un postprocesor personalizat pentru masina ta. G-code universal functioneaza cu majoritatea masinilor CNC.
+</Accordion>
+
+<Accordion title="Export-ul include si informatii de cant?">
+Da. Workshop-ul atribuie cantul pe fiecare muchie, iar informatia se exporta in fisierul CNC sau in fisierul CSV separat pentru cantuitoare automate.
+</Accordion>
+
+</Accordions>
+
+> **Suport**: Pentru configurarea postprocesorului, echipa AdLine ofera asistenta inclusa in pretul licentei. Telefon: +40 742 065 376.
+
+[Inapoi la Module →](/docs/module) | [Programeaza demo →](/solicita-prezentare)

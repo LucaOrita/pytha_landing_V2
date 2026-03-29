@@ -1,25 +1,144 @@
 ---
 title: Module PYTHA
-description: Prezentare generala a modulelor disponibile in PYTHA 3D CAD
+description: Prezentare generala a modulelor disponibile in PYTHA 3D-CAD — platesti doar ce folosesti.
 ---
 
-# Module PYTHA
+## Arhitectura modulara
 
-PYTHA este modular — platesti doar ce folosesti.
+PYTHA este construit modular — incepi cu pachetul de baza si adaugi module pe masura ce cresc nevoile. Fiecare modul se integreaza nativ cu celelalte.
 
-## Pachetul de Baza (4.950 EUR)
+### Module disponibile
 
-Modelare 2D/3D, desene tehnice, randare, export DWG/DXF/STL.
+<div className="grid gap-4 md:grid-cols-2">
+  <Card>
+    <CardHeader>
+      <CardTitle>Pachet de Baza</CardTitle>
+      <CardDescription>4.950€ | 99€/luna</CardDescription>
+    </CardHeader>
+    <CardContent>
+      <CardDescription>
+        Modelare 2D/3D solida, cotare automata, randare raytracer, export DWG/DXF/STL/PDF. Fundatia pentru orice proiect.
+      </CardDescription>
+    </CardContent>
+  </Card>
 
-## Module aditionale
+  <Card>
+    <CardHeader>
+      <CardTitle>Workshop</CardTitle>
+      <CardDescription>2.450€ | 55€/luna</CardDescription>
+    </CardHeader>
+    <CardContent>
+      <CardDescription>
+        Atribuire automata operatii CNC: gaurire, frezare, cant. Reguli personalizabile per tip de corp.
+      </CardDescription>
+    </CardContent>
+  </Card>
 
-| Modul | Pret | Functionalitate principala |
-|-------|------|---------------------------|
-| Workshop | 2.450 EUR | Imbinari automate, cant, CNC |
-| CAM Interface | 1.950 EUR | Export G-code, MPR, CIX |
-| Parts List | 1.290 EUR | Liste piese automate |
-| Nesting | 1.100 EUR | Optimizare debitare |
-| RadioLab | 980 EUR | Randare fotorealista |
-| CadBid | la cerere | Ofertare automata |
+  <Card>
+    <CardHeader>
+      <CardTitle>CAM Interface</CardTitle>
+      <CardDescription>1.950€ | 44€/luna</CardDescription>
+    </CardHeader>
+    <CardContent>
+      <CardDescription>
+        Export direct: WoodWop (.mpr), bSolid (.cix), G-code, DDX, XML. Fara conversii intermediare.
+      </CardDescription>
+    </CardContent>
+  </Card>
 
-[Vezi toate modulele in detaliu →](/module-pytha)
+  <Card>
+    <CardHeader>
+      <CardTitle>Nesting</CardTitle>
+      <CardDescription>1.100€ | 25€/luna</CardDescription>
+    </CardHeader>
+    <CardContent>
+      <CardDescription>
+        Optimizare asezare piese pe panouri. Economie de material pana la 30%. Suport nesting CNC si fierastrau.
+      </CardDescription>
+    </CardContent>
+  </Card>
+
+  <Card>
+    <CardHeader>
+      <CardTitle>Generators</CardTitle>
+      <CardDescription>1.150€ | 26€/luna</CardDescription>
+    </CardHeader>
+    <CardContent>
+      <CardDescription>
+        Generare automata corpuri: bucatarii, dressinguri, dulapuri. Configurare completa dimensiuni, fronturi, accesorii.
+      </CardDescription>
+    </CardContent>
+  </Card>
+
+  <Card>
+    <CardHeader>
+      <CardTitle>RadioLab</CardTitle>
+      <CardDescription>980€ | 42€/luna</CardDescription>
+    </CardHeader>
+    <CardContent>
+      <CardDescription>
+        Randare fotorealista cu iluminare HDRI, texturi HD si reflexii naturale. Imagini de prezentare in minute.
+      </CardDescription>
+    </CardContent>
+  </Card>
+</div>
+
+## Module suplimentare
+
+<Accordions>
+
+<Accordion title="Parts List — 1.290€ | 29€/luna">
+Genereaza automat liste de piese, etichete cu QR code, export CSV. Fiecare piesa are dimensiuni, material, cant si program CNC asociat.
+</Accordion>
+
+<Accordion title="Parametrics — 640€ | 14€/luna">
+Defineste dimensiuni variabile, formule si conditii. Componenta se actualizeaza automat cand schimbi un parametru. Ideal pentru serii cu variatii.
+</Accordion>
+
+<Accordion title="Library — 820€ (achizitie unica)">
+Peste 35.000 de obiecte parametrice: mobilier, feronerie Blum/Hettich/Hafele, iluminat, decoratiuni. Actualizata periodic.
+</Accordion>
+
+<Accordion title="Freeform — 590€ | 13€/luna">
+Suprafete curbate, Loft, Rail Sweep, Coons Face — control complet asupra formei si curburii pentru design organic.
+</Accordion>
+
+</Accordions>
+
+## Flux de lucru tipic
+
+<Steps>
+
+<Step>
+### Modelare 3D (Basic)
+Proiectezi corpurile in 3D cu modelare solida. Import/export DWG, DXF, STL.
+</Step>
+
+<Step>
+### Operatii CNC (Workshop)
+Workshop atribuie automat gaurire, frezare, cant — pe baza regulilor tale.
+</Step>
+
+<Step>
+### Optimizare taiere (Nesting)
+Piesele sunt asezate automat pe panouri cu pierdere minima de material.
+</Step>
+
+<Step>
+### Export (CAM Interface)
+Fisierul CNC ajunge direct la masina — Homag, Biesse, SCM, Felder, G-code.
+</Step>
+
+</Steps>
+
+## Pachete recomandate
+
+| Pachet | Module incluse | Pret lunar |
+|--------|---------------|------------|
+| **Starter** | Basic | 99€ |
+| **Profesional** | Basic + Workshop + Parts List + Nesting + CAM | 253€ |
+| **Enterprise** | Tot din Profesional + Freeform + Parametrics + Library + RadioLab | 342€ |
+
+[Vezi preturile detaliate →](/preturi)
+
+> **Nota**: Modulele sunt independente — poti incepe cu Basic si adauga oricand ce ai nevoie.
