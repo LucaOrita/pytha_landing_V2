@@ -5,3 +5,7 @@ node_modules/
 .DS_Store
 Thumbs.db
 .claude/
+
+# Large video files — host on CDN, not GitHub
+pytha_landing_V2/public/bg/*.mp4
+pytha_landing_V2/public/videos/

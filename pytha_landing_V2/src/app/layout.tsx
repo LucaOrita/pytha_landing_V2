@@ -1,47 +1,89 @@
 import './globals.css';
 
 import type { Metadata } from 'next';
-import { Azeret_Mono, Inter } from 'next/font/google';
+import { Montserrat, Poppins } from 'next/font/google';
 
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
 import { ThemeProvider } from '@/components/theme-provider';
 import { BookingModalProvider } from '@/hooks/use-booking-modal';
+import { SEO_KEYWORDS } from '@/lib/seo-keywords';
 import { cn } from '@/lib/utils';
 
-const inter = Inter({
-  variable: '--font-inter',
+const BASE_URL = 'https://pytha3d.ro';
+
+const montserrat = Montserrat({
+  variable: '--font-montserrat',
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
 });
 
-const azeretMono = Azeret_Mono({
-  variable: '--font-azeret-mono',
+const poppins = Poppins({
+  variable: '--font-poppins',
   subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: {
-    default: 'PYTHA Romania — Software CAD 3D pentru mobilier',
+    default: 'PYTHA 3D Romania — Software CAD/CAM complet pentru mobilier',
     template: '%s | PYTHA Romania',
   },
   description:
     'PYTHA este solutia CAD/CAM 3D completa pentru proiectare mobilier, vizualizare fotorealista si integrare CNC. Distribuit in Romania de AdLine Industries.',
-  keywords: [
-    'software CAD 3D mobilier',
-    'PYTHA Romania',
-    'proiectare mobilier 3D',
-    'digitalizare atelier mobila',
-    'CAD CAM mobilier',
-    'software proiectare mobila',
-    'CNC mobilier',
-  ],
+  keywords: [...SEO_KEYWORDS.primary, ...SEO_KEYWORDS.secondary, ...SEO_KEYWORDS.local],
   authors: [{ name: 'AdLine Industries' }],
   creator: 'AdLine Industries',
-  robots: {
-    index: true,
-    follow: true,
+  robots: { index: true, follow: true },
+  openGraph: {
+    type: 'website',
+    locale: 'ro_RO',
+    siteName: 'PYTHA 3D Romania',
+    title: 'PYTHA 3D Romania — Software CAD/CAM complet pentru mobilier',
+    description: 'Solutia CAD/CAM 3D completa pentru proiectare mobilier, vizualizare fotorealista si integrare CNC.',
+    url: BASE_URL,
+    images: [{ url: '/images/pytha-theoram-logo.png', width: 1200, height: 630, alt: 'PYTHA 3D Romania' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PYTHA 3D Romania — Software CAD/CAM complet pentru mobilier',
+    description: 'Solutia CAD/CAM 3D completa pentru proiectare mobilier si integrare CNC.',
   },
 };
+
+const globalJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'PYTHA Romania — AdLine Industries',
+    url: BASE_URL,
+    logo: `${BASE_URL}/images/pytha-theoram-logo.png`,
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+40742065893',
+      contactType: 'sales',
+      availableLanguage: ['Romanian', 'English'],
+    },
+    sameAs: [
+      'https://facebook.com',
+      'https://instagram.com',
+      'https://linkedin.com',
+      'https://youtube.com',
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'PYTHA 3D Romania',
+    url: BASE_URL,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${BASE_URL}/blog?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+  },
+];
 
 export default function RootLayout({
   children,
@@ -50,11 +92,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ro" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(globalJsonLd) }}
+        />
+      </head>
       <body
         className={cn(
           'relative flex min-h-screen flex-col antialiased [--header-height:calc(var(--spacing)*17)]',
-          inter.variable,
-          azeretMono.variable,
+          montserrat.variable,
+          poppins.variable,
         )}
       >
         <ThemeProvider
