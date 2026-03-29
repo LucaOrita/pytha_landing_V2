@@ -1,40 +1,85 @@
 import type { Metadata } from 'next';
+import { CheckCircle } from 'lucide-react';
+import Link from 'next/link';
 import { Suspense } from 'react';
 
 import PrezentareForm from '@/components/forms/prezentare-form';
 
 export const metadata: Metadata = {
-  title: 'Programeaza prezentare gratuita PYTHA 3D CAD',
+  title: 'Programeaza demonstratie gratuita PYTHA 3D CAD',
   description:
-    'Prezentare gratuita PYTHA in 15 minute. Descopera cum software-ul CAD/CAM poate transforma fluxul tau de productie mobilier.',
-  openGraph: { title: 'Prezentare gratuita PYTHA 3D', type: 'website' },
+    'Demo gratuit PYTHA in 15 minute. Descopera cum software-ul CAD/CAM poate transforma fluxul tau de productie mobilier. Fara obligatii.',
+  openGraph: { title: 'Demonstratie gratuita PYTHA 3D', type: 'website' },
 };
+
+const BENEFITS = [
+  'Demo personalizat pe nevoile tale',
+  'Fara obligatii sau costuri ascunse',
+  'Raspuns garantat in 24h',
+  'Echipa locala, in limba romana',
+];
 
 export default function SolicitaPrezentarePage() {
   return (
     <section className="section-padding">
       <div className="container">
-        <div className="mx-auto max-w-lg">
-          <div className="space-y-4 text-balance text-center">
+        <div className="grid gap-12 lg:grid-cols-[55%_45%] lg:gap-18">
+          {/* Left: Context + benefits */}
+          <div>
             <h1 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
               Programeaza o{' '}
-              <span className="text-gradient">prezentare gratuita</span>
+              <span className="text-gradient">demonstratie gratuita</span>
             </h1>
-            <p className="text-lg leading-snug text-gray-500">
-              In doar 15 minute, iti aratam cum PYTHA poate transforma fluxul tau
+            <p className="mt-4 max-w-xl text-lg leading-snug text-gray-500">
+              In 15 minute, iti aratam cum PYTHA se potriveste exact pe fluxul tau
               de productie. Fara obligatii.
             </p>
+
+            {/* Benefits */}
+            <ul className="mt-8 space-y-4">
+              {BENEFITS.map((b) => (
+                <li key={b} className="flex items-center gap-3">
+                  <CheckCircle className="size-5 shrink-0 text-green-600" />
+                  <span className="text-base">{b}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Testimonial */}
+            <div className="mt-8 rounded-2xl border border-gray-100 bg-gray-50 p-6">
+              <p className="text-sm leading-relaxed text-gray-600 italic">
+                &ldquo;Am redus timpii de proiectare cu 40% in primele luni.&rdquo;
+              </p>
+              <p className="mt-2 text-xs text-gray-400">
+                — Utilizator PYTHA verificat
+              </p>
+            </div>
+
+            {/* Price context */}
+            <div className="mt-6 space-y-1">
+              <p className="text-sm text-gray-500">
+                Preturi de la 99€/luna &middot; Licenta permanenta de la 4.950€
+              </p>
+              <Link
+                href="/preturi"
+                className="inline-flex items-center gap-1 text-sm font-semibold text-[#8a1820] hover:underline"
+              >
+                Vezi toate preturile →
+              </Link>
+            </div>
           </div>
 
-          <div className="mt-8 rounded-2xl border border-gray-100 bg-white p-6 shadow-lg">
-            <Suspense fallback={<div className="h-64 animate-pulse rounded-md" />}>
-              <PrezentareForm />
-            </Suspense>
+          {/* Right: Form */}
+          <div>
+            <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-lg md:p-8">
+              <Suspense fallback={<div className="h-96 animate-pulse rounded-md" />}>
+                <PrezentareForm />
+              </Suspense>
+            </div>
+            <p className="mt-3 text-center text-xs text-gray-400">
+              Datele sunt protejate conform GDPR
+            </p>
           </div>
-
-          <p className="mt-4 text-center text-xs text-gray-400">
-            Datele tale sunt in siguranta. Nu le partajam cu nimeni.
-          </p>
         </div>
       </div>
     </section>

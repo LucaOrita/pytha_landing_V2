@@ -181,7 +181,7 @@ export default function AsistentaTehnicaPage() {
                 ))}
               </ul>
               <Button className="mt-6 w-full" asChild>
-                <Link href="/solicita-oferta">Solicita acord de service</Link>
+                <Link href="/solicita-prezentare">Solicita acord de service</Link>
               </Button>
             </div>
 

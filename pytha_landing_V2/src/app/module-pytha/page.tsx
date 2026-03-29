@@ -230,7 +230,7 @@ export default function ModulePythaPage() {
             </p>
             <div className="flex justify-center pt-2">
               <Button asChild>
-                <Link href="/solicita-oferta">Solicita oferta personalizata</Link>
+                <Link href="/solicita-prezentare">Solicita oferta personalizata</Link>
               </Button>
             </div>
           </div>
@@ -267,7 +267,7 @@ export default function ModulePythaPage() {
               <Link href="/solicita-prezentare">Programeaza o consultanta gratuita</Link>
             </Button>
             <Button variant="outline" asChild>
-              <Link href="/solicita-oferta">Vezi preturile complete</Link>
+              <Link href="/solicita-prezentare">Vezi preturile complete</Link>
             </Button>
           </div>
         </div>

@@ -34,7 +34,7 @@ const PACKAGES = [
       'Randare raytracer integrata',
       'Export DWG/DXF/STL/PDF',
     ],
-    href: '/solicita-oferta?pachet=starter',
+    href: '/solicita-prezentare?pachet=starter',
   },
   {
     name: 'Profesional',
@@ -49,7 +49,7 @@ const PACKAGES = [
       'Nesting — optimizare debitare',
       'Export CNC (Homag, Biesse, SCM)',
     ],
-    href: '/solicita-oferta?pachet=profesional',
+    href: '/solicita-prezentare?pachet=profesional',
   },
   {
     name: 'Enterprise',
@@ -64,7 +64,7 @@ const PACKAGES = [
       'Randare fotorealista (RadioLab)',
       'Proiectare parametrica',
     ],
-    href: '/solicita-oferta?pachet=enterprise',
+    href: '/solicita-prezentare?pachet=enterprise',
   },
 ];
 

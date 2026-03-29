@@ -57,7 +57,7 @@ export default function CadBidSection() {
                   <Link href="/solicita-prezentare?modul=cadbid">Solicita demo CadBid</Link>
                 </Button>
                 <Button variant="outline" asChild>
-                  <Link href="/solicita-oferta?modul=cadbid">Include in oferta</Link>
+                  <Link href="/solicita-prezentare?modul=cadbid">Include in oferta</Link>
                 </Button>
               </div>
             </div>

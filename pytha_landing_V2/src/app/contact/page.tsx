@@ -110,7 +110,7 @@ export default function ContactPage() {
               <p className="mb-3 text-sm text-gray-500">Sau programeaza direct:</p>
               <div className="flex flex-wrap justify-center gap-3">
                 <Button size="sm" variant="outline" asChild>
-                  <Link href="/solicita-oferta">Solicita oferta</Link>
+                  <Link href="/solicita-prezentare">Solicita oferta</Link>
                 </Button>
                 <Button size="sm" variant="outline" asChild>
                   <Link href="/solicita-prezentare">Solicita prezentare</Link>

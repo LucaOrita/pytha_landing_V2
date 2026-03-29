@@ -31,7 +31,7 @@ const Footer = () => {
           </p>
           <div className="flex justify-center gap-4">
             <Button asChild>
-              <Link href="/solicita-oferta">Solicita oferta</Link>
+              <Link href="/solicita-prezentare">Solicita oferta</Link>
             </Button>
             <Button
               variant="outline"

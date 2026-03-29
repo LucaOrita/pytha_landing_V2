@@ -111,7 +111,7 @@ export default function ModuleSection({
               <span className="ml-2 text-sm text-gray-500">{displayNote}</span>
             </div>
             <Button size="sm" asChild>
-              <Link href={module.ctaHref || `/solicita-oferta?modul=${module.id}`}>
+              <Link href={module.ctaHref || `/solicita-prezentare?modul=${module.id}`}>
                 {module.ctaLabel || 'Include in oferta'}
               </Link>
             </Button>

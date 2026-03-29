@@ -7,10 +7,27 @@ import { Button } from '@/components/ui/button';
 import {
   CheckboxGroup,
   InputField,
+  RadioField,
   SelectField,
 } from '@/components/ui/form-field';
 
+const TIP_FIRMA_OPTIONS = [
+  { value: '', label: 'Selecteaza...' },
+  { value: 'producator', label: 'Producator mobilier' },
+  { value: 'proiectant', label: 'Proiectant / Designer' },
+  { value: 'tamplar', label: 'Tamplar / Atelier mic' },
+  { value: 'arhitect', label: 'Arhitect / Birou arhitectura' },
+  { value: 'altele', label: 'Altele' },
+];
+
+const CNC_OPTIONS = [
+  { value: 'da', label: 'Da' },
+  { value: 'nu', label: 'Nu' },
+  { value: 'in-plan', label: 'In plan' },
+];
+
 const CAND_OPTIONS = [
+  { value: '', label: 'Selecteaza...' },
   { value: 'asap', label: 'Cat mai curand' },
   { value: 'saptamana-aceasta', label: 'Saptamana aceasta' },
   { value: 'saptamana-viitoare', label: 'Saptamana viitoare' },
@@ -18,6 +35,7 @@ const CAND_OPTIONS = [
 ];
 
 const PERSOANE_OPTIONS = [
+  { value: '', label: 'Selecteaza...' },
   { value: '1', label: '1 persoana' },
   { value: '2-5', label: '2-5 persoane' },
   { value: '6+', label: '6+ persoane' },
@@ -29,7 +47,7 @@ const SOFTWARE_OPTIONS = [
   { value: 'corpus', label: 'Corpus' },
   { value: 'topsolid', label: 'TopSolid' },
   { value: 'pro100', label: 'PRO100' },
-  { value: 'nimic', label: 'Nimic' },
+  { value: 'nimic', label: 'Nimic (fara software)' },
   { value: 'altele', label: 'Altele' },
 ];
 
@@ -38,6 +56,8 @@ interface FormData {
   contact: string;
   email: string;
   telefon: string;
+  tipFirma: string;
+  cnc: string;
   cand: string;
   persoane: string;
   software: string[];
@@ -45,7 +65,7 @@ interface FormData {
 
 const initialData: FormData = {
   firma: '', contact: '', email: '', telefon: '',
-  cand: '', persoane: '', software: [],
+  tipFirma: '', cnc: '', cand: '', persoane: '', software: [],
 };
 
 export default function PrezentareForm({ onSuccess }: { onSuccess?: () => void }) {
@@ -75,7 +95,8 @@ export default function PrezentareForm({ onSuccess }: { onSuccess?: () => void }
     if (!validate()) return;
 
     const modulParam = searchParams.get('modul') || '';
-    console.log('Prezentare form submission:', { ...data, modul: modulParam });
+    const pachetParam = searchParams.get('pachet') || '';
+    console.log('Prezentare form submission:', { ...data, modul: modulParam, pachet: pachetParam });
     setSubmitted(true);
     onSuccess?.();
   };
@@ -83,13 +104,13 @@ export default function PrezentareForm({ onSuccess }: { onSuccess?: () => void }
   if (submitted) {
     return (
       <div className="py-8 text-center">
-        <div className="bg-secondary mx-auto mb-4 flex size-12 items-center justify-center rounded-full">
-          <svg className="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <div className="mx-auto mb-4 flex size-12 items-center justify-center rounded-full bg-[#fff1f2]">
+          <svg className="size-6 text-[#8a1820]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h2 className="text-accent-foreground text-xl font-bold">Prezentare programata!</h2>
-        <p className="text-muted-foreground mt-2">
+        <h2 className="text-xl font-bold">Prezentare programata!</h2>
+        <p className="mt-2 text-gray-500">
           Te contactam in cel mai scurt timp pentru a confirma data si ora.
         </p>
       </div>
@@ -104,10 +125,12 @@ export default function PrezentareForm({ onSuccess }: { onSuccess?: () => void }
         <InputField label="Email" name="email" type="email" required value={data.email} onChange={(v) => set('email', v)} error={errors.email} />
         <InputField label="Telefon" name="telefon" type="tel" required value={data.telefon} onChange={(v) => set('telefon', v)} error={errors.telefon} />
       </div>
+      <SelectField label="Tip firma" name="tipFirma" options={TIP_FIRMA_OPTIONS} value={data.tipFirma} onChange={(v) => set('tipFirma', v)} />
+      <RadioField label="CNC in productie?" name="cnc" options={CNC_OPTIONS} value={data.cnc} onChange={(v) => set('cnc', v)} />
       <SelectField label="Cand doresti prezentarea?" name="cand" options={CAND_OPTIONS} value={data.cand} onChange={(v) => set('cand', v)} />
       <SelectField label="Cate persoane proiecteaza in firma ta?" name="persoane" options={PERSOANE_OPTIONS} value={data.persoane} onChange={(v) => set('persoane', v)} />
       <CheckboxGroup label="Ce software folosesti acum?" name="software" options={SOFTWARE_OPTIONS} values={data.software} onChange={(v) => set('software', v)} />
-      <Button type="submit" className="w-full">Programeaza prezentarea</Button>
+      <Button type="submit" className="w-full py-3">Programeaza demo gratuit</Button>
     </form>
   );
 }

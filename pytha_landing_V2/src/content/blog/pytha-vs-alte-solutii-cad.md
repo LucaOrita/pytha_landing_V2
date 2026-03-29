@@ -74,4 +74,4 @@ Intreaba-te:
 
 Nu te baza doar pe comparatii — testeaza singur. **[Solicita o demonstratie gratuita PYTHA](/solicita-prezentare)** si vezi cum se potriveste pe fluxul tau real de productie.
 
-Sau **[cere o oferta personalizata](/solicita-oferta)** — echipa AdLine te ajuta sa alegi exact modulele de care ai nevoie.
+Sau **[vezi preturile si pachetele disponibile](/preturi)** — echipa AdLine te ajuta sa alegi exact modulele de care ai nevoie.

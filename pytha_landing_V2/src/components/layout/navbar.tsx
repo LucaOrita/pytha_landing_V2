@@ -182,12 +182,12 @@ const Navbar = () => {
         {/* Right: Theme toggle + CTA + Mobile controls */}
         <div className="flex items-center gap-2">
           <Button size="sm" asChild className="hidden lg:inline-flex">
-            <Link href="/solicita-oferta">Solicita oferta</Link>
+            <Link href="/solicita-prezentare">Solicita oferta</Link>
           </Button>
 
           {/* Mobile: CTA + hamburger */}
           <Button size="sm" asChild className="lg:hidden">
-            <Link href="/solicita-oferta">Oferta</Link>
+            <Link href="/solicita-prezentare">Oferta</Link>
           </Button>
 
           <button
@@ -316,7 +316,7 @@ const Navbar = () => {
         {/* Mobile bottom CTA */}
         <div className="flex gap-4.5 border-t px-6 py-4">
           <Button asChild className="h-12 flex-1 rounded-sm transition-all hover:scale-105">
-            <Link href="/solicita-oferta" onClick={() => setIsMenuOpen(false)}>
+            <Link href="/solicita-prezentare" onClick={() => setIsMenuOpen(false)}>
               Solicita oferta
             </Link>
           </Button>
