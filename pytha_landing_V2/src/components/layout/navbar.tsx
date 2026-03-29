@@ -6,7 +6,6 @@ import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import Logo from '@/components/layout/logo';
-import { ThemeToggle } from '@/components/theme-toggle';
 import { Button } from '@/components/ui/button';
 import { NAV_LINKS, type NavItem } from '@/lib/navigation';
 import { cn } from '@/lib/utils';
@@ -182,8 +181,6 @@ const Navbar = () => {
 
         {/* Right: Theme toggle + CTA + Mobile controls */}
         <div className="flex items-center gap-2">
-          <ThemeToggle />
-
           <Button size="sm" asChild className="hidden lg:inline-flex">
             <Link href="/solicita-oferta">Solicita oferta</Link>
           </Button>

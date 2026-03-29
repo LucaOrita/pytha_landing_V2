@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import 'fumadocs-ui/css/neutral.css';
 
 @variant dark (&:is(.dark *));
 
@@ -51,6 +52,7 @@
   --text-weight: 400;
 }
 
+/* DARK MODE DISABLED — reactivare viitoare
 .dark {
   --background: #0a0a14;
   --foreground: #ffffff;
@@ -86,6 +88,7 @@
   --sidebar-border: rgba(255,255,255,0.06);
   --sidebar-ring: #f93a47;
 }
+*/
 
 @theme inline {
   --color-background: var(--background);
@@ -180,18 +183,28 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
-    @apply bg-background text-foreground font-text font-weight-text tracking-[-0.0025em];
+    font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 400;
+    @apply bg-background text-foreground tracking-[-0.0025em];
   }
   h1, h2, h3, h4 {
-    font-family: var(--display-family);
-    font-weight: var(--display-weight);
+    font-family: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  ::selection {
+    background-color: #8a1820;
+    color: #ffffff;
   }
 }
 
 @layer utilities {
   .section-padding {
-    @apply py-15 md:py-20 lg:py-24;
+    @apply py-20 md:py-28 lg:py-32;
   }
   .text-gradient {
     @apply bg-gradient-to-r from-[#8a1820] via-[#e71b29] to-[#10a5ca] bg-clip-text text-transparent;
