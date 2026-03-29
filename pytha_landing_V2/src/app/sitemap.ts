@@ -4,8 +4,6 @@ import { getAllSlugs } from '@/lib/blog';
 
 const BASE_URL = 'https://pytha3d.ro';
 
-const DOCS_SLUGS = ['', '/instalare', '/module', '/integrare-cnc', '/faq', '/api'];
-
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     '', '/despre-noi', '/module-pytha', '/preturi', '/blog', '/asistenta-tehnica',
@@ -26,12 +24,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  const docsPages = DOCS_SLUGS.map((slug) => ({
-    url: `${BASE_URL}/docs${slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.5,
-  }));
-
-  return [...staticPages, ...blogPosts, ...docsPages];
+  return [...staticPages, ...blogPosts];
 }

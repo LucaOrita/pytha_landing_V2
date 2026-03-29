@@ -45,7 +45,6 @@ export const NAV_LINKS: NavItem[] = [
   { label: 'Preturi', href: '/preturi' },
   { label: 'Despre noi', href: '/despre-noi' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Docs', href: '/docs' },
   { label: 'Asistenta', href: '/asistenta-tehnica' },
 ];
 
@@ -64,7 +63,7 @@ export const FOOTER_LINKS = {
   ],
   suport: [
     { label: 'Asistenta tehnica', href: '/asistenta-tehnica' },
-    { label: 'Documentatie', href: '/docs' },
+    // { label: 'Documentatie', href: '/docs' }, // TODO: reactivare docs
     { label: 'Contact', href: '/contact' },
   ],
   legal: [

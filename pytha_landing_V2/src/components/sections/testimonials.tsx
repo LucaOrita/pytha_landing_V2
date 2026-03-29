@@ -1,6 +1,7 @@
 'use client';
 
 import { InView } from '@/components/ui/in-view';
+import { Marquee } from '@/components/magicui/marquee';
 
 const TESTIMONIALS = [
   {
@@ -23,7 +24,10 @@ const TESTIMONIALS = [
   },
 ];
 
-const PARTNERS = ['Blum', 'Hettich', 'Homag', 'Biesse', 'SCM', 'Felder'];
+const PARTNERS = [
+  'Blum', 'Hettich', 'Homag', 'Biesse', 'SCM', 'Felder',
+  'Hafele', 'Grass', 'Weeke', 'Holzma',
+];
 
 export default function Testimonials() {
   return (
@@ -44,7 +48,6 @@ export default function Testimonials() {
           {TESTIMONIALS.map((t, i) => (
             <InView key={t.author} delay={i * 80}>
               <div className="flex h-full flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                {/* Quote icon */}
                 <svg
                   className="mb-4 size-8 text-[#8a1820]/20"
                   viewBox="0 0 24 24"
@@ -63,22 +66,26 @@ export default function Testimonials() {
             </InView>
           ))}
         </div>
+      </div>
 
-        {/* Compatible with */}
-        <div className="mt-16 text-center">
-          <p className="mb-6 text-sm font-semibold uppercase tracking-wider text-gray-400">
-            Compatibil cu
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-8">
+      {/* Partner logos marquee */}
+      <div className="mt-20">
+        <p className="mb-8 text-center text-sm font-semibold uppercase tracking-wider text-gray-400">
+          Compatibil cu echipamente si feronerie de la
+        </p>
+        <div className="relative">
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[#f8f8f8] to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[#f8f8f8] to-transparent" />
+          <Marquee pauseOnHover className="[--duration:30s] [--gap:2rem]">
             {PARTNERS.map((name) => (
               <span
                 key={name}
-                className="rounded-lg border border-gray-100 bg-white px-6 py-3 text-sm font-semibold text-gray-400 shadow-sm"
+                className="flex items-center rounded-xl border border-gray-100 bg-white px-8 py-4 text-base font-semibold text-gray-400 shadow-sm transition-colors hover:text-[#8a1820]"
               >
                 {name}
               </span>
             ))}
-          </div>
+          </Marquee>
         </div>
       </div>
     </section>
