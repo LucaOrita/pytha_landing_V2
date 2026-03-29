@@ -10,6 +10,7 @@ export interface NavItem {
   subitems?: {
     modules: NavSubItem[];
     addons: NavSubItem[];
+    industries: NavSubItem[];
   };
 }
 
@@ -34,6 +35,11 @@ export const NAV_LINKS: NavItem[] = [
       addons: [
         { label: 'CadBid', href: '/module-pytha#cadbid', description: 'Licitatii si ofertare rapida' },
       ],
+      industries: [
+        { label: 'Mobilier la Comanda', href: '/solutii/mobilier-la-comanda', description: 'Flux complet pentru ateliere' },
+        { label: 'Tamplarie Comerciala', href: '/solutii/tamplarie-comerciala', description: 'Volume mari, automatizare totala' },
+        { label: 'Design Interior', href: '/solutii/design-interior', description: 'Vizualizare si randare' },
+      ],
     },
   },
   { label: 'Preturi', href: '/preturi' },
@@ -45,12 +51,11 @@ export const NAV_LINKS: NavItem[] = [
 
 export const FOOTER_LINKS = {
   solutii: [
-    { label: 'Modeler Basic', href: '/module-pytha#modeler-basic' },
-    { label: 'Workshop', href: '/module-pytha#workshop' },
-    { label: 'Nesting', href: '/module-pytha#nesting' },
-    { label: 'CAM Interface', href: '/module-pytha#cam-interface' },
-    { label: 'RadioLab', href: '/module-pytha#radiolab' },
+    { label: 'Mobilier la Comanda', href: '/solutii/mobilier-la-comanda' },
+    { label: 'Tamplarie Comerciala', href: '/solutii/tamplarie-comerciala' },
+    { label: 'Design Interior', href: '/solutii/design-interior' },
     { label: 'Toate modulele', href: '/module-pytha' },
+    { label: 'Preturi', href: '/preturi' },
   ],
   companie: [
     { label: 'Despre noi', href: '/despre-noi' },

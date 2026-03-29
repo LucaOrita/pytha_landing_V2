@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     '', '/despre-noi', '/module-pytha', '/preturi', '/blog', '/asistenta-tehnica',
     '/contact', '/solicita-prezentare',
+    '/solutii/mobilier-la-comanda', '/solutii/tamplarie-comerciala', '/solutii/design-interior',
   ].map((path) => ({
     url: `${BASE_URL}${path}`,
     lastModified: new Date(),

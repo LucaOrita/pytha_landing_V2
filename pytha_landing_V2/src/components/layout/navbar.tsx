@@ -56,7 +56,7 @@ const Navbar = () => {
   const isActive = (item: NavItem) => {
     if (pathname === item.href) return true;
     if (item.subitems) {
-      const allLinks = [...item.subitems.modules, ...item.subitems.addons];
+      const allLinks = [...item.subitems.modules, ...item.subitems.addons, ...item.subitems.industries];
       return allLinks.some((sub) => pathname.startsWith(sub.href.split('#')[0]));
     }
     return false;
@@ -130,7 +130,7 @@ const Navbar = () => {
                   onMouseEnter={() => handleDropdownEnter(item.label)}
                   onMouseLeave={handleDropdownLeave}
                 >
-                  <div className="grid grid-cols-[1fr_160px] gap-4">
+                  <div className="grid grid-cols-[1fr_180px] gap-4">
                     {/* Column 1: Modules */}
                     <div>
                       <p className="text-muted-foreground mb-2 px-2 text-xs font-medium uppercase tracking-wider">
@@ -152,7 +152,7 @@ const Navbar = () => {
                       </div>
                     </div>
 
-                    {/* Column 2: Add-ons */}
+                    {/* Column 2: Add-ons + Industries */}
                     <div className="border-border border-l pl-4">
                       <p className="text-muted-foreground mb-2 px-2 text-xs font-medium uppercase tracking-wider">
                         Add-on
@@ -171,6 +171,30 @@ const Navbar = () => {
                           </Link>
                         ))}
                       </div>
+
+                      {/* Industries */}
+                      {item.subitems.industries.length > 0 && (
+                        <>
+                          <div className="border-border my-3 border-t" />
+                          <p className="text-muted-foreground mb-2 px-2 text-xs font-medium uppercase tracking-wider">
+                            Industrii
+                          </p>
+                          <div className="space-y-0.5">
+                            {item.subitems.industries.map((sub) => (
+                              <Link
+                                key={sub.label}
+                                href={sub.href}
+                                className="hover:bg-accent block rounded-md px-2 py-1.5 transition-colors"
+                              >
+                                <div className="text-sm font-medium">{sub.label}</div>
+                                <div className="text-muted-foreground text-xs leading-snug">
+                                  {sub.description}
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -293,6 +317,23 @@ const Navbar = () => {
                             {sub.label}
                           </Link>
                         ))}
+                        {item.subitems.industries.length > 0 && (
+                          <>
+                            <p className="text-muted-foreground px-2 pt-3 text-xs font-medium uppercase tracking-wider">
+                              Industrii
+                            </p>
+                            {item.subitems.industries.map((sub) => (
+                              <Link
+                                key={sub.label}
+                                href={sub.href}
+                                className="text-muted-foreground hover:text-foreground hover:bg-accent/50 block rounded-md px-2 py-1.5 text-sm transition-colors"
+                                onClick={() => setIsMenuOpen(false)}
+                              >
+                                {sub.label}
+                              </Link>
+                            ))}
+                          </>
+                        )}
                       </div>
                     </div>
                   </>
