@@ -6,6 +6,18 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
     qualities: [40, 65, 75],
   },
+  redirects: async () => [
+    {
+      source: '/adline-industries',
+      destination: '/despre-noi#adline',
+      permanent: true,
+    },
+    {
+      source: '/solicita-oferta',
+      destination: '/solicita-prezentare',
+      permanent: true,
+    },
+  ],
 };
 
 const withMDX = createMDX();

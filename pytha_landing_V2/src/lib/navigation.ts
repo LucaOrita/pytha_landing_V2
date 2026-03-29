@@ -54,7 +54,7 @@ export const FOOTER_LINKS = {
   ],
   companie: [
     { label: 'Despre noi', href: '/despre-noi' },
-    { label: 'AdLine Industries', href: '/adline-industries' },
+    { label: 'AdLine Industries', href: '/despre-noi#adline' },
     { label: 'Blog', href: '/blog' },
   ],
   suport: [

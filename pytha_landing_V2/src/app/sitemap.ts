@@ -9,7 +9,7 @@ const DOCS_SLUGS = ['', '/instalare', '/module', '/integrare-cnc', '/faq', '/api
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     '', '/despre-noi', '/module-pytha', '/preturi', '/blog', '/asistenta-tehnica',
-    '/contact', '/adline-industries', '/solicita-oferta', '/solicita-prezentare',
+    '/contact', '/solicita-prezentare',
   ].map((path) => ({
     url: `${BASE_URL}${path}`,
     lastModified: new Date(),
