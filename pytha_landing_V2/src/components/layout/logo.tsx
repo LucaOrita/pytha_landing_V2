@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -38,10 +40,22 @@ export default function Logo({
       {showPartner && (
         <>
           <span className={cn('text-xl font-bold text-[#8a1820]', wordmarkClassName)}>&times;</span>
-          <a
-            href="https://adlineindustries.ro/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <span
+            role="link"
+            tabIndex={0}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              window.open('https://adlineindustries.ro/', '_blank', 'noopener,noreferrer');
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                e.stopPropagation();
+                window.open('https://adlineindustries.ro/', '_blank', 'noopener,noreferrer');
+              }
+            }}
+            className="cursor-pointer"
           >
             <Image
               src="/images/adline-logo-full.jpg"
@@ -50,7 +64,7 @@ export default function Logo({
               height={48}
               className="h-10 w-auto object-contain md:h-12"
             />
-          </a>
+          </span>
         </>
       )}
     </Element>

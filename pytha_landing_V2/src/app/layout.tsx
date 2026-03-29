@@ -99,6 +99,7 @@ export default function RootLayout({
         />
       </head>
       <body
+        suppressHydrationWarning
         className={cn(
           'relative flex min-h-screen flex-col antialiased [--header-height:calc(var(--spacing)*17)]',
           montserrat.variable,
