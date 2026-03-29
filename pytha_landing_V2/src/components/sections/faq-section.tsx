@@ -94,8 +94,24 @@ const FAQ_CATEGORIES = [
 ];
 
 export default function FaqSection() {
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQ_CATEGORIES.flatMap((cat) =>
+      cat.faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+      })),
+    ),
+  };
+
   return (
     <section className="section-padding">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div className="container">
         <div className="mx-auto max-w-3xl space-y-4 text-balance sm:text-center">
           <h2 className="text-4xxl leading-tight tracking-tight md:text-5xl">

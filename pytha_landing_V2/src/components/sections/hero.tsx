@@ -5,56 +5,41 @@ import { Button } from '@/components/ui/button';
 
 export default function Hero() {
   return (
-    <section className="section-padding relative overflow-hidden">
-      {/* Decorative gradient SVG blob */}
-      <svg
-        className="absolute top-0 right-0 -z-10 origin-top-right scale-50 md:scale-75 lg:scale-100"
-        xmlns="http://www.w3.org/2000/svg"
-        width={800}
-        height={700}
-        fill="none"
-        aria-hidden="true"
-      >
-        <defs>
-          <linearGradient id="hero-grad-a" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#9259ED" stopOpacity="0.4" />
-            <stop offset="50%" stopColor="#CF54EE" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#FB8684" stopOpacity="0.2" />
-          </linearGradient>
-          <linearGradient id="hero-grad-b" x1="100%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#10CBF4" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#9672FF" stopOpacity="0.15" />
-          </linearGradient>
-        </defs>
-        <ellipse cx="500" cy="200" rx="350" ry="250" fill="url(#hero-grad-a)" />
-        <ellipse cx="350" cy="450" rx="280" ry="200" fill="url(#hero-grad-b)" />
-      </svg>
+    <section className="relative min-h-screen overflow-hidden flex items-center">
+      {/* Video background */}
+      <video
+        className="absolute inset-0 h-full w-full object-cover z-0"
+        src="/bg/bg-hero-1.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 z-10 bg-black/70" />
 
-      <div className="container relative">
+      <div className="container relative z-20 py-20 md:py-28 lg:py-36">
         <div className="flex flex-col justify-between gap-10 lg:flex-row lg:items-center">
           {/* Left: Copy */}
           <div className="flex max-w-3xl flex-1 flex-col items-start gap-5">
-            {/* Pill tag */}
             <div
-              className="fade-up flex items-center rounded-full border p-1 text-xs"
+              className="fade-up flex items-center rounded-full border border-white/20 p-1 text-xs text-white/80"
               style={{ animationDelay: '0ms' }}
             >
-              <span className="bg-muted rounded-full px-3 py-1">Partener oficial</span>
+              <span className="bg-primary rounded-full px-3 py-1 text-white">Partener oficial</span>
               <span className="px-3">PYTHA in Romania — distribuit de AdLine Industries</span>
             </div>
 
-            {/* H1 */}
             <h1
-              className="fade-up text-5xl leading-none tracking-tight text-balance md:text-6xl lg:text-7xl"
+              className="fade-up text-5xl leading-none tracking-tight text-balance text-white md:text-6xl lg:text-7xl"
               style={{ animationDelay: '0ms' }}
             >
               Proiecteaza. Planifica. Produ. Totul intr-un{' '}
               <span className="text-gradient">singur software.</span>
             </h1>
 
-            {/* Subtitle */}
             <p
-              className="fade-up text-muted-foreground max-w-2xl leading-snug text-lg md:text-xl"
+              className="fade-up max-w-2xl leading-snug text-lg text-white/70 md:text-xl"
               style={{ animationDelay: '130ms' }}
             >
               PYTHA unifica designul 3D, documentatia tehnica si generarea codului CNC
@@ -71,11 +56,11 @@ export default function Hero() {
               <Button className="flex-1 md:min-w-45" asChild>
                 <Link href="/solicita-prezentare">Solicita demo gratuit</Link>
               </Button>
-              <Button className="flex-1 md:min-w-45" variant="outline" asChild>
+              <Button className="flex-1 md:min-w-45 border-white/30 text-white hover:bg-white/10" variant="outline" asChild>
                 <Link href="/module-pytha">Descopera modulele</Link>
               </Button>
             </div>
-            <div className="text-muted-foreground text-center text-sm">
+            <div className="text-center text-sm text-white/60">
               40+ ani experienta &middot; 50+ tari &middot; Suport local Romania
             </div>
           </div>
@@ -89,10 +74,11 @@ export default function Hero() {
           <Image
             src="/images/hero-screenshot.webp"
             alt="Interfata software PYTHA 3D — proiectare mobilier"
-            className="ring-foreground/5 w-full rounded-xs shadow-2xl ring-6 md:rounded-sm md:ring-16"
+            className="ring-white/10 w-full rounded-xs shadow-2xl ring-6 md:rounded-sm md:ring-16"
             width={1440}
             height={905}
             priority
+            quality={75}
             sizes="100vw"
           />
         </div>

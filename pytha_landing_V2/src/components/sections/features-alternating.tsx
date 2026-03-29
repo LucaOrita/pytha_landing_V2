@@ -1,6 +1,7 @@
 'use client';
 
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { InView } from '@/components/ui/in-view';
@@ -13,7 +14,7 @@ const FEATURES = [
     description:
       'De la corpuri simple la geometrii organice complexe. Modelarea 3D solida in PYTHA iti ofera libertatea de a proiecta exact ce ai in minte, cu precizie industriala.',
     link: '/module-pytha#modeler-basic',
-    color: 'from-[var(--chart-1)]',
+    image: '/images/home/section3/Modelare 3D liberă și intuitivă.jpg',
   },
   {
     subtitle: 'Productie automata',
@@ -21,7 +22,7 @@ const FEATURES = [
     description:
       'Gauri, imbinari, aplicare cant, prelucrari CNC — generate automat direct din modelul 3D. Fara munca manuala, fara erori de transfer.',
     link: '/module-pytha#workshop',
-    color: 'from-[var(--chart-2)]',
+    image: '/images/home/section3/Automatizare totală a producției.jpg',
   },
   {
     subtitle: 'Nesting inteligent',
@@ -29,7 +30,7 @@ const FEATURES = [
     description:
       'Algoritm integrat de asezare a pieselor pe panouri — minimizeaza pierderile de material cu pana la 30% si creste randamentul la taiere.',
     link: '/module-pytha#nesting',
-    color: 'from-[var(--chart-3)]',
+    image: '/images/home/section3/Nesting optimizat pentru economie de material.jpg',
   },
   {
     subtitle: 'Integrare CNC',
@@ -37,7 +38,7 @@ const FEATURES = [
     description:
       'WoodWop, AlphaCam, bSolid, Biesse, SCM, Felder, G-code — PYTHA exporta fara conversii suplimentare sau softuri intermediare.',
     link: '/module-pytha#cam-interface',
-    color: 'from-[var(--chart-4)]',
+    image: '/images/home/section3/Integrare directă cu utilajele CNC.jpg',
   },
   {
     subtitle: 'Randare realista',
@@ -45,7 +46,7 @@ const FEATURES = [
     description:
       'Prezinta proiecte cu iluminare reala, texturi HD si animatii interactive. RadioLab transforma modelul 3D in imagini de prezentare care vand.',
     link: '/module-pytha#radiolab',
-    color: 'from-[var(--chart-1)]',
+    image: '/images/home/section3/Randare fotorealistă pentru vânzare rapidă.png',
   },
   {
     subtitle: 'Control total',
@@ -53,7 +54,7 @@ const FEATURES = [
     description:
       'Liste piese, etichete cu coduri QR, documentatie tehnica, export CSV — totul generat automat dintr-un singur click, direct din modelul 3D.',
     link: '/module-pytha#parts-list',
-    color: 'from-[var(--chart-2)]',
+    image: '/images/home/section3/Control complet – De la schiță la producție.jpg',
   },
 ];
 
@@ -61,7 +62,6 @@ export default function FeaturesAlternating() {
   return (
     <section className="section-padding">
       <div className="container space-y-20 md:space-y-30">
-        {/* Section heading */}
         <InView className="mx-auto max-w-3xl text-balance text-center">
           <h2 className="text-4xxl leading-tight tracking-tight md:text-5xl lg:text-6xl">
             Tot ce ai nevoie pentru{' '}
@@ -72,7 +72,6 @@ export default function FeaturesAlternating() {
           </p>
         </InView>
 
-        {/* Feature rows */}
         {FEATURES.map((feature, index) => (
           <InView key={feature.title} delay={index > 2 ? 0 : 80}>
             <div
@@ -81,26 +80,20 @@ export default function FeaturesAlternating() {
                 index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse',
               )}
             >
-              {/* Image placeholder */}
               <div className="flex-1">
-                <div
-                  className={cn(
-                    'bg-card aspect-[4/3] w-full overflow-hidden rounded-xl border shadow-sm',
-                    'dark:via-muted/10 dark:to-muted/30 bg-gradient-to-br dark:from-transparent',
-                  )}
-                >
-                  <div className="flex size-full items-center justify-center">
-                    <div
-                      className={cn(
-                        'size-20 rounded-2xl bg-gradient-to-br to-transparent opacity-30',
-                        feature.color,
-                      )}
-                    />
-                  </div>
+                <div className="overflow-hidden rounded-xl shadow-lg">
+                  <Image
+                    src={feature.image}
+                    alt={feature.title}
+                    width={640}
+                    height={480}
+                    className="aspect-[4/3] w-full object-cover"
+                    quality={65}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
                 </div>
               </div>
 
-              {/* Text */}
               <div className="flex flex-1 flex-col gap-4">
                 <span className="bg-muted text-accent-foreground w-fit rounded-full px-3 py-1 text-xs font-medium">
                   {feature.subtitle}

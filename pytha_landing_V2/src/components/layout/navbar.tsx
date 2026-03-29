@@ -43,13 +43,6 @@ const Navbar = () => {
     };
   }, [isMenuOpen]);
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setIsMenuOpen(false);
-    setOpenDropdown(null);
-    setMobileAccordion(null);
-  }, [pathname]);
-
   const handleDropdownEnter = useCallback((label: string) => {
     if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
     setOpenDropdown(label);

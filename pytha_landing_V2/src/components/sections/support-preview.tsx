@@ -1,20 +1,20 @@
-import { Globe, Monitor, Phone } from 'lucide-react';
+import Image from 'next/image';
 
 const CARDS = [
   {
-    icon: Phone,
     title: 'Suport tehnic local',
     description: 'Raspunsuri rapide in limba romana — telefon, email sau on-site.',
+    image: '/images/home/section2/Suport Technic Local.jpg',
   },
   {
-    icon: Monitor,
-    title: 'Asistenta la distanta',
+    title: 'Asistenta continua in productie',
     description: 'TeamViewer, AnyDesk sau apel video — rezolvam rapid orice problema.',
+    image: '/images/home/section2/Asistenta continua in Productie.png',
   },
   {
-    icon: Globe,
     title: 'Suport oficial PYTHA Germania',
     description: 'Acces direct la dezvoltatorii PYTHA Lab pentru probleme complexe.',
+    image: '/images/home/section2/Acces la Suportul Oficial PYTHA Germania.jpg',
   },
 ];
 
@@ -34,16 +34,21 @@ export default function SupportPreview() {
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3 lg:mt-16">
-          {CARDS.map((card) => {
-            const Icon = card.icon;
-            return (
-              <div
-                key={card.title}
-                className="bg-card text-card-foreground flex flex-col gap-4 rounded-md border p-6 shadow-sm transition-shadow hover:shadow-lg"
-              >
-                <div className="from-muted/30 via-muted/10 to-card flex size-10 items-center justify-center rounded-md border bg-gradient-to-r p-2">
-                  <Icon className="size-4.5" />
-                </div>
+          {CARDS.map((card) => (
+            <div
+              key={card.title}
+              className="bg-card text-card-foreground flex flex-col overflow-hidden rounded-md border shadow-sm transition-shadow hover:shadow-lg"
+            >
+              <Image
+                src={card.image}
+                alt={card.title}
+                width={400}
+                height={250}
+                className="aspect-[16/10] w-full object-cover"
+                quality={65}
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              <div className="flex flex-col gap-3 p-6">
                 <h3 className="text-accent-foreground text-lg font-bold">
                   {card.title}
                 </h3>
@@ -51,8 +56,8 @@ export default function SupportPreview() {
                   {card.description}
                 </p>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </section>
