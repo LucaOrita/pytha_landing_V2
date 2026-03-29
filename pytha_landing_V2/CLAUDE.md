@@ -12,12 +12,43 @@ Inainte de ORICE actiune (creare fisier, editare, styling, continut), CITESTE si
 - **SEO Specialist** (sub-agent): Cand ai nevoie de meta tags, structured data, heading hierarchy, URL structure, keyword placement — gandeste ca un SEO specialist. Keywords principale: "software CAD 3D mobilier", "PYTHA Romania", "proiectare mobilier 3D", "digitalizare atelier mobila", "CAD CAM mobilier".
 
 ## TECH STACK
-- Next.js 15 (App Router, RSC enabled)
+- Next.js 16 (App Router, RSC enabled)
 - Tailwind CSS v4 (via @tailwindcss/postcss)
 - shadcn/ui (new-york style, lucide icons)
 - Framer Motion (motion/react) — DOAR pentru animatii complexe
 - TypeScript Strict
-- Fonturi: Inter + Azeret Mono (Google Fonts via next/font)
+- Fonturi: Montserrat (titluri, navbar, headings) + Poppins (body, paragrafe, butoane) — Google Fonts via next/font
+
+## IDENTITATE VIZUALA
+
+Culorile brandului PYTHA Romania / AdLine Industries:
+
+main (rosu):
+  50:#fff1f2, 100:#ffe0e2, 200:#ffc7cb, 300:#ffa0a7, 400:#ff6974,
+  500:#f93a47, 600:#e71b29, 700:#c2131f, 800:#a1131d, 900:#8a1820, 950:#49060b
+
+secondary (cyan):
+  500:#10a5ca, 600:#118ab2, 700:#146a8a
+
+background: #f8f8f8
+
+## ASSETS
+
+Toate fisierele disponibile in public/:
+
+- public/bg/ — video-uri hero si background (bg-hero-1.mp4, base.mp4, cam.mp4, freeform.mp4, generator.mp4, nesting.mp4, workshop.mp4, etc.) + SVG decorative
+- public/images/ — logo-uri (pytha-logo.png, adline-logo-full.jpg, logo-adline-min.png, pytha-theoram-logo.png), screenshots (hero-screenshot.webp, demo.webp), noise.webp, icon.png, fotografii echipa (it_guy.jpeg, it_pytha.jpeg, it_support.jpeg)
+- public/images/home/ — imagini sectiuni homepage (section1/, section2/, section3/)
+- public/images/despre/ — imagini pagina despre noi
+- public/images/adlineSection/ — imagini pagina AdLine
+- public/images/homepage/ — imagini suplimentare homepage
+- public/icons/ — social media SVG (facebook, instagram, linkedin, youtube)
+- public/videos/ — video-uri per modul PYTHA (CAM Interface, Generators, Workshop, Nesting, Freeform, Parametric, Biblioteca, Parts List)
+
+## SEO
+Keywords centralizate in: src/lib/seo-keywords.ts
+Sitemap: src/app/sitemap.ts (auto-generat)
+Robots: src/app/robots.ts
 
 ## STRUCTURA PAGINILOR
 1. / (Acasa)
