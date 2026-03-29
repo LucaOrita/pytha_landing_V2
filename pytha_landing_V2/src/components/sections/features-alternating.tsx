@@ -25,14 +25,6 @@ const FEATURES = [
     image: '/images/home/section3/Automatizare totală a producției.jpg',
   },
   {
-    subtitle: 'Nesting inteligent',
-    title: 'Optimizeaza fiecare panou, elimina risipa',
-    description:
-      'Algoritm integrat de asezare a pieselor pe panouri — minimizeaza pierderile de material cu pana la 30% si creste randamentul la taiere.',
-    link: '/module-pytha#nesting',
-    image: '/images/home/section3/Nesting optimizat pentru economie de material.jpg',
-  },
-  {
     subtitle: 'Integrare CNC',
     title: 'Export direct catre orice utilaj CNC',
     description:
@@ -47,14 +39,6 @@ const FEATURES = [
       'Prezinta proiecte cu iluminare reala, texturi HD si animatii interactive. RadioLab transforma modelul 3D in imagini de prezentare care vand.',
     link: '/module-pytha#radiolab',
     image: '/images/home/section3/Randare fotorealistă pentru vânzare rapidă.png',
-  },
-  {
-    subtitle: 'Control total',
-    title: 'De la schita la productie — un singur soft',
-    description:
-      'Liste piese, etichete cu coduri QR, documentatie tehnica, export CSV — totul generat automat dintr-un singur click, direct din modelul 3D.',
-    link: '/module-pytha#parts-list',
-    image: '/images/home/section3/Control complet – De la schiță la producție.jpg',
   },
 ];
 
