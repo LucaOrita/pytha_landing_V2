@@ -7,9 +7,9 @@ export function BlogSidebar({ recentPosts }: { recentPosts: BlogPost[] }) {
   return (
     <aside className="space-y-6 lg:sticky lg:top-36 lg:self-start">
       {/* CTA Mini */}
-      <div className="bg-card rounded-md border p-6 shadow-sm">
-        <h3 className="text-accent-foreground font-bold">Vrei sa vezi PYTHA in actiune?</h3>
-        <p className="text-muted-foreground mt-2 text-sm leading-snug">
+      <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-md">
+        <h3 className="font-bold">Vrei sa vezi PYTHA in actiune?</h3>
+        <p className="mt-2 text-sm leading-snug text-gray-500">
           Programeaza o prezentare gratuita de 15 minute.
         </p>
         <Button size="sm" className="mt-4 w-full" asChild>
@@ -19,14 +19,14 @@ export function BlogSidebar({ recentPosts }: { recentPosts: BlogPost[] }) {
 
       {/* Recent articles */}
       {recentPosts.length > 0 && (
-        <div className="bg-card rounded-md border p-6 shadow-sm">
-          <h3 className="text-accent-foreground mb-4 font-bold">Articole recente</h3>
+        <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-md">
+          <h3 className="mb-4 font-bold">Articole recente</h3>
           <div className="space-y-3">
             {recentPosts.map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="text-muted-foreground block text-sm leading-snug transition-opacity hover:opacity-80"
+                className="block text-sm leading-snug text-[#8a1820] transition-opacity hover:opacity-80"
               >
                 {post.title}
               </Link>

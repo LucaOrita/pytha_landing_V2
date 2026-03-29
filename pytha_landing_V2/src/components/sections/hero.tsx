@@ -23,10 +23,10 @@ export default function Hero() {
           {/* Left: Copy */}
           <div className="flex max-w-3xl flex-1 flex-col items-start gap-5">
             <div
-              className="fade-up flex items-center rounded-full border border-white/20 p-1 text-xs text-white/80"
+              className="fade-up flex items-center rounded-full border border-[#8a1820]/30 bg-[#8a1820]/10 p-1 text-xs text-white/90"
               style={{ animationDelay: '0ms' }}
             >
-              <span className="bg-primary rounded-full px-3 py-1 text-white">Partener oficial</span>
+              <span className="rounded-full bg-[#8a1820] px-3 py-1 text-white">Partener oficial</span>
               <span className="px-3">PYTHA in Romania — distribuit de AdLine Industries</span>
             </div>
 

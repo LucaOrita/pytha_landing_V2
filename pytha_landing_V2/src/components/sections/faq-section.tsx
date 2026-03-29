@@ -114,42 +114,46 @@ export default function FaqSection() {
       />
       <div className="container">
         <div className="mx-auto max-w-3xl space-y-4 text-balance sm:text-center">
-          <h2 className="text-4xxl leading-tight tracking-tight md:text-5xl">
+          <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
             Intrebari <span className="text-gradient">frecvente</span>
           </h2>
-          <p className="text-muted-foreground text-lg leading-snug">
+          <p className="mx-auto max-w-2xl text-lg text-gray-500">
             Raspunsuri la cele mai importante intrebari despre PYTHA,
             modulele disponibile si integrarea CNC.
           </p>
         </div>
 
-        <div className="mx-auto mt-12 max-w-3xl space-y-10 lg:mt-16">
-          {FAQ_CATEGORIES.map((category) => (
-            <div key={category.title}>
-              <h3 className="text-accent-foreground mb-4 text-lg font-bold">
-                {category.title}
-              </h3>
-              <Accordion type="single" collapsible>
-                {category.faqs.map((faq, index) => (
-                  <AccordionItem key={index} value={`${category.title}-${index}`}>
-                    <AccordionTrigger className="text-left text-base">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {faq.answer}
-                      </p>
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
+        <div className="mx-auto mt-12 max-w-4xl md:mt-16">
+          <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-md md:p-12">
+            <div className="space-y-10">
+              {FAQ_CATEGORIES.map((category) => (
+                <div key={category.title}>
+                  <h3 className="mb-4 text-lg font-bold">
+                    {category.title}
+                  </h3>
+                  <Accordion type="single" collapsible>
+                    {category.faqs.map((faq, index) => (
+                      <AccordionItem key={index} value={`${category.title}-${index}`}>
+                        <AccordionTrigger className="text-left text-base font-semibold hover:text-[#8a1820]">
+                          {faq.question}
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <p className="leading-relaxed text-gray-500">
+                            {faq.answer}
+                          </p>
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
 
         {/* CTA */}
-        <div className="mt-12 text-center lg:mt-16">
-          <p className="text-muted-foreground mb-4">
+        <div className="mt-12 text-center md:mt-16">
+          <p className="mb-4 text-gray-500">
             Ai alte intrebari? Suntem aici sa te ajutam.
           </p>
           <Button asChild>

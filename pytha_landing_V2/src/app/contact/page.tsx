@@ -84,7 +84,7 @@ export default function ContactPage() {
             <h1 className="text-5xl leading-none tracking-tight text-balance md:text-6xxl">
               <span className="text-gradient">Contacteaza-ne</span>
             </h1>
-            <p className="text-muted-foreground leading-snug md:text-lg lg:text-xl">
+            <p className="mx-auto max-w-2xl leading-snug text-gray-500 md:text-lg lg:text-xl">
               Suntem aici sa te ajutam. Raspundem in maximum 24 de ore.
             </p>
           </div>
@@ -92,12 +92,12 @@ export default function ContactPage() {
       </section>
 
       {/* Two-column: Form + Info */}
-      <section className="section-padding">
+      <section className="section-padding bg-white">
         <div className="container grid gap-10 lg:grid-cols-[1fr_380px] lg:gap-18">
           {/* Left: Form */}
           <div>
-            <div className="bg-card rounded-md border p-6 shadow-sm md:p-8">
-              <h2 className="text-accent-foreground mb-6 text-xl font-bold">
+            <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-lg md:p-8">
+              <h2 className="mb-6 text-xl font-bold">
                 Trimite-ne un mesaj
               </h2>
               <Suspense fallback={<div className="h-64 animate-pulse rounded-md" />}>
@@ -107,7 +107,7 @@ export default function ContactPage() {
 
             {/* Sub-form CTAs */}
             <div className="mt-6 text-center">
-              <p className="text-muted-foreground mb-3 text-sm">Sau programeaza direct:</p>
+              <p className="mb-3 text-sm text-gray-500">Sau programeaza direct:</p>
               <div className="flex flex-wrap justify-center gap-3">
                 <Button size="sm" variant="outline" asChild>
                   <Link href="/solicita-oferta">Solicita oferta</Link>
@@ -124,12 +124,12 @@ export default function ContactPage() {
             {CONTACT_INFO.map((item) => {
               const Icon = item.icon;
               return (
-                <div key={item.label} className="bg-card rounded-md border p-5 shadow-sm">
+                <div key={item.label} className="rounded-2xl border border-gray-100 bg-white p-5 shadow-md">
                   <div className="mb-3 flex items-center gap-3">
-                    <div className="from-muted/30 via-muted/10 to-card flex size-9 items-center justify-center rounded-md border bg-gradient-to-r p-1.5">
-                      <Icon className="size-4" />
+                    <div className="flex size-10 items-center justify-center rounded-full bg-[#fff1f2]">
+                      <Icon className="size-4 text-[#8a1820]" />
                     </div>
-                    <h3 className="text-accent-foreground font-bold">{item.label}</h3>
+                    <h3 className="font-bold">{item.label}</h3>
                   </div>
                   <div className="space-y-1">
                     {item.lines.map((line) =>
@@ -137,12 +137,12 @@ export default function ContactPage() {
                         <a
                           key={line.text}
                           href={line.href}
-                          className="text-muted-foreground block text-sm transition-opacity hover:opacity-80"
+                          className="block text-sm text-[#8a1820] transition-opacity hover:opacity-80"
                         >
                           {line.text}
                         </a>
                       ) : (
-                        <p key={line.text} className="text-muted-foreground text-sm">
+                        <p key={line.text} className="text-sm text-gray-500">
                           {line.text}
                         </p>
                       ),
@@ -153,8 +153,8 @@ export default function ContactPage() {
             })}
 
             {/* Social links */}
-            <div className="bg-card rounded-md border p-5 shadow-sm">
-              <h3 className="text-accent-foreground mb-3 font-bold">Social media</h3>
+            <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-md">
+              <h3 className="mb-3 font-bold">Social media</h3>
               <div className="flex gap-4">
                 {SOCIAL_LINKS.map((link) => (
                   <a
@@ -162,7 +162,7 @@ export default function ContactPage() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground text-sm transition-opacity hover:opacity-80"
+                    className="text-sm text-[#8a1820] transition-opacity hover:opacity-80"
                   >
                     {link.name}
                   </a>
@@ -170,8 +170,8 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Map placeholder */}
-            <div className="bg-card overflow-hidden rounded-md border shadow-sm">
+            {/* Map */}
+            <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-md">
               <iframe
                 title="Locatie AdLine Industries"
                 className="h-48 w-full border-0"

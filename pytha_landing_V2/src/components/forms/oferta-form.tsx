@@ -104,14 +104,14 @@ export default function OfertaForm() {
 
   if (submitted) {
     return (
-      <div className="bg-card rounded-md border p-8 text-center shadow-sm">
-        <div className="bg-secondary mx-auto mb-4 flex size-12 items-center justify-center rounded-full">
-          <svg className="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <div className="rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-md">
+        <div className="mx-auto mb-4 flex size-12 items-center justify-center rounded-full bg-[#fff1f2]">
+          <svg className="size-6 text-[#8a1820]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h2 className="text-accent-foreground text-xl font-bold">Multumim!</h2>
-        <p className="text-muted-foreground mt-2">
+        <h2 className="text-xl font-bold">Multumim!</h2>
+        <p className="mt-2 text-gray-500">
           Te contactam in maxim 24 de ore cu o oferta personalizata.
         </p>
       </div>

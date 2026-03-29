@@ -20,7 +20,7 @@ export default function BlogPage() {
           <h1 className="text-5xl leading-none tracking-tight text-balance md:text-6xxl">
             Blog — <span className="text-gradient">Digitalizare si productie</span>
           </h1>
-          <p className="text-muted-foreground leading-snug md:text-lg lg:text-xl">
+          <p className="mx-auto max-w-2xl leading-snug text-gray-500 md:text-lg lg:text-xl">
             Resurse, ghiduri si noutati din lumea proiectarii 3D si a productiei de mobilier.
           </p>
         </div>

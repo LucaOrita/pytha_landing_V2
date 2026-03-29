@@ -67,7 +67,7 @@ export default async function BlogPostPage({
       {/* Breadcrumb + Hero */}
       <section className="section-padding">
         <div className="container">
-          <nav className="text-muted-foreground mb-6 text-sm" aria-label="Breadcrumb">
+          <nav className="mb-6 text-sm text-gray-400" aria-label="Breadcrumb">
             <Link href="/" className="hover:opacity-80">Acasa</Link>
             <span className="mx-2">/</span>
             <Link href="/blog" className="hover:opacity-80">Blog</Link>
@@ -78,7 +78,7 @@ export default async function BlogPostPage({
           <div className="max-w-3xl space-y-4">
             <div className="flex flex-wrap gap-2">
               {post.tags.map((tag) => (
-                <span key={tag} className="bg-muted rounded-full px-2.5 py-0.5 text-xs">
+                <span key={tag} className="rounded-full bg-[#fff1f2] px-2.5 py-0.5 text-xs font-medium text-[#8a1820]">
                   {tag}
                 </span>
               ))}
@@ -86,7 +86,7 @@ export default async function BlogPostPage({
             <h1 className="text-4xxl leading-tight tracking-tight md:text-5xl">
               {post.title}
             </h1>
-            <div className="text-muted-foreground flex items-center gap-3 text-sm">
+            <div className="flex items-center gap-3 text-sm text-gray-400">
               <span>{post.author}</span>
               <span>&middot;</span>
               <span>{new Date(post.date).toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
@@ -111,7 +111,7 @@ export default async function BlogPostPage({
           <h2 className="text-4xxl leading-tight tracking-tight md:text-5xl">
             Ti-a placut articolul?
           </h2>
-          <p className="text-muted-foreground mx-auto mt-4 max-w-xl text-lg leading-snug">
+          <p className="mx-auto mt-4 max-w-xl text-lg leading-snug text-gray-500">
             Programeaza o prezentare si descopera PYTHA in actiune.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4.5">

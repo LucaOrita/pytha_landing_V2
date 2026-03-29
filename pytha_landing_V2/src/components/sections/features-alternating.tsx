@@ -60,14 +60,14 @@ const FEATURES = [
 
 export default function FeaturesAlternating() {
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-white">
       <div className="container space-y-20 md:space-y-30">
         <InView className="mx-auto max-w-3xl text-balance text-center">
-          <h2 className="text-4xxl leading-tight tracking-tight md:text-5xl lg:text-6xl">
+          <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
             Tot ce ai nevoie pentru{' '}
             <span className="text-gradient">productie digitala</span>
           </h2>
-          <p className="text-muted-foreground mt-4 text-lg leading-snug">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-500">
             De la prima schita pana la piesa finisata — PYTHA acopera intreg fluxul.
           </p>
         </InView>
@@ -80,14 +80,14 @@ export default function FeaturesAlternating() {
                 index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse',
               )}
             >
-              <div className="flex-1">
-                <div className="overflow-hidden rounded-xl shadow-lg">
+              <div className="group flex-1">
+                <div className="overflow-hidden rounded-2xl shadow-xl transition-shadow duration-300 group-hover:shadow-2xl">
                   <Image
                     src={feature.image}
                     alt={feature.title}
                     width={640}
                     height={480}
-                    className="aspect-[4/3] w-full object-cover"
+                    className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     quality={65}
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
@@ -95,21 +95,23 @@ export default function FeaturesAlternating() {
               </div>
 
               <div className="flex flex-1 flex-col gap-4">
-                <span className="bg-muted text-accent-foreground w-fit rounded-full px-3 py-1 text-xs font-medium">
+                <span className="w-fit rounded-full bg-[#fff1f2] px-3 py-1 text-xs font-semibold text-[#8a1820]">
                   {feature.subtitle}
                 </span>
-                <h3 className="text-accent-foreground text-2xl font-bold leading-tight tracking-tight md:text-3xl">
+                <h3 className="text-2xl font-bold leading-tight tracking-tight md:text-3xl">
                   {feature.title}
                 </h3>
-                <p className="text-muted-foreground max-w-lg text-lg leading-snug">
+                <p className="max-w-lg text-lg leading-snug text-gray-500">
                   {feature.description}
                 </p>
                 <Link
                   href={feature.link}
-                  className="text-accent-foreground group mt-2 inline-flex items-center gap-2 text-sm font-medium transition-opacity hover:opacity-80"
+                  className="group/link mt-2 inline-flex items-center gap-2 text-sm font-semibold text-[#8a1820] transition-colors hover:text-[#a1131d]"
                 >
-                  Afla mai multe
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                  <span className="underline decoration-[#8a1820]/30 underline-offset-4 transition-all group-hover/link:decoration-[#8a1820]">
+                    Afla mai multe
+                  </span>
+                  <ArrowRight className="size-4 transition-transform group-hover/link:translate-x-1" />
                 </Link>
               </div>
             </div>

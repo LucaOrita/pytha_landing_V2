@@ -28,23 +28,24 @@ const STATS = [
 
 export default function Stats() {
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-white">
       <div className="container">
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3 md:gap-6">
           {STATS.map((stat) => (
             <div
               key={stat.label}
-              className="bg-card text-card-foreground rounded-md border p-6 text-center shadow-sm"
+              className="rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
-              <div className="text-4xxl font-medium md:text-5xl">
+              <div className="text-5xl font-bold text-[#8a1820] md:text-6xl">
                 <NumberTicker
                   value={stat.value}
                   duration={1400}
-                  className="text-4xxl font-medium md:text-5xl"
+                  className="text-5xl font-bold text-[#8a1820] md:text-6xl"
                 />
                 <span>{stat.suffix}</span>
               </div>
-              <p className="text-accent-foreground mt-2 text-lg font-bold">
+              <div className="mx-auto mt-3 h-1 w-12 rounded-full bg-[#8a1820]" />
+              <p className="mt-4 text-lg font-bold">
                 {stat.label}
               </p>
               <p className="text-muted-foreground mt-1 text-sm leading-snug">

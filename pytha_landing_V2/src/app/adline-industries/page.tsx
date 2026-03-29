@@ -50,7 +50,7 @@ export default function AdLineIndustriesPage() {
             <h1 className="text-5xl leading-none tracking-tight text-balance md:text-6xxl">
               <span className="text-gradient">AdLine Industries</span>
             </h1>
-            <p className="text-muted-foreground leading-snug md:text-lg lg:text-xl">
+            <p className="mx-auto max-w-2xl leading-snug text-gray-500 md:text-lg lg:text-xl">
               Peste 20 de ani de solutii CNC si digitalizare industriala in Europa de Est.
               Partenerul tau de incredere pentru echipamente, software si suport tehnic.
             </p>
@@ -59,45 +59,45 @@ export default function AdLineIndustriesPage() {
       </section>
 
       {/* Despre companie */}
-      <section className="section-padding">
+      <section className="section-padding bg-white">
         <div className="container grid gap-10 lg:grid-cols-2 lg:gap-18">
           <div className="space-y-4">
-            <h2 className="text-4xxl leading-tight tracking-tight md:text-5xl">
+            <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
               Despre companie
             </h2>
-            <p className="text-muted-foreground text-lg leading-snug">
+            <p className="text-lg leading-snug text-gray-500">
               AdLine Industries este un furnizor de solutii industriale cu sediul in
               Bucuresti, activ din 2003. Acoperim Romania, Bulgaria si Ungaria cu
               echipamente CNC, software de proiectare si servicii complete de integrare.
             </p>
-            <p className="text-muted-foreground text-lg leading-snug">
+            <p className="text-lg leading-snug text-gray-500">
               Am crescut prin relatii pe termen lung cu producatorii — nu prin volume,
               ci prin calitate constanta si clienti care ne recomanda mai departe.
             </p>
           </div>
           <div className="space-y-4">
-            <div className="bg-card flex flex-col gap-4 rounded-md border p-6 shadow-sm">
+            <div className="flex flex-col gap-4 rounded-2xl border border-gray-100 bg-white p-8 shadow-lg">
               <div className="flex items-center gap-3">
-                <MapPin className="text-muted-foreground size-5" />
-                <span>Bulevardul Metalurgiei 99-99B, Bucuresti</span>
+                <MapPin className="size-5 text-[#8a1820]" />
+                <span className="font-semibold">Bulevardul Metalurgiei 99-99B, Bucuresti</span>
               </div>
-              <div className="text-muted-foreground space-y-1 text-sm">
+              <div className="space-y-1 text-sm text-gray-500">
                 <p>Telefon: +40 742 065 893 / +40 742 065 376</p>
                 <p>Email: pytha@adlineindustries.ro</p>
                 <p>Program: Luni-Vineri 09:00-17:00</p>
               </div>
               <div className="grid grid-cols-3 gap-4 border-t pt-4">
                 <div className="text-center">
-                  <div className="font-display text-2xl font-medium">20+</div>
-                  <p className="text-muted-foreground text-xs">Ani experienta</p>
+                  <div className="text-2xl font-bold text-[#8a1820]">20+</div>
+                  <p className="text-xs text-gray-500">Ani experienta</p>
                 </div>
                 <div className="text-center">
-                  <div className="font-display text-2xl font-medium">3</div>
-                  <p className="text-muted-foreground text-xs">Tari acoperite</p>
+                  <div className="text-2xl font-bold text-[#8a1820]">3</div>
+                  <p className="text-xs text-gray-500">Tari acoperite</p>
                 </div>
                 <div className="text-center">
-                  <div className="font-display text-2xl font-medium">500+</div>
-                  <p className="text-muted-foreground text-xs">Clienti activi</p>
+                  <div className="text-2xl font-bold text-[#8a1820]">500+</div>
+                  <p className="text-xs text-gray-500">Clienti activi</p>
                 </div>
               </div>
             </div>
@@ -109,10 +109,10 @@ export default function AdLineIndustriesPage() {
       <section className="section-padding">
         <div className="container">
           <div className="mx-auto max-w-3xl space-y-4 text-balance sm:text-center">
-            <h2 className="text-4xxl leading-tight tracking-tight md:text-5xl">
+            <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
               Servicii <span className="text-gradient">complete</span>
             </h2>
-            <p className="text-muted-foreground text-lg leading-snug">
+            <p className="mx-auto max-w-2xl text-lg text-gray-500">
               De la prima consultatie pana la suportul post-garantie — suntem langa tine
               in fiecare etapa.
             </p>
@@ -123,13 +123,13 @@ export default function AdLineIndustriesPage() {
               return (
                 <div
                   key={s.title}
-                  className="bg-card text-card-foreground flex flex-col gap-3 rounded-md border p-6 shadow-sm transition-shadow hover:shadow-lg"
+                  className="flex flex-col gap-3 rounded-2xl border border-gray-100 bg-white p-8 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                 >
-                  <div className="from-muted/30 via-muted/10 to-card flex size-10 items-center justify-center rounded-md border bg-gradient-to-r p-2">
-                    <Icon className="size-4.5" />
+                  <div className="flex size-12 items-center justify-center rounded-full bg-[#fff1f2]">
+                    <Icon className="size-5 text-[#8a1820]" />
                   </div>
-                  <h3 className="text-accent-foreground text-lg font-bold">{s.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-snug">{s.description}</p>
+                  <h3 className="text-lg font-bold">{s.title}</h3>
+                  <p className="text-sm leading-snug text-gray-500">{s.description}</p>
                 </div>
               );
             })}
@@ -138,10 +138,10 @@ export default function AdLineIndustriesPage() {
       </section>
 
       {/* De ce AdLine */}
-      <section className="section-padding">
+      <section className="section-padding bg-white">
         <div className="container">
           <div className="mx-auto max-w-3xl space-y-4 text-balance sm:text-center">
-            <h2 className="text-4xxl leading-tight tracking-tight md:text-5xl">
+            <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
               De ce AdLine?
             </h2>
           </div>
@@ -149,13 +149,13 @@ export default function AdLineIndustriesPage() {
             {DIFERENTIATORI.map((d) => {
               const Icon = d.icon;
               return (
-                <div key={d.title} className="flex gap-4">
-                  <div className="bg-secondary flex size-10 shrink-0 items-center justify-center rounded-full">
-                    <Icon className="size-5" />
+                <div key={d.title} className="flex gap-4 rounded-2xl border border-gray-100 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                  <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-[#fff1f2]">
+                    <Icon className="size-5 text-[#8a1820]" />
                   </div>
                   <div>
-                    <h3 className="text-accent-foreground font-bold">{d.title}</h3>
-                    <p className="text-muted-foreground mt-1 text-sm leading-snug">
+                    <h3 className="font-bold">{d.title}</h3>
+                    <p className="mt-1 text-sm leading-snug text-gray-500">
                       {d.description}
                     </p>
                   </div>
@@ -169,10 +169,10 @@ export default function AdLineIndustriesPage() {
       {/* CTA */}
       <section className="section-padding">
         <div className="container text-center">
-          <h2 className="text-4xxl leading-tight tracking-tight md:text-5xl">
+          <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
             Colaboreaza cu AdLine
           </h2>
-          <p className="text-muted-foreground mx-auto mt-4 max-w-xl text-lg leading-snug">
+          <p className="mx-auto mt-4 max-w-xl text-lg text-gray-500">
             Fie ca vrei software PYTHA, echipamente CNC sau ambele — suntem aici
             sa gasim solutia potrivita.
           </p>

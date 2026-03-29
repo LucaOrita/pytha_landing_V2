@@ -20,14 +20,14 @@ const CARDS = [
 
 export default function SupportPreview() {
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-white">
       <div className="container">
         <div className="mx-auto max-w-3xl space-y-4 text-balance sm:text-center">
-          <h2 className="text-4xxl leading-tight tracking-tight md:text-5xl">
+          <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
             Suport real,{' '}
             <span className="text-gradient">nu doar un numar de telefon</span>
           </h2>
-          <p className="text-muted-foreground text-lg leading-snug">
+          <p className="mx-auto max-w-2xl text-lg text-gray-500">
             Cu PYTHA si Adline Industries, ai intotdeauna o echipa de profesionisti
             langa tine — de la instalare pana la optimizarea productiei zilnice.
           </p>
@@ -37,22 +37,24 @@ export default function SupportPreview() {
           {CARDS.map((card) => (
             <div
               key={card.title}
-              className="bg-card text-card-foreground flex flex-col overflow-hidden rounded-md border shadow-sm transition-shadow hover:shadow-lg"
+              className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
-              <Image
-                src={card.image}
-                alt={card.title}
-                width={400}
-                height={250}
-                className="aspect-[16/10] w-full object-cover"
-                quality={65}
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-              <div className="flex flex-col gap-3 p-6">
-                <h3 className="text-accent-foreground text-lg font-bold">
+              <div className="overflow-hidden">
+                <Image
+                  src={card.image}
+                  alt={card.title}
+                  width={400}
+                  height={250}
+                  className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  quality={65}
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="flex flex-col gap-3 p-8">
+                <h3 className="text-lg font-bold">
                   {card.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-snug">
+                <p className="text-sm leading-snug text-gray-500">
                   {card.description}
                 </p>
               </div>

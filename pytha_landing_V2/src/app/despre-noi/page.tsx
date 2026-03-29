@@ -47,7 +47,7 @@ export default function DespreNoiPage() {
             <h1 className="text-5xl leading-none tracking-tight text-balance md:text-6xxl">
               Cine <span className="text-gradient">suntem</span>
             </h1>
-            <p className="text-muted-foreground leading-snug md:text-lg lg:text-xl">
+            <p className="mx-auto max-w-2xl leading-snug text-gray-500 md:text-lg lg:text-xl">
               Solutii software germane de top, livrate cu suport local dedicat de echipa
               AdLine Industries din Romania.
             </p>
@@ -56,14 +56,14 @@ export default function DespreNoiPage() {
       </section>
 
       {/* PYTHA Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-white">
         <div className="container">
           <div className="mx-auto max-w-3xl space-y-4 text-balance sm:text-center">
-            <h2 className="text-4xxl leading-tight tracking-tight md:text-5xl">
+            <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
               PYTHA — 40+ ani de inovatie{' '}
               <span className="text-gradient">in CAD 3D</span>
             </h2>
-            <p className="text-muted-foreground text-lg leading-snug">
+            <p className="mx-auto max-w-2xl text-lg leading-snug text-gray-500">
               PYTHA este un software dezvoltat integral in Germania, de catre compania
               PYTHA Lab GmbH, fondata in anul 1978 in Aschaffenburg. PYTHA a fost conceput
               initial ca un instrument care sa faca proiectarea asistata de calculator mai
@@ -84,7 +84,7 @@ export default function DespreNoiPage() {
               alt="Echipa PYTHA Lab GmbH"
               width={600}
               height={400}
-              className="w-full rounded-xl object-cover shadow-lg"
+              className="w-full rounded-2xl object-cover shadow-xl"
               quality={65}
               sizes="(max-width: 768px) 100vw, 50vw"
             />
@@ -93,7 +93,7 @@ export default function DespreNoiPage() {
               alt="Echipa AdLine Industries"
               width={600}
               height={400}
-              className="w-full rounded-xl object-cover shadow-lg"
+              className="w-full rounded-2xl object-cover shadow-xl"
               quality={65}
               sizes="(max-width: 768px) 100vw, 50vw"
             />
@@ -106,13 +106,13 @@ export default function DespreNoiPage() {
               return (
                 <div
                   key={fact.label}
-                  className="bg-card text-card-foreground flex flex-col items-center gap-3 rounded-md border p-6 text-center shadow-sm"
+                  className="flex flex-col items-center gap-3 rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                 >
-                  <div className="from-muted/30 via-muted/10 to-card flex size-10 items-center justify-center rounded-md border bg-gradient-to-r p-2">
-                    <Icon className="size-4.5" />
+                  <div className="flex size-12 items-center justify-center rounded-full bg-[#fff1f2]">
+                    <Icon className="size-5 text-[#8a1820]" />
                   </div>
-                  <div className="font-display text-2xl font-medium">{fact.value}</div>
-                  <p className="text-muted-foreground text-sm leading-snug">{fact.label}</p>
+                  <div className="text-2xl font-bold text-[#8a1820]">{fact.value}</div>
+                  <p className="text-sm leading-snug text-gray-500">{fact.label}</p>
                 </div>
               );
             })}
@@ -124,13 +124,13 @@ export default function DespreNoiPage() {
       <section className="section-padding">
         <div className="container">
           <div className="mx-auto max-w-3xl space-y-4 text-balance sm:text-center">
-            <span className="bg-muted text-accent-foreground inline-block rounded-full px-3 py-1 text-xs font-medium">
+            <span className="inline-block rounded-full bg-[#fff1f2] px-3 py-1 text-xs font-semibold text-[#8a1820]">
               Partener autorizat
             </span>
-            <h2 className="text-4xxl leading-tight tracking-tight md:text-5xl">
+            <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
               AdLine Industries — partenerul tau local
             </h2>
-            <p className="text-muted-foreground text-lg leading-snug">
+            <p className="mx-auto max-w-2xl text-lg leading-snug text-gray-500">
               In Romania, PYTHA este promovat si sustinut sub egida AdLine Industries — un
               nume respectat in industria echipamentelor CNC, cu activitate extinsa in
               prelucrarea lemnului, metalului si alte ramuri industriale. AdLine nu se
@@ -148,12 +148,12 @@ export default function DespreNoiPage() {
             {ADLINE_FEATURES.map((feature) => (
               <div
                 key={feature.title}
-                className="bg-card text-card-foreground flex flex-col gap-3 rounded-md border p-6 shadow-sm transition-shadow hover:shadow-lg"
+                className="flex flex-col gap-3 rounded-2xl border border-gray-100 bg-white p-8 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
-                <h3 className="text-accent-foreground text-lg font-bold">
+                <h3 className="text-lg font-bold">
                   {feature.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-snug">
+                <p className="text-sm leading-snug text-gray-500">
                   {feature.description}
                 </p>
               </div>
@@ -163,13 +163,13 @@ export default function DespreNoiPage() {
       </section>
 
       {/* Misiune */}
-      <section className="section-padding">
+      <section className="section-padding bg-white">
         <div className="container">
-          <div className="bg-card mx-auto max-w-3xl rounded-xl border p-8 text-center shadow-sm md:p-12">
-            <h2 className="text-4xxl leading-tight tracking-tight md:text-5xl">
+          <div className="mx-auto max-w-3xl rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-lg md:p-12">
+            <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
               Misiunea noastra
             </h2>
-            <p className="text-muted-foreground mt-4 text-lg leading-snug">
+            <p className="mt-4 text-lg leading-snug text-gray-500">
               Sa aducem digitalizarea completa mai aproape de fiecare atelier din Romania.
               Credem ca fiecare producator merita acces la instrumente de nivel mondial —
               si suntem aici sa facem asta posibil.
@@ -181,7 +181,7 @@ export default function DespreNoiPage() {
       {/* CTA */}
       <section className="section-padding">
         <div className="container text-center">
-          <h2 className="text-4xxl leading-tight tracking-tight md:text-5xl">
+          <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
             Vrei sa ne cunosti mai bine?
           </h2>
           <div className="mt-8 flex flex-wrap justify-center gap-4.5">

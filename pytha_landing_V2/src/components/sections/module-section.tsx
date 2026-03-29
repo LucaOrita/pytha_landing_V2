@@ -37,7 +37,7 @@ export default function ModuleSection({
   const displayNote = isMonthly && module.monthlyPrice ? 'pe luna' : module.priceNote;
 
   return (
-    <section id={module.id} className="scroll-mt-36 py-12 md:py-16">
+    <section id={module.id} className={cn('scroll-mt-36 py-16 md:py-20', isEven ? '' : 'bg-white')}>
       <div
         className={cn(
           'container flex flex-col gap-10 lg:gap-18',
@@ -45,8 +45,8 @@ export default function ModuleSection({
         )}
       >
         {/* Media */}
-        <div className="flex-1">
-          <div className="overflow-hidden rounded-xl border shadow-sm">
+        <div className="group flex-1">
+          <div className="overflow-hidden rounded-2xl shadow-xl transition-shadow duration-300 group-hover:shadow-2xl">
             {module.video ? (
               <video
                 src={module.video}
@@ -76,17 +76,17 @@ export default function ModuleSection({
 
         {/* Text content */}
         <div className="flex flex-1 flex-col gap-4">
-          <span className="bg-muted text-accent-foreground w-fit rounded-full px-3 py-1 text-xs font-medium">
+          <span className="w-fit rounded-full bg-[#fff1f2] px-3 py-1 text-xs font-semibold text-[#8a1820]">
             {module.badge}
           </span>
 
-          <h2 className="text-accent-foreground text-2xl font-bold leading-tight tracking-tight md:text-3xl">
+          <h2 className="text-2xl font-bold leading-tight tracking-tight md:text-3xl">
             {module.title}
           </h2>
 
-          <h3 className="text-lg font-medium">{module.subtitle}</h3>
+          <h3 className="text-lg font-semibold">{module.subtitle}</h3>
 
-          <p className="text-muted-foreground text-base leading-snug">
+          <p className="text-base leading-snug text-gray-500">
             {module.description}
           </p>
 
@@ -105,10 +105,10 @@ export default function ModuleSection({
 
           <div className="mt-4 flex flex-wrap items-center gap-4">
             <div>
-              <span className="font-display text-2xl font-medium md:text-3xl">
+              <span className="font-display text-2xl font-bold md:text-3xl">
                 {displayPrice}
               </span>
-              <span className="text-muted-foreground ml-2 text-sm">{displayNote}</span>
+              <span className="ml-2 text-sm text-gray-500">{displayNote}</span>
             </div>
             <Button size="sm" asChild>
               <Link href={module.ctaHref || `/solicita-oferta?modul=${module.id}`}>

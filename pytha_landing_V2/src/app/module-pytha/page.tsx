@@ -216,7 +216,7 @@ export default function ModulePythaPage() {
         <div className="container">
           <div className="mx-auto max-w-4xl space-y-4 text-balance sm:text-center">
             <div className="flex items-center justify-center">
-              <span className="bg-muted text-accent-foreground rounded-full px-3 py-1 text-xs font-medium">
+              <span className="bg-[#fff1f2] text-[#8a1820] rounded-full px-3 py-1 text-xs font-medium">
                 10 module + CadBid
               </span>
             </div>
@@ -224,7 +224,7 @@ export default function ModulePythaPage() {
               Modulele PYTHA —{' '}
               <span className="text-gradient">construieste-ti solutia perfecta</span>
             </h1>
-            <p className="text-muted-foreground leading-snug md:text-lg lg:text-xl">
+            <p className="mx-auto max-w-2xl leading-snug text-gray-500 md:text-lg lg:text-xl">
               Alege doar ce ai nevoie: de la modelare 3D de baza pana la integrare CNC
               completa si ofertare automata cu CadBid.
             </p>
@@ -255,10 +255,10 @@ export default function ModulePythaPage() {
       {/* Final CTA */}
       <section className="section-padding">
         <div className="container text-center">
-          <h2 className="text-4xxl leading-tight tracking-tight md:text-5xl">
+          <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
             Nu stii ce module ai nevoie?
           </h2>
-          <p className="text-muted-foreground mx-auto mt-4 max-w-xl text-lg leading-snug">
+          <p className="mx-auto mt-4 max-w-xl text-lg leading-snug text-gray-500">
             Echipa noastra te ajuta sa alegi pachetul perfect pentru atelierul tau —
             gratuit si fara obligatii.
           </p>

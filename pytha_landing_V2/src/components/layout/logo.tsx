@@ -30,14 +30,14 @@ export default function Logo({
       <Image
         src="/images/pytha-theoram-logo.png"
         alt="PYTHA Logo"
-        width={120}
-        height={32}
-        className={cn('h-8 w-auto object-contain', iconClassName)}
+        width={160}
+        height={48}
+        className={cn('h-10 w-auto object-contain md:h-12', iconClassName)}
         priority
       />
       {showPartner && (
         <>
-          <span className={cn('text-muted-foreground text-lg font-bold', wordmarkClassName)}>&times;</span>
+          <span className={cn('text-xl font-bold text-[#8a1820]', wordmarkClassName)}>&times;</span>
           <a
             href="https://adlineindustries.ro/"
             target="_blank"
@@ -46,9 +46,9 @@ export default function Logo({
             <Image
               src="/images/adline-logo-full.jpg"
               alt="AdLine Industries"
-              width={120}
-              height={32}
-              className="h-8 w-auto object-contain"
+              width={160}
+              height={48}
+              className="h-10 w-auto object-contain md:h-12"
             />
           </a>
         </>

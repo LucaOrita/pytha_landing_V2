@@ -7,13 +7,13 @@ export default function NotFound() {
     <section className="section-padding">
       <div className="container text-center">
         <div className="mx-auto max-w-lg space-y-6">
-          <h1 className="text-6xxl font-display leading-none tracking-tight">
+          <h1 className="text-6xxl leading-none tracking-tight">
             <span className="text-gradient">404</span>
           </h1>
-          <h2 className="text-4xxl leading-tight tracking-tight">
+          <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
             Pagina nu a fost gasita
           </h2>
-          <p className="text-muted-foreground text-lg leading-snug">
+          <p className="text-lg leading-snug text-gray-500">
             Ne pare rau, dar pagina pe care o cauti nu exista sau a fost mutata.
           </p>
           <Button asChild>

@@ -26,14 +26,14 @@ export default function PartnerSection() {
     <section className="section-padding">
       <div className="container">
         <div className="mx-auto max-w-3xl space-y-4 text-balance sm:text-center">
-          <span className="bg-muted text-accent-foreground inline-block rounded-full px-3 py-1 text-xs font-medium">
+          <span className="inline-block rounded-full bg-[#fff1f2] px-3 py-1 text-xs font-semibold text-[#8a1820]">
             Adline Industries
           </span>
-          <h2 className="text-4xxl leading-tight tracking-tight md:text-5xl">
+          <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
             Partenerul autorizat PYTHA{' '}
             <span className="text-gradient">in Romania</span>
           </h2>
-          <p className="text-muted-foreground text-lg leading-snug">
+          <p className="mx-auto max-w-2xl text-lg text-gray-500">
             Servicii digitale de origine germana, livrate de experti locali —
             cunoscatori ai nevoilor producatorilor din Romania.
           </p>
@@ -43,22 +43,24 @@ export default function PartnerSection() {
           {CARDS.map((card) => (
             <div
               key={card.title}
-              className="bg-card text-card-foreground flex flex-col overflow-hidden rounded-md border shadow-sm transition-shadow hover:shadow-lg"
+              className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
-              <Image
-                src={card.image}
-                alt={card.title}
-                width={400}
-                height={250}
-                className="aspect-[16/10] w-full object-cover"
-                quality={65}
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-              <div className="flex flex-col gap-3 p-6">
-                <h3 className="text-accent-foreground text-lg font-bold">
+              <div className="overflow-hidden">
+                <Image
+                  src={card.image}
+                  alt={card.title}
+                  width={400}
+                  height={250}
+                  className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  quality={65}
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="flex flex-col gap-3 p-8">
+                <h3 className="text-lg font-bold">
                   {card.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-snug">
+                <p className="text-sm leading-snug text-gray-500">
                   {card.description}
                 </p>
               </div>
