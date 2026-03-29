@@ -18,6 +18,7 @@ export default function MobilierLaComandaPage() {
     <IndustryPage
       title="PYTHA pentru producatorii de mobilier la comanda"
       subtitle="De la ideea clientului la piesa gata de montat — fara erori, fara improvizatii."
+      breadcrumbLabel="Mobilier la Comanda"
       heroImage="/images/home/section3/Modelare 3D liberă și intuitivă.jpg"
       challenges={[
         {

@@ -18,6 +18,7 @@ export default function DesignInteriorPage() {
     <IndustryPage
       title="PYTHA pentru designeri de interior si arhitecti"
       subtitle="Prezinta proiecte cu vizualizari care vand — fotorealiste, interactive, cu materiale reale."
+      breadcrumbLabel="Design Interior"
       heroImage="/images/home/section3/Randare fotorealistă pentru vânzare rapidă.png"
       challenges={[
         {

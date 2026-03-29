@@ -2,6 +2,7 @@ import type { LucideIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import Breadcrumbs from '@/components/ui/breadcrumbs';
 import { Button } from '@/components/ui/button';
 
 interface Challenge {
@@ -20,6 +21,7 @@ interface Solution {
 export interface IndustryPageProps {
   title: string;
   subtitle: string;
+  breadcrumbLabel: string;
   challenges: Challenge[];
   solutions: Solution[];
   heroImage: string;
@@ -29,6 +31,7 @@ export interface IndustryPageProps {
 export default function IndustryPage({
   title,
   subtitle,
+  breadcrumbLabel,
   challenges,
   solutions,
   heroImage,
@@ -39,6 +42,13 @@ export default function IndustryPage({
       {/* Hero */}
       <section className="section-padding">
         <div className="container">
+          <Breadcrumbs
+            items={[
+              { label: 'Acasa', href: '/' },
+              { label: 'Solutii', href: '/module-pytha' },
+              { label: breadcrumbLabel },
+            ]}
+          />
           <div className="grid items-center gap-10 lg:grid-cols-[3fr_2fr] lg:gap-18">
             <div className="space-y-4">
               <h1 className="text-4xl leading-tight tracking-tight text-balance md:text-5xl lg:text-6xl">
@@ -114,6 +124,14 @@ export default function IndustryPage({
                 <p className="text-sm leading-snug text-gray-500">{s.description}</p>
               </Link>
             ))}
+          </div>
+          <div className="mt-12 text-center">
+            <p className="text-gray-500">
+              Preturi de la 99€/luna.{' '}
+              <Link href="/preturi" className="font-semibold text-[#8a1820] hover:underline">
+                Vezi toate pachetele si preturile →
+              </Link>
+            </p>
           </div>
         </div>
       </section>

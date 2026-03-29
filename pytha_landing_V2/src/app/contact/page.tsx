@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Suspense } from 'react';
 import { Clock, Mail, MapPin, Phone } from 'lucide-react';
 
+import Breadcrumbs from '@/components/ui/breadcrumbs';
 import ContactForm from '@/components/forms/contact-form';
 import { Button } from '@/components/ui/button';
 import { SOCIAL_LINKS } from '@/lib/navigation';
@@ -80,6 +81,7 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="section-padding">
         <div className="container">
+          <Breadcrumbs items={[{ label: 'Acasa', href: '/' }, { label: 'Contact' }]} />
           <div className="mx-auto max-w-4xl space-y-4 text-balance sm:text-center">
             <h1 className="text-5xl leading-none tracking-tight text-balance md:text-6xxl">
               <span className="text-gradient">Contacteaza-ne</span>

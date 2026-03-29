@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import Breadcrumbs from '@/components/ui/breadcrumbs';
 import {
   Award,
   BookOpen,
@@ -44,6 +45,7 @@ export default function DespreNoiPage() {
       {/* Hero */}
       <section className="section-padding">
         <div className="container">
+          <Breadcrumbs items={[{ label: 'Acasa', href: '/' }, { label: 'Despre noi' }]} />
           <div className="mx-auto max-w-4xl space-y-4 text-balance sm:text-center">
             <h1 className="text-5xl leading-none tracking-tight text-balance md:text-6xxl">
               Tehnologie germana,{' '}

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import Breadcrumbs from '@/components/ui/breadcrumbs';
 import { Check, Globe, Phone, Settings } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -107,6 +108,7 @@ export default function AsistentaTehnicaPage() {
       {/* Hero */}
       <section className="section-padding">
         <div className="container">
+          <Breadcrumbs items={[{ label: 'Acasa', href: '/' }, { label: 'Asistenta tehnica' }]} />
           <div className="mx-auto max-w-4xl space-y-4 text-balance sm:text-center">
             <div className="flex items-center justify-center">
               <span className="rounded-full bg-[#fff1f2] px-3 py-1 text-xs font-semibold text-[#8a1820]">

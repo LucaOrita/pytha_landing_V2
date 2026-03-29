@@ -51,15 +51,24 @@ Sitemap: src/app/sitemap.ts (auto-generat)
 Robots: src/app/robots.ts
 
 ## STRUCTURA PAGINILOR
-1. / (Acasa)
-2. /despre-noi (Despre AdLine Industries & PYTHA Romania)
+1. / (Acasa — 5 sectiuni: Hero, Stats, Features, Testimonials, CTA)
+2. /despre-noi (Despre PYTHA Lab + AdLine Industries, unificate)
 3. /module-pytha (Toate modulele PYTHA + CadBid)
-4. /blog (Blog SEO cu articole MDX)
-5. /asistenta-tehnica (Suport tehnic)
-6. /contact (Formular contact + harta)
-7. /adline-industries (Pagina partener AdLine)
-8. /solicita-oferta (CTA formular oferta)
-9. /solicita-prezentare (CTA formular prezentare/demo)
+4. /preturi (3 pachete: Starter, Profesional, Enterprise + tabel module)
+5. /blog (Blog SEO — 8 articole)
+6. /asistenta-tehnica (Suport tehnic + pricing service/training + FAQ)
+7. /contact (Formular contact + harta + date contact)
+8. /solicita-prezentare (Formular lead qualification 2 coloane)
+9. /solutii/mobilier-la-comanda (Industrie — mobilier la comanda)
+10. /solutii/tamplarie-comerciala (Industrie — tamplarie comerciala)
+11. /solutii/design-interior (Industrie — design interior)
+12. /docs (Documentatie Fumadocs — 6 pagini MDX)
+13. /termeni-si-conditii (Pagina legala)
+14. /politica-confidentialitate (Pagina legala GDPR)
+
+Redirects (301):
+- /adline-industries → /despre-noi#adline
+- /solicita-oferta → /solicita-prezentare
 
 ## REGULI DE COPY
 - Limba: Romana

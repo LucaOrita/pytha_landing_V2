@@ -18,6 +18,7 @@ export default function TamplarieComercialaPage() {
     <IndustryPage
       title="PYTHA pentru tamplarie comerciala si amenajari interioare"
       subtitle="Volume mari, piese repetitive, termene stranse — PYTHA automatizeaza tot ce tine de proiectare."
+      breadcrumbLabel="Tamplarie Comerciala"
       heroImage="/images/home/section3/Automatizare totală a producției.jpg"
       challenges={[
         {

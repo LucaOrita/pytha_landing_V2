@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+import Breadcrumbs from '@/components/ui/breadcrumbs';
 import { Button } from '@/components/ui/button';
 import CadBidSection from '@/components/sections/cadbid-section';
 import ModuleSection, { type ModuleData } from '@/components/sections/module-section';
@@ -214,6 +215,7 @@ export default function ModulePythaPage() {
       {/* Hero */}
       <section className="section-padding">
         <div className="container">
+          <Breadcrumbs items={[{ label: 'Acasa', href: '/' }, { label: 'Module PYTHA' }]} />
           <div className="mx-auto max-w-4xl space-y-4 text-balance sm:text-center">
             <div className="flex items-center justify-center">
               <span className="bg-[#fff1f2] text-[#8a1820] rounded-full px-3 py-1 text-xs font-medium">
