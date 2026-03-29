@@ -1,13 +1,15 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Award, Globe, Package, Shield } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-  title: 'Despre noi — PYTHA Romania si AdLine Industries',
+  title: 'Despre PYTHA Romania & AdLine Industries | Partener oficial',
   description:
-    'Solutii software germane de top, livrate cu suport local dedicat. Afla despre PYTHA Lab GmbH si AdLine Industries, partenerul autorizat PYTHA in Romania.',
+    'PYTHA Lab GmbH — 40+ ani de inovatie CAD. AdLine Industries — partener autorizat in Romania, Bulgaria si Ungaria. Suport local dedicat.',
+  openGraph: { title: 'Despre PYTHA Romania & AdLine Industries', type: 'website' },
 };
 
 const KEY_FACTS = [
@@ -62,13 +64,39 @@ export default function DespreNoiPage() {
               <span className="text-gradient">in CAD 3D</span>
             </h2>
             <p className="text-muted-foreground text-lg leading-snug">
-              PYTHA Lab dezvolta de peste 40 de ani software CAD/CAM folosit de mii de
-              ateliere din intreaga lume. Fondata in 1978 in Aschaffenburg, Germania,
-              compania a transformat proiectarea asistata de calculator dintr-un instrument
-              de nisa intr-o solutie accesibila si puternica. Disponibil in 16 limbi,
-              PYTHA este alegerea #1 pentru tamplarii si producatorii de mobilier care vor
-              precizie germana si fiabilitate industriala.
+              PYTHA este un software dezvoltat integral in Germania, de catre compania
+              PYTHA Lab GmbH, fondata in anul 1978 in Aschaffenburg. PYTHA a fost conceput
+              initial ca un instrument care sa faca proiectarea asistata de calculator mai
+              accesibila si mai intuitiva. De-a lungul deceniilor, software-ul a evoluat
+              intr-un sistem CAD-CAM complet, orientat spre cerintele reale ale productiei
+              si integrarii industriale. Astazi, PYTHA este un sistem CAD-CAM 3D complet,
+              specializat in modelarea solida si dedicat industriilor care necesita proiectare
+              precisa, vizualizare realista si conexiune directa cu productia. PYTHA este
+              folosit de companii din peste 50 de tari si continua sa evolueze constant,
+              ghidat de nevoile reale ale proiectantilor si producatorilor profesionisti.
             </p>
+          </div>
+
+          {/* Two images: PYTHA Lab + AdLine */}
+          <div className="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2 lg:mt-16">
+            <Image
+              src="/images/despre/echipagmbh.jpeg"
+              alt="Echipa PYTHA Lab GmbH"
+              width={600}
+              height={400}
+              className="w-full rounded-xl object-cover shadow-lg"
+              quality={65}
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+            <Image
+              src="/images/despre/adline.jpeg"
+              alt="Echipa AdLine Industries"
+              width={600}
+              height={400}
+              className="w-full rounded-xl object-cover shadow-lg"
+              quality={65}
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
 
           {/* Key facts grid */}
@@ -83,7 +111,7 @@ export default function DespreNoiPage() {
                   <div className="from-muted/30 via-muted/10 to-card flex size-10 items-center justify-center rounded-md border bg-gradient-to-r p-2">
                     <Icon className="size-4.5" />
                   </div>
-                  <div className="font-azeret-mono text-2xl font-medium">{fact.value}</div>
+                  <div className="font-display text-2xl font-medium">{fact.value}</div>
                   <p className="text-muted-foreground text-sm leading-snug">{fact.label}</p>
                 </div>
               );
@@ -103,10 +131,16 @@ export default function DespreNoiPage() {
               AdLine Industries — partenerul tau local
             </h2>
             <p className="text-muted-foreground text-lg leading-snug">
-              Cu peste 20 de ani de experienta in solutii CNC si software industrial,
-              AdLine Industries este partenerul autorizat PYTHA in Romania, Bulgaria si
-              Ungaria. Nu vindem doar software — oferim un ecosistem complet: de la
-              consultanta si echipamente, pana la training si suport tehnic continuu.
+              In Romania, PYTHA este promovat si sustinut sub egida AdLine Industries — un
+              nume respectat in industria echipamentelor CNC, cu activitate extinsa in
+              prelucrarea lemnului, metalului si alte ramuri industriale. AdLine nu se
+              rezuma la a furniza utilaje. Construieste relatii pe termen lung cu
+              producatorii, oferind consultanta, suport tehnic si solutii complete adaptate
+              fiecarui flux de productie. Noi venim cu veriga lipsa din lantul tehnologic:
+              un software care preia ideea din biroul de proiectare si o duce, exact asa
+              cum a fost gandita, pana in utilaj. Impreuna cu AdLine, oferim producatorilor
+              un flux complet — de la desenul 3D, la piesa finisata. Cu suport real, local,
+              si rezultate masurabile in fiecare atelier sau fabrica.
             </p>
           </div>
 

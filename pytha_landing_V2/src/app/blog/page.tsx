@@ -4,9 +4,10 @@ import { BlogCard } from '@/components/blog/blog-card';
 import { getAllPosts } from '@/lib/blog';
 
 export const metadata: Metadata = {
-  title: 'Blog — Digitalizare si productie mobilier',
+  title: 'Blog — Digitalizare productie mobilier',
   description:
-    'Articole si resurse despre proiectare mobilier 3D, digitalizare atelier, CAD/CAM, optimizare productie si noutati PYTHA.',
+    'Ghiduri, comparatii si resurse despre proiectare 3D mobilier, digitalizare atelier, CAD/CAM si optimizare productie cu PYTHA.',
+  openGraph: { title: 'Blog PYTHA Romania — Digitalizare productie mobilier', type: 'website' },
 };
 
 export default function BlogPage() {

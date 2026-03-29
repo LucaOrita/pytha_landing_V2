@@ -20,7 +20,8 @@ import { Button } from '@/components/ui/button';
 export const metadata: Metadata = {
   title: 'AdLine Industries — Partener autorizat PYTHA Romania',
   description:
-    'AdLine Industries: peste 20 de ani de solutii CNC si digitalizare industriala in Romania, Bulgaria si Ungaria. Echipamente, software, training si suport.',
+    'Peste 20 de ani de solutii CNC si digitalizare industriala. Echipamente, software PYTHA, training si suport in Romania, Bulgaria si Ungaria.',
+  openGraph: { title: 'AdLine Industries — Partener autorizat PYTHA', type: 'website' },
 };
 
 const SERVICII = [
@@ -87,15 +88,15 @@ export default function AdLineIndustriesPage() {
               </div>
               <div className="grid grid-cols-3 gap-4 border-t pt-4">
                 <div className="text-center">
-                  <div className="font-azeret-mono text-2xl font-medium">20+</div>
+                  <div className="font-display text-2xl font-medium">20+</div>
                   <p className="text-muted-foreground text-xs">Ani experienta</p>
                 </div>
                 <div className="text-center">
-                  <div className="font-azeret-mono text-2xl font-medium">3</div>
+                  <div className="font-display text-2xl font-medium">3</div>
                   <p className="text-muted-foreground text-xs">Tari acoperite</p>
                 </div>
                 <div className="text-center">
-                  <div className="font-azeret-mono text-2xl font-medium">500+</div>
+                  <div className="font-display text-2xl font-medium">500+</div>
                   <p className="text-muted-foreground text-xs">Clienti activi</p>
                 </div>
               </div>

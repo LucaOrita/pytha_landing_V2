@@ -11,9 +11,10 @@ const FaqRenderer = dynamic(() =>
 );
 
 export const metadata: Metadata = {
-  title: 'Asistenta tehnica dedicata',
+  title: 'Asistenta tehnica PYTHA — Suport local Romania + Germania',
   description:
-    'Suport tehnic local PYTHA in Romania: telefon, email, TeamViewer. Training individual, acord de service si asistenta directa de la PYTHA Germania.',
+    'Suport tehnic local in Romania: telefon, email, TeamViewer. Training individual de la 125€/ora. Acord service + backup PYTHA Germania.',
+  openGraph: { title: 'Asistenta tehnica PYTHA Romania', type: 'website' },
 };
 
 const SUPPORT_OPTIONS = [
@@ -107,6 +108,11 @@ export default function AsistentaTehnicaPage() {
       <section className="section-padding">
         <div className="container">
           <div className="mx-auto max-w-4xl space-y-4 text-balance sm:text-center">
+            <div className="flex items-center justify-center">
+              <span className="bg-muted text-accent-foreground rounded-full px-3 py-1 text-xs font-medium">
+                Productia ta nu sta. Nici sprijinul nostru.
+              </span>
+            </div>
             <h1 className="text-5xl leading-none tracking-tight text-balance md:text-6xxl">
               Asistenta tehnica{' '}
               <span className="text-gradient">dedicata</span>
@@ -155,12 +161,12 @@ export default function AsistentaTehnicaPage() {
               <h3 className="text-accent-foreground text-xl font-bold">Acord de Service</h3>
               <div className="mt-4 flex items-baseline gap-4">
                 <div>
-                  <span className="font-azeret-mono text-3xl font-medium">840€</span>
+                  <span className="font-display text-3xl font-medium">840€</span>
                   <span className="text-muted-foreground text-sm">/an</span>
                 </div>
                 <span className="text-muted-foreground text-sm">sau</span>
                 <div>
-                  <span className="font-azeret-mono text-3xl font-medium">2.140€</span>
+                  <span className="font-display text-3xl font-medium">2.140€</span>
                   <span className="text-muted-foreground text-sm">/3 ani</span>
                 </div>
               </div>
@@ -184,12 +190,12 @@ export default function AsistentaTehnicaPage() {
               <h3 className="text-accent-foreground text-xl font-bold">Training Individual</h3>
               <div className="mt-4 flex items-baseline gap-4">
                 <div>
-                  <span className="font-azeret-mono text-3xl font-medium">125€</span>
+                  <span className="font-display text-3xl font-medium">125€</span>
                   <span className="text-muted-foreground text-sm">/ora online</span>
                 </div>
                 <span className="text-muted-foreground text-sm">sau</span>
                 <div>
-                  <span className="font-azeret-mono text-3xl font-medium">920€</span>
+                  <span className="font-display text-3xl font-medium">920€</span>
                   <span className="text-muted-foreground text-sm">/zi on-site</span>
                 </div>
               </div>

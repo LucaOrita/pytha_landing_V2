@@ -4,9 +4,10 @@ import { Suspense } from 'react';
 import PrezentareForm from '@/components/forms/prezentare-form';
 
 export const metadata: Metadata = {
-  title: 'Programeaza o prezentare gratuita',
+  title: 'Programeaza prezentare gratuita PYTHA 3D CAD',
   description:
-    'Programeaza o prezentare gratuita a software-ului PYTHA. In doar 15 minute, iti aratam cum PYTHA poate transforma fluxul tau de productie.',
+    'Prezentare gratuita PYTHA in 15 minute. Descopera cum software-ul CAD/CAM poate transforma fluxul tau de productie mobilier.',
+  openGraph: { title: 'Prezentare gratuita PYTHA 3D', type: 'website' },
 };
 
 export default function SolicitaPrezentarePage() {

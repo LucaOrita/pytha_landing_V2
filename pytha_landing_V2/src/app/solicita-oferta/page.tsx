@@ -6,9 +6,10 @@ import OfertaForm from '@/components/forms/oferta-form';
 import Logo from '@/components/layout/logo';
 
 export const metadata: Metadata = {
-  title: 'Solicita oferta personalizata',
+  title: 'Solicita oferta PYTHA — Preturi personalizate module CAD',
   description:
-    'Solicita o oferta personalizata pentru software-ul PYTHA. Alege modulele potrivite atelierului tau si primeste un pret adaptat nevoilor tale in maxim 24h.',
+    'Primeste o oferta personalizata PYTHA in maxim 24h. Alege modulele potrivite atelierului tau — licenta permanenta sau abonament lunar.',
+  openGraph: { title: 'Solicita oferta PYTHA 3D', type: 'website' },
 };
 
 const TRUST_POINTS = [

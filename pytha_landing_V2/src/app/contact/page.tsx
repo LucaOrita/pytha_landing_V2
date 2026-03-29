@@ -8,9 +8,10 @@ import { Button } from '@/components/ui/button';
 import { SOCIAL_LINKS } from '@/lib/navigation';
 
 export const metadata: Metadata = {
-  title: 'Contact — PYTHA Romania',
+  title: 'Contact PYTHA Romania — AdLine Industries Bucuresti',
   description:
-    'Contacteaza AdLine Industries, partenerul autorizat PYTHA in Romania. Telefon, email, adresa si formular de contact. Raspundem in maxim 24h.',
+    'Contacteaza AdLine Industries, partener autorizat PYTHA. Bd. Metalurgiei 99-99B, Bucuresti. Tel: +40 742 065 893. Raspundem in maxim 24h.',
+  openGraph: { title: 'Contact PYTHA Romania', type: 'website' },
 };
 
 const CONTACT_INFO = [
@@ -46,9 +47,36 @@ const CONTACT_INFO = [
   },
 ];
 
+const localBusinessJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'PYTHA Romania — AdLine Industries',
+  image: 'https://pytha3d.ro/images/pytha-theoram-logo.png',
+  telephone: '+40742065893',
+  email: 'pytha@adlineindustries.ro',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Bulevardul Metalurgiei 99-99B',
+    addressLocality: 'Bucuresti',
+    postalCode: '041832',
+    addressCountry: 'RO',
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '17:00',
+  },
+  url: 'https://pytha3d.ro',
+};
+
 export default function ContactPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+      />
       {/* Hero */}
       <section className="section-padding">
         <div className="container">
