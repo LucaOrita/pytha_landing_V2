@@ -68,14 +68,15 @@ export const FOOTER_LINKS = {
     { label: 'Contact', href: '/contact' },
   ],
   legal: [
-    { label: 'Termeni si conditii', href: '#' },
-    { label: 'Confidentialitate', href: '#' },
+    { label: 'Termeni si conditii', href: '/termeni-si-conditii' },
+    { label: 'Politica de confidentialitate', href: '/politica-confidentialitate' },
   ],
 };
 
+// TODO: Verifica si actualizeaza URL-urile reale ale paginilor social media
 export const SOCIAL_LINKS = [
-  { name: 'Facebook', href: 'https://facebook.com', icon: 'facebook' as const },
-  { name: 'Instagram', href: 'https://instagram.com', icon: 'instagram' as const },
-  { name: 'LinkedIn', href: 'https://linkedin.com', icon: 'linkedin' as const },
-  { name: 'YouTube', href: 'https://youtube.com', icon: 'youtube' as const },
+  { name: 'Facebook', href: 'https://www.facebook.com/pytha3d.ro', icon: 'facebook' as const },
+  { name: 'Instagram', href: 'https://www.instagram.com/pytha3d.ro/', icon: 'instagram' as const },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/adline-industries/', icon: 'linkedin' as const },
+  { name: 'YouTube', href: 'https://www.youtube.com/@pytha3d', icon: 'youtube' as const },
 ];

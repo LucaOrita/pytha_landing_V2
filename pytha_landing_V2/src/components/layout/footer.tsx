@@ -162,13 +162,13 @@ const Footer = () => {
           </div>
           <div className="flex flex-wrap items-center gap-4 text-xs text-white/40">
             <Link
-              href="/termeni"
+              href="/termeni-si-conditii"
               className="transition-colors hover:text-white/70"
             >
               Termeni si conditii
             </Link>
             <Link
-              href="/confidentialitate"
+              href="/politica-confidentialitate"
               className="transition-colors hover:text-white/70"
             >
               Politica de confidentialitate

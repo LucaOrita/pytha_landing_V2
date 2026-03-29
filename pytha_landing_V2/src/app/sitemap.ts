@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '', '/despre-noi', '/module-pytha', '/preturi', '/blog', '/asistenta-tehnica',
     '/contact', '/solicita-prezentare',
     '/solutii/mobilier-la-comanda', '/solutii/tamplarie-comerciala', '/solutii/design-interior',
+    '/termeni-si-conditii', '/politica-confidentialitate',
   ].map((path) => ({
     url: `${BASE_URL}${path}`,
     lastModified: new Date(),
