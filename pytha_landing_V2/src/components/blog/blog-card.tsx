@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 import type { BlogPost } from '@/lib/blog';
@@ -8,7 +9,17 @@ export function BlogCard({ post }: { post: BlogPost }) {
       href={`/blog/${post.slug}`}
       className="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
-      <div className="aspect-[16/9] w-full bg-gradient-to-br from-[#fff1f2] to-[#f8f8f8]" />
+      <div className="overflow-hidden">
+        <Image
+          src={post.image}
+          alt={post.title}
+          width={640}
+          height={360}
+          className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          quality={65}
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+      </div>
       <div className="flex flex-1 flex-col gap-3 p-8">
         <div className="flex flex-wrap gap-2">
           {post.tags.slice(0, 2).map((tag) => (

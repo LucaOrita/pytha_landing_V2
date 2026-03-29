@@ -1,10 +1,10 @@
 ---
-title: "PYTHA vs alte solutii CAD: ghid comparativ 2025"
-description: "Compara PYTHA cu SketchUp, AutoCAD, PRO100 si TopSolid. Afla care software CAD este cel mai potrivit pentru productia de mobilier in 2025."
-date: "2025-03-20"
+title: "PYTHA vs alte solutii CAD: ghid comparativ 2026"
+description: "Compara PYTHA cu SketchUp, AutoCAD, PRO100 si TopSolid. Afla care software CAD este cel mai potrivit pentru productia de mobilier in 2026."
+date: "2026-03-20"
 author: "Echipa PYTHA Romania"
 tags: ["comparatie CAD", "PYTHA", "SketchUp", "AutoCAD"]
-image: "/images/blog-placeholder.webp"
+image: "/images/homepage/randare.jpeg"
 readTime: "7 min"
 ---
 

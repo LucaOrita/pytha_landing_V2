@@ -1,10 +1,10 @@
 ---
 title: "5 semne ca atelierul tau are nevoie de digitalizare"
 description: "Daca pierzi timp pe calcule manuale, ai erori frecvente sau clientii asteapta prea mult, e timpul sa digitalizezi. Afla cele 5 semne clare."
-date: "2025-03-10"
+date: "2026-03-10"
 author: "Echipa PYTHA Romania"
 tags: ["digitalizare", "productie mobilier", "eficienta"]
-image: "/images/blog-placeholder.webp"
+image: "/images/homepage/1.jpeg"
 readTime: "4 min"
 ---
 

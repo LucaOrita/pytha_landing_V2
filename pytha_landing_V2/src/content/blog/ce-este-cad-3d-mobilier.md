@@ -1,10 +1,10 @@
 ---
 title: "Ce este software-ul CAD 3D si de ce e esential pentru productia de mobilier"
 description: "Afla ce inseamna software CAD 3D, cum te ajuta sa proiectezi mobilier mai rapid si de ce integrarea cu CNC elimina erorile din productie."
-date: "2025-03-15"
+date: "2026-03-15"
 author: "Echipa PYTHA Romania"
 tags: ["CAD 3D", "proiectare mobilier", "digitalizare"]
-image: "/images/blog-placeholder.webp"
+image: "/images/homepage/cnc.jpeg"
 readTime: "5 min"
 ---
 
