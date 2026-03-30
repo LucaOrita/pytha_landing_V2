@@ -36,7 +36,7 @@ export default function Testimonials() {
         <InView className="mx-auto max-w-3xl text-balance text-center">
           <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
             Ateliere din toata lumea lucreaza cu{' '}
-            <span className="text-gradient">PYTHA</span>
+            <span className="text-[#8a1820]">PYTHA</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-500">
             De la ateliere mici la fabrici cu zeci de angajati — PYTHA se

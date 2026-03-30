@@ -141,7 +141,7 @@ export default function PreturiPage() {
           <div className="mx-auto max-w-4xl space-y-4 text-balance sm:text-center">
             <h1 className="text-5xl leading-none tracking-tight text-balance md:text-6xxl">
               Preturi transparente,{' '}
-              <span className="text-gradient">fara surprize</span>
+              <span className="text-[#8a1820]">fara surprize</span>
             </h1>
             <p className="mx-auto max-w-2xl leading-snug text-gray-500 md:text-lg lg:text-xl">
               Alege modulele potrivite. Licenta permanenta sau abonament lunar — tu decizi.
@@ -220,7 +220,7 @@ export default function PreturiPage() {
         <div className="container">
           <div className="mx-auto max-w-3xl space-y-4 text-balance sm:text-center">
             <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
-              Intrebari despre <span className="text-gradient">preturi</span>
+              Intrebari despre <span className="text-[#8a1820]">preturi</span>
             </h2>
           </div>
           <div className="mx-auto mt-12 max-w-3xl md:mt-16">

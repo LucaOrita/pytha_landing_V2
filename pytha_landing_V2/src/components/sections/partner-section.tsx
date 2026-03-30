@@ -31,7 +31,7 @@ export default function PartnerSection() {
           </span>
           <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
             Partenerul autorizat PYTHA{' '}
-            <span className="text-gradient">in Romania</span>
+            <span className="text-[#8a1820]">in Romania</span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-500">
             Servicii digitale de origine germana, livrate de experti locali —

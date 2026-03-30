@@ -224,7 +224,7 @@ export default function ModulePythaPage() {
             </div>
             <h1 className="text-5xl leading-none tracking-tight text-balance md:text-6xxl">
               Modulele PYTHA —{' '}
-              <span className="text-gradient">construieste-ti solutia perfecta</span>
+              <span className="text-[#8a1820]">construieste-ti solutia perfecta</span>
             </h1>
             <p className="mx-auto max-w-2xl leading-snug text-gray-500 md:text-lg lg:text-xl">
               Alege doar ce ai nevoie: de la modelare 3D de baza pana la integrare CNC

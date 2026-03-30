@@ -21,35 +21,35 @@ export default function Hero() {
           poster="/images/hero-screenshot.webp"
         />
       </div>
-      {/* Dark overlay */}
-      <div className="absolute inset-0 z-10 bg-black/70" />
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-br from-[#8a1820]/80 to-[#1a1a2e]/85" />
 
       <div className="container relative z-20 py-20 md:py-28 lg:py-36">
         <div className="flex flex-col justify-between gap-10 lg:flex-row lg:items-center">
           {/* Left: Copy */}
           <div className="flex max-w-3xl flex-1 flex-col items-start gap-5">
             <div
-              className="fade-up flex items-center rounded-full border border-[#8a1820]/30 bg-[#8a1820]/10 p-1 text-xs text-white/90"
+              className="fade-up flex items-center rounded-full border border-white/20 bg-white/10 p-1 text-xs text-white/90 backdrop-blur-sm"
               style={{ animationDelay: '0ms' }}
             >
-              <span className="rounded-full bg-[#8a1820] px-3 py-1 text-white">Partener autorizat</span>
-              <span className="px-3">PYTHA in Romania</span>
+              <span className="rounded-full bg-white px-3 py-1 text-[#8a1820] font-medium">Partener autorizat</span>
+              <span className="px-3">PYTHA în România</span>
             </div>
 
             <h1
               className="fade-up text-4xl leading-tight tracking-tight text-balance text-white md:text-5xl lg:text-6xl"
               style={{ animationDelay: '0ms' }}
             >
-              Software-ul CAD 3D care duce mobilierul tau de la idee la CNC —{' '}
-              <span className="text-gradient">fara erori, fara bajbaieli</span>
+              Software-ul CAD 3D care duce mobilierul tău de la idee la CNC.{' '}
+              <span className="text-[#ff6974]">Fără erori, fără bâjbâieli.</span>
             </h1>
 
             <p
               className="fade-up max-w-2xl leading-snug text-lg text-white/70 md:text-xl"
               style={{ animationDelay: '130ms' }}
             >
-              PYTHA unifica proiectarea 3D, listele de piese, nesting-ul si exportul CNC
-              intr-un singur flux. Folosit de peste 2.000 de ateliere in 50+ tari.
+              PYTHA unifică proiectarea 3D, listele de piese, nesting-ul și exportul CNC
+              într-un singur flux. Folosit de peste 2.000 de ateliere în 50+ țări.
             </p>
           </div>
 
@@ -60,14 +60,14 @@ export default function Hero() {
           >
             <div className="flex gap-4.5">
               <Button className="flex-1 md:min-w-45" asChild>
-                <Link href="/solicita-prezentare">Programeaza demo gratuit</Link>
+                <Link href="/solicita-prezentare">Programează demo gratuit</Link>
               </Button>
               <Button className="flex-1 md:min-w-45 border-white/30 text-white hover:bg-white/10" variant="outline" asChild>
-                <Link href="/module-pytha">Module si preturi</Link>
+                <Link href="/preturi">Module și prețuri</Link>
               </Button>
             </div>
             <div className="text-center text-sm text-white/60">
-              Demo 15 min &middot; Fara obligatii &middot; Made in Germany
+              Demo 15 min &middot; Fără obligații &middot; Made in Germany
             </div>
           </div>
         </div>
@@ -79,8 +79,8 @@ export default function Hero() {
         >
           <Image
             src="/images/hero-screenshot.webp"
-            alt="Interfata software PYTHA 3D — proiectare mobilier"
-            className="ring-white/10 w-full rounded-xs shadow-2xl ring-6 md:rounded-sm md:ring-16"
+            alt="Interfața software PYTHA 3D — proiectare mobilier"
+            className="ring-[#8a1820]/15 w-full rounded-xs shadow-2xl ring-6 md:rounded-sm md:ring-16"
             width={1440}
             height={905}
             priority

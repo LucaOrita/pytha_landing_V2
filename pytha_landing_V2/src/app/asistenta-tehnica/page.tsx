@@ -117,7 +117,7 @@ export default function AsistentaTehnicaPage() {
             </div>
             <h1 className="text-5xl leading-none tracking-tight text-balance md:text-6xxl">
               Asistenta tehnica{' '}
-              <span className="text-gradient">dedicata</span>
+              <span className="text-[#8a1820]">dedicata</span>
             </h1>
             <p className="mx-auto max-w-2xl leading-snug text-gray-500 md:text-lg lg:text-xl">
               Cu PYTHA si AdLine Industries, ai mereu o echipa de profesionisti langa
@@ -153,7 +153,7 @@ export default function AsistentaTehnicaPage() {
         <div className="container">
           <div className="mx-auto max-w-3xl space-y-4 text-balance sm:text-center">
             <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
-              Servicii <span className="text-gradient">disponibile</span>
+              Servicii <span className="text-[#8a1820]">disponibile</span>
             </h2>
           </div>
 
@@ -224,7 +224,7 @@ export default function AsistentaTehnicaPage() {
         <div className="container">
           <div className="mx-auto max-w-3xl space-y-4 text-balance sm:text-center">
             <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
-              Intrebari <span className="text-gradient">frecvente</span>
+              Intrebari <span className="text-[#8a1820]">frecvente</span>
             </h2>
           </div>
           <div className="mx-auto mt-12 max-w-3xl md:mt-16">

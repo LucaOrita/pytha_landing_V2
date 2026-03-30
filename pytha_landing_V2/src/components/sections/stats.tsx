@@ -6,30 +6,30 @@ const STATS = [
   {
     value: 30,
     suffix: '%',
-    label: 'Reducere erori productie',
+    label: 'Reducere erori producție',
     description:
-      'Fluxul integrat CAD-CNC elimina erorile de transfer manual.',
+      'Fluxul integrat CAD-CNC elimină erorile de transfer manual.',
   },
   {
     value: 40,
     suffix: '%',
     label: 'Timp de proiectare economisit',
     description:
-      'Generatoare, parametrizare si automatizare in fiecare pas.',
+      'Generatoare, parametrizare și automatizare în fiecare pas.',
   },
   {
     value: 50,
     suffix: '+',
-    label: 'Tari cu utilizatori PYTHA',
+    label: 'Țări cu utilizatori PYTHA',
     description:
-      'De la ateliere mici la fabrici mari — pe tot globul.',
+      'De la ateliere mici la fabrici mari, pe tot globul.',
   },
   {
     value: 2000,
     suffix: '+',
-    label: 'Ateliere si fabrici',
+    label: 'Ateliere și fabrici',
     description:
-      'Profesionisti care proiecteaza zilnic cu PYTHA.',
+      'Profesioniști care proiectează zilnic cu PYTHA.',
   },
 ];
 

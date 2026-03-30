@@ -115,7 +115,7 @@ export default function FaqSection() {
       <div className="container">
         <div className="mx-auto max-w-3xl space-y-4 text-balance sm:text-center">
           <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
-            Intrebari <span className="text-gradient">frecvente</span>
+            Intrebari <span className="text-[#8a1820]">frecvente</span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-500">
             Raspunsuri la cele mai importante intrebari despre PYTHA,

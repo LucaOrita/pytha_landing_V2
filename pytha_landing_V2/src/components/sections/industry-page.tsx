@@ -79,7 +79,7 @@ export default function IndustryPage({
         <div className="container">
           <div className="mx-auto max-w-3xl space-y-4 text-balance sm:text-center">
             <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
-              Provocari pe care le <span className="text-gradient">cunosti</span>
+              Provocari pe care le <span className="text-[#8a1820]">cunosti</span>
             </h2>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3 md:mt-16">
@@ -107,7 +107,7 @@ export default function IndustryPage({
         <div className="container">
           <div className="mx-auto max-w-3xl space-y-4 text-balance sm:text-center">
             <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
-              Cum rezolva <span className="text-gradient">PYTHA</span>
+              Cum rezolva <span className="text-[#8a1820]">PYTHA</span>
             </h2>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2 md:mt-16">

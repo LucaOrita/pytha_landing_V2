@@ -49,7 +49,7 @@ export default function DespreNoiPage() {
           <div className="mx-auto max-w-4xl space-y-4 text-balance sm:text-center">
             <h1 className="text-5xl leading-none tracking-tight text-balance md:text-6xxl">
               Tehnologie germana,{' '}
-              <span className="text-gradient">suport romanesc</span>
+              <span className="text-[#8a1820]">suport romanesc</span>
             </h1>
             <p className="mx-auto max-w-2xl leading-snug text-gray-500 md:text-lg lg:text-xl">
               PYTHA Lab GmbH si AdLine Industries — impreuna pentru digitalizarea
@@ -66,7 +66,7 @@ export default function DespreNoiPage() {
             <div className="space-y-4">
               <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
                 PYTHA — 40+ ani de inovatie{' '}
-                <span className="text-gradient">in CAD 3D</span>
+                <span className="text-[#8a1820]">in CAD 3D</span>
               </h2>
               <p className="text-lg leading-snug text-gray-500">
                 PYTHA este un software dezvoltat integral in Germania de PYTHA Lab GmbH,

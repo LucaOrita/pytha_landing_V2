@@ -73,7 +73,7 @@ const Navbar = () => {
     >
       <div className="container flex h-[var(--header-height)] items-center justify-between gap-4">
         {/* Left: Logo */}
-        <Logo showPartner className="shrink-0" />
+        <Logo className="shrink-0" />
 
         {/* Center: Desktop nav */}
         <nav className="hidden lg:flex lg:items-center lg:gap-1 xl:gap-2">
@@ -205,13 +205,13 @@ const Navbar = () => {
 
         {/* Right: Theme toggle + CTA + Mobile controls */}
         <div className="flex items-center gap-2">
-          <Button size="sm" asChild className="hidden lg:inline-flex">
-            <Link href="/solicita-prezentare">Solicita oferta</Link>
+          <Button size="sm" asChild className="hidden bg-[#8a1820] text-white hover:bg-[#6d1319] lg:inline-flex">
+            <Link href="/solicita-prezentare">Solicită Demo</Link>
           </Button>
 
           {/* Mobile: CTA + hamburger */}
-          <Button size="sm" asChild className="lg:hidden">
-            <Link href="/solicita-prezentare">Oferta</Link>
+          <Button size="sm" asChild className="bg-[#8a1820] text-white hover:bg-[#6d1319] lg:hidden">
+            <Link href="/solicita-prezentare">Demo</Link>
           </Button>
 
           <button

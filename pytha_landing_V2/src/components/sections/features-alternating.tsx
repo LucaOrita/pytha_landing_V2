@@ -9,34 +9,34 @@ import { cn } from '@/lib/utils';
 
 const FEATURES = [
   {
-    subtitle: 'Modelare libera',
-    title: 'Creeaza orice forma — fara limitari',
+    subtitle: 'Modelare liberă',
+    title: 'Creează orice formă, fără limitări',
     description:
-      'De la corpuri simple la geometrii organice complexe. Modelarea 3D solida in PYTHA iti ofera libertatea de a proiecta exact ce ai in minte, cu precizie industriala.',
+      'De la corpuri simple la geometrii organice complexe. Modelarea 3D solidă în PYTHA îți oferă libertatea de a proiecta exact ce ai în minte, cu precizie industrială.',
     link: '/module-pytha#modeler-basic',
     image: '/images/home/section3/Modelare 3D liberă și intuitivă.jpg',
   },
   {
-    subtitle: 'Productie automata',
-    title: 'Automatizare totala — de la model la CNC',
+    subtitle: 'Producție automată',
+    title: 'Automatizare totală, de la model la CNC',
     description:
-      'Gauri, imbinari, aplicare cant, prelucrari CNC — generate automat direct din modelul 3D. Fara munca manuala, fara erori de transfer.',
+      'Găuri, îmbinări, aplicare cant, prelucrări CNC generate automat direct din modelul 3D. Fără muncă manuală, fără erori de transfer.',
     link: '/module-pytha#workshop',
     image: '/images/home/section3/Automatizare totală a producției.jpg',
   },
   {
     subtitle: 'Integrare CNC',
-    title: 'Export direct catre orice utilaj CNC',
+    title: 'Export direct către orice utilaj CNC',
     description:
-      'WoodWop, AlphaCam, bSolid, Biesse, SCM, Felder, G-code — PYTHA exporta fara conversii suplimentare sau softuri intermediare.',
+      'WoodWop, AlphaCam, bSolid, Biesse, SCM, Felder, G-code. PYTHA exportă fără conversii suplimentare sau softuri intermediare.',
     link: '/module-pytha#cam-interface',
     image: '/images/home/section3/Integrare directă cu utilajele CNC.jpg',
   },
   {
-    subtitle: 'Randare realista',
-    title: 'Impresioneaza clientii cu randari fotorealiste',
+    subtitle: 'Randare realistă',
+    title: 'Impresionează clienții cu randări fotorealiste',
     description:
-      'Prezinta proiecte cu iluminare reala, texturi HD si animatii interactive. RadioLab transforma modelul 3D in imagini de prezentare care vand.',
+      'Prezintă proiecte cu iluminare reală, texturi HD și animații interactive. RadioLab transformă modelul 3D în imagini de prezentare care vând.',
     link: '/module-pytha#radiolab',
     image: '/images/home/section3/Randare fotorealistă pentru vânzare rapidă.png',
   },
@@ -49,10 +49,10 @@ export default function FeaturesAlternating() {
         <InView className="mx-auto max-w-3xl text-balance text-center">
           <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
             Tot ce ai nevoie pentru{' '}
-            <span className="text-gradient">productie digitala</span>
+            <span className="text-[#8a1820]">producție digitală</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-500">
-            De la prima schita pana la piesa finisata — PYTHA acopera intreg fluxul.
+            De la prima schiță până la piesa finisată. PYTHA acoperă întregul flux.
           </p>
         </InView>
 
@@ -93,7 +93,7 @@ export default function FeaturesAlternating() {
                   className="group/link mt-2 inline-flex items-center gap-2 text-sm font-semibold text-[#8a1820] transition-colors hover:text-[#a1131d]"
                 >
                   <span className="underline decoration-[#8a1820]/30 underline-offset-4 transition-all group-hover/link:decoration-[#8a1820]">
-                    Afla mai multe
+                    Află mai multe
                   </span>
                   <ArrowRight className="size-4 transition-transform group-hover/link:translate-x-1" />
                 </Link>

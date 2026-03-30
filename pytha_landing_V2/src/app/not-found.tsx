@@ -8,7 +8,7 @@ export default function NotFound() {
       <div className="container text-center">
         <div className="mx-auto max-w-lg space-y-6">
           <h1 className="text-6xxl leading-none tracking-tight">
-            <span className="text-gradient">404</span>
+            <span className="text-[#8a1820]">404</span>
           </h1>
           <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
             Pagina nu a fost gasita

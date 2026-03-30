@@ -28,7 +28,7 @@ export default function SolicitaPrezentarePage() {
           <div>
             <h1 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
               Programeaza o{' '}
-              <span className="text-gradient">demonstratie gratuita</span>
+              <span className="text-[#8a1820]">demonstratie gratuita</span>
             </h1>
             <p className="mt-4 max-w-xl text-lg leading-snug text-gray-500">
               In 15 minute, iti aratam cum PYTHA se potriveste exact pe fluxul tau

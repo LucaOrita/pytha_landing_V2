@@ -25,7 +25,7 @@ export default function SupportPreview() {
         <div className="mx-auto max-w-3xl space-y-4 text-balance sm:text-center">
           <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
             Suport real,{' '}
-            <span className="text-gradient">nu doar un numar de telefon</span>
+            <span className="text-[#8a1820]">nu doar un numar de telefon</span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-500">
             Cu PYTHA si Adline Industries, ai intotdeauna o echipa de profesionisti
