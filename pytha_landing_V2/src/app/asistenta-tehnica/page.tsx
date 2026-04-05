@@ -22,7 +22,7 @@ const SUPPORT_OPTIONS = [
     icon: Phone,
     title: 'Suport Tehnic Local',
     description:
-      'Echipa de specialisti din Romania. Telefon, email sau TeamViewer — ajutor real cand ai nevoie, nu peste saptamani.',
+      'Echipa de specialisti din Romania. Telefon, email sau TeamViewer — ajutor real când ai nevoie, nu peste săptămâni.',
   },
   {
     icon: Settings,
@@ -39,7 +39,7 @@ const SUPPORT_OPTIONS = [
 ];
 
 const SERVICE_FEATURES = [
-  'Actualizari software, inclusiv versiuni noi',
+  'Actualizări software, inclusiv versiuni noi',
   'Linie telefonica tehnica',
   'Mentenanta la distanta',
   'Reduceri la training-uri si evenimente',
@@ -59,7 +59,7 @@ const FAQ_DATA: FaqCategory[] = [
   {
     title: 'Modelare si design',
     faqs: [
-      { question: 'Ce tipuri de produse pot fi proiectate cu PYTHA?', answer: 'Mobilier din lemn industrial (dulapuri, rafturi, mese), mobilier din lemn natural, standuri expozitionale, rafturi de prezentare si orice combinatie de materiale. Imaginatia dumneavoastra este limita.' },
+      { question: 'Ce tipuri de produse pot fi proiectate cu PYTHA?', answer: 'Mobilier din lemn industrial (dulapuri, rafturi, mese), mobilier din lemn natural, standuri expozitionale, rafturi de prezentare si orice combinație de materiale. Imaginația dumneavoastra este limita.' },
       { question: 'Pot specifica materiale diferite pentru fiecare parte a unui produs?', answer: 'Da, folosind functia de atribuire „Material Assigning" puteti selecta materiale diferite pentru fiecare suprafata a unui component.' },
       { question: 'Este posibila setarea tesiturilor in timpul proiectarii?', answer: 'Da, folosind functia „Chamfer 3D" puteti introduce latimea si unghiul tesiturii, apoi aplica pe orice muchie.' },
       { question: 'Pot crea modele parametrice cu dimensiuni variabile?', answer: 'Da, modulul Parametrics permite definirea de dimensiuni variabile, formule, conditii si restrictii. Componenta se actualizeaza automat cand schimbati un parametru.' },
@@ -108,6 +108,7 @@ export default function AsistentaTehnicaPage() {
       <section className="relative overflow-hidden section-padding">
         <div className="absolute -top-32 -right-32 size-96 rounded-full bg-[#10a5ca]/5 blur-3xl" />
         <div className="absolute -bottom-32 -left-32 size-80 rounded-full bg-[#8a1820]/5 blur-3xl" />
+        <div className="absolute inset-0 hero-dots" />
         <div className="container relative">
           <div className="mx-auto max-w-4xl space-y-4 text-balance sm:text-center">
             <div className="flex items-center justify-center">
@@ -183,7 +184,7 @@ export default function AsistentaTehnicaPage() {
                 ))}
               </ul>
               <Button className="mt-6 w-full" asChild>
-                <Link href="/solicita-prezentare">Solicita acord de service</Link>
+                <Link href="/solicita-prezentare">Solicită acord de service</Link>
               </Button>
             </div>
 
@@ -212,7 +213,7 @@ export default function AsistentaTehnicaPage() {
                 ))}
               </ul>
               <Button className="mt-6 w-full" variant="outline" asChild>
-                <Link href="/solicita-prezentare">Programeaza training</Link>
+                <Link href="/solicita-prezentare">Programează training</Link>
               </Button>
             </div>
           </div>

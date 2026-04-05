@@ -20,16 +20,16 @@ const CARDS = [
 
 export default function SupportPreview() {
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-background">
       <div className="container">
         <div className="mx-auto max-w-3xl space-y-4 text-balance sm:text-center">
           <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
             Suport real,{' '}
             <span className="text-[#8a1820]">nu doar un numar de telefon</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-500">
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             Cu PYTHA si Adline Industries, ai intotdeauna o echipa de profesionisti
-            langa tine — de la instalare pana la optimizarea productiei zilnice.
+            langa tine — de la instalare la optimizarea productiei zilnice.
           </p>
         </div>
 
@@ -37,7 +37,7 @@ export default function SupportPreview() {
           {CARDS.map((card) => (
             <div
               key={card.title}
-              className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="group overflow-hidden rounded-2xl border border-border bg-card shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
               <div className="overflow-hidden">
                 <Image
@@ -54,7 +54,7 @@ export default function SupportPreview() {
                 <h3 className="text-lg font-bold">
                   {card.title}
                 </h3>
-                <p className="text-sm leading-snug text-gray-500">
+                <p className="text-sm leading-snug text-muted-foreground">
                   {card.description}
                 </p>
               </div>

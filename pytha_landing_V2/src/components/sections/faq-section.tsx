@@ -117,14 +117,14 @@ export default function FaqSection() {
           <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
             Intrebari <span className="text-[#8a1820]">frecvente</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-500">
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             Raspunsuri la cele mai importante intrebari despre PYTHA,
             modulele disponibile si integrarea CNC.
           </p>
         </div>
 
         <div className="mx-auto mt-12 max-w-4xl md:mt-16">
-          <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-md md:p-12">
+          <div className="rounded-2xl border border-border bg-card p-8 shadow-md md:p-12">
             <div className="space-y-10">
               {FAQ_CATEGORIES.map((category) => (
                 <div key={category.title}>
@@ -138,7 +138,7 @@ export default function FaqSection() {
                           {faq.question}
                         </AccordionTrigger>
                         <AccordionContent>
-                          <p className="leading-relaxed text-gray-500">
+                          <p className="leading-relaxed text-muted-foreground">
                             {faq.answer}
                           </p>
                         </AccordionContent>
@@ -153,7 +153,7 @@ export default function FaqSection() {
 
         {/* CTA */}
         <div className="mt-12 text-center md:mt-16">
-          <p className="mb-4 text-gray-500">
+          <p className="mb-4 text-muted-foreground">
             Ai alte intrebari? Suntem aici sa te ajutam.
           </p>
           <Button asChild>

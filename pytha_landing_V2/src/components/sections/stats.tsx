@@ -35,13 +35,13 @@ const STATS = [
 
 export default function Stats() {
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-card">
       <div className="container">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {STATS.map((stat) => (
             <div
               key={stat.label}
-              className="rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="rounded-2xl border border-border bg-card p-8 text-center shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
               <div className="text-4xl font-bold text-[#8a1820] md:text-5xl">
                 <NumberTicker
@@ -55,7 +55,7 @@ export default function Stats() {
               <p className="mt-4 text-base font-bold">
                 {stat.label}
               </p>
-              <p className="mt-1 text-sm leading-snug text-gray-500">
+              <p className="mt-1 text-sm leading-snug text-muted-foreground">
                 {stat.description}
               </p>
             </div>

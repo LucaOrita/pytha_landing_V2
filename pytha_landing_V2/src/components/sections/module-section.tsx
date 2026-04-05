@@ -36,7 +36,7 @@ export default function ModuleSection({
   const displayNote = isMonthly && module.monthlyPrice ? 'pe luna' : module.priceNote;
 
   return (
-    <section id={module.id} className={cn('scroll-mt-36 py-16 md:py-20', isEven ? '' : 'bg-white')}>
+    <section id={module.id} className={cn('scroll-mt-36 py-16 md:py-20', isEven ? '' : 'bg-card')}>
       <div
         className={cn(
           'container flex flex-col gap-10 lg:gap-18',
@@ -85,7 +85,7 @@ export default function ModuleSection({
 
           <h3 className="text-lg font-semibold">{module.subtitle}</h3>
 
-          <p className="text-base leading-snug text-gray-500">
+          <p className="text-base leading-snug text-muted-foreground">
             {module.description}
           </p>
 
@@ -107,7 +107,7 @@ export default function ModuleSection({
               <span className="font-display text-2xl font-bold md:text-3xl">
                 {displayPrice}
               </span>
-              <span className="ml-2 text-sm text-gray-500">{displayNote}</span>
+              <span className="ml-2 text-sm text-muted-foreground">{displayNote}</span>
             </div>
             <Button
               size="sm"

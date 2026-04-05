@@ -27,7 +27,7 @@ export function FaqRenderer({ categories }: { categories: FaqCategory[] }) {
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent>
-                  <p className="leading-relaxed text-gray-500">{faq.answer}</p>
+                  <p className="leading-relaxed text-muted-foreground">{faq.answer}</p>
                 </AccordionContent>
               </AccordionItem>
             ))}

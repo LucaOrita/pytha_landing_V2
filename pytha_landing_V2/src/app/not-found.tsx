@@ -13,7 +13,7 @@ export default function NotFound() {
           <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
             Pagina nu a fost gasita
           </h2>
-          <p className="text-lg leading-snug text-gray-500">
+          <p className="text-lg leading-snug text-muted-foreground">
             Ne pare rau, dar pagina pe care o cauti nu exista sau a fost mutata.
           </p>
           <Button asChild>

@@ -42,17 +42,18 @@ export default function IndustryPage({
       <section className="relative overflow-hidden section-padding">
         <div className="absolute -top-32 -right-32 size-96 rounded-full bg-[#8a1820]/5 blur-3xl" />
         <div className="absolute -bottom-32 -left-32 size-80 rounded-full bg-[#10a5ca]/5 blur-3xl" />
+        <div className="absolute inset-0 hero-dots" />
         <div className="container relative">
           <div className="grid items-center gap-10 lg:grid-cols-[3fr_2fr] lg:gap-18">
             <div className="space-y-4">
               <h1 className="text-4xl leading-tight tracking-tight text-balance md:text-5xl lg:text-6xl">
                 {title}
               </h1>
-              <p className="max-w-xl text-lg leading-snug text-gray-500">
+              <p className="max-w-xl text-lg leading-snug text-muted-foreground">
                 {subtitle}
               </p>
               <Button asChild>
-                <Link href="/solicita-prezentare">Programeaza demo gratuit</Link>
+                <Link href="/solicita-prezentare">Programează demo gratuit</Link>
               </Button>
             </div>
             <Image
@@ -69,7 +70,7 @@ export default function IndustryPage({
       </section>
 
       {/* Challenges */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-card">
         <div className="container">
           <div className="mx-auto max-w-3xl space-y-4 text-balance sm:text-center">
             <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
@@ -82,13 +83,13 @@ export default function IndustryPage({
               return (
                 <div
                   key={c.title}
-                  className="flex flex-col gap-4 rounded-2xl border border-gray-100 bg-white p-8 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-8 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                 >
                   <div className="flex size-12 items-center justify-center rounded-full bg-[#fff1f2]">
                     <Icon className="size-5 text-[#8a1820]" />
                   </div>
                   <h3 className="text-lg font-bold">{c.title}</h3>
-                  <p className="text-sm leading-snug text-gray-500">{c.description}</p>
+                  <p className="text-sm leading-snug text-muted-foreground">{c.description}</p>
                 </div>
               );
             })}
@@ -109,18 +110,18 @@ export default function IndustryPage({
               <Link
                 key={s.module}
                 href={s.href}
-                className="group flex flex-col gap-3 rounded-2xl border border-gray-100 bg-white p-8 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="group flex flex-col gap-3 rounded-2xl border border-border bg-card p-8 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
                 <span className="w-fit rounded-full bg-[#fff1f2] px-3 py-1 text-xs font-semibold text-[#8a1820]">
                   {s.module}
                 </span>
                 <h3 className="text-lg font-bold group-hover:text-[#8a1820]">{s.title}</h3>
-                <p className="text-sm leading-snug text-gray-500">{s.description}</p>
+                <p className="text-sm leading-snug text-muted-foreground">{s.description}</p>
               </Link>
             ))}
           </div>
           <div className="mt-12 text-center">
-            <p className="text-gray-500">
+            <p className="text-muted-foreground">
               Preturi de la 99€/luna.{' '}
               <Link href="/preturi" className="font-semibold text-[#8a1820] hover:underline">
                 Vezi toate pachetele si preturile →
@@ -137,14 +138,14 @@ export default function IndustryPage({
             {ctaText}
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-white/70">
-            Programeaza o demonstratie gratuita de 15 minute. Fara obligatii.
+            Programează o demonstrație gratuită de 15 minute. Fara obligații.
           </p>
           <div className="mt-8">
             <Link
               href="/solicita-prezentare"
               className="inline-block rounded-full bg-white px-8 py-4 text-lg font-semibold text-[#8a1820] shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
-              Vreau o demonstratie gratuita
+              Vreau o demonstrație gratuită
             </Link>
           </div>
         </div>

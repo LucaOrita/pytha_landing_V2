@@ -1,9 +1,14 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Termeni si conditii',
-  description: 'Termenii si conditiile de utilizare a site-ului pytha3d.ro.',
+  title: 'Termeni si Conditii | PYTHA 3D Romania',
+  description: 'Termenii si conditiile de utilizare a site-ului PYTHA 3D Romania. Cititi regulile de acces si utilizare a serviciilor noastre.',
   robots: { index: false, follow: false },
+  openGraph: {
+    title: 'Termeni si Conditii | PYTHA 3D Romania',
+    description: 'Termenii si conditiile de utilizare a site-ului PYTHA 3D Romania.',
+    type: 'website',
+  },
 };
 
 export default function TermeniPage() {
@@ -14,7 +19,7 @@ export default function TermeniPage() {
           <h1 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
             Termeni si conditii
           </h1>
-          <p className="text-lg leading-snug text-gray-500">
+          <p className="text-lg leading-snug text-muted-foreground">
             Pagina este in curs de actualizare. Pentru orice nelamuriri, ne puteti
             contacta la{' '}
             <a

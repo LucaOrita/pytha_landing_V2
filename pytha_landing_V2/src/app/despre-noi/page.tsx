@@ -32,8 +32,8 @@ const KEY_FACTS = [
 const SERVICII = [
   { icon: Truck, title: 'Livrare si instalare', description: 'Transport, montaj si configurare la sediul clientului — in toata Romania.' },
   { icon: BookOpen, title: 'Training personalizat', description: 'Instruire individuala sau de grup, adaptata nivelului echipei tale. Online sau on-site.' },
-  { icon: HeadphonesIcon, title: 'Suport tehnic dedicat', description: 'Linie telefonica, email si remote control (TeamViewer). Raspuns rapid in limba romana.' },
-  { icon: Cog, title: 'Consultanta CAD-CAM', description: 'Analizam fluxul tau de productie si recomandam solutia optima — software + hardware.' },
+  { icon: HeadphonesIcon, title: 'Suport tehnic dedicat', description: 'Linie telefonica, email si remote control (TeamViewer). Răspuns rapid in limba română.' },
+  { icon: Cog, title: 'Consultanță CAD-CAM', description: 'Analizam fluxul tau de productie si recomandam solutia optima — software + hardware.' },
   { icon: Wrench, title: 'Mentenanta si post-garantie', description: 'Servicii de mentenanta preventiva si interventii rapide, chiar si dupa expirarea garantiei.' },
   { icon: Monitor, title: 'Integrare completa', description: 'Conectam software-ul PYTHA cu echipamentele tale CNC existente — fara compromisuri.' },
 ];
@@ -45,6 +45,7 @@ export default function DespreNoiPage() {
       <section className="relative overflow-hidden section-padding">
         <div className="absolute -top-32 -right-32 size-96 rounded-full bg-[#8a1820]/5 blur-3xl" />
         <div className="absolute -bottom-32 -left-32 size-80 rounded-full bg-[#10a5ca]/5 blur-3xl" />
+        <div className="absolute inset-0 hero-dots" />
         <div className="container relative">
           <div className="mx-auto max-w-4xl space-y-4 text-balance sm:text-center">
             <h1 className="text-5xl leading-none tracking-tight text-balance md:text-6xxl">
@@ -139,7 +140,7 @@ export default function DespreNoiPage() {
               </p>
               <p className="text-lg leading-snug text-gray-500">
                 Nu ne rezumam la a vinde software. Construim relatii pe termen lung:
-                consultanta, training personalizat, suport tehnic in limba romana, si
+                consultanță, training personalizat, suport tehnic in limba română, si
                 integrare completa cu echipamentele tale existente.
               </p>
             </div>
@@ -210,7 +211,7 @@ export default function DespreNoiPage() {
               <Link href="/contact">Contacteaza-ne</Link>
             </Button>
             <Button variant="outline" asChild>
-              <Link href="/solicita-prezentare">Programeaza o prezentare</Link>
+              <Link href="/solicita-prezentare">Programează o prezentare</Link>
             </Button>
           </div>
         </div>

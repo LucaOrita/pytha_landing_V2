@@ -32,7 +32,7 @@ export function BookingModalProvider({ children }: { children: React.ReactNode }
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Programeaza o prezentare gratuita</DialogTitle>
+            <DialogTitle>Programează o prezentare gratuită</DialogTitle>
             <DialogDescription>
               In doar 15 minute, iti aratam cum PYTHA poate transforma fluxul tau de productie.
             </DialogDescription>

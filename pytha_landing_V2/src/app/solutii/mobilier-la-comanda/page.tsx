@@ -4,11 +4,12 @@ import { Clock, AlertTriangle, Eye } from 'lucide-react';
 import IndustryPage from '@/components/sections/industry-page';
 
 export const metadata: Metadata = {
-  title: 'Software Proiectare Mobilier la Comanda — PYTHA 3D-CAD',
+  title: 'Mobilier la Comanda | PYTHA 3D-CAD — Design la CNC Automat',
   description:
-    'Proiecteaza mobilier la comanda cu PYTHA: de la design 3D la CNC, fara erori. Generatoare de corpuri, nesting, export automat.',
+    'PYTHA mobilier comanda: design 3D cu generatoare parametrice, nesting optimizat, export CNC automat. De la ideie la productie fara erori.',
   openGraph: {
-    title: 'Software Proiectare Mobilier la Comanda — PYTHA 3D-CAD',
+    title: 'Mobilier la Comanda | PYTHA 3D-CAD — Design la CNC Automat',
+    description: 'Proiecteaza mobilier la comanda cu PYTHA: de la design 3D la CNC automat. Generatoare inteligente, nesting, export direct pe masini.',
     type: 'website',
   },
 };
@@ -70,7 +71,7 @@ export default function MobilierLaComandaPage() {
           href: '/module-pytha#modul-radiolab',
         },
       ]}
-      ctaText="Programeaza o demonstratie adaptata pentru mobilier la comanda"
+      ctaText="Programează o demonstrație adaptată pentru mobilier la comandă"
     />
   );
 }

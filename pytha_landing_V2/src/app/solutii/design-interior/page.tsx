@@ -4,11 +4,12 @@ import { Palette, Handshake, Zap } from 'lucide-react';
 import IndustryPage from '@/components/sections/industry-page';
 
 export const metadata: Metadata = {
-  title: 'Software Design Interior 3D — PYTHA Vizualizare si Randare',
+  title: 'Software Design Interior 3D | PYTHA 3D-CAD — Vizualizare Fotorealista',
   description:
-    'Prezinta proiecte de design interior cu vizualizari fotorealiste PYTHA. Biblioteca 35.000+ obiecte, materiale reale, randare rapida.',
+    'PYTHA design interior: modelare 3D, biblioteci cu 35.000+ obiecte, randare fotorealista cu RadioLab. Perfect pentru prezentari clienti.',
   openGraph: {
-    title: 'Software Design Interior 3D — PYTHA Vizualizare si Randare',
+    title: 'Software Design Interior 3D | PYTHA 3D-CAD — Vizualizare Fotorealista',
+    description: 'Design interior cu PYTHA 3D-CAD: modelare intuitiva, biblioteca completa, randari fotorealiste. Prezinta proiecte care vand.',
     type: 'website',
   },
 };
@@ -70,7 +71,7 @@ export default function DesignInteriorPage() {
           href: '/module-pytha#modul-freeform',
         },
       ]}
-      ctaText="Programeaza o demonstratie pentru design interior"
+      ctaText="Programează o demonstrație pentru design interior"
     />
   );
 }

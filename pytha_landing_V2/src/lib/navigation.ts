@@ -37,7 +37,7 @@ export const NAV_LINKS: NavItem[] = [
       ],
       industries: [
         { label: 'Mobilier la Comanda', href: '/solutii/mobilier-la-comanda', description: 'Flux complet pentru ateliere' },
-        { label: 'Tamplarie Comerciala', href: '/solutii/tamplarie-comerciala', description: 'Volume mari, automatizare totala' },
+        { label: 'Tâmplărie Comercială', href: '/solutii/tamplarie-comerciala', description: 'Volume mari, automatizare totala' },
         { label: 'Design Interior', href: '/solutii/design-interior', description: 'Vizualizare si randare' },
       ],
     },
@@ -51,7 +51,7 @@ export const NAV_LINKS: NavItem[] = [
 export const FOOTER_LINKS = {
   solutii: [
     { label: 'Mobilier la Comanda', href: '/solutii/mobilier-la-comanda' },
-    { label: 'Tamplarie Comerciala', href: '/solutii/tamplarie-comerciala' },
+    { label: 'Tâmplărie Comercială', href: '/solutii/tamplarie-comerciala' },
     { label: 'Design Interior', href: '/solutii/design-interior' },
     { label: 'Toate modulele', href: '/module-pytha' },
     { label: 'Preturi', href: '/preturi' },

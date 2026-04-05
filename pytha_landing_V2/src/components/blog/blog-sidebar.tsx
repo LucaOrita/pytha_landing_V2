@@ -10,10 +10,10 @@ export function BlogSidebar({ recentPosts }: { recentPosts: BlogPost[] }) {
       <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-md">
         <h3 className="font-bold">Vrei sa vezi PYTHA in actiune?</h3>
         <p className="mt-2 text-sm leading-snug text-gray-500">
-          Programeaza o prezentare gratuita de 15 minute.
+          Programează o prezentare gratuită de 15 minute.
         </p>
         <Button size="sm" className="mt-4 w-full" asChild>
-          <Link href="/solicita-prezentare">Solicita demo</Link>
+          <Link href="/solicita-prezentare">Solicită demo</Link>
         </Button>
       </div>
 

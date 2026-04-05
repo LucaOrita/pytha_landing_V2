@@ -24,11 +24,12 @@ import {
 import PricingTable from '@/components/sections/pricing-table';
 
 export const metadata: Metadata = {
-  title: 'Prețuri PYTHA 3D-CAD — Licență de la 99€/lună',
+  title: 'Prețuri PYTHA 3D-CAD — Licență de la 99€/lună | PYTHA Romania',
   description:
-    'Prețuri transparente PYTHA: licență permanentă sau abonament lunar. Module individuale sau pachet complet. Fără costuri ascunse.',
+    'Prețuri transparente PYTHA: licență permanentă sau abonament lunar. Module individuale sau pachet complet. Fără costuri ascunse. Training si suport inclus.',
   openGraph: {
     title: 'Prețuri PYTHA 3D-CAD — Licență de la 99€/lună',
+    description: 'Prețuri transparente PYTHA: licență permanentă (de la 4.950€) sau abonament lunar (de la 99€). Module individuale sau pachet Enterprise complet.',
     type: 'website',
   },
 };
@@ -197,6 +198,7 @@ export default function PreturiPage() {
       <section className="relative overflow-hidden section-padding">
         <div className="absolute -top-40 -right-40 size-[28rem] rounded-full bg-[#8a1820]/8 blur-3xl" />
         <div className="absolute -bottom-32 -left-32 size-80 rounded-full bg-[#8a1820]/5 blur-3xl" />
+        <div className="absolute inset-0 hero-dots" />
         <div className="container relative">
           {/* Badge */}
           <div className="mb-6 flex sm:justify-center">
@@ -394,16 +396,16 @@ export default function PreturiPage() {
             <div className="absolute -bottom-20 -left-20 size-64 rounded-full bg-[#10a5ca]/20 blur-3xl" />
             <div className="relative">
               <h2 className="text-3xl font-bold leading-tight tracking-tight md:text-4xl">
-                Nu esti sigur ce pachet ti se potriveste?
+                Nu ești sigur ce pachet ți se potrivește?
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-white/60 md:text-lg">
-                Echipa noastra analizeaza nevoile tale si iti recomanda solutia optima —
-                complet gratuit, fara obligatii.
+                Echipa noastră analizează nevoile tale si îți recomandă soluția optimă —
+                complet gratuit, fără obligații.
               </p>
               <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
                 <Button asChild size="lg" className="bg-white text-[#8a1820] hover:bg-white/90">
                   <Link href="/solicita-prezentare">
-                    Programeaza o consultanta gratuita
+                    Programează o consultanță gratuită
                     <ChevronRight className="ml-1 size-4" />
                   </Link>
                 </Button>

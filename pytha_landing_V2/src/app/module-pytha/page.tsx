@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const MODULES: ModuleData[] = [
   {
     id: 'modul-basic',
-    badge: 'Modul 1 — Pachet de baza',
+    badge: 'Modul 1 · Pachet de bază',
     title: 'Pachetul de Baza',
     subtitle: 'Totul pentru inceputul profesionist in lumea CAD',
     description:
@@ -38,15 +38,15 @@ const MODULES: ModuleData[] = [
   },
   {
     id: 'modul-generators',
-    badge: 'Modul 2 — Generatoare',
+    badge: 'Modul 2 · Generatoare',
     title: 'Generatoare & Plug-in-uri',
-    subtitle: 'Mobilier standardizat, generat automat si pregatit pentru CNC',
+    subtitle: 'Mobilier standardizat, generat automat si pregătit pentru CNC',
     description:
-      'Generator inteligent pentru dulapuri (inclusiv panta acoperis), usi, sertare, rafturi, rafturi sticle si un wizard puternic pentru planificarea bucatariilor. Interfata de programare deschisa pentru plug-in-uri custom.',
+      'Generator inteligent pentru dulapuri (inclusiv panta acoperiș), uși, sertare, rafturi, rafturi sticle si un wizard puternic pentru planificarea bucătăriilor. Interfață de programare deschisa pentru plug-in-uri custom.',
     features: [
-      'Generatoare corpuri: bucatarii, dressinguri, corpuri suspendate',
+      'Generatoare corpuri: bucătării, dressinguri, corpuri suspendate',
       'Configurare completa: dimensiuni, fronturi, accesorii',
-      'Reguli automate de gaurire si cotare',
+      'Reguli automate de găurire si cotare',
       'Export instant catre CNC',
       'Suport pentru plug-in-uri dezvoltate de utilizator',
     ],
@@ -57,14 +57,14 @@ const MODULES: ModuleData[] = [
   },
   {
     id: 'modul-workshop',
-    badge: 'Modul 3 — Atelier',
+    badge: 'Modul 3 · Atelier',
     title: 'Workshop (Atelier)',
-    subtitle: 'Prelucreaza automat fiecare piesa din proiect',
+    subtitle: 'Prelucrează automat fiecare piesa din proiect',
     description:
-      'Transforma modelul 3D intr-un proiect pregatit pentru executie automata. Tip automat cu conectori Cam&Dowel, balamale sau dopuri — personalizat conform principiilor individuale de design.',
+      'Transforma modelul 3D intr-un proiect pregătit pentru executie automata. Tip automat cu conectori Cam&Dowel, balamale sau dopuri — personalizat conform principiilor individuale de design.',
     features: [
       'Recunoastere automata a imbinarilor (Footprint)',
-      'Gaurire, dibluire, santuire, frezare automata',
+      'Găurire, dibluire, șănțuire, frezare automata',
       'Aplicare automata de canturi',
       'Etichetare automata piese',
       'Suport pentru reguli constructive personalizate',
@@ -76,7 +76,7 @@ const MODULES: ModuleData[] = [
   },
   {
     id: 'modul-parts-list',
-    badge: 'Modul 4 — Liste piese',
+    badge: 'Modul 4 · Liste piese',
     title: 'Parts List (Lista de piese)',
     subtitle: 'Evaluare flexibila a proiectelor in liste si tabele',
     description:
@@ -95,11 +95,11 @@ const MODULES: ModuleData[] = [
   },
   {
     id: 'modul-parametrics',
-    badge: 'Modul 5 — Parametrizare',
+    badge: 'Modul 5 · Parametrizare',
     title: 'Parametrizare',
-    subtitle: 'Creeaza propria biblioteca variabila',
+    subtitle: 'Creează propria biblioteca variabila',
     description:
-      'Parametrizeaza-ti piesele si creaza o biblioteca de componente cu dimensiuni variabile, variante de design si functie de inlocuire rapida.',
+      'Parametrizeaza-ti piesele si creează o biblioteca de componente cu dimensiuni variabile, variante de design si functie de inlocuire rapida.',
     features: [
       'Control variabil pentru dimensiuni (latime, inaltime, adancime)',
       'Formule, conditii si restrictii in configurare',
@@ -114,13 +114,13 @@ const MODULES: ModuleData[] = [
   },
   {
     id: 'modul-library',
-    badge: 'Modul 6 — Biblioteca',
+    badge: 'Modul 6 · Bibliotecă',
     title: 'Biblioteca',
     subtitle: 'Peste 35.000 de elemente gata de utilizat',
     description:
       'Acces la o colectie vasta de componente 3D pentru arhitectura, prelucrarea lemnului, design expozitii, amenajare magazine, iluminat, accesorii decorative si plante.',
     features: [
-      'Componente 3D pregatite pentru integrare rapida',
+      'Componente 3D pregătite pentru integrare rapida',
       'Redimensionare parametrica automata',
       'Elemente decorative si functionale',
       'Obiecte compatibile cu Workshop si export CNC',
@@ -132,7 +132,7 @@ const MODULES: ModuleData[] = [
   },
   {
     id: 'modul-freeform',
-    badge: 'Modul 7 — Suprafete libere',
+    badge: 'Modul 7 · Suprafețe libere',
     title: 'Freeform (Suprafete libere)',
     subtitle: 'Libertate geometrica pentru forme care ies din tipare',
     description:
@@ -151,7 +151,7 @@ const MODULES: ModuleData[] = [
   },
   {
     id: 'modul-nesting',
-    badge: 'Modul 8 — Nesting',
+    badge: 'Modul 8 · Nesting',
     title: 'Nesting (Optimizare debitare)',
     subtitle: 'Fiecare centimetru de material conteaza',
     description:
@@ -170,15 +170,15 @@ const MODULES: ModuleData[] = [
   },
   {
     id: 'modul-cam',
-    badge: 'Modul 9 — Interfata CAM',
-    title: 'Interfata CAM',
+    badge: 'Modul 9 · Interfață CAM',
+    title: 'Interfață CAM',
     subtitle: 'Conectivitate extinsa catre orice tehnologie CNC',
     description:
-      'Completarea ideala a Workshop-ului PYTHA. Suport nativ pentru cele mai utilizate formate din industrie, fara conversii suplimentare.',
+      'Completarea ideală a Workshop-ului PYTHA. Suport nativ pentru cele mai utilizate formate din industrie, fara conversii suplimentare.',
     features: [
       'Export fisiere G-code, MPR, DXF, CIX, PGM etc.',
       'Compatibilitate cu Homag, Biesse, SCM, Felder, DDX',
-      'Export automat de prelucrari: gaurire, frezare, conturare',
+      'Export automat de prelucrari: găurire, frezare, conturare',
       'Configurare multipla de postprocesoare',
       'Eliminare necesitate softuri intermediare',
     ],
@@ -189,7 +189,7 @@ const MODULES: ModuleData[] = [
   },
   {
     id: 'modul-radiolab',
-    badge: 'Modul 10 — Randare',
+    badge: 'Modul 10 · Randare',
     title: 'RadioLab',
     subtitle: 'Prezentari care vand — randare fotorealista in timp real',
     description:
@@ -215,6 +215,7 @@ export default function ModulePythaPage() {
       <section className="relative overflow-hidden section-padding">
         <div className="absolute -top-32 -right-32 size-96 rounded-full bg-[#fef3c7]/60 blur-3xl" />
         <div className="absolute -bottom-32 -left-32 size-80 rounded-full bg-[#8a1820]/5 blur-3xl" />
+        <div className="absolute inset-0 hero-dots" />
         <div className="container relative">
           <div className="mx-auto max-w-4xl space-y-4 text-balance sm:text-center">
             <div className="flex items-center justify-center">
@@ -232,7 +233,7 @@ export default function ModulePythaPage() {
             </p>
             <div className="flex justify-center pt-2">
               <Button asChild>
-                <Link href="/solicita-prezentare">Solicita oferta personalizata</Link>
+                <Link href="/solicita-prezentare">Solicită ofertă personalizată</Link>
               </Button>
             </div>
           </div>
@@ -265,11 +266,11 @@ export default function ModulePythaPage() {
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg leading-snug text-gray-500">
             Echipa noastra te ajuta sa alegi pachetul perfect pentru atelierul tau —
-            gratuit si fara obligatii.
+            gratuit si fara obligații.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4.5">
             <Button asChild>
-              <Link href="/solicita-prezentare">Programeaza o consultanta gratuita</Link>
+              <Link href="/solicita-prezentare">Programează o consultanță gratuita</Link>
             </Button>
             <Button variant="outline" asChild>
               <Link href="/solicita-prezentare">Vezi preturile complete</Link>

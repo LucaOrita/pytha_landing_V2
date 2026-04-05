@@ -49,7 +49,7 @@ export default function FeaturesGrid() {
             De ce aleg producătorii{' '}
             <span className="text-[#8a1820]">PYTHA</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-500">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
             Un ecosistem complet care acoperă fiecare pas din procesul de producție.
           </p>
         </InView>
@@ -59,12 +59,12 @@ export default function FeaturesGrid() {
             const Icon = feature.icon;
             return (
               <InView key={feature.title} delay={i * 60}>
-                <div className="flex h-full flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                   <div className="mb-4 flex size-14 items-center justify-center rounded-xl bg-[#fff1f2] p-3">
                     <Icon className="size-8 text-[#8a1820]" />
                   </div>
                   <h3 className="text-xl font-bold">{feature.title}</h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-500">
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
                     {feature.description}
                   </p>
                   <Link

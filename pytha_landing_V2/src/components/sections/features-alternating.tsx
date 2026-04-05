@@ -44,14 +44,14 @@ const FEATURES = [
 
 export default function FeaturesAlternating() {
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-card">
       <div className="container space-y-20 md:space-y-30">
         <InView className="mx-auto max-w-3xl text-balance text-center">
           <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
             Tot ce ai nevoie pentru{' '}
             <span className="text-[#8a1820]">fluxul tău de producție digitalizat</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-500">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
             De la prima schiță până la piesa finisată. PYTHA acoperă întregul flux.
           </p>
         </InView>
@@ -85,7 +85,7 @@ export default function FeaturesAlternating() {
                 <h3 className="text-2xl font-bold leading-tight tracking-tight md:text-3xl">
                   {feature.title}
                 </h3>
-                <p className="max-w-lg text-lg leading-snug text-gray-500">
+                <p className="max-w-lg text-lg leading-snug text-muted-foreground">
                   {feature.description}
                 </p>
                 <Link

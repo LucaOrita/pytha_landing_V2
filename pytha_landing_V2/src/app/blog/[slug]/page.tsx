@@ -67,7 +67,7 @@ export default async function BlogPostPage({
       {/* Breadcrumb + Hero */}
       <section className="section-padding">
         <div className="container">
-          <nav className="mb-6 text-sm text-gray-400" aria-label="Breadcrumb">
+          <nav className="mb-6 text-sm text-muted-foreground" aria-label="Breadcrumb">
             <Link href="/" className="hover:opacity-80">Acasa</Link>
             <span className="mx-2">/</span>
             <Link href="/blog" className="hover:opacity-80">Blog</Link>
@@ -86,7 +86,7 @@ export default async function BlogPostPage({
             <h1 className="text-4xxl leading-tight tracking-tight md:text-5xl">
               {post.title}
             </h1>
-            <div className="flex items-center gap-3 text-sm text-gray-400">
+            <div className="flex items-center gap-3 text-sm text-muted-foreground">
               <span>{post.author}</span>
               <span>&middot;</span>
               <span>{new Date(post.date).toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
@@ -111,12 +111,12 @@ export default async function BlogPostPage({
           <h2 className="text-4xxl leading-tight tracking-tight md:text-5xl">
             Ti-a placut articolul?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg leading-snug text-gray-500">
-            Programeaza o prezentare si descopera PYTHA in actiune.
+          <p className="mx-auto mt-4 max-w-xl text-lg leading-snug text-muted-foreground">
+            Programează o prezentare și descoperă PYTHA în acțiune.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4.5">
             <Button asChild>
-              <Link href="/solicita-prezentare">Programeaza prezentare</Link>
+              <Link href="/solicita-prezentare">Programează prezentare</Link>
             </Button>
             <Button variant="outline" asChild>
               <Link href="/blog">Inapoi la blog</Link>

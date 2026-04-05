@@ -10,7 +10,7 @@ import { SOCIAL_LINKS } from '@/lib/navigation';
 export const metadata: Metadata = {
   title: 'Contact PYTHA Romania — AdLine Industries Bucuresti',
   description:
-    'Contacteaza AdLine Industries, partener autorizat PYTHA. Bd. Metalurgiei 99-99B, Bucuresti. Tel: +40 742 065 893. Raspundem in maxim 24h.',
+    'Contactează AdLine Industries, partener autorizat PYTHA. Bd. Metalurgiei 99-99B, Bucuresti. Tel: +40 742 065 893. Răspundem in maxim 24h.',
   openGraph: { title: 'Contact PYTHA Romania', type: 'website' },
 };
 
@@ -81,13 +81,14 @@ export default function ContactPage() {
       <section className="relative overflow-hidden section-padding">
         <div className="absolute -top-32 -right-32 size-96 rounded-full bg-[#8a1820]/5 blur-3xl" />
         <div className="absolute -bottom-32 -left-32 size-80 rounded-full bg-[#10a5ca]/5 blur-3xl" />
+        <div className="absolute inset-0 hero-dots" />
         <div className="container relative">
           <div className="mx-auto max-w-4xl space-y-4 text-balance sm:text-center">
             <h1 className="text-5xl leading-none tracking-tight text-balance md:text-6xxl">
-              <span className="text-[#8a1820]">Contacteaza-ne</span>
+              <span className="text-[#8a1820]">Contactează-ne</span>
             </h1>
             <p className="mx-auto max-w-2xl leading-snug text-gray-500 md:text-lg lg:text-xl">
-              Suntem aici sa te ajutam. Raspundem in maximum 24 de ore.
+              Suntem aici sa te ajutam. Răspundem in maximum 24 de ore.
             </p>
           </div>
         </div>
@@ -112,10 +113,10 @@ export default function ContactPage() {
               <p className="mb-3 text-sm text-gray-500">Sau programeaza direct:</p>
               <div className="flex flex-wrap justify-center gap-3">
                 <Button size="sm" variant="outline" asChild>
-                  <Link href="/solicita-prezentare">Solicita oferta</Link>
+                  <Link href="/solicita-prezentare">Solicită ofertă</Link>
                 </Button>
                 <Button size="sm" variant="outline" asChild>
-                  <Link href="/solicita-prezentare">Solicita prezentare</Link>
+                  <Link href="/solicita-prezentare">Solicită prezentare</Link>
                 </Button>
               </div>
             </div>

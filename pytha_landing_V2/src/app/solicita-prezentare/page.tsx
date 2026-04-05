@@ -6,17 +6,17 @@ import { Suspense } from 'react';
 import FormSwitcher from '@/components/forms/form-switcher';
 
 export const metadata: Metadata = {
-  title: 'Programeaza demonstratie gratuita PYTHA 3D CAD',
+  title: 'Programează demonstrație gratuită PYTHA 3D CAD',
   description:
-    'Demo gratuit PYTHA in 15 minute. Descopera cum software-ul CAD/CAM poate transforma fluxul tau de productie mobilier. Fara obligatii.',
-  openGraph: { title: 'Demonstratie gratuita PYTHA 3D', type: 'website' },
+    'Demo gratuit PYTHA in 15 minute. Descopera cum software-ul CAD/CAM poate transforma fluxul tau de productie mobilier. Fără obligații.',
+  openGraph: { title: 'Demonstrație gratuită PYTHA 3D', type: 'website' },
 };
 
 const BENEFITS = [
   'Demo personalizat pe nevoile tale',
-  'Fara obligatii sau costuri ascunse',
-  'Raspuns garantat in 24h',
-  'Echipa locala, in limba romana',
+  'Fără obligații sau costuri ascunse',
+  'Răspuns garantat in 24h',
+  'Echipa locala, in limba română',
 ];
 
 export default function SolicitaPrezentarePage() {
@@ -27,12 +27,12 @@ export default function SolicitaPrezentarePage() {
           {/* Left: Context + benefits */}
           <div>
             <h1 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
-              Programeaza o{' '}
-              <span className="text-[#8a1820]">demonstratie gratuita</span>
+              Programează o{' '}
+              <span className="text-[#8a1820]">demonstrație gratuită</span>
             </h1>
             <p className="mt-4 max-w-xl text-lg leading-snug text-gray-500">
               In 15 minute, iti aratam cum PYTHA se potriveste exact pe fluxul tau
-              de productie. Fara obligatii.
+              de productie. Fără obligații.
             </p>
 
             {/* Benefits */}
@@ -51,7 +51,7 @@ export default function SolicitaPrezentarePage() {
                 &ldquo;Am redus timpii de proiectare cu 40% in primele luni.&rdquo;
               </p>
               <p className="mt-2 text-xs text-gray-400">
-                — Utilizator PYTHA verificat
+                – Utilizator PYTHA verificat
               </p>
             </div>
 

@@ -38,7 +38,7 @@ export default function Testimonials() {
             Ateliere din toata lumea lucreaza cu{' '}
             <span className="text-[#8a1820]">PYTHA</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-500">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
             De la ateliere mici la fabrici cu zeci de angajati — PYTHA se
             adapteaza oricarui flux.
           </p>
@@ -47,7 +47,7 @@ export default function Testimonials() {
         <div className="mt-12 grid gap-6 md:grid-cols-3 md:mt-16">
           {TESTIMONIALS.map((t, i) => (
             <InView key={t.author} delay={i * 80}>
-              <div className="flex h-full flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-8 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <svg
                   className="mb-4 size-8 text-[#8a1820]/20"
                   viewBox="0 0 24 24"
@@ -55,12 +55,12 @@ export default function Testimonials() {
                 >
                   <path d="M11.3 2.5c-4 1.2-7 5-7 9.4 0 3.3 2.1 5.6 4.8 5.6 2.3 0 4.2-1.8 4.2-4.1 0-2.2-1.7-3.9-3.8-4-.4 0-.8.1-1.2.2.5-2.5 2.6-5.1 5.2-6.2L11.3 2.5zm11 0c-4 1.2-7 5-7 9.4 0 3.3 2.1 5.6 4.8 5.6 2.3 0 4.2-1.8 4.2-4.1 0-2.2-1.7-3.9-3.8-4-.4 0-.8.1-1.2.2.5-2.5 2.6-5.1 5.2-6.2L22.3 2.5z" />
                 </svg>
-                <p className="flex-1 text-base leading-relaxed text-gray-600 italic">
+                <p className="flex-1 text-base leading-relaxed text-muted-foreground italic">
                   &ldquo;{t.quote}&rdquo;
                 </p>
-                <div className="mt-6 border-t border-gray-100 pt-4">
+                <div className="mt-6 border-t border-border pt-4">
                   <p className="font-bold">{t.author}</p>
-                  <p className="text-sm text-gray-500">{t.company}</p>
+                  <p className="text-sm text-muted-foreground">{t.company}</p>
                 </div>
               </div>
             </InView>
@@ -70,7 +70,7 @@ export default function Testimonials() {
 
       {/* Partner logos marquee */}
       <div className="mt-20">
-        <p className="mb-8 text-center text-sm font-semibold uppercase tracking-wider text-gray-400">
+        <p className="mb-8 text-center text-sm font-semibold uppercase tracking-wider text-muted-foreground">
           Compatibil cu echipamente si feronerie de la
         </p>
         <div className="relative">
@@ -80,7 +80,7 @@ export default function Testimonials() {
             {PARTNERS.map((name) => (
               <span
                 key={name}
-                className="flex items-center rounded-xl border border-gray-100 bg-white px-8 py-4 text-base font-semibold text-gray-400 shadow-sm transition-colors hover:text-[#8a1820]"
+                className="flex items-center rounded-xl border border-border bg-card px-8 py-4 text-base font-semibold text-muted-foreground shadow-sm transition-colors hover:text-[#8a1820]"
               >
                 {name}
               </span>

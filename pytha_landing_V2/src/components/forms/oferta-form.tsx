@@ -16,7 +16,7 @@ const MODULES = [
   { id: 'modul-library', label: 'Biblioteca', price: '820€', monthly: null },
   { id: 'modul-freeform', label: 'Freeform', price: '590€', monthly: '13€/luna' },
   { id: 'modul-nesting', label: 'Nesting', price: '1.100€', monthly: '25€/luna' },
-  { id: 'modul-cam', label: 'Interfata CAM', price: '1.950€', monthly: '44€/luna' },
+  { id: 'modul-cam', label: 'Interfață CAM', price: '1.950€', monthly: '44€/luna' },
   { id: 'modul-radiolab', label: 'RadioLab', price: '980€', monthly: '42€/luna' },
 ];
 
@@ -35,9 +35,9 @@ const CNC_OPTIONS = [
 ];
 
 const CAND_OPTIONS = [
-  { value: 'asap', label: 'Cat mai curand' },
-  { value: 'saptamana-aceasta', label: 'Saptamana aceasta' },
-  { value: 'saptamana-viitoare', label: 'Saptamana viitoare' },
+  { value: 'asap', label: 'Cât mai curând' },
+  { value: 'saptamana-aceasta', label: 'Săptămâna aceasta' },
+  { value: 'saptamana-viitoare', label: 'Săptămâna viitoare' },
   { value: 'luna-viitoare', label: 'Luna viitoare' },
 ];
 
@@ -127,10 +127,10 @@ export default function OfertaForm() {
       </div>
       <div className="grid gap-4 md:grid-cols-2">
         <SelectField label="Tip firma" name="tipFirma" options={TIP_FIRMA_OPTIONS} value={data.tipFirma} onChange={(v) => set('tipFirma', v)} />
-        <SelectField label="Cand doresti prezentarea?" name="cand" options={CAND_OPTIONS} value={data.cand} onChange={(v) => set('cand', v)} />
+        <SelectField label="Când dorești prezentarea?" name="cand" options={CAND_OPTIONS} value={data.cand} onChange={(v) => set('cand', v)} />
       </div>
       <RadioField label="CNC in productie?" name="cnc" options={CNC_OPTIONS} value={data.cnc} onChange={(v) => set('cnc', v)} />
-      <InputField label="Experienta in proiectare (ce softuri cunosti?)" name="experienta" placeholder="ex: SketchUp, AutoCAD, PRO100..." value={data.experienta} onChange={(v) => set('experienta', v)} />
+      <InputField label="Experiența in proiectare (ce softuri cunosti?)" name="experienta" placeholder="ex: SketchUp, AutoCAD, PRO100..." value={data.experienta} onChange={(v) => set('experienta', v)} />
 
       {/* Module selector */}
       <div>
@@ -165,7 +165,7 @@ export default function OfertaForm() {
       </div>
 
       <Button type="submit" className="w-full py-3">
-        {selected.length > 0 ? `Solicita oferta — ${selected.length} module` : 'Solicita oferta personalizata'}
+        {selected.length > 0 ? `Solicită ofertă · ${selected.length} module` : 'Solicită ofertă personalizată'}
       </Button>
     </form>
   );

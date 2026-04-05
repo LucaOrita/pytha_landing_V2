@@ -28,9 +28,9 @@ const CNC_OPTIONS = [
 
 const CAND_OPTIONS = [
   { value: '', label: 'Selecteaza...' },
-  { value: 'asap', label: 'Cat mai curand' },
-  { value: 'saptamana-aceasta', label: 'Saptamana aceasta' },
-  { value: 'saptamana-viitoare', label: 'Saptamana viitoare' },
+  { value: 'asap', label: 'Cât mai curând' },
+  { value: 'saptamana-aceasta', label: 'Săptămâna aceasta' },
+  { value: 'saptamana-viitoare', label: 'Săptămâna viitoare' },
   { value: 'luna-viitoare', label: 'Luna viitoare' },
 ];
 
@@ -127,10 +127,10 @@ export default function PrezentareForm({ onSuccess }: { onSuccess?: () => void }
       </div>
       <SelectField label="Tip firma" name="tipFirma" options={TIP_FIRMA_OPTIONS} value={data.tipFirma} onChange={(v) => set('tipFirma', v)} />
       <RadioField label="CNC in productie?" name="cnc" options={CNC_OPTIONS} value={data.cnc} onChange={(v) => set('cnc', v)} />
-      <SelectField label="Cand doresti prezentarea?" name="cand" options={CAND_OPTIONS} value={data.cand} onChange={(v) => set('cand', v)} />
-      <SelectField label="Cate persoane proiecteaza in firma ta?" name="persoane" options={PERSOANE_OPTIONS} value={data.persoane} onChange={(v) => set('persoane', v)} />
+      <SelectField label="Când dorești prezentarea?" name="cand" options={CAND_OPTIONS} value={data.cand} onChange={(v) => set('cand', v)} />
+      <SelectField label="Câte persoane proiecteaza in firma ta?" name="persoane" options={PERSOANE_OPTIONS} value={data.persoane} onChange={(v) => set('persoane', v)} />
       <CheckboxGroup label="Ce software folosesti acum?" name="software" options={SOFTWARE_OPTIONS} values={data.software} onChange={(v) => set('software', v)} />
-      <Button type="submit" className="w-full py-3">Programeaza demo gratuit</Button>
+      <Button type="submit" className="w-full py-3">Programează demo gratuit</Button>
     </form>
   );
 }

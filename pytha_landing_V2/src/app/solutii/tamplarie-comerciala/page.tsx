@@ -4,11 +4,12 @@ import { Repeat, Users, Timer } from 'lucide-react';
 import IndustryPage from '@/components/sections/industry-page';
 
 export const metadata: Metadata = {
-  title: 'Software CAD pentru Tamplarie Comerciala — PYTHA 3D-CAD',
+  title: 'Tâmplărie Comercială | PYTHA 3D-CAD — Automatizare CAM Completă',
   description:
-    'Software CAD/CAM pentru tamplarie comerciala si amenajari interioare. Volume mari, piese repetitive, automatizare completa cu PYTHA.',
+    'PYTHA tâmplărie comercială: generatoare parametrice, nesting avansat, workshop CNC automat. Proiecte repetitive, termene scurte, productie fara erori.',
   openGraph: {
-    title: 'Software CAD pentru Tamplarie Comerciala — PYTHA 3D-CAD',
+    title: 'Tâmplărie Comercială | PYTHA 3D-CAD — Automatizare CAM Completă',
+    description: 'Software CAD/CAM pentru tâmplărie comercială: generatoare inteligente, workshop automat, nesting avansat. Productie rapida, fara erori.',
     type: 'website',
   },
 };
@@ -16,9 +17,9 @@ export const metadata: Metadata = {
 export default function TamplarieComercialaPage() {
   return (
     <IndustryPage
-      title="PYTHA pentru tamplarie comerciala si amenajari interioare"
+      title="PYTHA pentru tâmplărie comercială si amenajari interioare"
       subtitle="Volume mari, piese repetitive, termene stranse — PYTHA automatizeaza tot ce tine de proiectare."
-      breadcrumbLabel="Tamplarie Comerciala"
+      breadcrumbLabel="Tâmplărie Comercială"
       heroImage="/images/home/section3/Automatizare totală a producției.jpg"
       challenges={[
         {
@@ -70,7 +71,7 @@ export default function TamplarieComercialaPage() {
           href: '/module-pytha#modul-parts-list',
         },
       ]}
-      ctaText="Programeaza o demonstratie pentru tamplarie comerciala"
+      ctaText="Programează o demonstrație pentru tâmplărie comercială"
     />
   );
 }

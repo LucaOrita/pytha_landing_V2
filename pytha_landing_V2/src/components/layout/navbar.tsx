@@ -180,7 +180,7 @@ const Navbar = () => {
           <button
             className="text-muted-foreground relative flex size-8 cursor-pointer rounded-sm border lg:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? 'Inchide meniul' : 'Deschide meniul'}
+            aria-label={isMenuOpen ? 'Închide meniul' : 'Deschide meniul'}
             aria-expanded={isMenuOpen}
           >
             <span className="sr-only">Meniu principal</span>
@@ -249,7 +249,7 @@ const Navbar = () => {
         </div>
         <div className="flex gap-4.5 border-t px-6 py-4">
           <Button asChild className="h-12 flex-1 rounded-sm transition-all hover:scale-105">
-            <Link href="/solicita-prezentare" onClick={() => setIsMenuOpen(false)}>Solicita oferta</Link>
+            <Link href="/solicita-prezentare" onClick={() => setIsMenuOpen(false)}>Solicită oferta</Link>
           </Button>
           <Button variant="outline" asChild className="h-12 flex-1 rounded-sm transition-all hover:scale-105">
             <Link href="/solicita-prezentare" onClick={() => setIsMenuOpen(false)}>Demo gratuit</Link>
