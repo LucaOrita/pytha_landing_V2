@@ -27,7 +27,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'PYTHA Romania — Software CAD/CAM complet pentru mobilier',
+    default: 'PYTHA Romania | Software CAD/CAM complet pentru mobilier',
     template: '%s | PYTHA Romania',
   },
   description:
@@ -40,14 +40,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'ro_RO',
     siteName: 'PYTHA 3D Romania',
-    title: 'PYTHA 3D Romania — Software CAD/CAM complet pentru mobilier',
+    title: 'PYTHA 3D Romania | Software CAD/CAM complet pentru mobilier',
     description: 'Solutia CAD/CAM 3D completa pentru proiectare mobilier, vizualizare fotorealista si integrare CNC.',
     url: BASE_URL,
     images: [{ url: '/images/pytha-theoram-logo.png', width: 1200, height: 630, alt: 'PYTHA 3D Romania' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PYTHA 3D Romania — Software CAD/CAM complet pentru mobilier',
+    title: 'PYTHA 3D Romania | Software CAD/CAM complet pentru mobilier',
     description: 'Solutia CAD/CAM 3D completa pentru proiectare mobilier si integrare CNC.',
   },
 };
@@ -56,7 +56,7 @@ const globalJsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'PYTHA Romania — AdLine Industries',
+    name: 'PYTHA Romania | AdLine Industries',
     url: BASE_URL,
     logo: `${BASE_URL}/images/pytha-theoram-logo.png`,
     contactPoint: {

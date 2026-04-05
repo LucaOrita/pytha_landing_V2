@@ -4,11 +4,11 @@ import { Repeat, Users, Timer } from 'lucide-react';
 import IndustryPage from '@/components/sections/industry-page';
 
 export const metadata: Metadata = {
-  title: 'Tâmplărie Comercială | PYTHA 3D-CAD — Automatizare CAM Completă',
+  title: 'Tâmplărie Comercială | PYTHA 3D-CAD | Automatizare CAM Completă',
   description:
     'PYTHA tâmplărie comercială: generatoare parametrice, nesting avansat, workshop CNC automat. Proiecte repetitive, termene scurte, productie fara erori.',
   openGraph: {
-    title: 'Tâmplărie Comercială | PYTHA 3D-CAD — Automatizare CAM Completă',
+    title: 'Tâmplărie Comercială | PYTHA 3D-CAD | Automatizare CAM Completă',
     description: 'Software CAD/CAM pentru tâmplărie comercială: generatoare inteligente, workshop automat, nesting avansat. Productie rapida, fara erori.',
     type: 'website',
   },
@@ -18,7 +18,7 @@ export default function TamplarieComercialaPage() {
   return (
     <IndustryPage
       title="PYTHA pentru tâmplărie comercială si amenajari interioare"
-      subtitle="Volume mari, piese repetitive, termene stranse — PYTHA automatizeaza tot ce tine de proiectare."
+      subtitle="Volume mari, piese repetitive, termene stranse. PYTHA automatizeaza tot ce tine de proiectare."
       breadcrumbLabel="Tâmplărie Comercială"
       heroImage="/images/home/section3/Automatizare totală a producției.jpg"
       challenges={[
@@ -26,7 +26,7 @@ export default function TamplarieComercialaPage() {
           icon: Repeat,
           title: 'Piese repetitive, dar fiecare proiect e diferit?',
           description:
-            'Amenajari de magazine, hoteluri, birouri — structura se repeta, dar dimensiunile variaza. Fara parametrizare, pierzi ore pe adaptari.',
+            'Amenajari de magazine, hoteluri, birouri: structura se repeta, dar dimensiunile variaza. Fara parametrizare, pierzi ore pe adaptari.',
         },
         {
           icon: Users,
@@ -53,21 +53,21 @@ export default function TamplarieComercialaPage() {
           module: 'Parametrics',
           title: 'Proiectare parametrica pentru serii',
           description:
-            'Defineste reguli si formule — componenta se actualizeaza automat cand schimbi un parametru. Ideal pentru serii cu variatii.',
+            'Defineste reguli si formule, iar componenta se actualizeaza automat cand schimbi un parametru. Ideal pentru serii cu variatii.',
           href: '/module-pytha#modul-parametrics',
         },
         {
           module: 'Workshop + CAM',
           title: 'De la model 3D direct la utilaj CNC',
           description:
-            'Workshop atribuie operatiile automat, CAM Interface exporta catre Homag, Biesse, SCM, Felder — fara conversii intermediare.',
+            'Workshop atribuie operatiile automat, CAM Interface exporta catre Homag, Biesse, SCM, Felder, fara conversii intermediare.',
           href: '/module-pytha#modul-workshop',
         },
         {
           module: 'Parts List',
           title: 'Liste piese si etichete automate',
           description:
-            'Genereaza liste de taiere, etichete cu QR si documentatie de productie — totul dintr-un singur click.',
+            'Genereaza liste de taiere, etichete cu QR si documentatie de productie. Totul dintr-un singur click.',
           href: '/module-pytha#modul-parts-list',
         },
       ]}

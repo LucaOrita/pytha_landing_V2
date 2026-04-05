@@ -18,7 +18,7 @@ import { Button } from '@/components/ui/button';
 export const metadata: Metadata = {
   title: 'Despre PYTHA Romania & AdLine Industries | Partener oficial',
   description:
-    'PYTHA Lab GmbH — 40+ ani de inovatie CAD. AdLine Industries — partener autorizat in Romania, Bulgaria si Ungaria. Suport local dedicat.',
+    'PYTHA Lab GmbH: 40+ ani de inovatie CAD. AdLine Industries, partener autorizat in Romania, Bulgaria si Ungaria. Suport local dedicat.',
   openGraph: { title: 'Despre PYTHA Romania & AdLine Industries', type: 'website' },
 };
 
@@ -30,12 +30,12 @@ const KEY_FACTS = [
 ];
 
 const SERVICII = [
-  { icon: Truck, title: 'Livrare si instalare', description: 'Transport, montaj si configurare la sediul clientului — in toata Romania.' },
+  { icon: Truck, title: 'Livrare si instalare', description: 'Transport, montaj si configurare la sediul clientului, in toata Romania.' },
   { icon: BookOpen, title: 'Training personalizat', description: 'Instruire individuala sau de grup, adaptata nivelului echipei tale. Online sau on-site.' },
   { icon: HeadphonesIcon, title: 'Suport tehnic dedicat', description: 'Linie telefonica, email si remote control (TeamViewer). Răspuns rapid in limba română.' },
-  { icon: Cog, title: 'Consultanță CAD-CAM', description: 'Analizam fluxul tau de productie si recomandam solutia optima — software + hardware.' },
+  { icon: Cog, title: 'Consultanță CAD-CAM', description: 'Analizam fluxul tau de productie si recomandam solutia optima: software + hardware.' },
   { icon: Wrench, title: 'Mentenanta si post-garantie', description: 'Servicii de mentenanta preventiva si interventii rapide, chiar si dupa expirarea garantiei.' },
-  { icon: Monitor, title: 'Integrare completa', description: 'Conectam software-ul PYTHA cu echipamentele tale CNC existente — fara compromisuri.' },
+  { icon: Monitor, title: 'Integrare completa', description: 'Conectam software-ul PYTHA cu echipamentele tale CNC existente, fara compromisuri.' },
 ];
 
 export default function DespreNoiPage() {
@@ -53,7 +53,7 @@ export default function DespreNoiPage() {
               <span className="text-[#8a1820]">suport romanesc</span>
             </h1>
             <p className="mx-auto max-w-2xl leading-snug text-gray-500 md:text-lg lg:text-xl">
-              PYTHA Lab GmbH si AdLine Industries — impreuna pentru digitalizarea
+              PYTHA Lab GmbH si AdLine Industries, impreuna pentru digitalizarea
               productiei din Romania.
             </p>
           </div>
@@ -66,7 +66,7 @@ export default function DespreNoiPage() {
           <div className="grid items-center gap-10 lg:grid-cols-[3fr_2fr] lg:gap-18">
             <div className="space-y-4">
               <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
-                PYTHA — 40+ ani de inovatie{' '}
+                PYTHA: 40+ ani de inovatie{' '}
                 <span className="text-[#8a1820]">in CAD 3D</span>
               </h2>
               <p className="text-lg leading-snug text-gray-500">
@@ -78,7 +78,7 @@ export default function DespreNoiPage() {
               <p className="text-lg leading-snug text-gray-500">
                 Astazi, PYTHA este un sistem CAD-CAM 3D complet, folosit de companii din
                 peste 50 de tari. De la modelare solida la export CNC, de la randare
-                fotorealista la liste de piese automate — totul intr-un singur ecosistem.
+                fotorealista la liste de piese automate. Totul intr-un singur ecosistem.
               </p>
             </div>
             <Image
@@ -131,10 +131,10 @@ export default function DespreNoiPage() {
                 Partener autorizat
               </span>
               <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
-                AdLine Industries — partenerul tau local
+                AdLine Industries, partenerul tau local
               </h2>
               <p className="text-lg leading-snug text-gray-500">
-                In Romania, PYTHA este distribuit si sustinut de AdLine Industries — un
+                In Romania, PYTHA este distribuit si sustinut de AdLine Industries, un
                 partener cu peste 20 de ani de experienta in solutii CNC si digitalizare
                 industriala.
               </p>

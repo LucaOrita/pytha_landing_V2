@@ -11,7 +11,7 @@ const FaqRenderer = dynamic(() =>
 );
 
 export const metadata: Metadata = {
-  title: 'Asistenta tehnica PYTHA — Suport local Romania + Germania',
+  title: 'Asistenta tehnica PYTHA | Suport local Romania + Germania',
   description:
     'Suport tehnic local in Romania: telefon, email, TeamViewer. Training individual de la 125€/ora. Acord service + backup PYTHA Germania.',
   openGraph: { title: 'Asistenta tehnica PYTHA Romania', type: 'website' },
@@ -22,7 +22,7 @@ const SUPPORT_OPTIONS = [
     icon: Phone,
     title: 'Suport Tehnic Local',
     description:
-      'Echipa de specialisti din Romania. Telefon, email sau TeamViewer — ajutor real când ai nevoie, nu peste săptămâni.',
+      'Echipa de specialisti din Romania. Telefon, email sau TeamViewer: ajutor real când ai nevoie, nu peste săptămâni.',
   },
   {
     icon: Settings,
@@ -63,7 +63,7 @@ const FAQ_DATA: FaqCategory[] = [
       { question: 'Pot specifica materiale diferite pentru fiecare parte a unui produs?', answer: 'Da, folosind functia de atribuire „Material Assigning" puteti selecta materiale diferite pentru fiecare suprafata a unui component.' },
       { question: 'Este posibila setarea tesiturilor in timpul proiectarii?', answer: 'Da, folosind functia „Chamfer 3D" puteti introduce latimea si unghiul tesiturii, apoi aplica pe orice muchie.' },
       { question: 'Pot crea modele parametrice cu dimensiuni variabile?', answer: 'Da, modulul Parametrics permite definirea de dimensiuni variabile, formule, conditii si restrictii. Componenta se actualizeaza automat cand schimbati un parametru.' },
-      { question: 'PYTHA suporta modelare de suprafete curbate?', answer: 'Da, modulul Freeform ofera instrumente speciale: Loft, Rail Sweep, Coons Face — control complet asupra formei si curburii pentru design organic.' },
+      { question: 'PYTHA suporta modelare de suprafete curbate?', answer: 'Da, modulul Freeform ofera instrumente speciale: Loft, Rail Sweep, Coons Face. Control complet asupra formei si curburii pentru design organic.' },
     ],
   },
   {
@@ -122,7 +122,7 @@ export default function AsistentaTehnicaPage() {
             </h1>
             <p className="mx-auto max-w-2xl leading-snug text-gray-500 md:text-lg lg:text-xl">
               Cu PYTHA si AdLine Industries, ai mereu o echipa de profesionisti langa
-              tine — de la instalare pana la optimizarea productiei zilnice.
+              tine, de la instalare pana la optimizarea productiei zilnice.
             </p>
           </div>
         </div>

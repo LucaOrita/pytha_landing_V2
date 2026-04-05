@@ -4,11 +4,11 @@ import { Clock, AlertTriangle, Eye } from 'lucide-react';
 import IndustryPage from '@/components/sections/industry-page';
 
 export const metadata: Metadata = {
-  title: 'Mobilier la Comanda | PYTHA 3D-CAD — Design la CNC Automat',
+  title: 'Mobilier la Comanda | PYTHA 3D-CAD | Design la CNC Automat',
   description:
     'PYTHA mobilier comanda: design 3D cu generatoare parametrice, nesting optimizat, export CNC automat. De la ideie la productie fara erori.',
   openGraph: {
-    title: 'Mobilier la Comanda | PYTHA 3D-CAD — Design la CNC Automat',
+    title: 'Mobilier la Comanda | PYTHA 3D-CAD | Design la CNC Automat',
     description: 'Proiecteaza mobilier la comanda cu PYTHA: de la design 3D la CNC automat. Generatoare inteligente, nesting, export direct pe masini.',
     type: 'website',
   },
@@ -18,7 +18,7 @@ export default function MobilierLaComandaPage() {
   return (
     <IndustryPage
       title="PYTHA pentru producatorii de mobilier la comanda"
-      subtitle="De la ideea clientului la piesa gata de montat — fara erori, fara improvizatii."
+      subtitle="De la ideea clientului la piesa gata de montat, fara erori, fara improvizatii."
       breadcrumbLabel="Mobilier la Comanda"
       heroImage="/images/home/section3/Modelare 3D liberă și intuitivă.jpg"
       challenges={[
@@ -46,14 +46,14 @@ export default function MobilierLaComandaPage() {
           module: 'Generators',
           title: 'Corpuri parametrice adaptate instant',
           description:
-            'Corpuri parametrice pe care le adaptezi instant la dimensiunile clientului. Dulapuri, bucatarii, dressinguri — generate in secunde.',
+            'Corpuri parametrice pe care le adaptezi instant la dimensiunile clientului. Dulapuri, bucatarii, dressinguri, generate in secunde.',
           href: '/module-pytha#modul-generators',
         },
         {
           module: 'Workshop',
           title: 'Operatii CNC automate pe modelul 3D',
           description:
-            'Atribuie automat operatiile CNC direct pe modelul 3D. Gaurire, frezare, aplicare cant — fara interventie manuala.',
+            'Atribuie automat operatiile CNC direct pe modelul 3D. Gaurire, frezare, aplicare cant, fara interventie manuala.',
           href: '/module-pytha#modul-workshop',
         },
         {

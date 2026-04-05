@@ -3,12 +3,12 @@ import Image from 'next/image';
 const CARDS = [
   {
     title: 'Suport tehnic local',
-    description: 'Raspunsuri rapide in limba romana — telefon, email sau on-site.',
+    description: 'Raspunsuri rapide in limba romana: telefon, email sau on-site.',
     image: '/images/home/section2/Suport Technic Local.jpg',
   },
   {
     title: 'Asistenta continua in productie',
-    description: 'TeamViewer, AnyDesk sau apel video — rezolvam rapid orice problema.',
+    description: 'TeamViewer, AnyDesk sau apel video. Rezolvam rapid orice problema.',
     image: '/images/home/section2/Asistenta continua in Productie.png',
   },
   {
@@ -29,7 +29,7 @@ export default function SupportPreview() {
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             Cu PYTHA si Adline Industries, ai intotdeauna o echipa de profesionisti
-            langa tine — de la instalare la optimizarea productiei zilnice.
+            langa tine, de la instalare la optimizarea productiei zilnice.
           </p>
         </div>
 

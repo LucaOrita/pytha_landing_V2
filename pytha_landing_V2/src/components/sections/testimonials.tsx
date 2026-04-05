@@ -13,13 +13,13 @@ const TESTIMONIALS = [
   {
     quote:
       'De cand folosim PYTHA, erorile de productie au scazut dramatic. Exportul CNC ne economiseste ore.',
-    author: 'Client verificat — Atelier',
+    author: 'Client verificat · Atelier',
     company: 'Atelier mobilier, Romania',
   },
   {
     quote:
-      'Am incercat SketchUp si AutoCAD — nimic nu se compara cu fluxul integrat din PYTHA.',
-    author: 'Client verificat — Fabrica',
+      'Am incercat SketchUp si AutoCAD, nimic nu se compara cu fluxul integrat din PYTHA.',
+    author: 'Client verificat · Fabrica',
     company: 'Fabrica mobilier, Romania',
   },
 ];
@@ -39,7 +39,7 @@ export default function Testimonials() {
             <span className="text-[#8a1820]">PYTHA</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            De la ateliere mici la fabrici cu zeci de angajati — PYTHA se
+            De la ateliere mici la fabrici cu zeci de angajati, PYTHA se
             adapteaza oricarui flux.
           </p>
         </InView>

@@ -8,10 +8,10 @@ import ModuleSidebar from '@/components/sections/module-sidebar';
 import { PricingToggle } from '@/components/sections/pricing-toggle';
 
 export const metadata: Metadata = {
-  title: 'Module PYTHA — Solutii CAD 3D modulare de la 590€',
+  title: 'Module PYTHA | Solutii CAD 3D modulare de la 590€',
   description:
     'Alege modulele PYTHA potrivite: Basic, Workshop, Nesting, CAM, RadioLab, CadBid. Licenta permanenta de la 590€ sau abonament lunar.',
-  openGraph: { title: 'Module PYTHA — Solutii CAD 3D modulare', type: 'website' },
+  openGraph: { title: 'Module PYTHA | Solutii CAD 3D modulare', type: 'website' },
 };
 
 const MODULES: ModuleData[] = [
@@ -61,7 +61,7 @@ const MODULES: ModuleData[] = [
     title: 'Workshop (Atelier)',
     subtitle: 'Prelucrează automat fiecare piesa din proiect',
     description:
-      'Transforma modelul 3D intr-un proiect pregătit pentru executie automata. Tip automat cu conectori Cam&Dowel, balamale sau dopuri — personalizat conform principiilor individuale de design.',
+      'Transforma modelul 3D intr-un proiect pregătit pentru executie automata. Tip automat cu conectori Cam&Dowel, balamale sau dopuri, personalizat conform principiilor individuale de design.',
     features: [
       'Recunoastere automata a imbinarilor (Footprint)',
       'Găurire, dibluire, șănțuire, frezare automata',
@@ -136,7 +136,7 @@ const MODULES: ModuleData[] = [
     title: 'Freeform (Suprafete libere)',
     subtitle: 'Libertate geometrica pentru forme care ies din tipare',
     description:
-      'Instrumente speciale pentru crearea obiectelor cu suprafete curbate: Loft, Rail Sweep, Coons Face — control complet asupra formei si curburii.',
+      'Instrumente speciale pentru crearea obiectelor cu suprafete curbate: Loft, Rail Sweep, Coons Face. Control complet asupra formei si curburii.',
     features: [
       'Creare suprafete complexe: Loft, Rail Sweep, Coons Face',
       'Control complet asupra formei si curburii',
@@ -155,7 +155,7 @@ const MODULES: ModuleData[] = [
     title: 'Nesting (Optimizare debitare)',
     subtitle: 'Fiecare centimetru de material conteaza',
     description:
-      'Optimizare eficienta si rapida a pieselor pe panouri — chiar si pentru contururi libere. Suporta materiale si grosimi diferite, minimizeaza pierderile.',
+      'Optimizare eficienta si rapida a pieselor pe panouri, chiar si pentru contururi libere. Suporta materiale si grosimi diferite, minimizeaza pierderile.',
     features: [
       'Nesting pentru piese rectangulare si contur liber',
       'Respectarea fibrei si a marginii de siguranta',
@@ -191,7 +191,7 @@ const MODULES: ModuleData[] = [
     id: 'modul-radiolab',
     badge: 'Modul 10 · Randare',
     title: 'RadioLab',
-    subtitle: 'Prezentari care vand — randare fotorealista in timp real',
+    subtitle: 'Prezentari care vand: randare fotorealista in timp real',
     description:
       'Redare in timp real cu tehnica Radiosity. Miscare interactiva prin scena, simulare iluminat natural si LED, creare texturi si materiale, inregistrare video, suport VR.',
     features: [
@@ -224,7 +224,7 @@ export default function ModulePythaPage() {
               </span>
             </div>
             <h1 className="text-5xl leading-none tracking-tight text-balance md:text-6xxl">
-              Modulele PYTHA —{' '}
+              Modulele PYTHA:{' '}
               <span className="text-[#8a1820]">construieste-ti solutia perfecta</span>
             </h1>
             <p className="mx-auto max-w-2xl leading-snug text-gray-500 md:text-lg lg:text-xl">
@@ -253,7 +253,7 @@ export default function ModulePythaPage() {
             <CadBidSection />
           </div>
 
-          {/* Sticky sidebar — desktop only */}
+          {/* Sticky sidebar - desktop only */}
           <ModuleSidebar />
         </div>
       </PricingToggle>
@@ -265,7 +265,7 @@ export default function ModulePythaPage() {
             Nu stii ce module ai nevoie?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg leading-snug text-gray-500">
-            Echipa noastra te ajuta sa alegi pachetul perfect pentru atelierul tau —
+            Echipa noastra te ajuta sa alegi pachetul perfect pentru atelierul tau,
             gratuit si fara obligații.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4.5">

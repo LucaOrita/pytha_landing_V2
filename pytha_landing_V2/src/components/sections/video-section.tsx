@@ -17,7 +17,7 @@ export default function VideoSection() {
             Vezi PYTHA <span className="text-[#ff6974]">in actiune</span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-white/60">
-            De la prima schita pana la piesa finisata — urmareste cum un proiect
+            De la prima schita pana la piesa finisata: urmareste cum un proiect
             prinde viata in cateva minute, cu export CNC inclus.
           </p>
         </div>

@@ -24,11 +24,11 @@ import {
 import PricingTable from '@/components/sections/pricing-table';
 
 export const metadata: Metadata = {
-  title: 'Prețuri PYTHA 3D-CAD — Licență de la 99€/lună | PYTHA Romania',
+  title: 'Prețuri PYTHA 3D-CAD | Licență de la 99€/lună | PYTHA Romania',
   description:
     'Prețuri transparente PYTHA: licență permanentă sau abonament lunar. Module individuale sau pachet complet. Fără costuri ascunse. Training si suport inclus.',
   openGraph: {
-    title: 'Prețuri PYTHA 3D-CAD — Licență de la 99€/lună',
+    title: 'Prețuri PYTHA 3D-CAD | Licență de la 99€/lună',
     description: 'Prețuri transparente PYTHA: licență permanentă (de la 4.950€) sau abonament lunar (de la 99€). Module individuale sau pachet Enterprise complet.',
     type: 'website',
   },
@@ -59,9 +59,9 @@ const PACKAGES = [
     badge: 'Cel mai ales',
     features: [
       'Tot din Starter',
-      'Workshop — îmbinări automate, cant, CNC',
+      'Workshop: îmbinări automate, cant, CNC',
       'Liste piese cu coduri QR',
-      'Nesting — optimizare debitare',
+      'Nesting: optimizare debitare',
       'Export CNC (Homag, Biesse, SCM)',
     ],
     href: '/solicita-prezentare?pachet=profesional',
@@ -95,7 +95,7 @@ const INCLUDED_FEATURES = [
   {
     icon: GraduationCap,
     title: 'Training la sediul tău',
-    desc: 'Instruire personalizată pentru echipa ta, direct la birou — nu online.',
+    desc: 'Instruire personalizată pentru echipa ta, direct la birou, nu online.',
   },
   {
     icon: Wrench,
@@ -128,7 +128,7 @@ const FAQS = [
   {
     question: 'Ce include licența permanentă?',
     answer:
-      'Dreptul de utilizare fără limită de timp. Nu include actualizări automate — acestea sunt disponibile prin Acordul de Service anual (840€/an).',
+      'Dreptul de utilizare fără limită de timp. Nu include actualizări automate. Acestea sunt disponibile prin Acordul de Service anual (840€/an).',
   },
   {
     question: 'Pot adăuga module ulterior?',
@@ -215,7 +215,7 @@ export default function PreturiPage() {
             </h1>
             <p className="mx-auto max-w-2xl leading-snug text-muted-foreground md:text-lg lg:text-xl">
               Alege modulele potrivite pentru afacerea ta. Licență permanentă sau abonament
-              lunar — tu decizi. Fiecare achiziție include training, instalare și suport
+              lunar, tu decizi. Fiecare achiziție include training, instalare și suport
               tehnic local.
             </p>
           </div>
@@ -399,7 +399,7 @@ export default function PreturiPage() {
                 Nu ești sigur ce pachet ți se potrivește?
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-white/60 md:text-lg">
-                Echipa noastră analizează nevoile tale si îți recomandă soluția optimă —
+                Echipa noastră analizează nevoile tale si îți recomandă soluția optimă,
                 complet gratuit, fără obligații.
               </p>
               <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">

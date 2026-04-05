@@ -22,7 +22,7 @@ const FAQ_CATEGORIES = [
       {
         question: 'Pot specifica materiale diferite pentru fiecare parte a unui produs?',
         answer:
-          'Da, folosind functia de atribuire „Material Assigning" puteti selecta materiale diferite pentru fiecare suprafata a unui component — lemn, MDF, sticla, metal.',
+          'Da, folosind functia de atribuire „Material Assigning" puteti selecta materiale diferite pentru fiecare suprafata a unui component: lemn, MDF, sticla, metal.',
       },
       {
         question: 'Este posibila setarea tesiturilor in timpul proiectarii?',

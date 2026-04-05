@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { SOCIAL_LINKS } from '@/lib/navigation';
 
 export const metadata: Metadata = {
-  title: 'Contact PYTHA Romania — AdLine Industries Bucuresti',
+  title: 'Contact PYTHA Romania | AdLine Industries Bucuresti',
   description:
     'Contactează AdLine Industries, partener autorizat PYTHA. Bd. Metalurgiei 99-99B, Bucuresti. Tel: +40 742 065 893. Răspundem in maxim 24h.',
   openGraph: { title: 'Contact PYTHA Romania', type: 'website' },
@@ -50,7 +50,7 @@ const CONTACT_INFO = [
 const localBusinessJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  name: 'PYTHA Romania — AdLine Industries',
+  name: 'PYTHA Romania | AdLine Industries',
   image: 'https://pytha3d.ro/images/pytha-theoram-logo.png',
   telephone: '+40742065893',
   email: 'pytha@adlineindustries.ro',

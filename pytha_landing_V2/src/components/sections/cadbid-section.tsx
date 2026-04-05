@@ -48,7 +48,7 @@ export default function CadBidSection() {
 
               <p className="text-base leading-snug text-muted-foreground lg:text-lg">
                 CadBid conecteaza modelul 3D cu banca ta de preturi si genereaza automat
-                cotații detaliate, liste de tăiere si rapoarte — gata de trimis clientului.
+                cotații detaliate, liste de tăiere si rapoarte, gata de trimis clientului.
                 Add-on browser-based, perfect integrat cu PYTHA.
               </p>
 

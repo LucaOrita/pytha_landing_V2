@@ -1,4 +1,4 @@
-/* DARK MODE DISABLED — reactivare viitoare
+/* DARK MODE DISABLED - reactivare viitoare
  * Componenta ThemeToggle a fost dezactivata.
  * Pentru reactivare: decommenteaza codul original si elimina export-ul gol.
  */

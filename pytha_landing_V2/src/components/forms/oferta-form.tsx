@@ -116,7 +116,7 @@ export default function OfertaForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-      {/* Contact — compact */}
+      {/* Contact - compact */}
       <div className="grid gap-4 md:grid-cols-2">
         <InputField label="Firma" name="firma" value={data.firma} onChange={(v) => set('firma', v)} />
         <InputField label="Persoana de contact" name="contact" placeholder="Nume Prenume" value={data.contact} onChange={(v) => set('contact', v)} />

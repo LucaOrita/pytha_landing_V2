@@ -4,7 +4,7 @@ const CARDS = [
   {
     title: 'Pachet complet de servicii',
     description:
-      'Livrare, instalare, instruire, suport tehnic extins si postgarantie — asigurand performanta continua a solutiilor achizitionate.',
+      'Livrare, instalare, instruire, suport tehnic extins si postgarantie, asigurand performanta continua a solutiilor achizitionate.',
     image: '/images/home/section1/Pachet complet de servicii inclus în orice achiziție.jpg',
   },
   {
