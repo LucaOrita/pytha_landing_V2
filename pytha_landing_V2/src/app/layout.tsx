@@ -27,7 +27,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'PYTHA 3D Romania — Software CAD/CAM complet pentru mobilier',
+    default: 'PYTHA Romania — Software CAD/CAM complet pentru mobilier',
     template: '%s | PYTHA Romania',
   },
   description:

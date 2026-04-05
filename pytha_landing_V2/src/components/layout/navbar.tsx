@@ -12,23 +12,10 @@ import { cn } from '@/lib/utils';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
   const pathname = usePathname();
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout>>(null);
-  const isHome = pathname === '/';
-
-  useEffect(() => {
-    const update = () => setIsScrolled(window.scrollY > 5);
-    update();
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('scrollend', update, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', update);
-      window.removeEventListener('scrollend', update);
-    };
-  }, []);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -62,18 +49,8 @@ const Navbar = () => {
     return false;
   };
 
-  // When on homepage and not scrolled: transparent bg + white text
-  const isTransparent = isHome && !isScrolled;
-
   return (
-    <header
-      className={cn(
-        'fixed top-0 right-0 left-0 z-50 border-b transition-all duration-700 ease-in-out',
-        isTransparent
-          ? 'bg-transparent border-transparent shadow-none'
-          : 'bg-white/95 border-gray-200/60 shadow-sm backdrop-blur-xl',
-      )}
-    >
+    <header className="fixed top-0 right-0 left-0 z-50 border-b border-border/60 bg-background/95 shadow-sm backdrop-blur-xl">
       <div className="container flex h-[var(--header-height)] items-center justify-between gap-4">
         <Logo className="shrink-0" />
 
@@ -88,12 +65,10 @@ const Navbar = () => {
               {item.subitems ? (
                 <button
                   className={cn(
-                    'inline-flex cursor-pointer items-center justify-center gap-1 rounded-md px-4 py-1.5 text-sm transition-all duration-200',
+                    'inline-flex cursor-pointer items-center justify-center gap-1 rounded-md px-4 py-1.5 text-sm transition-colors duration-200',
                     isActive(item)
                       ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]'
-                      : isTransparent
-                        ? 'text-white/80 hover:text-[#8a1820] hover:font-semibold'
-                        : 'text-muted-foreground hover:text-[var(--nav-hover)] hover:font-semibold',
+                      : 'text-muted-foreground hover:text-[var(--nav-hover)]',
                   )}
                   onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
                   aria-expanded={openDropdown === item.label}
@@ -111,19 +86,16 @@ const Navbar = () => {
                 <Link
                   href={item.href}
                   className={cn(
-                    'inline-flex justify-center rounded-md px-4 py-1.5 text-sm transition-all duration-200',
+                    'inline-flex justify-center rounded-md px-4 py-1.5 text-sm transition-colors duration-200',
                     isActive(item)
                       ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]'
-                      : isTransparent
-                        ? 'text-white/80 hover:text-[#8a1820] hover:font-semibold'
-                        : 'text-muted-foreground hover:text-[var(--nav-hover)] hover:font-semibold',
+                      : 'text-muted-foreground hover:text-[var(--nav-hover)]',
                   )}
                 >
                   {item.label}
                 </Link>
               )}
 
-              {/* Desktop Mega-dropdown */}
               {item.subitems && (
                 <div
                   className={cn(
@@ -183,11 +155,9 @@ const Navbar = () => {
           <Button size="sm" asChild className="hidden bg-[var(--nav-active-pressed)] text-white hover:bg-[#6d1319] lg:inline-flex">
             <Link href="/solicita-prezentare">Solicită Prezentare</Link>
           </Button>
-
           <Button size="sm" asChild className="bg-[var(--nav-active-pressed)] text-white hover:bg-[#6d1319] lg:hidden">
             <Link href="/solicita-prezentare">Demo</Link>
           </Button>
-
           <button
             className="text-muted-foreground relative flex size-8 cursor-pointer rounded-sm border lg:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -204,10 +174,10 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       <div
         className={cn(
-          'bg-white/95 text-accent-foreground fixed inset-0 top-[var(--header-height)] z-50 flex flex-col justify-between tracking-normal backdrop-blur-md transition-all duration-500 ease-out lg:hidden',
+          'bg-background/95 text-accent-foreground fixed inset-0 top-[var(--header-height)] z-50 flex flex-col justify-between tracking-normal backdrop-blur-md transition-all duration-500 ease-out lg:hidden',
           isMenuOpen ? 'translate-x-0 opacity-100' : 'pointer-events-none translate-x-full opacity-0',
         )}
       >
@@ -219,7 +189,7 @@ const Navbar = () => {
                   <>
                     <button
                       className={cn(
-                        'flex w-full cursor-pointer items-center justify-between rounded-md px-2 py-3 text-base transition-all duration-200',
+                        'flex w-full cursor-pointer items-center justify-between rounded-md px-2 py-3 text-base transition-colors duration-200',
                         isActive(item) ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]' : 'hover:text-[var(--nav-hover)]',
                       )}
                       onClick={() => setMobileAccordion(mobileAccordion === item.label ? null : item.label)}
@@ -250,7 +220,7 @@ const Navbar = () => {
                     </div>
                   </>
                 ) : (
-                  <Link href={item.href} className={cn('block rounded-md px-2 py-3 text-base transition-all duration-200', isActive(item) ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]' : 'hover:text-[var(--nav-hover)]')} onClick={() => setIsMenuOpen(false)}>
+                  <Link href={item.href} className={cn('block rounded-md px-2 py-3 text-base transition-colors duration-200', isActive(item) ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]' : 'hover:text-[var(--nav-hover)]')} onClick={() => setIsMenuOpen(false)}>
                     {item.label}
                   </Link>
                 )}

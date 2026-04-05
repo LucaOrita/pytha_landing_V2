@@ -20,19 +20,13 @@ export default function Logo({
 
   return (
     <div className={cn('flex items-center gap-3', className)}>
-      <Element
-        href={href}
-        className="flex items-center"
-      >
+      <Element href={href} className="flex items-center">
         <Image
           src="/images/pytha-logo.png"
           alt="PYTHA 3D-CAD"
           width={160}
           height={48}
-          className={cn(
-            'h-10 w-auto object-contain md:h-12',
-            iconClassName,
-          )}
+          className={cn('h-10 w-auto object-contain md:h-12', iconClassName)}
           priority
         />
       </Element>
