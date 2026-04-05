@@ -65,9 +65,9 @@ const Navbar = () => {
   return (
     <header
       className={cn(
-        'fixed top-0 right-0 left-0 z-50 transition-all duration-300',
+        'fixed top-0 right-0 left-0 z-50 transition-all duration-500 ease-in-out',
         isScrolled
-          ? 'bg-background/80 border-b backdrop-blur-xl'
+          ? 'bg-white/95 border-b border-gray-200/60 shadow-sm backdrop-blur-xl'
           : 'bg-transparent',
       )}
     >
@@ -87,10 +87,10 @@ const Navbar = () => {
               {item.subitems ? (
                 <button
                   className={cn(
-                    'inline-flex cursor-pointer items-center gap-1 rounded-md px-3 py-1.5 text-sm transition-colors hover:text-foreground',
+                    'inline-flex cursor-pointer items-center gap-1 rounded-md px-3 py-1.5 text-sm transition-all duration-200',
                     isActive(item)
-                      ? 'bg-accent font-semibold text-foreground'
-                      : 'text-muted-foreground',
+                      ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]'
+                      : 'text-muted-foreground hover:text-[var(--nav-hover)]',
                   )}
                   onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
                   aria-expanded={openDropdown === item.label}
@@ -108,10 +108,10 @@ const Navbar = () => {
                 <Link
                   href={item.href}
                   className={cn(
-                    'inline-flex rounded-md px-3 py-1.5 text-sm transition-colors hover:text-foreground',
+                    'inline-flex rounded-md px-3 py-1.5 text-sm transition-all duration-200',
                     isActive(item)
-                      ? 'bg-accent font-semibold text-foreground'
-                      : 'text-muted-foreground',
+                      ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]'
+                      : 'text-muted-foreground hover:text-[var(--nav-hover)]',
                   )}
                 >
                   {item.label}
@@ -141,9 +141,9 @@ const Navbar = () => {
                           <Link
                             key={sub.label}
                             href={sub.href}
-                            className="hover:bg-accent group rounded-md px-2 py-1.5 transition-colors"
+                            className="group rounded-md px-2 py-1.5 transition-colors hover:bg-[var(--nav-active-bg)]"
                           >
-                            <div className="text-sm font-medium">{sub.label}</div>
+                            <div className="text-sm font-medium group-hover:text-[var(--nav-hover)]">{sub.label}</div>
                             <div className="text-muted-foreground text-xs leading-snug">
                               {sub.description}
                             </div>
@@ -162,9 +162,9 @@ const Navbar = () => {
                           <Link
                             key={sub.label}
                             href={sub.href}
-                            className="hover:bg-accent block rounded-md px-2 py-1.5 transition-colors"
+                            className="block rounded-md px-2 py-1.5 transition-colors hover:bg-[var(--nav-active-bg)]"
                           >
-                            <div className="text-sm font-medium">{sub.label}</div>
+                            <div className="text-sm font-medium hover:text-[var(--nav-hover)]">{sub.label}</div>
                             <div className="text-muted-foreground text-xs leading-snug">
                               {sub.description}
                             </div>
@@ -184,9 +184,9 @@ const Navbar = () => {
                               <Link
                                 key={sub.label}
                                 href={sub.href}
-                                className="hover:bg-accent block rounded-md px-2 py-1.5 transition-colors"
+                                className="block rounded-md px-2 py-1.5 transition-colors hover:bg-[var(--nav-active-bg)]"
                               >
-                                <div className="text-sm font-medium">{sub.label}</div>
+                                <div className="text-sm font-medium hover:text-[var(--nav-hover)]">{sub.label}</div>
                                 <div className="text-muted-foreground text-xs leading-snug">
                                   {sub.description}
                                 </div>
@@ -203,14 +203,14 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* Right: Theme toggle + CTA + Mobile controls */}
+        {/* Right: CTA + Mobile controls */}
         <div className="flex items-center gap-2">
-          <Button size="sm" asChild className="hidden bg-[#8a1820] text-white hover:bg-[#6d1319] lg:inline-flex">
+          <Button size="sm" asChild className="hidden bg-[var(--nav-active-pressed)] text-white hover:bg-[#6d1319] lg:inline-flex">
             <Link href="/solicita-prezentare">Solicită Demo</Link>
           </Button>
 
           {/* Mobile: CTA + hamburger */}
-          <Button size="sm" asChild className="bg-[#8a1820] text-white hover:bg-[#6d1319] lg:hidden">
+          <Button size="sm" asChild className="bg-[var(--nav-active-pressed)] text-white hover:bg-[#6d1319] lg:hidden">
             <Link href="/solicita-prezentare">Demo</Link>
           </Button>
 
@@ -251,7 +251,7 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       <div
         className={cn(
-          'bg-background/95 text-accent-foreground fixed inset-0 top-[var(--header-height)] z-50 flex flex-col justify-between tracking-normal backdrop-blur-md transition-all duration-500 ease-out lg:hidden',
+          'bg-white/95 text-accent-foreground fixed inset-0 top-[var(--header-height)] z-50 flex flex-col justify-between tracking-normal backdrop-blur-md transition-all duration-500 ease-out lg:hidden',
           isMenuOpen
             ? 'translate-x-0 opacity-100'
             : 'pointer-events-none translate-x-full opacity-0',
@@ -265,8 +265,8 @@ const Navbar = () => {
                   <>
                     <button
                       className={cn(
-                        'flex w-full cursor-pointer items-center justify-between rounded-md px-2 py-3 text-base transition-colors',
-                        isActive(item) ? 'font-semibold' : '',
+                        'flex w-full cursor-pointer items-center justify-between rounded-md px-2 py-3 text-base transition-all duration-200',
+                        isActive(item) ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]' : 'hover:text-[var(--nav-hover)]',
                       )}
                       onClick={() =>
                         setMobileAccordion(mobileAccordion === item.label ? null : item.label)
@@ -298,7 +298,7 @@ const Navbar = () => {
                           <Link
                             key={sub.label}
                             href={sub.href}
-                            className="text-muted-foreground hover:text-foreground hover:bg-accent/50 block rounded-md px-2 py-1.5 text-sm transition-colors"
+                            className="text-muted-foreground block rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-[var(--nav-active-bg)] hover:text-[var(--nav-hover)]"
                             onClick={() => setIsMenuOpen(false)}
                           >
                             {sub.label}
@@ -311,7 +311,7 @@ const Navbar = () => {
                           <Link
                             key={sub.label}
                             href={sub.href}
-                            className="text-muted-foreground hover:text-foreground hover:bg-accent/50 block rounded-md px-2 py-1.5 text-sm transition-colors"
+                            className="text-muted-foreground block rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-[var(--nav-active-bg)] hover:text-[var(--nav-hover)]"
                             onClick={() => setIsMenuOpen(false)}
                           >
                             {sub.label}
@@ -326,7 +326,7 @@ const Navbar = () => {
                               <Link
                                 key={sub.label}
                                 href={sub.href}
-                                className="text-muted-foreground hover:text-foreground hover:bg-accent/50 block rounded-md px-2 py-1.5 text-sm transition-colors"
+                                className="text-muted-foreground block rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-[var(--nav-active-bg)] hover:text-[var(--nav-hover)]"
                                 onClick={() => setIsMenuOpen(false)}
                               >
                                 {sub.label}
@@ -341,8 +341,10 @@ const Navbar = () => {
                   <Link
                     href={item.href}
                     className={cn(
-                      'block rounded-md px-2 py-3 text-base transition-colors hover:text-foreground',
-                      isActive(item) ? 'font-semibold' : '',
+                      'block rounded-md px-2 py-3 text-base transition-all duration-200',
+                      isActive(item)
+                        ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]'
+                        : 'hover:text-[var(--nav-hover)]',
                     )}
                     onClick={() => setIsMenuOpen(false)}
                   >

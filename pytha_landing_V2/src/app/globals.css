@@ -40,6 +40,11 @@
   --sidebar-border: rgba(0,0,0,0.08);
   --sidebar-ring: #8a1820;
 
+  /* Navbar tokens */
+  --nav-hover: #8a1820;
+  --nav-active-bg: #fff1f2;
+  --nav-active-pressed: #8a1820;
+
   --radius: 8px;
 
   --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
