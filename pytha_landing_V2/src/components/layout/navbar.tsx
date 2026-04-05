@@ -21,6 +21,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 100);
+    handleScroll(); // init on mount
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -87,8 +88,8 @@ const Navbar = () => {
                     isActive(item)
                       ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]'
                       : isTransparent
-                        ? 'text-white/80 hover:text-[#8a1820] hover:font-semibold'
-                        : 'text-muted-foreground hover:text-[var(--nav-hover)] hover:font-semibold',
+                        ? 'text-white/80 hover:text-[#8a1820] hover:nav-bold-no-shift'
+                        : 'text-muted-foreground hover:text-[var(--nav-hover)] hover:nav-bold-no-shift',
                   )}
                   onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
                   aria-expanded={openDropdown === item.label}
@@ -110,8 +111,8 @@ const Navbar = () => {
                     isActive(item)
                       ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]'
                       : isTransparent
-                        ? 'text-white/80 hover:text-[#8a1820] hover:font-semibold'
-                        : 'text-muted-foreground hover:text-[var(--nav-hover)] hover:font-semibold',
+                        ? 'text-white/80 hover:text-[#8a1820] hover:nav-bold-no-shift'
+                        : 'text-muted-foreground hover:text-[var(--nav-hover)] hover:nav-bold-no-shift',
                   )}
                 >
                   {item.label}
