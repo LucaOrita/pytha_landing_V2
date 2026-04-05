@@ -41,7 +41,7 @@ export default function Hero() {
               style={{ animationDelay: '0ms' }}
             >
               Software-ul CAD 3D care duce mobilierul tău de la idee la CNC.{' '}
-              <span className="text-[#ff6974]">Fără erori, fără bâjbâieli.</span>
+              <span className="text-[#ff6974]">Folosit de peste 35.000 de ateliere.</span>
             </h1>
 
             <p
@@ -49,7 +49,7 @@ export default function Hero() {
               style={{ animationDelay: '130ms' }}
             >
               PYTHA unifică proiectarea 3D, listele de piese, nesting-ul și exportul CNC
-              într-un singur flux. Folosit de peste 2.000 de ateliere în 50+ țări.
+              într-un singur flux. Folosit de peste 35.000 de ateliere în 50+ țări.
             </p>
           </div>
 
@@ -60,14 +60,14 @@ export default function Hero() {
           >
             <div className="flex gap-4.5">
               <Button className="flex-1 md:min-w-45" asChild>
-                <Link href="/solicita-prezentare">Programează demo gratuit</Link>
+                <Link href="/solicita-prezentare">Programează prezentare</Link>
               </Button>
               <Button className="flex-1 md:min-w-45 border-white/30 text-white hover:bg-white/10" variant="outline" asChild>
                 <Link href="/preturi">Module și prețuri</Link>
               </Button>
             </div>
             <div className="text-center text-sm text-white/60">
-              Demo 15 min &middot; Fără obligații &middot; Made in Germany
+              Prezentare personalizată de 30 min &middot; Adaptată nevoilor tale
             </div>
           </div>
         </div>

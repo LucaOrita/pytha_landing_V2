@@ -49,7 +49,7 @@ export default function FeaturesAlternating() {
         <InView className="mx-auto max-w-3xl text-balance text-center">
           <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
             Tot ce ai nevoie pentru{' '}
-            <span className="text-[#8a1820]">producție digitală</span>
+            <span className="text-[#8a1820]">fluxul tău de producție digitalizat</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-500">
             De la prima schiță până la piesa finisată. PYTHA acoperă întregul flux.
