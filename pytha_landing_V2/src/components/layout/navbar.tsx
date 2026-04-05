@@ -90,7 +90,7 @@ const Navbar = () => {
                     'inline-flex cursor-pointer items-center gap-1 rounded-md px-3 py-1.5 text-sm transition-all duration-200',
                     isActive(item)
                       ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]'
-                      : 'text-muted-foreground hover:text-[var(--nav-hover)]',
+                      : 'text-muted-foreground hover:text-[var(--nav-hover)] hover:font-semibold',
                   )}
                   onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
                   aria-expanded={openDropdown === item.label}
@@ -111,7 +111,7 @@ const Navbar = () => {
                     'inline-flex rounded-md px-3 py-1.5 text-sm transition-all duration-200',
                     isActive(item)
                       ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]'
-                      : 'text-muted-foreground hover:text-[var(--nav-hover)]',
+                      : 'text-muted-foreground hover:text-[var(--nav-hover)] hover:font-semibold',
                   )}
                 >
                   {item.label}
