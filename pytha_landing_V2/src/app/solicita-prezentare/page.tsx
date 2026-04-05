@@ -3,7 +3,7 @@ import { CheckCircle } from 'lucide-react';
 import Link from 'next/link';
 import { Suspense } from 'react';
 
-import PrezentareForm from '@/components/forms/prezentare-form';
+import FormSwitcher from '@/components/forms/form-switcher';
 
 export const metadata: Metadata = {
   title: 'Programeaza demonstratie gratuita PYTHA 3D CAD',
@@ -73,7 +73,7 @@ export default function SolicitaPrezentarePage() {
           <div>
             <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-lg md:p-8">
               <Suspense fallback={<div className="h-96 animate-pulse rounded-md" />}>
-                <PrezentareForm />
+                <FormSwitcher />
               </Suspense>
             </div>
             <p className="mt-3 text-center text-xs text-gray-400">

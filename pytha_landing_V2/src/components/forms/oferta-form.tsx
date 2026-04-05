@@ -1,47 +1,23 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
-import {
-  CheckboxGroup,
-  InputField,
-  RadioField,
-  SelectField,
-  TextareaField,
-} from '@/components/ui/form-field';
+import { InputField } from '@/components/ui/form-field';
+import { cn } from '@/lib/utils';
 
-const MODULE_OPTIONS = [
-  { value: 'basic', label: 'Basic' },
-  { value: 'generators', label: 'Generators' },
-  { value: 'workshop', label: 'Workshop' },
-  { value: 'parts-list', label: 'Parts List' },
-  { value: 'parametrics', label: 'Parametrics' },
-  { value: 'library', label: 'Library' },
-  { value: 'freeform', label: 'Freeform' },
-  { value: 'nesting', label: 'Nesting' },
-  { value: 'cam', label: 'CAM Interface' },
-  { value: 'radiolab', label: 'RadioLab' },
-  { value: 'cadbid', label: 'CadBid' },
-  { value: 'consultanta', label: 'Nu sunt sigur — vreau consultanta' },
-];
-
-const TIP_FIRMA_OPTIONS = [
-  { value: 'producator', label: 'Producator mobilier' },
-  { value: 'proiectant', label: 'Proiectant/Designer' },
-  { value: 'tamplar', label: 'Tamplar' },
-  { value: 'arhitect', label: 'Arhitect' },
-  { value: 'altele', label: 'Altele' },
-];
-
-const SURSA_OPTIONS = [
-  { value: 'meta', label: 'Meta Ads' },
-  { value: 'google', label: 'Google' },
-  { value: 'website', label: 'Website' },
-  { value: 'recomandare', label: 'Recomandare' },
-  { value: 'eveniment', label: 'Eveniment' },
-  { value: 'altele', label: 'Altele' },
+const MODULES = [
+  { id: 'modul-basic', label: 'Pachet de Baza', price: '4.950€', monthly: '99€/luna' },
+  { id: 'modul-generators', label: 'Generatoare & Plug-in-uri', price: '1.150€', monthly: '26€/luna' },
+  { id: 'modul-workshop', label: 'Workshop (Atelier)', price: '2.450€', monthly: '55€/luna' },
+  { id: 'modul-parts-list', label: 'Parts List', price: '1.290€', monthly: '29€/luna' },
+  { id: 'modul-parametrics', label: 'Parametrizare', price: '640€', monthly: '14€/luna' },
+  { id: 'modul-library', label: 'Biblioteca', price: '820€', monthly: null },
+  { id: 'modul-freeform', label: 'Freeform', price: '590€', monthly: '13€/luna' },
+  { id: 'modul-nesting', label: 'Nesting', price: '1.100€', monthly: '25€/luna' },
+  { id: 'modul-cam', label: 'Interfata CAM', price: '1.950€', monthly: '44€/luna' },
+  { id: 'modul-radiolab', label: 'RadioLab', price: '980€', monthly: '42€/luna' },
 ];
 
 interface FormData {
@@ -49,33 +25,37 @@ interface FormData {
   contact: string;
   email: string;
   telefon: string;
-  tipFirma: string;
-  cnc: string;
-  module: string[];
-  mesaj: string;
-  sursa: string;
 }
-
-const initialData: FormData = {
-  firma: '', contact: '', email: '', telefon: '',
-  tipFirma: '', cnc: '', module: [], mesaj: '', sursa: '',
-};
 
 export default function OfertaForm() {
   const searchParams = useSearchParams();
-  const preselectedModule = searchParams.get('modul');
-
-  const [data, setData] = useState<FormData>(() => ({
-    ...initialData,
-    module: preselectedModule ? [preselectedModule] : [],
-  }));
+  const [selectedModules, setSelectedModules] = useState<string[]>([]);
+  const [isMonthly, setIsMonthly] = useState(false);
+  const [data, setData] = useState<FormData>({ firma: '', contact: '', email: '', telefon: '' });
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    const moduleParam = searchParams.get('module') || searchParams.get('modul') || '';
+    if (moduleParam) {
+      setSelectedModules(moduleParam.split(',').filter(Boolean));
+    }
+  }, [searchParams]);
+
+  const toggleModule = (id: string) => {
+    setSelectedModules((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]);
+  };
 
   const set = useCallback(<K extends keyof FormData>(key: K, value: FormData[K]) => {
     setData((prev) => ({ ...prev, [key]: value }));
     setErrors((prev) => ({ ...prev, [key]: undefined }));
   }, []);
+
+  const selected = MODULES.filter((m) => selectedModules.includes(m.id));
+  const total = selected.reduce((sum, m) => {
+    const p = isMonthly && m.monthly ? m.monthly : m.price;
+    return sum + parseFloat(p.replace(/[^\d]/g, ''));
+  }, 0);
 
   const validate = (): boolean => {
     const e: Partial<Record<keyof FormData, string>> = {};
@@ -91,57 +71,109 @@ export default function OfertaForm() {
   const handleSubmit = (ev: React.FormEvent) => {
     ev.preventDefault();
     if (!validate()) return;
-
-    const utmData = {
-      utm_source: searchParams.get('utm_source') || '',
-      utm_medium: searchParams.get('utm_medium') || '',
-      utm_campaign: searchParams.get('utm_campaign') || '',
-    };
-
-    console.log('Oferta form submission:', { ...data, ...utmData });
+    console.log('Oferta form submission:', { ...data, module: selectedModules, pricing: isMonthly ? 'lunar' : 'permanent' });
     setSubmitted(true);
   };
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-md">
+      <div className="py-8 text-center">
         <div className="mx-auto mb-4 flex size-12 items-center justify-center rounded-full bg-[#fff1f2]">
           <svg className="size-6 text-[#8a1820]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h2 className="text-xl font-bold">Multumim!</h2>
+        <h2 className="text-xl font-bold">Cerere de oferta trimisa!</h2>
         <p className="mt-2 text-gray-500">
-          Te contactam in maxim 24 de ore cu o oferta personalizata.
+          Te contactam in cel mai scurt timp cu oferta personalizata pentru {selected.length} module.
         </p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-      <InputField label="Numele firmei" name="firma" required value={data.firma} onChange={(v) => set('firma', v)} error={errors.firma} />
-      <InputField label="Persoana de contact" name="contact" required placeholder="Nume Prenume" value={data.contact} onChange={(v) => set('contact', v)} error={errors.contact} />
-      <div className="grid gap-5 md:grid-cols-2">
-        <InputField label="Email" name="email" type="email" required value={data.email} onChange={(v) => set('email', v)} error={errors.email} />
-        <InputField label="Telefon" name="telefon" type="tel" required value={data.telefon} onChange={(v) => set('telefon', v)} error={errors.telefon} />
+    <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+      {/* Module selector */}
+      <div>
+        <div className="mb-3 flex items-center justify-between">
+          <h3 className="text-sm font-bold">Selecteaza modulele dorite</h3>
+          <div className="bg-muted inline-flex items-center gap-0.5 rounded-full p-0.5">
+            <button
+              type="button"
+              className={cn(
+                'cursor-pointer rounded-full px-2.5 py-1 text-xs font-medium transition',
+                !isMonthly ? 'bg-primary text-primary-foreground shadow' : 'text-muted-foreground',
+              )}
+              onClick={() => setIsMonthly(false)}
+            >
+              Permanent
+            </button>
+            <button
+              type="button"
+              className={cn(
+                'cursor-pointer rounded-full px-2.5 py-1 text-xs font-medium transition',
+                isMonthly ? 'bg-primary text-primary-foreground shadow' : 'text-muted-foreground',
+              )}
+              onClick={() => setIsMonthly(true)}
+            >
+              Lunar
+            </button>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+          {MODULES.map((m) => {
+            const checked = selectedModules.includes(m.id);
+            const price = isMonthly && m.monthly ? m.monthly : m.price;
+            return (
+              <label
+                key={m.id}
+                className={cn(
+                  'flex cursor-pointer items-center justify-between rounded-lg border px-3 py-2.5 text-sm transition-all',
+                  checked
+                    ? 'border-[#8a1820] bg-[#fff1f2] ring-1 ring-[#8a1820]'
+                    : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50',
+                )}
+              >
+                <div className="flex items-center gap-2.5">
+                  <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={() => toggleModule(m.id)}
+                    className="accent-[#8a1820] size-4 rounded"
+                  />
+                  <span className={cn('font-medium', checked && 'text-[#8a1820]')}>{m.label}</span>
+                </div>
+                <span className="text-xs text-gray-500">{price}</span>
+              </label>
+            );
+          })}
+        </div>
+        {selected.length > 0 && (
+          <div className="mt-3 flex items-baseline justify-between rounded-lg bg-gray-50 px-4 py-2.5">
+            <span className="text-sm font-medium">{selected.length} module selectate</span>
+            <span className="text-lg font-bold text-[#8a1820]">
+              {total.toLocaleString('de-DE')}€
+              <span className="text-xs font-normal text-gray-500">{isMonthly ? '/luna' : ' total'}</span>
+            </span>
+          </div>
+        )}
       </div>
-      <SelectField label="Tip firma" name="tipFirma" options={TIP_FIRMA_OPTIONS} value={data.tipFirma} onChange={(v) => set('tipFirma', v)} />
-      <RadioField
-        label="Aveti CNC in productie?"
-        name="cnc"
-        options={[
-          { value: 'da', label: 'Da' },
-          { value: 'nu', label: 'Nu' },
-          { value: 'planificam', label: 'Planificam achizitia' },
-        ]}
-        value={data.cnc}
-        onChange={(v) => set('cnc', v)}
-      />
-      <CheckboxGroup label="Module de interes" name="module" options={MODULE_OPTIONS} values={data.module} onChange={(v) => set('module', v)} />
-      <TextareaField label="Mesaj aditional" name="mesaj" placeholder="Detalii suplimentare (optional)" value={data.mesaj} onChange={(v) => set('mesaj', v)} />
-      <SelectField label="Cum ati aflat de noi?" name="sursa" options={SURSA_OPTIONS} value={data.sursa} onChange={(v) => set('sursa', v)} />
-      <Button type="submit" className="w-full">Trimite cererea de oferta</Button>
+
+      {/* Contact fields */}
+      <div className="space-y-4">
+        <InputField label="Numele firmei" name="firma" required value={data.firma} onChange={(v) => set('firma', v)} error={errors.firma} />
+        <InputField label="Persoana de contact" name="contact" required placeholder="Nume Prenume" value={data.contact} onChange={(v) => set('contact', v)} error={errors.contact} />
+        <div className="grid gap-4 md:grid-cols-2">
+          <InputField label="Email" name="email" type="email" required value={data.email} onChange={(v) => set('email', v)} error={errors.email} />
+          <InputField label="Telefon" name="telefon" type="tel" required value={data.telefon} onChange={(v) => set('telefon', v)} error={errors.telefon} />
+        </div>
+      </div>
+
+      <Button type="submit" className="w-full py-3">
+        {selected.length > 0
+          ? `Solicita oferta pentru ${selected.length} module`
+          : 'Solicita oferta personalizata'}
+      </Button>
     </form>
   );
 }
