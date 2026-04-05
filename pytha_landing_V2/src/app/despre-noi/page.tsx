@@ -165,24 +165,6 @@ export default function DespreNoiPage() {
             })}
           </div>
 
-          {/* Video demo */}
-          <div className="mt-12 lg:mt-16">
-            <h3 className="mb-6 text-center text-xl font-bold">
-              Vezi PYTHA in actiune
-            </h3>
-            <div className="mx-auto max-w-4xl">
-              <div className="aspect-video overflow-hidden rounded-2xl shadow-2xl">
-                <iframe
-                  src="https://www.youtube.com/embed/tXBObV8mDgM"
-                  title="Prezentare software PYTHA 3D"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="size-full border-0"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
