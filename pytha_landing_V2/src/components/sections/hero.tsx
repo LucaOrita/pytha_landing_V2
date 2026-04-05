@@ -72,21 +72,22 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Hero image */}
+        {/* Hero image with fade-out at bottom */}
         <div
-          className="fade-up-scale mt-10 md:mt-20 lg:mt-30"
+          className="fade-up-scale relative mt-10 md:mt-20 lg:mt-30"
           style={{ animationDelay: '400ms' }}
         >
           <Image
             src="/images/hero-screenshot.webp"
-            alt="Interfața software PYTHA 3D — proiectare mobilier"
-            className="ring-[#8a1820]/15 w-full rounded-xs shadow-2xl ring-6 md:rounded-sm md:ring-16"
+            alt="Interfața software PYTHA 3D"
+            className="w-full rounded-t-xs shadow-2xl md:rounded-t-sm"
             width={1440}
             height={905}
             priority
             quality={75}
             sizes="100vw"
           />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent from-50% to-[#f8f8f8]" />
         </div>
       </div>
     </section>
