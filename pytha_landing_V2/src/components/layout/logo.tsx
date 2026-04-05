@@ -39,7 +39,7 @@ export default function Logo({
           alt="AdLine Industries"
           width={80}
           height={24}
-          className="h-5 w-auto object-contain opacity-70 md:h-6"
+          className="h-7 w-auto object-contain md:h-8"
         />
       </div>
     </div>

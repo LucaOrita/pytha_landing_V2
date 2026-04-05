@@ -206,7 +206,7 @@ const Navbar = () => {
         {/* Right: CTA + Mobile controls */}
         <div className="flex items-center gap-2">
           <Button size="sm" asChild className="hidden bg-[var(--nav-active-pressed)] text-white hover:bg-[#6d1319] lg:inline-flex">
-            <Link href="/solicita-prezentare">Solicită Demo</Link>
+            <Link href="/solicita-prezentare">Solicită Prezentare</Link>
           </Button>
 
           {/* Mobile: CTA + hamburger */}

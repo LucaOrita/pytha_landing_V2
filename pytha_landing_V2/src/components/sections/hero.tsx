@@ -22,7 +22,7 @@ export default function Hero() {
         />
       </div>
       {/* Gradient overlay */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-br from-[#8a1820]/80 to-[#1a1a2e]/85" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-br from-[#8a1820]/40 to-[#1a1a2e]/60" />
 
       <div className="container relative z-20 py-20 md:py-28 lg:py-36">
         <div className="flex flex-col justify-between gap-10 lg:flex-row lg:items-center">
@@ -60,7 +60,7 @@ export default function Hero() {
           >
             <div className="flex gap-4.5">
               <Button className="flex-1 md:min-w-45" asChild>
-                <Link href="/solicita-prezentare">Programează prezentare</Link>
+                <Link href="/solicita-prezentare">Programează Demo</Link>
               </Button>
               <Button className="flex-1 md:min-w-45 border-white/30 text-white hover:bg-white/10" variant="outline" asChild>
                 <Link href="/preturi">Module și prețuri</Link>
