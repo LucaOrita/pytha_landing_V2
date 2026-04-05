@@ -20,10 +20,14 @@ const Navbar = () => {
   const isHome = pathname === '/';
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 10);
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    const update = () => setIsScrolled(window.scrollY > 5);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('scrollend', update, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('scrollend', update);
+    };
   }, []);
 
   useEffect(() => {
@@ -64,10 +68,10 @@ const Navbar = () => {
   return (
     <header
       className={cn(
-        'fixed top-0 right-0 left-0 z-50 transition-all duration-500 ease-in-out',
+        'fixed top-0 right-0 left-0 z-50 border-b transition-all duration-700 ease-in-out',
         isTransparent
-          ? 'bg-transparent'
-          : 'bg-white/95 border-b border-gray-200/60 shadow-sm backdrop-blur-xl',
+          ? 'bg-transparent border-transparent shadow-none'
+          : 'bg-white/95 border-gray-200/60 shadow-sm backdrop-blur-xl',
       )}
     >
       <div className="container flex h-[var(--header-height)] items-center justify-between gap-4">
