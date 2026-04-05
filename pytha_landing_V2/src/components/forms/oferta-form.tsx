@@ -4,7 +4,12 @@ import { useSearchParams } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
-import { InputField } from '@/components/ui/form-field';
+import {
+  CheckboxGroup,
+  InputField,
+  RadioField,
+  SelectField,
+} from '@/components/ui/form-field';
 import { cn } from '@/lib/utils';
 
 const MODULES = [
@@ -20,18 +25,65 @@ const MODULES = [
   { id: 'modul-radiolab', label: 'RadioLab', price: '980€', monthly: '42€/luna' },
 ];
 
+const TIP_FIRMA_OPTIONS = [
+  { value: 'producator', label: 'Producator mobilier' },
+  { value: 'proiectant', label: 'Proiectant / Designer' },
+  { value: 'tamplar', label: 'Tamplar / Atelier mic' },
+  { value: 'arhitect', label: 'Arhitect / Birou arhitectura' },
+  { value: 'altele', label: 'Altele' },
+];
+
+const CNC_OPTIONS = [
+  { value: 'da', label: 'Da' },
+  { value: 'nu', label: 'Nu' },
+  { value: 'in-plan', label: 'In plan' },
+];
+
+const CAND_OPTIONS = [
+  { value: 'asap', label: 'Cat mai curand' },
+  { value: 'saptamana-aceasta', label: 'Saptamana aceasta' },
+  { value: 'saptamana-viitoare', label: 'Saptamana viitoare' },
+  { value: 'luna-viitoare', label: 'Luna viitoare' },
+];
+
+const PERSOANE_OPTIONS = [
+  { value: '1', label: '1 persoana' },
+  { value: '2-5', label: '2-5 persoane' },
+  { value: '6+', label: '6+ persoane' },
+];
+
+const SOFTWARE_OPTIONS = [
+  { value: 'sketchup', label: 'SketchUp' },
+  { value: 'autocad', label: 'AutoCAD' },
+  { value: 'corpus', label: 'Corpus' },
+  { value: 'topsolid', label: 'TopSolid' },
+  { value: 'pro100', label: 'PRO100' },
+  { value: 'nimic', label: 'Nimic (fara software)' },
+  { value: 'altele', label: 'Altele' },
+];
+
 interface FormData {
   firma: string;
   contact: string;
   email: string;
   telefon: string;
+  tipFirma: string;
+  cnc: string;
+  cand: string;
+  persoane: string;
+  software: string[];
 }
+
+const initialData: FormData = {
+  firma: '', contact: '', email: '', telefon: '',
+  tipFirma: '', cnc: '', cand: '', persoane: '', software: [],
+};
 
 export default function OfertaForm() {
   const searchParams = useSearchParams();
   const [selectedModules, setSelectedModules] = useState<string[]>([]);
   const [isMonthly, setIsMonthly] = useState(false);
-  const [data, setData] = useState<FormData>({ firma: '', contact: '', email: '', telefon: '' });
+  const [data, setData] = useState<FormData>(initialData);
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
   const [submitted, setSubmitted] = useState(false);
 
@@ -59,11 +111,8 @@ export default function OfertaForm() {
 
   const validate = (): boolean => {
     const e: Partial<Record<keyof FormData, string>> = {};
-    if (!data.firma.trim()) e.firma = 'Numele firmei este obligatoriu';
-    if (!data.contact.trim()) e.contact = 'Persoana de contact este obligatorie';
     if (!data.email.trim()) e.email = 'Email-ul este obligatoriu';
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) e.email = 'Format email invalid';
-    if (!data.telefon.trim()) e.telefon = 'Telefonul este obligatoriu';
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -85,7 +134,7 @@ export default function OfertaForm() {
         </div>
         <h2 className="text-xl font-bold">Cerere de oferta trimisa!</h2>
         <p className="mt-2 text-gray-500">
-          Te contactam in cel mai scurt timp cu oferta personalizata pentru {selected.length} module.
+          Te contactam in cel mai scurt timp cu oferta personalizata{selected.length > 0 ? ` pentru ${selected.length} module` : ''}.
         </p>
       </div>
     );
@@ -106,7 +155,7 @@ export default function OfertaForm() {
               )}
               onClick={() => setIsMonthly(false)}
             >
-              Lifetime
+              Viata
             </button>
             <button
               type="button"
@@ -161,12 +210,17 @@ export default function OfertaForm() {
 
       {/* Contact fields */}
       <div className="space-y-4">
-        <InputField label="Numele firmei" name="firma" required value={data.firma} onChange={(v) => set('firma', v)} error={errors.firma} />
-        <InputField label="Persoana de contact" name="contact" required placeholder="Nume Prenume" value={data.contact} onChange={(v) => set('contact', v)} error={errors.contact} />
+        <InputField label="Numele firmei" name="firma" value={data.firma} onChange={(v) => set('firma', v)} error={errors.firma} />
+        <InputField label="Persoana de contact" name="contact" placeholder="Nume Prenume" value={data.contact} onChange={(v) => set('contact', v)} error={errors.contact} />
         <div className="grid gap-4 md:grid-cols-2">
           <InputField label="Email" name="email" type="email" required value={data.email} onChange={(v) => set('email', v)} error={errors.email} />
-          <InputField label="Telefon" name="telefon" type="tel" required value={data.telefon} onChange={(v) => set('telefon', v)} error={errors.telefon} />
+          <InputField label="Telefon" name="telefon" type="tel" value={data.telefon} onChange={(v) => set('telefon', v)} error={errors.telefon} />
         </div>
+        <SelectField label="Tip firma" name="tipFirma" options={TIP_FIRMA_OPTIONS} value={data.tipFirma} onChange={(v) => set('tipFirma', v)} />
+        <RadioField label="CNC in productie?" name="cnc" options={CNC_OPTIONS} value={data.cnc} onChange={(v) => set('cnc', v)} />
+        <SelectField label="Cand doresti prezentarea?" name="cand" options={CAND_OPTIONS} value={data.cand} onChange={(v) => set('cand', v)} />
+        <SelectField label="Cate persoane proiecteaza in firma ta?" name="persoane" options={PERSOANE_OPTIONS} value={data.persoane} onChange={(v) => set('persoane', v)} />
+        <CheckboxGroup label="Ce software folosesti acum?" name="software" options={SOFTWARE_OPTIONS} values={data.software} onChange={(v) => set('software', v)} />
       </div>
 
       <Button type="submit" className="w-full py-3">

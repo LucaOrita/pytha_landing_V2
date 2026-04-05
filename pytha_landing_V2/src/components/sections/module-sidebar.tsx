@@ -67,7 +67,29 @@ export default function ModuleSidebar() {
     <aside className="hidden space-y-4 xl:block xl:sticky xl:top-36 xl:self-start xl:w-64 xl:shrink-0">
       {/* Module navigation */}
       <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-md">
-        <h3 className="mb-3 text-sm font-bold uppercase tracking-wider text-foreground">Module</h3>
+        <div className="mb-3 flex items-center justify-between">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-foreground">Module</h3>
+          <div className="bg-muted inline-flex items-center rounded-full p-0.5">
+            <button
+              className={cn(
+                'cursor-pointer rounded-full px-2 py-0.5 text-[10px] font-medium transition-all',
+                !isMonthly ? 'bg-primary text-primary-foreground shadow-sm' : 'text-muted-foreground',
+              )}
+              onClick={() => setIsMonthly(false)}
+            >
+              Viata
+            </button>
+            <button
+              className={cn(
+                'cursor-pointer rounded-full px-2 py-0.5 text-[10px] font-medium transition-all',
+                isMonthly ? 'bg-primary text-primary-foreground shadow-sm' : 'text-muted-foreground',
+              )}
+              onClick={() => setIsMonthly(true)}
+            >
+              Lunar
+            </button>
+          </div>
+        </div>
         <nav className="space-y-0.5">
           {MODULE_NAV.map(({ id, label }) => (
             <button
@@ -90,28 +112,6 @@ export default function ModuleSidebar() {
             </button>
           ))}
         </nav>
-      </div>
-
-      {/* Pricing toggle */}
-      <div className="flex items-center justify-center rounded-full border border-gray-100 bg-white p-1 shadow-sm">
-        <button
-          className={cn(
-            'flex-1 cursor-pointer rounded-full py-1 text-center text-xs font-medium transition-all',
-            !isMonthly ? 'bg-[#8a1820] text-white shadow-sm' : 'text-gray-500 hover:text-gray-700',
-          )}
-          onClick={() => setIsMonthly(false)}
-        >
-          Lifetime
-        </button>
-        <button
-          className={cn(
-            'flex-1 cursor-pointer rounded-full py-1 text-center text-xs font-medium transition-all',
-            isMonthly ? 'bg-[#8a1820] text-white shadow-sm' : 'text-gray-500 hover:text-gray-700',
-          )}
-          onClick={() => setIsMonthly(true)}
-        >
-          Lunar
-        </button>
       </div>
 
       {/* Cart / Oferta */}
