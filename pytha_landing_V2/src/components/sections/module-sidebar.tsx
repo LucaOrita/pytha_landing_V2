@@ -24,6 +24,7 @@ const MODULE_NAV = [
 export default function ModuleSidebar() {
   const [activeId, setActiveId] = useState('');
   const [cart, setCart] = useState<string[]>([]);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const { isMonthly, setIsMonthly } = usePricing();
 
   useEffect(() => {
@@ -64,6 +65,7 @@ export default function ModuleSidebar() {
   const totalLabel = isMonthly ? '/luna' : ' total';
 
   return (
+    <>
     <aside className="hidden space-y-4 xl:block xl:sticky xl:top-36 xl:self-start xl:w-64 xl:shrink-0">
       {/* Module navigation */}
       <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-md">
@@ -160,6 +162,61 @@ export default function ModuleSidebar() {
         )}
       </div>
     </aside>
+
+      {/* Mobile floating cart button */}
+      <div className="fixed right-4 bottom-6 z-50 xl:hidden">
+        {mobileOpen && (
+          <div className="mb-3 w-72 rounded-2xl border border-gray-200 bg-white p-4 shadow-xl">
+            <div className="mb-3 flex items-center justify-between">
+              <h3 className="text-sm font-bold">Oferta ta</h3>
+              <button onClick={() => setMobileOpen(false)} className="cursor-pointer rounded-full p-1 text-gray-400 hover:bg-gray-100">
+                <X className="size-4" />
+              </button>
+            </div>
+            {cart.length === 0 ? (
+              <p className="text-xs text-gray-400">Adauga module apasand &ldquo;Include in oferta&rdquo;.</p>
+            ) : (
+              <>
+                <div className="max-h-48 space-y-1.5 overflow-y-auto">
+                  {cartModules.map((m) => (
+                    <div key={m.id} className="flex items-center justify-between text-xs">
+                      <span className="font-medium">{m.label}</span>
+                      <div className="flex items-center gap-1">
+                        <span className="text-gray-400">{isMonthly && m.monthly ? m.monthly : m.price}</span>
+                        <button onClick={() => toggleCart(m.id)} className="cursor-pointer text-gray-300 hover:text-red-500"><X className="size-3" /></button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-2 flex items-baseline justify-between border-t border-gray-100 pt-2">
+                  <span className="text-xs font-bold">Total</span>
+                  <span className="text-base font-bold text-[#8a1820]">{totalFormatted}<span className="text-[10px] font-normal text-gray-500">{totalLabel}</span></span>
+                </div>
+                <Button size="sm" className="mt-2 w-full text-xs" asChild>
+                  <Link href={`/solicita-prezentare?module=${cart.join(',')}`}>Solicita oferta</Link>
+                </Button>
+              </>
+            )}
+          </div>
+        )}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className={cn(
+            'flex size-14 cursor-pointer items-center justify-center rounded-full shadow-lg transition-all',
+            cart.length > 0
+              ? 'bg-[#8a1820] text-white hover:bg-[#6d1319]'
+              : 'bg-white text-[#8a1820] border border-gray-200 hover:shadow-xl',
+          )}
+        >
+          <ShoppingCart className="size-5" />
+          {cart.length > 0 && (
+            <span className="absolute -top-1 -right-1 flex size-5 items-center justify-center rounded-full bg-white text-[10px] font-bold text-[#8a1820] shadow">
+              {cart.length}
+            </span>
+          )}
+        </button>
+      </div>
+    </>
   );
 }
 

@@ -4,18 +4,13 @@ import { useSearchParams } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
-import {
-  CheckboxGroup,
-  InputField,
-  RadioField,
-  SelectField,
-} from '@/components/ui/form-field';
+import { InputField, SelectField, RadioField } from '@/components/ui/form-field';
 import { cn } from '@/lib/utils';
 
 const MODULES = [
   { id: 'modul-basic', label: 'Pachet de Baza', price: '4.950€', monthly: '99€/luna' },
-  { id: 'modul-generators', label: 'Generatoare & Plug-in-uri', price: '1.150€', monthly: '26€/luna' },
-  { id: 'modul-workshop', label: 'Workshop (Atelier)', price: '2.450€', monthly: '55€/luna' },
+  { id: 'modul-generators', label: 'Generatoare', price: '1.150€', monthly: '26€/luna' },
+  { id: 'modul-workshop', label: 'Workshop', price: '2.450€', monthly: '55€/luna' },
   { id: 'modul-parts-list', label: 'Parts List', price: '1.290€', monthly: '29€/luna' },
   { id: 'modul-parametrics', label: 'Parametrizare', price: '640€', monthly: '14€/luna' },
   { id: 'modul-library', label: 'Biblioteca', price: '820€', monthly: null },
@@ -46,22 +41,6 @@ const CAND_OPTIONS = [
   { value: 'luna-viitoare', label: 'Luna viitoare' },
 ];
 
-const PERSOANE_OPTIONS = [
-  { value: '1', label: '1 persoana' },
-  { value: '2-5', label: '2-5 persoane' },
-  { value: '6+', label: '6+ persoane' },
-];
-
-const SOFTWARE_OPTIONS = [
-  { value: 'sketchup', label: 'SketchUp' },
-  { value: 'autocad', label: 'AutoCAD' },
-  { value: 'corpus', label: 'Corpus' },
-  { value: 'topsolid', label: 'TopSolid' },
-  { value: 'pro100', label: 'PRO100' },
-  { value: 'nimic', label: 'Nimic (fara software)' },
-  { value: 'altele', label: 'Altele' },
-];
-
 interface FormData {
   firma: string;
   contact: string;
@@ -70,13 +49,12 @@ interface FormData {
   tipFirma: string;
   cnc: string;
   cand: string;
-  persoane: string;
-  software: string[];
+  experienta: string;
 }
 
 const initialData: FormData = {
   firma: '', contact: '', email: '', telefon: '',
-  tipFirma: '', cnc: '', cand: '', persoane: '', software: [],
+  tipFirma: '', cnc: '', cand: '', experienta: '',
 };
 
 export default function OfertaForm() {
@@ -89,9 +67,7 @@ export default function OfertaForm() {
 
   useEffect(() => {
     const moduleParam = searchParams.get('module') || searchParams.get('modul') || '';
-    if (moduleParam) {
-      setSelectedModules(moduleParam.split(',').filter(Boolean));
-    }
+    if (moduleParam) setSelectedModules(moduleParam.split(',').filter(Boolean));
   }, [searchParams]);
 
   const toggleModule = (id: string) => {
@@ -120,7 +96,7 @@ export default function OfertaForm() {
   const handleSubmit = (ev: React.FormEvent) => {
     ev.preventDefault();
     if (!validate()) return;
-    console.log('Oferta form submission:', { ...data, module: selectedModules, pricing: isMonthly ? 'lunar' : 'permanent' });
+    console.log('Oferta form:', { ...data, module: selectedModules, pricing: isMonthly ? 'lunar' : 'permanent' });
     setSubmitted(true);
   };
 
@@ -133,100 +109,63 @@ export default function OfertaForm() {
           </svg>
         </div>
         <h2 className="text-xl font-bold">Cerere de oferta trimisa!</h2>
-        <p className="mt-2 text-gray-500">
-          Te contactam in cel mai scurt timp cu oferta personalizata{selected.length > 0 ? ` pentru ${selected.length} module` : ''}.
-        </p>
+        <p className="mt-2 text-gray-500">Te contactam in cel mai scurt timp.</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+    <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+      {/* Contact — compact */}
+      <div className="grid gap-4 md:grid-cols-2">
+        <InputField label="Firma" name="firma" value={data.firma} onChange={(v) => set('firma', v)} />
+        <InputField label="Persoana de contact" name="contact" placeholder="Nume Prenume" value={data.contact} onChange={(v) => set('contact', v)} />
+      </div>
+      <div className="grid gap-4 md:grid-cols-2">
+        <InputField label="Email" name="email" type="email" required value={data.email} onChange={(v) => set('email', v)} error={errors.email} />
+        <InputField label="Telefon" name="telefon" type="tel" value={data.telefon} onChange={(v) => set('telefon', v)} />
+      </div>
+      <div className="grid gap-4 md:grid-cols-2">
+        <SelectField label="Tip firma" name="tipFirma" options={TIP_FIRMA_OPTIONS} value={data.tipFirma} onChange={(v) => set('tipFirma', v)} />
+        <SelectField label="Cand doresti prezentarea?" name="cand" options={CAND_OPTIONS} value={data.cand} onChange={(v) => set('cand', v)} />
+      </div>
+      <RadioField label="CNC in productie?" name="cnc" options={CNC_OPTIONS} value={data.cnc} onChange={(v) => set('cnc', v)} />
+      <InputField label="Experienta in proiectare (ce softuri cunosti?)" name="experienta" placeholder="ex: SketchUp, AutoCAD, PRO100..." value={data.experienta} onChange={(v) => set('experienta', v)} />
+
       {/* Module selector */}
       <div>
-        <div className="mb-3 flex items-center justify-between">
+        <div className="mb-2 flex items-center justify-between">
           <h3 className="text-sm font-bold">Selecteaza modulele dorite</h3>
           <div className="bg-muted inline-flex items-center gap-0.5 rounded-full p-0.5">
-            <button
-              type="button"
-              className={cn(
-                'cursor-pointer rounded-full px-2.5 py-1 text-xs font-medium transition',
-                !isMonthly ? 'bg-primary text-primary-foreground shadow' : 'text-muted-foreground',
-              )}
-              onClick={() => setIsMonthly(false)}
-            >
-              Viata
-            </button>
-            <button
-              type="button"
-              className={cn(
-                'cursor-pointer rounded-full px-2.5 py-1 text-xs font-medium transition',
-                isMonthly ? 'bg-primary text-primary-foreground shadow' : 'text-muted-foreground',
-              )}
-              onClick={() => setIsMonthly(true)}
-            >
-              Lunar
-            </button>
+            <button type="button" className={cn('cursor-pointer rounded-full px-2.5 py-1 text-xs font-medium transition', !isMonthly ? 'bg-primary text-primary-foreground shadow' : 'text-muted-foreground')} onClick={() => setIsMonthly(false)}>Viata</button>
+            <button type="button" className={cn('cursor-pointer rounded-full px-2.5 py-1 text-xs font-medium transition', isMonthly ? 'bg-primary text-primary-foreground shadow' : 'text-muted-foreground')} onClick={() => setIsMonthly(true)}>Lunar</button>
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+        <div className="grid grid-cols-2 gap-1.5">
           {MODULES.map((m) => {
             const checked = selectedModules.includes(m.id);
             const price = isMonthly && m.monthly ? m.monthly : m.price;
             return (
-              <label
-                key={m.id}
-                className={cn(
-                  'flex cursor-pointer items-center justify-between rounded-lg border px-3 py-2.5 text-sm transition-all',
-                  checked
-                    ? 'border-[#8a1820] bg-[#fff1f2] ring-1 ring-[#8a1820]'
-                    : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50',
-                )}
-              >
-                <div className="flex items-center gap-2.5">
-                  <input
-                    type="checkbox"
-                    checked={checked}
-                    onChange={() => toggleModule(m.id)}
-                    className="accent-[#8a1820] size-4 rounded"
-                  />
-                  <span className={cn('font-medium', checked && 'text-[#8a1820]')}>{m.label}</span>
+              <label key={m.id} className={cn('flex cursor-pointer items-center justify-between rounded-md border px-2.5 py-2 text-sm transition-all', checked ? 'border-[#8a1820] bg-[#fff1f2]' : 'border-gray-200 hover:border-gray-300')}>
+                <div className="flex items-center gap-2">
+                  <input type="checkbox" checked={checked} onChange={() => toggleModule(m.id)} className="accent-[#8a1820] size-3.5" />
+                  <span className={cn('text-xs font-medium', checked && 'text-[#8a1820]')}>{m.label}</span>
                 </div>
-                <span className="text-xs text-gray-500">{price}</span>
+                <span className="text-[10px] text-gray-400">{price}</span>
               </label>
             );
           })}
         </div>
         {selected.length > 0 && (
-          <div className="mt-3 flex items-baseline justify-between rounded-lg bg-gray-50 px-4 py-2.5">
-            <span className="text-sm font-medium">{selected.length} module selectate</span>
-            <span className="text-lg font-bold text-[#8a1820]">
-              {total.toLocaleString('de-DE')}€
-              <span className="text-xs font-normal text-gray-500">{isMonthly ? '/luna' : ' total'}</span>
-            </span>
+          <div className="mt-2 flex items-baseline justify-between rounded-md bg-gray-50 px-3 py-2">
+            <span className="text-xs font-medium">{selected.length} selectate</span>
+            <span className="text-base font-bold text-[#8a1820]">{total.toLocaleString('de-DE')}€<span className="text-[10px] font-normal text-gray-500">{isMonthly ? '/luna' : ''}</span></span>
           </div>
         )}
       </div>
 
-      {/* Contact fields */}
-      <div className="space-y-4">
-        <InputField label="Numele firmei" name="firma" value={data.firma} onChange={(v) => set('firma', v)} error={errors.firma} />
-        <InputField label="Persoana de contact" name="contact" placeholder="Nume Prenume" value={data.contact} onChange={(v) => set('contact', v)} error={errors.contact} />
-        <div className="grid gap-4 md:grid-cols-2">
-          <InputField label="Email" name="email" type="email" required value={data.email} onChange={(v) => set('email', v)} error={errors.email} />
-          <InputField label="Telefon" name="telefon" type="tel" value={data.telefon} onChange={(v) => set('telefon', v)} error={errors.telefon} />
-        </div>
-        <SelectField label="Tip firma" name="tipFirma" options={TIP_FIRMA_OPTIONS} value={data.tipFirma} onChange={(v) => set('tipFirma', v)} />
-        <RadioField label="CNC in productie?" name="cnc" options={CNC_OPTIONS} value={data.cnc} onChange={(v) => set('cnc', v)} />
-        <SelectField label="Cand doresti prezentarea?" name="cand" options={CAND_OPTIONS} value={data.cand} onChange={(v) => set('cand', v)} />
-        <SelectField label="Cate persoane proiecteaza in firma ta?" name="persoane" options={PERSOANE_OPTIONS} value={data.persoane} onChange={(v) => set('persoane', v)} />
-        <CheckboxGroup label="Ce software folosesti acum?" name="software" options={SOFTWARE_OPTIONS} values={data.software} onChange={(v) => set('software', v)} />
-      </div>
-
       <Button type="submit" className="w-full py-3">
-        {selected.length > 0
-          ? `Solicita oferta pentru ${selected.length} module`
-          : 'Solicita oferta personalizata'}
+        {selected.length > 0 ? `Solicita oferta — ${selected.length} module` : 'Solicita oferta personalizata'}
       </Button>
     </form>
   );
