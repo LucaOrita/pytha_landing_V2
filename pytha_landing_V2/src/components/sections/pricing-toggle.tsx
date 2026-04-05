@@ -4,7 +4,10 @@ import { createContext, useContext, useState } from 'react';
 
 import { cn } from '@/lib/utils';
 
-const PricingContext = createContext<{ isMonthly: boolean }>({ isMonthly: false });
+const PricingContext = createContext<{ isMonthly: boolean; setIsMonthly: (v: boolean) => void }>({
+  isMonthly: false,
+  setIsMonthly: () => {},
+});
 
 export function usePricing() {
   return useContext(PricingContext);
@@ -14,7 +17,7 @@ export function PricingToggle({ children }: { children: React.ReactNode }) {
   const [isMonthly, setIsMonthly] = useState(false);
 
   return (
-    <PricingContext.Provider value={{ isMonthly }}>
+    <PricingContext.Provider value={{ isMonthly, setIsMonthly }}>
       <div className="flex justify-center">
         <div className="bg-muted inline-flex items-center gap-1 rounded-full p-1">
           <button

@@ -41,7 +41,7 @@ export default function Hero() {
               style={{ animationDelay: '0ms' }}
             >
               Software-ul CAD 3D care duce mobilierul tău de la idee la CNC.{' '}
-              <span className="text-[#ff6974]">Folosit de peste 35.000 de ateliere.</span>
+              <span className="text-[#e71b29]">Folosit de peste 35.000 de ateliere.</span>
             </h1>
 
             <p

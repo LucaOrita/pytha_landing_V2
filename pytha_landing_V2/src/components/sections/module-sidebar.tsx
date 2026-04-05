@@ -24,7 +24,7 @@ const MODULE_NAV = [
 export default function ModuleSidebar() {
   const [activeId, setActiveId] = useState('');
   const [cart, setCart] = useState<string[]>([]);
-  const { isMonthly } = usePricing();
+  const { isMonthly, setIsMonthly } = usePricing();
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
@@ -65,9 +65,33 @@ export default function ModuleSidebar() {
 
   return (
     <aside className="hidden space-y-4 xl:block xl:sticky xl:top-36 xl:self-start xl:w-64 xl:shrink-0">
+      {/* Pricing toggle */}
+      <div className="rounded-2xl border border-gray-100 bg-white p-4 shadow-md">
+        <div className="bg-muted inline-flex w-full items-center gap-1 rounded-full p-1">
+          <button
+            className={cn(
+              'flex-1 cursor-pointer rounded-full px-3 py-1.5 text-xs font-medium transition',
+              !isMonthly ? 'bg-primary text-primary-foreground shadow' : 'text-muted-foreground',
+            )}
+            onClick={() => setIsMonthly(false)}
+          >
+            Acces pe viata
+          </button>
+          <button
+            className={cn(
+              'flex-1 cursor-pointer rounded-full px-3 py-1.5 text-xs font-medium transition',
+              isMonthly ? 'bg-primary text-primary-foreground shadow' : 'text-muted-foreground',
+            )}
+            onClick={() => setIsMonthly(true)}
+          >
+            Lunar
+          </button>
+        </div>
+      </div>
+
       {/* Module navigation */}
       <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-md">
-        <h3 className="mb-3 text-sm font-bold uppercase tracking-wider text-gray-400">Module</h3>
+        <h3 className="mb-3 text-sm font-bold uppercase tracking-wider text-foreground">Module</h3>
         <nav className="space-y-0.5">
           {MODULE_NAV.map(({ id, label }) => (
             <button
@@ -96,7 +120,7 @@ export default function ModuleSidebar() {
       <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-md">
         <div className="mb-3 flex items-center gap-2">
           <ShoppingCart className="size-4 text-[#8a1820]" />
-          <h3 className="text-sm font-bold uppercase tracking-wider text-gray-400">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-foreground">
             Oferta ta {cart.length > 0 && <span className="text-[#8a1820]">({cart.length})</span>}
           </h3>
         </div>
