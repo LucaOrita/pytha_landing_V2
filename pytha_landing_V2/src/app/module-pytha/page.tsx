@@ -92,7 +92,7 @@ const MODULES: ModuleData[] = [
     price: '1.290€',
     monthlyPrice: '29€',
     priceNote: 'licenta permanenta',
-    video: '/videos/Din model, în tabel control total asupra fiecărei piese.mp4',
+    video: '/bg/parts.mp4',
   },
   {
     id: 'modul-parametrics',

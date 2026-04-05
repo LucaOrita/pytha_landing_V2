@@ -7,12 +7,30 @@ import { SOCIAL_LINKS } from '@/lib/navigation';
 
 const QUICK_LINKS = [
   { label: 'Acasă', href: '/' },
-  { label: 'Soluții PYTHA', href: '/module-pytha' },
   { label: 'Prețuri', href: '/preturi' },
   { label: 'Despre noi', href: '/despre-noi' },
   { label: 'Asistență tehnică', href: '/asistenta-tehnica' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
+];
+
+const MODULE_LINKS = [
+  { label: 'Pachet de Bază', href: '/module-pytha#modul-basic' },
+  { label: 'Generatoare', href: '/module-pytha#modul-generators' },
+  { label: 'Workshop', href: '/module-pytha#modul-workshop' },
+  { label: 'Parts List', href: '/module-pytha#modul-parts-list' },
+  { label: 'Parametrizare', href: '/module-pytha#modul-parametrics' },
+  { label: 'Biblioteca', href: '/module-pytha#modul-library' },
+  { label: 'Freeform', href: '/module-pytha#modul-freeform' },
+  { label: 'Nesting', href: '/module-pytha#modul-nesting' },
+  { label: 'Interfața CAM', href: '/module-pytha#modul-cam' },
+  { label: 'RadioLab', href: '/module-pytha#modul-radiolab' },
+];
+
+const SOLUTION_LINKS = [
+  { label: 'Mobilier la comandă', href: '/solutii/mobilier-la-comanda' },
+  { label: 'Tâmplărie comercială', href: '/solutii/tamplarie-comerciala' },
+  { label: 'Design interior', href: '/solutii/design-interior' },
 ];
 
 const Footer = () => {
@@ -68,17 +86,17 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Grid 3 columns */}
+      {/* Grid 5 columns */}
       <div className="container pb-12">
-        <div className="mb-12 grid grid-cols-1 gap-10 md:grid-cols-3">
+        <div className="mb-12 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5">
           {/* Branding */}
-          <div>
+          <div className="sm:col-span-2 lg:col-span-1">
             <Image
               src="/images/pytha-logo.png"
               alt="PYTHA"
               width={320}
               height={80}
-              className="mb-4 w-64"
+              className="mb-4 w-48"
             />
             <p className="mt-2 text-sm text-white/50">
               Distribuit în România de{' '}
@@ -93,15 +111,49 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Quick links */}
+          {/* Linkuri rapide */}
           <div>
-            <h3 className="mb-4 text-lg font-semibold">Linkuri</h3>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/80">Linkuri</h3>
             <ul className="space-y-2 text-sm">
               {QUICK_LINKS.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-white/70 transition-colors hover:text-white"
+                    className="text-white/50 transition-colors hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Module */}
+          <div>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/80">Module</h3>
+            <ul className="space-y-2 text-sm">
+              {MODULE_LINKS.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-white/50 transition-colors hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Soluții pe industrie */}
+          <div>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/80">Soluții</h3>
+            <ul className="space-y-2 text-sm">
+              {SOLUTION_LINKS.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-white/50 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -112,37 +164,37 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="space-y-3 text-sm">
-            <h3 className="mb-4 text-lg font-semibold">Contact</h3>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/80">Contact</h3>
             <a
               href="tel:+40742065376"
-              className="flex items-center gap-2 text-white/70 transition-colors hover:text-white"
+              className="flex items-center gap-2 text-white/50 transition-colors hover:text-white"
             >
-              <div className="flex size-8 items-center justify-center rounded-full bg-[#8a1820]">
-                <Phone className="size-3.5" />
+              <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#8a1820]">
+                <Phone className="size-3" />
               </div>
               +40 742 065 376
             </a>
             <a
               href="tel:+40742065893"
-              className="flex items-center gap-2 text-white/70 transition-colors hover:text-white"
+              className="flex items-center gap-2 text-white/50 transition-colors hover:text-white"
             >
-              <div className="flex size-8 items-center justify-center rounded-full bg-[#8a1820]">
-                <Phone className="size-3.5" />
+              <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#8a1820]">
+                <Phone className="size-3" />
               </div>
               +40 742 065 893
             </a>
             <a
               href="mailto:pytha@adlineindustries.ro"
-              className="flex items-center gap-2 text-white/70 transition-colors hover:text-white"
+              className="flex items-center gap-2 text-white/50 transition-colors hover:text-white"
             >
-              <div className="flex size-8 items-center justify-center rounded-full bg-[#8a1820]">
-                <Mail className="size-3.5" />
+              <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#8a1820]">
+                <Mail className="size-3" />
               </div>
               pytha@adlineindustries.ro
             </a>
-            <div className="flex items-center gap-2 text-white/70">
-              <div className="flex size-8 items-center justify-center rounded-full bg-[#8a1820]">
-                <MapPin className="size-3.5" />
+            <div className="flex items-center gap-2 text-white/50">
+              <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#8a1820]">
+                <MapPin className="size-3" />
               </div>
               Bd. Metalurgiei 99-99B, București
             </div>
