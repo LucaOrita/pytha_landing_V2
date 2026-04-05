@@ -73,7 +73,7 @@ const Navbar = () => {
       <div className="container flex h-[var(--header-height)] items-center justify-between gap-4">
         <Logo className="shrink-0" />
 
-        <nav className="hidden lg:flex lg:items-center lg:gap-1 xl:gap-2">
+        <nav className="hidden lg:flex lg:items-center lg:gap-2 xl:gap-3">
           {NAV_LINKS.map((item) => (
             <div
               key={item.label}
@@ -84,12 +84,12 @@ const Navbar = () => {
               {item.subitems ? (
                 <button
                   className={cn(
-                    'inline-flex cursor-pointer items-center gap-1 rounded-md px-3 py-1.5 text-sm transition-all duration-200',
+                    'inline-flex cursor-pointer items-center justify-center gap-1 rounded-md px-4 py-1.5 text-sm transition-all duration-200',
                     isActive(item)
                       ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]'
                       : isTransparent
-                        ? 'text-white/80 hover:text-[#8a1820] hover:nav-bold-no-shift'
-                        : 'text-muted-foreground hover:text-[var(--nav-hover)] hover:nav-bold-no-shift',
+                        ? 'text-white/80 hover:text-[#8a1820] hover:font-semibold'
+                        : 'text-muted-foreground hover:text-[var(--nav-hover)] hover:font-semibold',
                   )}
                   onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
                   aria-expanded={openDropdown === item.label}
@@ -107,12 +107,12 @@ const Navbar = () => {
                 <Link
                   href={item.href}
                   className={cn(
-                    'inline-flex rounded-md px-3 py-1.5 text-sm transition-all duration-200',
+                    'inline-flex justify-center rounded-md px-4 py-1.5 text-sm transition-all duration-200',
                     isActive(item)
                       ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]'
                       : isTransparent
-                        ? 'text-white/80 hover:text-[#8a1820] hover:nav-bold-no-shift'
-                        : 'text-muted-foreground hover:text-[var(--nav-hover)] hover:nav-bold-no-shift',
+                        ? 'text-white/80 hover:text-[#8a1820] hover:font-semibold'
+                        : 'text-muted-foreground hover:text-[var(--nav-hover)] hover:font-semibold',
                   )}
                 >
                   {item.label}
