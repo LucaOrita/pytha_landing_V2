@@ -25,7 +25,7 @@ In acest ghid comparam PYTHA cu cele mai populare alternative folosite de produc
 | Liste piese automate | Da | Nu | Nu | Partial | Da |
 | Workshop (gaurire auto) | Da | Nu | Nu | Partial | Da |
 | Pret licenta | De la 4.950€ | Gratuit/300€ | 2.000€+ | ~1.500€ | 10.000€+ |
-| Suport local Romania | Da (AdLine) | Comunitate | Reselleri | Reselleri | Limitat |
+| Suport local Romania | Da (Adline) | Comunitate | Reselleri | Reselleri | Limitat |
 | Curba de invatare | Moderata | Usoara | Dificila | Usoara | Dificila |
 
 ## Analiza detaliata
@@ -58,7 +58,7 @@ In acest ghid comparam PYTHA cu cele mai populare alternative folosite de produc
 
 **TopSolid** este cel mai apropiat competitor ca functionalitate — un CAD/CAM complet cu nesting si export CNC. Insa pretul este semnificativ mai mare (10.000€+), suportul local in Romania este limitat, iar curba de invatare este mai abrupta.
 
-**PYTHA** ofera un raport calitate-pret superior, cu suport dedicat in limba romana prin AdLine Industries.
+**PYTHA** ofera un raport calitate-pret superior, cu suport dedicat in limba romana prin Adline Industries.
 
 **Verdict:** Ambele sunt solutii profesionale. PYTHA castiga la pret si suport local.
 
@@ -74,4 +74,4 @@ Intreaba-te:
 
 Nu te baza doar pe comparatii — testeaza singur. **[Solicita o demonstratie gratuita PYTHA](/solicita-prezentare)** si vezi cum se potriveste pe fluxul tau real de productie.
 
-Sau **[vezi preturile si pachetele disponibile](/preturi)** — echipa AdLine te ajuta sa alegi exact modulele de care ai nevoie.
+Sau **[vezi preturile si pachetele disponibile](/preturi)** — echipa Adline te ajuta sa alegi exact modulele de care ai nevoie.

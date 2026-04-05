@@ -21,7 +21,7 @@ Inainte de ORICE actiune (creare fisier, editare, styling, continut), CITESTE si
 
 ## IDENTITATE VIZUALA
 
-Culorile brandului PYTHA Romania / AdLine Industries:
+Culorile brandului PYTHA Romania / Adline Industries:
 
 main (rosu):
   50:#fff1f2, 100:#ffe0e2, 200:#ffc7cb, 300:#ffa0a7, 400:#ff6974,
@@ -40,7 +40,7 @@ Toate fisierele disponibile in public/:
 - public/images/ — logo-uri (pytha-logo.png, adline-logo-full.jpg, logo-adline-min.png, pytha-theoram-logo.png), screenshots (hero-screenshot.webp, demo.webp), noise.webp, icon.png, fotografii echipa (it_guy.jpeg, it_pytha.jpeg, it_support.jpeg)
 - public/images/home/ — imagini sectiuni homepage (section1/, section2/, section3/)
 - public/images/despre/ — imagini pagina despre noi
-- public/images/adlineSection/ — imagini pagina AdLine
+- public/images/adlineSection/ — imagini pagina Adline
 - public/images/homepage/ — imagini suplimentare homepage
 - public/icons/ — social media SVG (facebook, instagram, linkedin, youtube)
 - public/videos/ — video-uri per modul PYTHA (CAM Interface, Generators, Workshop, Nesting, Freeform, Parametric, Biblioteca, Parts List)
@@ -52,7 +52,7 @@ Robots: src/app/robots.ts
 
 ## STRUCTURA PAGINILOR
 1. / (Acasa — 5 sectiuni: Hero, Stats, Features, Testimonials, CTA)
-2. /despre-noi (Despre PYTHA Lab + AdLine Industries, unificate)
+2. /despre-noi (Despre PYTHA Lab + Adline Industries, unificate)
 3. /module-pytha (Toate modulele PYTHA + CadBid)
 4. /preturi (3 pachete: Starter, Profesional, Enterprise + tabel module)
 5. /blog (Blog SEO — 8 articole)

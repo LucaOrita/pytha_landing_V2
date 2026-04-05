@@ -33,7 +33,7 @@ export default function Logo({
       <div className="hidden items-center gap-1.5 border-l border-gray-300 pl-3 sm:flex">
         <Image
           src="/images/logo-adline-min.png"
-          alt="AdLine Industries"
+          alt="Adline Industries"
           width={80}
           height={24}
           className="h-7 w-auto object-contain md:h-8"

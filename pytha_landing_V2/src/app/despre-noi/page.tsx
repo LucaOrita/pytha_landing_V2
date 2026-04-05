@@ -16,10 +16,10 @@ import {
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-  title: 'Despre PYTHA Romania & AdLine Industries | Partener oficial',
+  title: 'Despre PYTHA Romania & Adline Industries | Partener oficial',
   description:
-    'PYTHA Lab GmbH: 40+ ani de inovatie CAD. AdLine Industries, partener autorizat in Romania, Bulgaria si Ungaria. Suport local dedicat.',
-  openGraph: { title: 'Despre PYTHA Romania & AdLine Industries', type: 'website' },
+    'PYTHA Lab GmbH: 40+ ani de inovatie CAD. Adline Industries, partener autorizat in Romania, Bulgaria si Ungaria. Suport local dedicat.',
+  openGraph: { title: 'Despre PYTHA Romania & Adline Industries', type: 'website' },
 };
 
 const KEY_FACTS = [
@@ -53,7 +53,7 @@ export default function DespreNoiPage() {
               <span className="text-[#8a1820]">suport romanesc</span>
             </h1>
             <p className="mx-auto max-w-2xl leading-snug text-gray-500 md:text-lg lg:text-xl">
-              PYTHA Lab GmbH si AdLine Industries, impreuna pentru digitalizarea
+              PYTHA Lab GmbH si Adline Industries, impreuna pentru digitalizarea
               productiei din Romania.
             </p>
           </div>
@@ -113,13 +113,13 @@ export default function DespreNoiPage() {
         </div>
       </section>
 
-      {/* AdLine Industries */}
+      {/* Adline Industries */}
       <section id="adline" className="section-padding scroll-mt-20">
         <div className="container">
           <div className="grid items-center gap-10 lg:grid-cols-[2fr_3fr] lg:gap-18">
             <Image
               src="/images/despre/adline.jpeg"
-              alt="Echipa AdLine Industries"
+              alt="Echipa Adline Industries"
               width={600}
               height={400}
               className="w-full rounded-2xl object-cover shadow-xl"
@@ -131,10 +131,10 @@ export default function DespreNoiPage() {
                 Partener autorizat
               </span>
               <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">
-                AdLine Industries, partenerul tau local
+                Adline Industries, partenerul tau local
               </h2>
               <p className="text-lg leading-snug text-gray-500">
-                In Romania, PYTHA este distribuit si sustinut de AdLine Industries, un
+                In Romania, PYTHA este distribuit si sustinut de Adline Industries, un
                 partener cu peste 20 de ani de experienta in solutii CNC si digitalizare
                 industriala.
               </p>

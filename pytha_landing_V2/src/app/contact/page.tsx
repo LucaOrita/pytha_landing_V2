@@ -8,9 +8,9 @@ import { Button } from '@/components/ui/button';
 import { SOCIAL_LINKS } from '@/lib/navigation';
 
 export const metadata: Metadata = {
-  title: 'Contact PYTHA Romania | AdLine Industries Bucuresti',
+  title: 'Contact PYTHA Romania | Adline Industries Bucuresti',
   description:
-    'Contactează AdLine Industries, partener autorizat PYTHA. Bd. Metalurgiei 99-99B, Bucuresti. Tel: +40 742 065 893. Răspundem in maxim 24h.',
+    'Contactează Adline Industries, partener autorizat PYTHA. Bd. Metalurgiei 99-99B, Bucuresti. Tel: +40 742 065 893. Răspundem in maxim 24h.',
   openGraph: { title: 'Contact PYTHA Romania', type: 'website' },
 };
 
@@ -50,7 +50,7 @@ const CONTACT_INFO = [
 const localBusinessJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  name: 'PYTHA Romania | AdLine Industries',
+  name: 'PYTHA Romania | Adline Industries',
   image: 'https://pytha3d.ro/images/pytha-theoram-logo.png',
   telephone: '+40742065893',
   email: 'pytha@adlineindustries.ro',
@@ -176,7 +176,7 @@ export default function ContactPage() {
             {/* Map */}
             <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-md">
               <iframe
-                title="Locatie AdLine Industries"
+                title="Locatie Adline Industries"
                 className="h-48 w-full border-0"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3706.1760296585153!2d26.1376258769667!3d44.37061747107713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1fdfcab934173%3A0x1e80a87946f514b9!2sBulevardul%20Metalurgiei%2099-99b%2C%20Bucure%C8%99ti%20041837!5e1!3m2!1sro!2sro!4v1744898976930!5m2!1sro!2sro"
                 allowFullScreen={false}

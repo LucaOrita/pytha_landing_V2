@@ -16,7 +16,7 @@ const CARDS = [
   {
     title: '20+ ani de expertiza',
     description:
-      'AdLine s-a dezvoltat prin calitate constanta si clienti satisfacuti din Romania, Bulgaria si Ungaria, care ne recomanda mai departe.',
+      'Adline s-a dezvoltat prin calitate constanta si clienti satisfacuti din Romania, Bulgaria si Ungaria, care ne recomanda mai departe.',
     image: '/images/home/section1/Experiență solidă și creștere prin recomandare.jpg',
   },
 ];

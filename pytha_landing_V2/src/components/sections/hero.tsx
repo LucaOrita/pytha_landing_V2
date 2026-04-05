@@ -23,6 +23,8 @@ export default function Hero() {
       </div>
       {/* Gradient overlay */}
       <div className="absolute inset-0 z-10 bg-gradient-to-br from-[#8a1820]/40 to-[#1a1a2e]/60" />
+      {/* Bottom fade — melts hero into Stats section */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-11 h-60 bg-linear-to-b from-transparent to-white md:h-80" />
 
       <div className="container relative z-20 py-20 md:py-28 lg:py-36">
         <div className="flex flex-col justify-between gap-10 lg:flex-row lg:items-center">
@@ -87,7 +89,7 @@ export default function Hero() {
             quality={75}
             sizes="100vw"
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent from-50% to-[#f8f8f8]" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent from-50% to-white" />
         </div>
       </div>
     </section>

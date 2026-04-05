@@ -106,7 +106,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="underline hover:text-white/70"
               >
-                AdLine Industries
+                Adline Industries
               </a>
             </p>
           </div>
@@ -236,7 +236,7 @@ const Footer = () => {
               Politica de confidențialitate
             </Link>
             <span>
-              &copy; {new Date().getFullYear()} PYTHA România. AdLine Industries SRL.
+              &copy; {new Date().getFullYear()} PYTHA România. Adline Industries SRL.
             </span>
           </div>
         </div>

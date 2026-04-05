@@ -27,7 +27,7 @@ export default function PoliticaConfidentialitatePage() {
             <div>
               <h2 className="mb-2 text-xl font-bold text-foreground">1. Cine suntem</h2>
               <p>
-                AdLine Industries SRL, cu sediul in Bulevardul Metalurgiei 99-99B,
+                Adline Industries SRL, cu sediul in Bulevardul Metalurgiei 99-99B,
                 Bucuresti 041832, Romania. Operam site-ul pytha3d.ro si suntem
                 distribuitorul autorizat al software-ului PYTHA 3D-CAD in Romania.
               </p>

@@ -31,10 +31,10 @@ export const metadata: Metadata = {
     template: '%s | PYTHA Romania',
   },
   description:
-    'PYTHA este solutia CAD/CAM 3D completa pentru proiectare mobilier, vizualizare fotorealista si integrare CNC. Distribuit in Romania de AdLine Industries.',
+    'PYTHA este solutia CAD/CAM 3D completa pentru proiectare mobilier, vizualizare fotorealista si integrare CNC. Distribuit in Romania de Adline Industries.',
   keywords: [...SEO_KEYWORDS.primary, ...SEO_KEYWORDS.secondary, ...SEO_KEYWORDS.local],
-  authors: [{ name: 'AdLine Industries' }],
-  creator: 'AdLine Industries',
+  authors: [{ name: 'Adline Industries' }],
+  creator: 'Adline Industries',
   robots: { index: true, follow: true },
   openGraph: {
     type: 'website',
@@ -56,7 +56,7 @@ const globalJsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'PYTHA Romania | AdLine Industries',
+    name: 'PYTHA Romania | Adline Industries',
     url: BASE_URL,
     logo: `${BASE_URL}/images/pytha-theoram-logo.png`,
     contactPoint: {

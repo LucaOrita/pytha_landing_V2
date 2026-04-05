@@ -24,7 +24,7 @@ export const SEO_KEYWORDS = {
   ],
   brand: [
     'PYTHA Romania',
-    'AdLine Industries',
+    'Adline Industries',
     'PYTHA Lab GmbH',
     'CadBid',
   ],

@@ -44,7 +44,7 @@ Asta inseamna zero erori de transfer. Ce proiectezi este exact ce se produce.
 
 PYTHA nu este doar un software de desenat — este un ecosistem complet care acopera intregul flux: de la prima schita pana la piesa finisata, etichetata si optimizata pe panou.
 
-Cu peste 40 de ani de dezvoltare in Germania si suport local in Romania prin AdLine Industries, PYTHA ofera:
+Cu peste 40 de ani de dezvoltare in Germania si suport local in Romania prin Adline Industries, PYTHA ofera:
 - Modelare 2D si 3D intuitiva
 - Automatizare completa a productiei (Workshop)
 - Nesting inteligent pentru economie de material

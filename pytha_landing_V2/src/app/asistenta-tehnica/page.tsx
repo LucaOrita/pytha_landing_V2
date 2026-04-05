@@ -121,7 +121,7 @@ export default function AsistentaTehnicaPage() {
               <span className="text-[#8a1820]">dedicata</span>
             </h1>
             <p className="mx-auto max-w-2xl leading-snug text-gray-500 md:text-lg lg:text-xl">
-              Cu PYTHA si AdLine Industries, ai mereu o echipa de profesionisti langa
+              Cu PYTHA si Adline Industries, ai mereu o echipa de profesionisti langa
               tine, de la instalare pana la optimizarea productiei zilnice.
             </p>
           </div>
