@@ -12,10 +12,18 @@ import { cn } from '@/lib/utils';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
   const pathname = usePathname();
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout>>(null);
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 5);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -50,7 +58,14 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 border-b border-border/60 bg-background/95 shadow-sm backdrop-blur-xl">
+    <header
+      className={cn(
+        'fixed top-0 right-0 left-0 z-50 border-b transition-all duration-500 ease-in-out',
+        isScrolled
+          ? 'border-border/60 bg-background/95 shadow-sm backdrop-blur-xl'
+          : 'border-transparent bg-transparent shadow-none',
+      )}
+    >
       <div className="container flex h-[var(--header-height)] items-center justify-between gap-4">
         <Logo className="shrink-0" />
 
@@ -64,32 +79,36 @@ const Navbar = () => {
             >
               {item.subitems ? (
                 <button
+                  data-text={item.label}
                   className={cn(
-                    'inline-flex cursor-pointer items-center justify-center gap-1 rounded-md px-4 py-1.5 text-sm transition-colors duration-200',
+                    'nav-item-stable cursor-pointer items-center gap-1 rounded-md px-4 py-1.5 text-sm transition-colors duration-200',
                     isActive(item)
                       ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]'
-                      : 'text-muted-foreground hover:text-[var(--nav-hover)]',
+                      : 'text-muted-foreground hover:font-semibold hover:text-[var(--nav-hover)]',
                   )}
                   onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
                   aria-expanded={openDropdown === item.label}
                   aria-haspopup="true"
                 >
-                  {item.label}
-                  <ChevronDown
-                    className={cn(
-                      'size-3.5 transition-transform duration-200',
-                      openDropdown === item.label && 'rotate-180',
-                    )}
-                  />
+                  <span className="inline-flex items-center gap-1">
+                    {item.label}
+                    <ChevronDown
+                      className={cn(
+                        'size-3.5 transition-transform duration-200',
+                        openDropdown === item.label && 'rotate-180',
+                      )}
+                    />
+                  </span>
                 </button>
               ) : (
                 <Link
                   href={item.href}
+                  data-text={item.label}
                   className={cn(
-                    'inline-flex justify-center rounded-md px-4 py-1.5 text-sm transition-colors duration-200',
+                    'nav-item-stable rounded-md px-4 py-1.5 text-sm transition-colors duration-200',
                     isActive(item)
                       ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]'
-                      : 'text-muted-foreground hover:text-[var(--nav-hover)]',
+                      : 'text-muted-foreground hover:font-semibold hover:text-[var(--nav-hover)]',
                   )}
                 >
                   {item.label}
