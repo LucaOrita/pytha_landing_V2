@@ -5,8 +5,8 @@ import Breadcrumbs from '@/components/ui/breadcrumbs';
 import { Button } from '@/components/ui/button';
 import CadBidSection from '@/components/sections/cadbid-section';
 import ModuleSection, { type ModuleData } from '@/components/sections/module-section';
+import ModuleSidebar from '@/components/sections/module-sidebar';
 import { PricingToggle } from '@/components/sections/pricing-toggle';
-import StickyModuleNav from '@/components/sections/sticky-module-nav';
 
 export const metadata: Metadata = {
   title: 'Module PYTHA — Solutii CAD 3D modulare de la 590€',
@@ -239,19 +239,22 @@ export default function ModulePythaPage() {
         </div>
       </section>
 
-      {/* Sticky nav */}
-      <StickyModuleNav />
-
-      {/* Pricing toggle + Module sections */}
+      {/* Pricing toggle + Module sections with sidebar */}
       <PricingToggle>
-        <div className="divide-border divide-y">
-          {MODULES.map((mod, i) => (
-            <ModuleSection key={mod.id} module={mod} index={i} />
-          ))}
-        </div>
+        <div className="container flex gap-10">
+          {/* Main content */}
+          <div className="min-w-0 flex-1">
+            <div className="divide-border divide-y">
+              {MODULES.map((mod, i) => (
+                <ModuleSection key={mod.id} module={mod} index={i} />
+              ))}
+            </div>
+            <CadBidSection />
+          </div>
 
-        {/* CadBid — special pro card */}
-        <CadBidSection />
+          {/* Sticky sidebar — desktop only */}
+          <ModuleSidebar />
+        </div>
       </PricingToggle>
 
       {/* Final CTA */}

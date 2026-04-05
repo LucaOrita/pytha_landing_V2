@@ -17,17 +17,14 @@ const Navbar = () => {
   const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
   const pathname = usePathname();
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout>>(null);
+  const isHome = pathname === '/';
 
-  // Sticky on scroll
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 100);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu open
   useEffect(() => {
     if (isMenuOpen) {
       document.documentElement.style.overflow = 'hidden';
@@ -48,9 +45,7 @@ const Navbar = () => {
   }, []);
 
   const handleDropdownLeave = useCallback(() => {
-    dropdownTimeout.current = setTimeout(() => {
-      setOpenDropdown(null);
-    }, 150);
+    dropdownTimeout.current = setTimeout(() => setOpenDropdown(null), 150);
   }, []);
 
   const isActive = (item: NavItem) => {
@@ -62,20 +57,21 @@ const Navbar = () => {
     return false;
   };
 
+  // When on homepage and not scrolled: transparent bg + white text
+  const isTransparent = isHome && !isScrolled;
+
   return (
     <header
       className={cn(
         'fixed top-0 right-0 left-0 z-50 transition-all duration-500 ease-in-out',
-        isScrolled
-          ? 'bg-white/95 border-b border-gray-200/60 shadow-sm backdrop-blur-xl'
-          : 'bg-transparent',
+        isTransparent
+          ? 'bg-transparent'
+          : 'bg-white/95 border-b border-gray-200/60 shadow-sm backdrop-blur-xl',
       )}
     >
       <div className="container flex h-[var(--header-height)] items-center justify-between gap-4">
-        {/* Left: Logo */}
-        <Logo className="shrink-0" />
+        <Logo className="shrink-0" isTransparent={isTransparent} />
 
-        {/* Center: Desktop nav */}
         <nav className="hidden lg:flex lg:items-center lg:gap-1 xl:gap-2">
           {NAV_LINKS.map((item) => (
             <div
@@ -90,7 +86,9 @@ const Navbar = () => {
                     'inline-flex cursor-pointer items-center gap-1 rounded-md px-3 py-1.5 text-sm transition-all duration-200',
                     isActive(item)
                       ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]'
-                      : 'text-muted-foreground hover:text-[var(--nav-hover)] hover:font-semibold',
+                      : isTransparent
+                        ? 'text-white/80 hover:text-[#ff6974] hover:font-semibold'
+                        : 'text-muted-foreground hover:text-[var(--nav-hover)] hover:font-semibold',
                   )}
                   onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
                   aria-expanded={openDropdown === item.label}
@@ -111,7 +109,9 @@ const Navbar = () => {
                     'inline-flex rounded-md px-3 py-1.5 text-sm transition-all duration-200',
                     isActive(item)
                       ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]'
-                      : 'text-muted-foreground hover:text-[var(--nav-hover)] hover:font-semibold',
+                      : isTransparent
+                        ? 'text-white/80 hover:text-[#ff6974] hover:font-semibold'
+                        : 'text-muted-foreground hover:text-[var(--nav-hover)] hover:font-semibold',
                   )}
                 >
                   {item.label}
@@ -131,65 +131,36 @@ const Navbar = () => {
                   onMouseLeave={handleDropdownLeave}
                 >
                   <div className="grid grid-cols-[1fr_180px] gap-4">
-                    {/* Column 1: Modules */}
                     <div>
-                      <p className="text-muted-foreground mb-2 px-2 text-xs font-medium uppercase tracking-wider">
-                        Module
-                      </p>
+                      <p className="text-muted-foreground mb-2 px-2 text-xs font-medium uppercase tracking-wider">Module</p>
                       <div className="grid grid-cols-2 gap-0.5">
                         {item.subitems.modules.map((sub) => (
-                          <Link
-                            key={sub.label}
-                            href={sub.href}
-                            className="group rounded-md px-2 py-1.5 transition-colors hover:bg-[var(--nav-active-bg)]"
-                          >
+                          <Link key={sub.label} href={sub.href} className="group rounded-md px-2 py-1.5 transition-colors hover:bg-[var(--nav-active-bg)]">
                             <div className="text-sm font-medium group-hover:text-[var(--nav-hover)]">{sub.label}</div>
-                            <div className="text-muted-foreground text-xs leading-snug">
-                              {sub.description}
-                            </div>
+                            <div className="text-muted-foreground text-xs leading-snug">{sub.description}</div>
                           </Link>
                         ))}
                       </div>
                     </div>
-
-                    {/* Column 2: Add-ons + Industries */}
                     <div className="border-border border-l pl-4">
-                      <p className="text-muted-foreground mb-2 px-2 text-xs font-medium uppercase tracking-wider">
-                        Add-on
-                      </p>
+                      <p className="text-muted-foreground mb-2 px-2 text-xs font-medium uppercase tracking-wider">Add-on</p>
                       <div className="space-y-0.5">
                         {item.subitems.addons.map((sub) => (
-                          <Link
-                            key={sub.label}
-                            href={sub.href}
-                            className="block rounded-md px-2 py-1.5 transition-colors hover:bg-[var(--nav-active-bg)]"
-                          >
+                          <Link key={sub.label} href={sub.href} className="block rounded-md px-2 py-1.5 transition-colors hover:bg-[var(--nav-active-bg)]">
                             <div className="text-sm font-medium hover:text-[var(--nav-hover)]">{sub.label}</div>
-                            <div className="text-muted-foreground text-xs leading-snug">
-                              {sub.description}
-                            </div>
+                            <div className="text-muted-foreground text-xs leading-snug">{sub.description}</div>
                           </Link>
                         ))}
                       </div>
-
-                      {/* Industries */}
                       {item.subitems.industries.length > 0 && (
                         <>
                           <div className="border-border my-3 border-t" />
-                          <p className="text-muted-foreground mb-2 px-2 text-xs font-medium uppercase tracking-wider">
-                            Industrii
-                          </p>
+                          <p className="text-muted-foreground mb-2 px-2 text-xs font-medium uppercase tracking-wider">Industrii</p>
                           <div className="space-y-0.5">
                             {item.subitems.industries.map((sub) => (
-                              <Link
-                                key={sub.label}
-                                href={sub.href}
-                                className="block rounded-md px-2 py-1.5 transition-colors hover:bg-[var(--nav-active-bg)]"
-                              >
+                              <Link key={sub.label} href={sub.href} className="block rounded-md px-2 py-1.5 transition-colors hover:bg-[var(--nav-active-bg)]">
                                 <div className="text-sm font-medium hover:text-[var(--nav-hover)]">{sub.label}</div>
-                                <div className="text-muted-foreground text-xs leading-snug">
-                                  {sub.description}
-                                </div>
+                                <div className="text-muted-foreground text-xs leading-snug">{sub.description}</div>
                               </Link>
                             ))}
                           </div>
@@ -203,46 +174,34 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* Right: CTA + Mobile controls */}
         <div className="flex items-center gap-2">
-          <Button size="sm" asChild className="hidden bg-[var(--nav-active-pressed)] text-white hover:bg-[#6d1319] lg:inline-flex">
+          <Button size="sm" asChild className={cn(
+            'hidden lg:inline-flex',
+            isTransparent
+              ? 'bg-white text-[#8a1820] hover:bg-white/90'
+              : 'bg-[var(--nav-active-pressed)] text-white hover:bg-[#6d1319]',
+          )}>
             <Link href="/solicita-prezentare">Solicită Prezentare</Link>
           </Button>
 
-          {/* Mobile: CTA + hamburger */}
           <Button size="sm" asChild className="bg-[var(--nav-active-pressed)] text-white hover:bg-[#6d1319] lg:hidden">
             <Link href="/solicita-prezentare">Demo</Link>
           </Button>
 
           <button
-            className="text-muted-foreground relative flex size-8 cursor-pointer rounded-sm border lg:hidden"
+            className={cn(
+              'relative flex size-8 cursor-pointer rounded-sm border lg:hidden',
+              isTransparent ? 'text-white border-white/30' : 'text-muted-foreground',
+            )}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? 'Inchide meniul' : 'Deschide meniul'}
             aria-expanded={isMenuOpen}
           >
             <span className="sr-only">Meniu principal</span>
             <div className="absolute top-1/2 left-1/2 block w-4 -translate-x-1/2 -translate-y-1/2">
-              <span
-                aria-hidden="true"
-                className={cn(
-                  'absolute block h-0.25 w-full rounded-full bg-current transition duration-500 ease-in-out',
-                  isMenuOpen ? 'rotate-45' : '-translate-y-1.5',
-                )}
-              />
-              <span
-                aria-hidden="true"
-                className={cn(
-                  'absolute block h-0.25 w-full rounded-full bg-current transition duration-500 ease-in-out',
-                  isMenuOpen ? 'opacity-0' : '',
-                )}
-              />
-              <span
-                aria-hidden="true"
-                className={cn(
-                  'absolute block h-0.25 w-full rounded-full bg-current transition duration-500 ease-in-out',
-                  isMenuOpen ? '-rotate-45' : 'translate-y-1.5',
-                )}
-              />
+              <span aria-hidden="true" className={cn('absolute block h-0.25 w-full rounded-full bg-current transition duration-500 ease-in-out', isMenuOpen ? 'rotate-45' : '-translate-y-1.5')} />
+              <span aria-hidden="true" className={cn('absolute block h-0.25 w-full rounded-full bg-current transition duration-500 ease-in-out', isMenuOpen ? 'opacity-0' : '')} />
+              <span aria-hidden="true" className={cn('absolute block h-0.25 w-full rounded-full bg-current transition duration-500 ease-in-out', isMenuOpen ? '-rotate-45' : 'translate-y-1.5')} />
             </div>
           </button>
         </div>
@@ -252,9 +211,7 @@ const Navbar = () => {
       <div
         className={cn(
           'bg-white/95 text-accent-foreground fixed inset-0 top-[var(--header-height)] z-50 flex flex-col justify-between tracking-normal backdrop-blur-md transition-all duration-500 ease-out lg:hidden',
-          isMenuOpen
-            ? 'translate-x-0 opacity-100'
-            : 'pointer-events-none translate-x-full opacity-0',
+          isMenuOpen ? 'translate-x-0 opacity-100' : 'pointer-events-none translate-x-full opacity-0',
         )}
       >
         <div className="container overflow-y-auto py-8">
@@ -268,69 +225,27 @@ const Navbar = () => {
                         'flex w-full cursor-pointer items-center justify-between rounded-md px-2 py-3 text-base transition-all duration-200',
                         isActive(item) ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]' : 'hover:text-[var(--nav-hover)]',
                       )}
-                      onClick={() =>
-                        setMobileAccordion(mobileAccordion === item.label ? null : item.label)
-                      }
+                      onClick={() => setMobileAccordion(mobileAccordion === item.label ? null : item.label)}
                       aria-expanded={mobileAccordion === item.label}
                     >
                       {item.label}
-                      <ChevronDown
-                        className={cn(
-                          'size-4 transition-transform duration-300',
-                          mobileAccordion === item.label && 'rotate-180',
-                        )}
-                      />
+                      <ChevronDown className={cn('size-4 transition-transform duration-300', mobileAccordion === item.label && 'rotate-180')} />
                     </button>
-
-                    <div
-                      className={cn(
-                        'overflow-hidden transition-all duration-300',
-                        mobileAccordion === item.label
-                          ? 'max-h-[800px] opacity-100'
-                          : 'max-h-0 opacity-0',
-                      )}
-                    >
+                    <div className={cn('overflow-hidden transition-all duration-300', mobileAccordion === item.label ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0')}>
                       <div className="space-y-1 pb-2 pl-4">
-                        <p className="text-muted-foreground px-2 pt-1 text-xs font-medium uppercase tracking-wider">
-                          Module
-                        </p>
+                        <p className="text-muted-foreground px-2 pt-1 text-xs font-medium uppercase tracking-wider">Module</p>
                         {item.subitems.modules.map((sub) => (
-                          <Link
-                            key={sub.label}
-                            href={sub.href}
-                            className="text-muted-foreground block rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-[var(--nav-active-bg)] hover:text-[var(--nav-hover)]"
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            {sub.label}
-                          </Link>
+                          <Link key={sub.label} href={sub.href} className="text-muted-foreground block rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-[var(--nav-active-bg)] hover:text-[var(--nav-hover)]" onClick={() => setIsMenuOpen(false)}>{sub.label}</Link>
                         ))}
-                        <p className="text-muted-foreground px-2 pt-3 text-xs font-medium uppercase tracking-wider">
-                          Add-on
-                        </p>
+                        <p className="text-muted-foreground px-2 pt-3 text-xs font-medium uppercase tracking-wider">Add-on</p>
                         {item.subitems.addons.map((sub) => (
-                          <Link
-                            key={sub.label}
-                            href={sub.href}
-                            className="text-muted-foreground block rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-[var(--nav-active-bg)] hover:text-[var(--nav-hover)]"
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            {sub.label}
-                          </Link>
+                          <Link key={sub.label} href={sub.href} className="text-muted-foreground block rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-[var(--nav-active-bg)] hover:text-[var(--nav-hover)]" onClick={() => setIsMenuOpen(false)}>{sub.label}</Link>
                         ))}
                         {item.subitems.industries.length > 0 && (
                           <>
-                            <p className="text-muted-foreground px-2 pt-3 text-xs font-medium uppercase tracking-wider">
-                              Industrii
-                            </p>
+                            <p className="text-muted-foreground px-2 pt-3 text-xs font-medium uppercase tracking-wider">Industrii</p>
                             {item.subitems.industries.map((sub) => (
-                              <Link
-                                key={sub.label}
-                                href={sub.href}
-                                className="text-muted-foreground block rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-[var(--nav-active-bg)] hover:text-[var(--nav-hover)]"
-                                onClick={() => setIsMenuOpen(false)}
-                              >
-                                {sub.label}
-                              </Link>
+                              <Link key={sub.label} href={sub.href} className="text-muted-foreground block rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-[var(--nav-active-bg)] hover:text-[var(--nav-hover)]" onClick={() => setIsMenuOpen(false)}>{sub.label}</Link>
                             ))}
                           </>
                         )}
@@ -338,16 +253,7 @@ const Navbar = () => {
                     </div>
                   </>
                 ) : (
-                  <Link
-                    href={item.href}
-                    className={cn(
-                      'block rounded-md px-2 py-3 text-base transition-all duration-200',
-                      isActive(item)
-                        ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]'
-                        : 'hover:text-[var(--nav-hover)]',
-                    )}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
+                  <Link href={item.href} className={cn('block rounded-md px-2 py-3 text-base transition-all duration-200', isActive(item) ? 'bg-[var(--nav-active-bg)] font-semibold text-[var(--nav-active-pressed)]' : 'hover:text-[var(--nav-hover)]')} onClick={() => setIsMenuOpen(false)}>
                     {item.label}
                   </Link>
                 )}
@@ -355,22 +261,12 @@ const Navbar = () => {
             ))}
           </nav>
         </div>
-
-        {/* Mobile bottom CTA */}
         <div className="flex gap-4.5 border-t px-6 py-4">
           <Button asChild className="h-12 flex-1 rounded-sm transition-all hover:scale-105">
-            <Link href="/solicita-prezentare" onClick={() => setIsMenuOpen(false)}>
-              Solicita oferta
-            </Link>
+            <Link href="/solicita-prezentare" onClick={() => setIsMenuOpen(false)}>Solicita oferta</Link>
           </Button>
-          <Button
-            variant="outline"
-            asChild
-            className="h-12 flex-1 rounded-sm transition-all hover:scale-105"
-          >
-            <Link href="/solicita-prezentare" onClick={() => setIsMenuOpen(false)}>
-              Demo gratuit
-            </Link>
+          <Button variant="outline" asChild className="h-12 flex-1 rounded-sm transition-all hover:scale-105">
+            <Link href="/solicita-prezentare" onClick={() => setIsMenuOpen(false)}>Demo gratuit</Link>
           </Button>
         </div>
       </div>

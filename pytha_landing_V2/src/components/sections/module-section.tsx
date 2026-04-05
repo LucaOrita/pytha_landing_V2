@@ -2,7 +2,6 @@
 
 import { Check } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
 import { usePricing } from '@/components/sections/pricing-toggle';
@@ -110,10 +109,13 @@ export default function ModuleSection({
               </span>
               <span className="ml-2 text-sm text-gray-500">{displayNote}</span>
             </div>
-            <Button size="sm" asChild>
-              <Link href={module.ctaHref || `/solicita-prezentare?modul=${module.id}`}>
-                {module.ctaLabel || 'Include in oferta'}
-              </Link>
+            <Button
+              size="sm"
+              onClick={() => {
+                window.dispatchEvent(new CustomEvent('module-cart-add', { detail: module.id }));
+              }}
+            >
+              {module.ctaLabel || 'Include in oferta'}
             </Button>
           </div>
         </div>
