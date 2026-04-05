@@ -12,18 +12,10 @@ import { cn } from '@/lib/utils';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
   const pathname = usePathname();
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout>>(null);
-
-  useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 5);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -58,14 +50,7 @@ const Navbar = () => {
   };
 
   return (
-    <header
-      className={cn(
-        'fixed top-0 right-0 left-0 z-50 border-b transition-all duration-500 ease-in-out',
-        isScrolled
-          ? 'border-border/60 bg-background/95 shadow-sm backdrop-blur-xl'
-          : 'border-transparent bg-transparent shadow-none',
-      )}
-    >
+    <header className="fixed top-0 right-0 left-0 z-50 border-b border-border/60 bg-background/95 shadow-sm backdrop-blur-xl">
       <div className="container flex h-[var(--header-height)] items-center justify-between gap-4">
         <Logo className="shrink-0" />
 
