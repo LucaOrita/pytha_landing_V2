@@ -2,7 +2,6 @@ import type { LucideIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import Breadcrumbs from '@/components/ui/breadcrumbs';
 import { Button } from '@/components/ui/button';
 
 interface Challenge {
@@ -40,15 +39,10 @@ export default function IndustryPage({
   return (
     <>
       {/* Hero */}
-      <section className="section-padding">
-        <div className="container">
-          <Breadcrumbs
-            items={[
-              { label: 'Acasa', href: '/' },
-              { label: 'Solutii', href: '/module-pytha' },
-              { label: breadcrumbLabel },
-            ]}
-          />
+      <section className="relative overflow-hidden section-padding">
+        <div className="absolute -top-32 -right-32 size-96 rounded-full bg-[#8a1820]/5 blur-3xl" />
+        <div className="absolute -bottom-32 -left-32 size-80 rounded-full bg-[#10a5ca]/5 blur-3xl" />
+        <div className="container relative">
           <div className="grid items-center gap-10 lg:grid-cols-[3fr_2fr] lg:gap-18">
             <div className="space-y-4">
               <h1 className="text-4xl leading-tight tracking-tight text-balance md:text-5xl lg:text-6xl">
