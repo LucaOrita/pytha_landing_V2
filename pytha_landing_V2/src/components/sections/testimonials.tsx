@@ -13,13 +13,13 @@ const TESTIMONIALS = [
   {
     quote:
       'De cand folosim PYTHA, erorile de productie au scazut dramatic. Exportul CNC ne economiseste ore.',
-    author: 'Client verificat',
+    author: 'Client verificat — Atelier',
     company: 'Atelier mobilier, Romania',
   },
   {
     quote:
       'Am incercat SketchUp si AutoCAD — nimic nu se compara cu fluxul integrat din PYTHA.',
-    author: 'Client verificat',
+    author: 'Client verificat — Fabrica',
     company: 'Fabrica mobilier, Romania',
   },
 ];

@@ -24,7 +24,7 @@ export default function Logo({
       className={cn('flex items-center', className)}
     >
       <Image
-        src="/images/pytha-theoram-logo.png"
+        src="/images/pytha-logo.png"
         alt="PYTHA 3D-CAD"
         width={160}
         height={48}

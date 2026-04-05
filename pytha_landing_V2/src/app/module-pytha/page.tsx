@@ -20,7 +20,7 @@ const MODULES: ModuleData[] = [
     id: 'modul-basic',
     badge: 'Modul 1 — Pachet de baza',
     title: 'Pachetul de Baza',
-    subtitle: 'Totul pentru un inceput profesionist in lumea CAD 3D',
+    subtitle: 'Totul pentru inceputul profesionist in lumea CAD',
     description:
       'Modelare intuitiva 2D si 3D, organizare perfecta a proiectelor, desene tehnice clare cu cote si sectiuni asociative, vizualizare cu raytracer de inalta performanta. Include interfete DWG, DXF, STEP, SKP, PDF, STL si multe altele.',
     features: [
@@ -60,7 +60,7 @@ const MODULES: ModuleData[] = [
     id: 'modul-workshop',
     badge: 'Modul 3 — Atelier',
     title: 'Workshop (Atelier)',
-    subtitle: 'Flux de date fluid in fabrica digitala',
+    subtitle: 'Prelucreaza automat fiecare piesa din proiect',
     description:
       'Transforma modelul 3D intr-un proiect pregatit pentru executie automata. Tip automat cu conectori Cam&Dowel, balamale sau dopuri — personalizat conform principiilor individuale de design.',
     features: [
