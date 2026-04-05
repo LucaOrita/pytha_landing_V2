@@ -8,7 +8,6 @@ interface LogoProps {
   href?: string;
   noLink?: boolean;
   iconClassName?: string;
-  isTransparent?: boolean;
 }
 
 export default function Logo({
@@ -16,7 +15,6 @@ export default function Logo({
   href = '/',
   noLink = false,
   iconClassName,
-  isTransparent = false,
 }: LogoProps) {
   const Element = noLink ? 'div' : Link;
 
@@ -32,26 +30,19 @@ export default function Logo({
           width={160}
           height={48}
           className={cn(
-            'h-10 w-auto object-contain md:h-12 transition-all duration-500',
-            isTransparent && 'brightness-0 invert',
+            'h-10 w-auto object-contain md:h-12',
             iconClassName,
           )}
           priority
         />
       </Element>
-      <div className={cn(
-        'hidden items-center gap-1.5 border-l pl-3 sm:flex transition-all duration-500',
-        isTransparent ? 'border-white/30' : 'border-gray-300',
-      )}>
+      <div className="hidden items-center gap-1.5 border-l border-gray-300 pl-3 sm:flex">
         <Image
           src="/images/logo-adline-min.png"
           alt="AdLine Industries"
           width={80}
           height={24}
-          className={cn(
-            'h-7 w-auto object-contain md:h-8 transition-all duration-500',
-            isTransparent && 'brightness-0 invert',
-          )}
+          className="h-7 w-auto object-contain md:h-8"
         />
       </div>
     </div>

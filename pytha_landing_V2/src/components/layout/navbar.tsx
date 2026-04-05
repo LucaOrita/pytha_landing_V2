@@ -70,7 +70,7 @@ const Navbar = () => {
       )}
     >
       <div className="container flex h-[var(--header-height)] items-center justify-between gap-4">
-        <Logo className="shrink-0" isTransparent={isTransparent} />
+        <Logo className="shrink-0" />
 
         <nav className="hidden lg:flex lg:items-center lg:gap-1 xl:gap-2">
           {NAV_LINKS.map((item) => (
@@ -175,12 +175,7 @@ const Navbar = () => {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button size="sm" asChild className={cn(
-            'hidden lg:inline-flex',
-            isTransparent
-              ? 'bg-white text-[#8a1820] hover:bg-white/90'
-              : 'bg-[var(--nav-active-pressed)] text-white hover:bg-[#6d1319]',
-          )}>
+          <Button size="sm" asChild className="hidden bg-[var(--nav-active-pressed)] text-white hover:bg-[#6d1319] lg:inline-flex">
             <Link href="/solicita-prezentare">Solicită Prezentare</Link>
           </Button>
 
@@ -189,10 +184,7 @@ const Navbar = () => {
           </Button>
 
           <button
-            className={cn(
-              'relative flex size-8 cursor-pointer rounded-sm border lg:hidden',
-              isTransparent ? 'text-white border-white/30' : 'text-muted-foreground',
-            )}
+            className="text-muted-foreground relative flex size-8 cursor-pointer rounded-sm border lg:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? 'Inchide meniul' : 'Deschide meniul'}
             aria-expanded={isMenuOpen}
