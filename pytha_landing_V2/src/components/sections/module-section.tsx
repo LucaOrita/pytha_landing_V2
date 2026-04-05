@@ -75,7 +75,7 @@ export default function ModuleSection({
 
         {/* Text content */}
         <div className="flex flex-1 flex-col gap-4">
-          <span className="w-fit rounded-full bg-[#fff1f2] px-3 py-1 text-xs font-semibold text-[#8a1820]">
+          <span className="w-fit rounded-full bg-[#fef3c7] px-3 py-1 text-xs font-semibold text-[#92400e]">
             {module.badge}
           </span>
 

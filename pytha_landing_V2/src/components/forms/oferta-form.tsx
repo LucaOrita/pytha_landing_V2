@@ -106,7 +106,7 @@ export default function OfertaForm() {
               )}
               onClick={() => setIsMonthly(false)}
             >
-              Permanent
+              Lifetime
             </button>
             <button
               type="button"

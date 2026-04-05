@@ -27,7 +27,7 @@ export function PricingToggle({ children }: { children: React.ReactNode }) {
             )}
             onClick={() => setIsMonthly(false)}
           >
-            Acces pe viata
+            Lifetime
           </button>
           <button
             className={cn(
