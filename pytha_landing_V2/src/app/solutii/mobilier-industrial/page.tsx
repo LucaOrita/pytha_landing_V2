@@ -4,22 +4,22 @@ import { Repeat, Users, Timer } from 'lucide-react';
 import IndustryPage from '@/components/sections/industry-page';
 
 export const metadata: Metadata = {
-  title: 'Tâmplărie Comercială | PYTHA 3D-CAD | Automatizare CAM Completă',
+  title: 'Mobilier Industrial | PYTHA 3D-CAD | Automatizare CAM Completă',
   description:
-    'PYTHA tâmplărie comercială: generatoare parametrice, nesting avansat, workshop CNC automat. Proiecte repetitive, termene scurte, productie fara erori.',
+    'PYTHA pentru mobilier industrial: generatoare parametrice, nesting avansat, workshop CNC automat. Volume mari, termene scurte, productie fara erori.',
   openGraph: {
-    title: 'Tâmplărie Comercială | PYTHA 3D-CAD | Automatizare CAM Completă',
-    description: 'Software CAD/CAM pentru tâmplărie comercială: generatoare inteligente, workshop automat, nesting avansat. Productie rapida, fara erori.',
+    title: 'Mobilier Industrial | PYTHA 3D-CAD | Automatizare CAM Completă',
+    description: 'Software CAD/CAM pentru mobilier industrial: generatoare inteligente, workshop automat, nesting avansat. Productie rapida, fara erori.',
     type: 'website',
   },
 };
 
-export default function TamplarieComercialaPage() {
+export default function MobilierIndustrialPage() {
   return (
     <IndustryPage
-      title="PYTHA pentru tâmplărie comercială si amenajari interioare"
+      title="PYTHA pentru mobilier industrial si amenajari interioare"
       subtitle="Volume mari, piese repetitive, termene stranse. PYTHA automatizeaza tot ce tine de proiectare."
-      breadcrumbLabel="Tâmplărie Comercială"
+      breadcrumbLabel="Mobilier Industrial"
       heroImage="/images/home/section3/Automatizare totală a producției.jpg"
       challenges={[
         {
@@ -38,7 +38,7 @@ export default function TamplarieComercialaPage() {
           icon: Timer,
           title: 'Termenele sunt mereu stranse?',
           description:
-            'Clientii comerciali cer livrare rapida. Fara automatizare, timpul de la proiect la productie e prea mare.',
+            'Clientii industriali cer livrare rapida. Fara automatizare, timpul de la proiect la productie e prea mare.',
         },
       ]}
       solutions={[
@@ -71,7 +71,7 @@ export default function TamplarieComercialaPage() {
           href: '/module-pytha#modul-parts-list',
         },
       ]}
-      ctaText="Programează o demonstrație pentru tâmplărie comercială"
+      ctaText="Programează o demonstrație pentru mobilier industrial"
     />
   );
 }

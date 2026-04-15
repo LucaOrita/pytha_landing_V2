@@ -15,6 +15,7 @@ const FEATURES = [
       'De la corpuri simple la geometrii organice complexe. Modelarea 3D solidă în PYTHA îți oferă libertatea de a proiecta exact ce ai în minte, cu precizie industrială.',
     link: '/module-pytha#modeler-basic',
     image: '/images/home/section3/Modelare 3D liberă și intuitivă.jpg',
+    blendClean: false,
   },
   {
     subtitle: 'Producție automată',
@@ -23,6 +24,7 @@ const FEATURES = [
       'Găuri, îmbinări, aplicare cant, prelucrări CNC generate automat direct din modelul 3D. Fără muncă manuală, fără erori de transfer.',
     link: '/module-pytha#workshop',
     image: '/images/home/section3/Automatizare totală a producției.jpg',
+    blendClean: false,
   },
   {
     subtitle: 'Integrare CNC',
@@ -31,6 +33,7 @@ const FEATURES = [
       'WoodWop, AlphaCam, bSolid, Biesse, SCM, Felder, G-code. PYTHA exportă fără conversii suplimentare sau softuri intermediare.',
     link: '/module-pytha#cam-interface',
     image: '/images/home/section3/Integrare directă cu utilajele CNC.jpg',
+    blendClean: true,
   },
   {
     subtitle: 'Randare realistă',
@@ -39,6 +42,7 @@ const FEATURES = [
       'Prezintă proiecte cu iluminare reală, texturi HD și animații interactive. RadioLab transformă modelul 3D în imagini de prezentare care vând.',
     link: '/module-pytha#radiolab',
     image: '/images/home/section3/Randare fotorealistă pentru vânzare rapidă.png',
+    blendClean: false,
   },
 ];
 
@@ -65,13 +69,21 @@ export default function FeaturesAlternating() {
               )}
             >
               <div className="group flex-1">
-                <div className="overflow-hidden rounded-2xl shadow-xl transition-shadow duration-300 group-hover:shadow-2xl">
+                <div
+                  className={cn(
+                    'overflow-hidden rounded-2xl shadow-xl transition-shadow duration-300 group-hover:shadow-2xl',
+                    feature.blendClean && 'bg-white',
+                  )}
+                >
                   <Image
                     src={feature.image}
                     alt={feature.title}
                     width={640}
                     height={480}
-                    className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className={cn(
+                      'aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105',
+                      feature.blendClean && 'mix-blend-multiply',
+                    )}
                     quality={65}
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />

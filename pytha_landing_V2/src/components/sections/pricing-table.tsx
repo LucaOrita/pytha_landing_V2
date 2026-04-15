@@ -73,8 +73,8 @@ const MODULES = [
     monthly: '—',
     starter: false,
     pro: false,
-    enterprise: true,
-    desc: 'Acces la 35.000+ obiecte parametrice și decorative',
+    enterprise: false,
+    desc: 'Acces la 35.000+ obiecte parametrice și decorative (doar licenta permanenta)',
   },
   {
     name: 'Parametrics',

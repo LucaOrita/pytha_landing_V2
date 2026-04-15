@@ -9,11 +9,8 @@ const FEATURES = [
   'Liste de tăiere automate cu dimensiuni, finisaje, preturi per piesa',
   'Rapoarte analiza costuri pentru productie',
   'Master data bank centralizat per companie (preturi materiale, finisaje, manopera)',
-  'Functioneaza online si offline',
   'Rapoarte personalizate: pentru client, productie, comenzi si expeditie',
   'Integrare cu PYTHA 3D Modeller si PYTHA Planner',
-  'Estimări bucătării si mobilier instant',
-  'Biblioteca cloud partajata',
 ];
 
 export default function CadBidSection() {

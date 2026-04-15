@@ -17,7 +17,7 @@ export interface NavItem {
 export const NAV_LINKS: NavItem[] = [
   { label: 'Acasa', href: '/' },
   {
-    label: 'Solutii',
+    label: 'Module',
     href: '/module-pytha',
     subitems: {
       modules: [
@@ -37,7 +37,8 @@ export const NAV_LINKS: NavItem[] = [
       ],
       industries: [
         { label: 'Mobilier la Comanda', href: '/solutii/mobilier-la-comanda', description: 'Flux complet pentru ateliere' },
-        { label: 'Tâmplărie Comercială', href: '/solutii/tamplarie-comerciala', description: 'Volume mari, automatizare totala' },
+        { label: 'Mobilier Industrial', href: '/solutii/mobilier-industrial', description: 'Volume mari, automatizare totala' },
+        { label: 'Mobilier de Serie', href: '/solutii/mobilier-de-serie', description: 'Serii mari, variatii parametrice' },
         { label: 'Design Interior', href: '/solutii/design-interior', description: 'Vizualizare si randare' },
       ],
     },
@@ -51,7 +52,8 @@ export const NAV_LINKS: NavItem[] = [
 export const FOOTER_LINKS = {
   solutii: [
     { label: 'Mobilier la Comanda', href: '/solutii/mobilier-la-comanda' },
-    { label: 'Tâmplărie Comercială', href: '/solutii/tamplarie-comerciala' },
+    { label: 'Mobilier Industrial', href: '/solutii/mobilier-industrial' },
+    { label: 'Mobilier de Serie', href: '/solutii/mobilier-de-serie' },
     { label: 'Design Interior', href: '/solutii/design-interior' },
     { label: 'Toate modulele', href: '/module-pytha' },
     { label: 'Preturi', href: '/preturi' },

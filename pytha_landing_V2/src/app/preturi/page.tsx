@@ -2,10 +2,8 @@ import type { Metadata } from 'next';
 import {
   Check,
   Phone,
-  MessageCircle,
   Shield,
   Headphones,
-  GraduationCap,
   Wrench,
   Building2,
   Users,
@@ -26,7 +24,7 @@ import PricingTable from '@/components/sections/pricing-table';
 export const metadata: Metadata = {
   title: 'Prețuri PYTHA 3D-CAD | Licență de la 99€/lună | PYTHA Romania',
   description:
-    'Prețuri transparente PYTHA: licență permanentă sau abonament lunar. Module individuale sau pachet complet. Fără costuri ascunse. Training si suport inclus.',
+    'Prețuri transparente PYTHA: licență permanentă sau abonament lunar. Module individuale sau pachet complet. Fără costuri ascunse. Suport tehnic local inclus.',
   openGraph: {
     title: 'Prețuri PYTHA 3D-CAD | Licență de la 99€/lună',
     description: 'Prețuri transparente PYTHA: licență permanentă (de la 4.950€) sau abonament lunar (de la 99€). Module individuale sau pachet Enterprise complet.',
@@ -76,9 +74,9 @@ const PACKAGES = [
     features: [
       'Tot din Profesional',
       'Suprafețe libere (Freeform)',
-      'Bibliotecă 35.000+ obiecte',
       'Randare fotorealistă (RadioLab)',
       'Proiectare parametrică',
+      'Suport prioritar si SLA dedicat',
     ],
     href: '/solicita-prezentare?pachet=enterprise',
   },
@@ -92,11 +90,6 @@ const STATS = [
 ];
 
 const INCLUDED_FEATURES = [
-  {
-    icon: GraduationCap,
-    title: 'Training la sediul tău',
-    desc: 'Instruire personalizată pentru echipa ta, direct la birou, nu online.',
-  },
   {
     icon: Wrench,
     title: 'Instalare și configurare',
@@ -148,7 +141,7 @@ const FAQS = [
   {
     question: 'Cât durează implementarea?',
     answer:
-      'Instalarea și configurarea de bază se face în 1 zi. Training-ul inițial durează 2–3 zile, în funcție de modulele alese și complexitatea fluxului.',
+      'Instalarea și configurarea de bază se face în 1 zi. Timpul total de implementare variază în funcție de modulele alese și complexitatea fluxului de lucru.',
   },
   {
     question: 'Ce sistem de operare este necesar?',
@@ -215,8 +208,7 @@ export default function PreturiPage() {
             </h1>
             <p className="mx-auto max-w-2xl leading-snug text-muted-foreground md:text-lg lg:text-xl">
               Alege modulele potrivite pentru afacerea ta. Licență permanentă sau abonament
-              lunar, tu decizi. Fiecare achiziție include training, instalare și suport
-              tehnic local.
+              lunar, tu decizi. Fiecare achiziție include instalare și suport tehnic local.
             </p>
           </div>
         </div>
@@ -246,7 +238,7 @@ export default function PreturiPage() {
               Alege pachetul tău
             </h2>
             <p className="mt-3 text-muted-foreground">
-              Toate pachetele includ training, instalare și suport tehnic local.
+              Toate pachetele includ instalare și suport tehnic local.
             </p>
           </div>
 

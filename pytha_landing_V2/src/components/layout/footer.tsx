@@ -29,7 +29,8 @@ const MODULE_LINKS = [
 
 const SOLUTION_LINKS = [
   { label: 'Mobilier la comandă', href: '/solutii/mobilier-la-comanda' },
-  { label: 'Tâmplărie comercială', href: '/solutii/tamplarie-comerciala' },
+  { label: 'Mobilier industrial', href: '/solutii/mobilier-industrial' },
+  { label: 'Mobilier de serie', href: '/solutii/mobilier-de-serie' },
   { label: 'Design interior', href: '/solutii/design-interior' },
 ];
 

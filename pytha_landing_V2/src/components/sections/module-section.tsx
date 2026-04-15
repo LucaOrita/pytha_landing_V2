@@ -1,9 +1,11 @@
 'use client';
 
-import { Check } from 'lucide-react';
+import { Check, Maximize2 } from 'lucide-react';
 import Image from 'next/image';
+import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { usePricing } from '@/components/sections/pricing-toggle';
 import { cn } from '@/lib/utils';
 
@@ -34,6 +36,9 @@ export default function ModuleSection({
   const { isMonthly } = usePricing();
   const displayPrice = isMonthly && module.monthlyPrice ? module.monthlyPrice : module.price;
   const displayNote = isMonthly && module.monthlyPrice ? 'pe luna' : module.priceNote;
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+
+  const canExpand = Boolean(module.video || module.image);
 
   return (
     <section id={module.id} className={cn('scroll-mt-36 py-16 md:py-20', isEven ? '' : 'bg-card')}>
@@ -45,7 +50,15 @@ export default function ModuleSection({
       >
         {/* Media */}
         <div className="group flex-1">
-          <div className="overflow-hidden rounded-2xl shadow-xl transition-shadow duration-300 group-hover:shadow-2xl">
+          <button
+            type="button"
+            onClick={() => canExpand && setLightboxOpen(true)}
+            className={cn(
+              'relative block w-full overflow-hidden rounded-2xl shadow-xl transition-shadow duration-300 group-hover:shadow-2xl',
+              canExpand ? 'cursor-pointer' : 'cursor-default',
+            )}
+            aria-label={canExpand ? `Mareste ${module.title}` : module.title}
+          >
             {module.video ? (
               <video
                 src={module.video}
@@ -53,25 +66,63 @@ export default function ModuleSection({
                 loop
                 muted
                 playsInline
-                className="aspect-[4/3] w-full object-cover"
+                className="aspect-video w-full object-cover"
               />
             ) : module.image ? (
               <Image
                 src={module.image}
                 alt={module.title}
                 width={640}
-                height={480}
-                className="aspect-[4/3] w-full object-cover"
+                height={360}
+                className="aspect-video w-full object-cover"
                 quality={65}
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             ) : (
-              <div className="bg-muted flex aspect-[4/3] w-full items-center justify-center">
+              <div className="bg-muted flex aspect-video w-full items-center justify-center">
                 <span className="text-muted-foreground text-sm">{module.title}</span>
               </div>
             )}
-          </div>
+            {canExpand && (
+              <span className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/30 group-hover:opacity-100">
+                <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-[#8a1820] shadow-lg">
+                  <Maximize2 className="size-4" />
+                  Click pentru marire
+                </span>
+              </span>
+            )}
+          </button>
         </div>
+
+        {canExpand && (
+          <Dialog open={lightboxOpen} onOpenChange={setLightboxOpen}>
+            <DialogContent className="max-w-6xl border-0 bg-black p-0 sm:rounded-xl">
+              <DialogTitle className="sr-only">{module.title}</DialogTitle>
+              <div className="aspect-video w-full overflow-hidden sm:rounded-xl">
+                {module.video ? (
+                  <video
+                    src={module.video}
+                    autoPlay
+                    loop
+                    controls
+                    playsInline
+                    className="h-full w-full object-contain"
+                  />
+                ) : module.image ? (
+                  <Image
+                    src={module.image}
+                    alt={module.title}
+                    width={1920}
+                    height={1080}
+                    className="h-full w-full object-contain"
+                    quality={85}
+                    sizes="100vw"
+                  />
+                ) : null}
+              </div>
+            </DialogContent>
+          </Dialog>
+        )}
 
         {/* Text content */}
         <div className="flex flex-1 flex-col gap-4">

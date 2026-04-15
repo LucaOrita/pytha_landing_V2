@@ -18,7 +18,7 @@ export default function VideoSection() {
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-white/60">
             De la prima schita pana la piesa finisata: urmareste cum un proiect
-            prinde viata in cateva minute, cu export CNC inclus.
+            prinde viata in cateva minute.
           </p>
         </div>
 

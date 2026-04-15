@@ -66,11 +66,23 @@ export default function ModuleSidebar() {
 
   return (
     <>
-    <aside className="hidden space-y-4 xl:block xl:sticky xl:top-36 xl:self-start xl:w-64 xl:shrink-0">
+    <aside className="hidden xl:block xl:sticky xl:top-24 xl:self-start xl:w-64 xl:shrink-0 xl:max-h-[calc(100vh-7rem)] xl:overflow-y-auto xl:space-y-4 xl:pr-1">
       {/* Module navigation */}
       <div className="rounded-2xl border border-border bg-card p-5 shadow-md">
-        <div className="mb-3 flex items-center justify-between">
+        <div className="mb-3 flex items-center justify-between gap-2">
           <h3 className="text-sm font-bold uppercase tracking-wider text-foreground">Module</h3>
+          <button
+            className="cursor-pointer rounded-full border border-border px-2 py-0.5 text-[10px] font-medium text-muted-foreground transition-all hover:border-[#8a1820]/40 hover:bg-[#8a1820]/5 hover:text-[#8a1820]"
+            onClick={() => {
+              const allIds = MODULE_NAV.map((m) => m.id);
+              const allIn = allIds.every((id) => cart.includes(id));
+              setCart(allIn ? [] : allIds);
+            }}
+          >
+            {MODULE_NAV.every((m) => cart.includes(m.id)) ? 'Goleste' : 'Toate'}
+          </button>
+        </div>
+        <div className="mb-3 flex justify-end">
           <div className="bg-muted inline-flex items-center rounded-full p-0.5">
             <button
               className={cn(

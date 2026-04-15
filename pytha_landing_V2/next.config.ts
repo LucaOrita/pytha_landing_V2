@@ -17,6 +17,11 @@ const nextConfig: NextConfig = {
       destination: '/solicita-prezentare',
       permanent: true,
     },
+    {
+      source: '/solutii/tamplarie-comerciala',
+      destination: '/solutii/mobilier-industrial',
+      permanent: true,
+    },
   ],
 };
 
