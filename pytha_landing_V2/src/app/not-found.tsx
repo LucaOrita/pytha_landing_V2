@@ -16,9 +16,14 @@ export default function NotFound() {
           <p className="text-lg leading-snug text-muted-foreground">
             Ne pare rau, dar pagina pe care o cauti nu exista sau a fost mutata.
           </p>
-          <Button asChild>
-            <Link href="/">Inapoi la pagina principala</Link>
-          </Button>
+          <div className="flex gap-4 justify-center">
+            <Button asChild>
+              <Link href="/">Inapoi la pagina principala</Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link href="/contact">Contactează-ne</Link>
+            </Button>
+          </div>
         </div>
       </div>
     </section>
