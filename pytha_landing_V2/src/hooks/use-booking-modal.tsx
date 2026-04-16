@@ -37,7 +37,7 @@ export function BookingModalProvider({ children }: { children: React.ReactNode }
               In doar 15 minute, iti aratam cum PYTHA poate transforma fluxul tau de productie.
             </DialogDescription>
           </DialogHeader>
-          <PrezentareForm onSuccess={() => setTimeout(() => setIsOpen(false), 3000)} />
+          <PrezentareForm onSuccess={() => setTimeout(() => setIsOpen(false), 4000)} />
         </DialogContent>
       </Dialog>
     </BookingContext.Provider>
