@@ -8,6 +8,8 @@ import UtmCapture from '@/components/analytics/utm-capture';
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
 import { ThemeProvider } from '@/components/theme-provider';
+import ExitIntentPopup from '@/components/ui/exit-intent-popup';
+import WhatsAppButton from '@/components/ui/whatsapp-button';
 import { BookingModalProvider } from '@/hooks/use-booking-modal';
 import { SEO_KEYWORDS } from '@/lib/seo-keywords';
 import { cn } from '@/lib/utils';
@@ -120,6 +122,8 @@ export default function RootLayout({
             <Navbar />
             <main className="flex-1 pt-[var(--header-height)]">{children}</main>
             <Footer />
+            <WhatsAppButton />
+            <ExitIntentPopup />
           </BookingModalProvider>
         </ThemeProvider>
       </body>
