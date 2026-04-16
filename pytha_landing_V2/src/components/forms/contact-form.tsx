@@ -4,6 +4,8 @@ import { useCallback, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { InputField, SelectField, TextareaField } from '@/components/ui/form-field';
+import { analytics } from '@/lib/analytics';
+import { getLandingPage, getUtmParams } from '@/lib/utm';
 
 const SUBIECT_OPTIONS = [
   { value: 'general', label: 'Informatii generale' },
@@ -21,12 +23,14 @@ interface FormData {
   mesaj: string;
 }
 
+type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
+
 export default function ContactForm() {
   const [data, setData] = useState<FormData>({
     nume: '', email: '', telefon: '', subiect: '', mesaj: '',
   });
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<FormStatus>('idle');
 
   const set = useCallback(<K extends keyof FormData>(key: K, value: string) => {
     setData((prev) => ({ ...prev, [key]: value }));
@@ -43,16 +47,32 @@ export default function ContactForm() {
     return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = (ev: React.FormEvent) => {
+  const handleSubmit = async (ev: React.FormEvent) => {
     ev.preventDefault();
     if (!validate()) return;
-    console.log('Contact form submission:', data);
-    setSubmitted(true);
+
+    setStatus('submitting');
+    try {
+      const payload = {
+        ...data,
+        _meta: {
+          utm: getUtmParams(),
+          landingPage: getLandingPage(),
+          submittedFrom: window.location.pathname,
+          submittedAt: new Date().toISOString(),
+        },
+      };
+      console.log('Contact form submission:', payload);
+      analytics.formSubmit('contact', window.location.pathname);
+      setStatus('success');
+    } catch {
+      setStatus('error');
+    }
   };
 
-  if (submitted) {
+  if (status === 'success') {
     return (
-      <div className="py-8 text-center">
+      <div className="py-8 text-center" role="status" aria-live="polite">
         <div className="bg-secondary mx-auto mb-4 flex size-12 items-center justify-center rounded-full">
           <svg className="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -71,7 +91,22 @@ export default function ContactForm() {
       <InputField label="Telefon" name="telefon" type="tel" placeholder="Optional" value={data.telefon} onChange={(v) => set('telefon', v)} />
       <SelectField label="Subiect" name="subiect" options={SUBIECT_OPTIONS} value={data.subiect} onChange={(v) => set('subiect', v)} />
       <TextareaField label="Mesaj" name="mesaj" required placeholder="Scrie mesajul tau aici..." value={data.mesaj} onChange={(v) => set('mesaj', v)} error={errors.mesaj} />
-      <Button type="submit" className="w-full">Trimite mesajul</Button>
+      {status === 'error' && (
+        <p className="text-sm text-red-600" role="alert">
+          A aparut o eroare. Te rugam sa incerci din nou.
+        </p>
+      )}
+      <Button type="submit" className="w-full" disabled={status === 'submitting'}>
+        {status === 'submitting' ? (
+          <span className="flex items-center gap-2">
+            <svg className="size-4 animate-spin" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+            </svg>
+            Se trimite...
+          </span>
+        ) : 'Trimite mesajul'}
+      </Button>
     </form>
   );
 }
