@@ -124,17 +124,34 @@ export default function Hero() {
               className="fade-up text-4xl leading-tight tracking-tight text-balance text-white md:text-5xl lg:text-6xl"
               style={{ animationDelay: '0ms' }}
             >
-              Software-ul CAD 3D care duce mobilierul tău de la idee la CNC.{' '}
-              <span className="text-[#ff6974]">Folosit de peste 35.000 de ateliere.</span>
+              Software-ul CAD 3D ales de peste 30.000 de ateliere din întreaga lume.{' '}
+              <span className="text-[#ff6974]">Acum cu suport complet în România.</span>
             </h1>
 
             <p
               className="fade-up max-w-2xl leading-snug text-lg text-white/70 md:text-xl"
               style={{ animationDelay: '130ms' }}
             >
-              PYTHA unifică proiectarea 3D, listele de piese, nesting-ul și exportul CNC
-              într-un singur flux. Folosit de peste 35.000 de ateliere în 50+ țări.
+              De la proiect 3D la producție CNC într-un singur flux. PYTHA unifică proiectarea,
+              listele de piese, nesting-ul și exportul CNC — totul cu suport local dedicat.
             </p>
+            <div
+              className="fade-up flex flex-wrap gap-4 text-sm text-white/60"
+              style={{ animationDelay: '200ms' }}
+            >
+              <span className="flex items-center gap-1.5">
+                <svg className="size-4 text-[#ff6974]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" /></svg>
+                30.000+ ateliere global
+              </span>
+              <span className="flex items-center gap-1.5">
+                <svg className="size-4 text-[#ff6974]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" /></svg>
+                50+ țări
+              </span>
+              <span className="flex items-center gap-1.5">
+                <svg className="size-4 text-[#ff6974]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" /></svg>
+                Suport local România
+              </span>
+            </div>
           </div>
 
           {/* Right: CTA buttons */}
