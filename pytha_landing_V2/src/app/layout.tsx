@@ -3,6 +3,8 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Montserrat, Poppins } from 'next/font/google';
 
+import GA4Provider from '@/components/analytics/ga4-provider';
+import UtmCapture from '@/components/analytics/utm-capture';
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
 import { ThemeProvider } from '@/components/theme-provider';
@@ -97,6 +99,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(globalJsonLd) }}
         />
+        <GA4Provider />
       </head>
       <body
         suppressHydrationWarning
@@ -106,6 +109,7 @@ export default function RootLayout({
           poppins.variable,
         )}
       >
+        <UtmCapture />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
