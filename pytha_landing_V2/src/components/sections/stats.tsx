@@ -25,7 +25,7 @@ const STATS = [
       'De la ateliere mici la fabrici mari, pe tot globul.',
   },
   {
-    value: 32500,
+    value: 30000,
     suffix: '+',
     label: 'Ateliere și fabrici',
     description:
