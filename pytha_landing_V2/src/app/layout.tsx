@@ -8,6 +8,7 @@ import UtmCapture from '@/components/analytics/utm-capture';
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
 import { ThemeProvider } from '@/components/theme-provider';
+import CookieConsent from '@/components/ui/cookie-consent';
 import ExitIntentPopup from '@/components/ui/exit-intent-popup';
 import WhatsAppButton from '@/components/ui/whatsapp-button';
 import { BookingModalProvider } from '@/hooks/use-booking-modal';
@@ -130,6 +131,7 @@ export default function RootLayout({
             <Footer />
             <WhatsAppButton />
             <ExitIntentPopup />
+            <CookieConsent />
           </BookingModalProvider>
         </ThemeProvider>
       </body>
