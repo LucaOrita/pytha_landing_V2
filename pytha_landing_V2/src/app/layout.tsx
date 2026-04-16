@@ -111,6 +111,12 @@ export default function RootLayout({
           poppins.variable,
         )}
       >
+        <a
+          href="#main-content"
+          className="fixed left-2 top-2 z-[100] -translate-y-20 rounded-md bg-[#8a1820] px-4 py-2 text-sm font-medium text-white transition-transform focus:translate-y-0"
+        >
+          Sari la conținut
+        </a>
         <UtmCapture />
         <ThemeProvider
           attribute="class"
@@ -120,7 +126,7 @@ export default function RootLayout({
         >
           <BookingModalProvider>
             <Navbar />
-            <main className="flex-1 pt-[var(--header-height)]">{children}</main>
+            <main id="main-content" className="flex-1 pt-[var(--header-height)]">{children}</main>
             <Footer />
             <WhatsAppButton />
             <ExitIntentPopup />
