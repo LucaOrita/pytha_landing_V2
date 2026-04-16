@@ -5,6 +5,8 @@ import { useCallback, useEffect, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { InputField, SelectField, RadioField } from '@/components/ui/form-field';
+import { analytics } from '@/lib/analytics';
+import { getLandingPage, getUtmParams } from '@/lib/utm';
 import { cn } from '@/lib/utils';
 
 const MODULES = [
@@ -57,13 +59,15 @@ const initialData: FormData = {
   tipFirma: '', cnc: '', cand: '', experienta: '',
 };
 
+type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
+
 export default function OfertaForm() {
   const searchParams = useSearchParams();
   const [selectedModules, setSelectedModules] = useState<string[]>([]);
   const [isMonthly, setIsMonthly] = useState(false);
   const [data, setData] = useState<FormData>(initialData);
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<FormStatus>('idle');
 
   useEffect(() => {
     const moduleParam = searchParams.get('module') || searchParams.get('modul') || '';
@@ -93,16 +97,34 @@ export default function OfertaForm() {
     return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = (ev: React.FormEvent) => {
+  const handleSubmit = async (ev: React.FormEvent) => {
     ev.preventDefault();
     if (!validate()) return;
-    console.log('Oferta form:', { ...data, module: selectedModules, pricing: isMonthly ? 'lunar' : 'permanent' });
-    setSubmitted(true);
+
+    setStatus('submitting');
+    try {
+      const payload = {
+        ...data,
+        module: selectedModules,
+        pricing: isMonthly ? 'lunar' : 'permanent',
+        _meta: {
+          utm: getUtmParams(),
+          landingPage: getLandingPage(),
+          submittedFrom: window.location.pathname,
+          submittedAt: new Date().toISOString(),
+        },
+      };
+      console.log('Oferta form:', payload);
+      analytics.formSubmit('oferta', window.location.pathname);
+      setStatus('success');
+    } catch {
+      setStatus('error');
+    }
   };
 
-  if (submitted) {
+  if (status === 'success') {
     return (
-      <div className="py-8 text-center">
+      <div className="py-8 text-center" role="status" aria-live="polite">
         <div className="mx-auto mb-4 flex size-12 items-center justify-center rounded-full bg-[#fff1f2]">
           <svg className="size-6 text-[#8a1820]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -164,8 +186,21 @@ export default function OfertaForm() {
         )}
       </div>
 
-      <Button type="submit" className="w-full py-3">
-        {selected.length > 0 ? `Solicită ofertă · ${selected.length} module` : 'Solicită ofertă personalizată'}
+      {status === 'error' && (
+        <p className="text-sm text-red-600" role="alert">
+          A aparut o eroare. Te rugam sa incerci din nou.
+        </p>
+      )}
+      <Button type="submit" className="w-full py-3" disabled={status === 'submitting'}>
+        {status === 'submitting' ? (
+          <span className="flex items-center gap-2">
+            <svg className="size-4 animate-spin" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+            </svg>
+            Se trimite...
+          </span>
+        ) : selected.length > 0 ? `Solicită ofertă · ${selected.length} module` : 'Solicită ofertă personalizată'}
       </Button>
     </form>
   );
