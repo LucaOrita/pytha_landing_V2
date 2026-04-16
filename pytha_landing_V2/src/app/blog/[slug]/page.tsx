@@ -2,10 +2,14 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+import AuthorBox from '@/components/blog/author-box';
 import { BlogContent } from '@/components/blog/blog-content';
 import { BlogSidebar } from '@/components/blog/blog-sidebar';
+import RelatedPosts from '@/components/blog/related-posts';
+import TableOfContents from '@/components/blog/table-of-contents';
 import { Button } from '@/components/ui/button';
 import { getAllPosts, getAllSlugs, getPostBySlug, renderMarkdown } from '@/lib/blog';
+import { calculateReadingTime, extractHeadings, getRelatedPosts } from '@/lib/blog-utils';
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -47,14 +51,36 @@ export default async function BlogPostPage({
   const allPosts = getAllPosts();
   const recentPosts = allPosts.filter((p) => p.slug !== slug).slice(0, 3);
 
+  const headings = extractHeadings(post.content);
+  const readingTime = calculateReadingTime(post.content);
+  const relatedPosts = getRelatedPosts(post, allPosts);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: post.title,
     description: post.description,
+    image: `https://pytha3d.ro${post.image}`,
     datePublished: post.date,
+    dateModified: post.date,
     author: { '@type': 'Organization', name: post.author },
-    publisher: { '@type': 'Organization', name: 'PYTHA Romania' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'PYTHA Romania',
+      logo: { '@type': 'ImageObject', url: 'https://pytha3d.ro/images/pytha-theoram-logo.png' },
+    },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://pytha3d.ro/blog/${post.slug}` },
+    wordCount: post.content.trim().split(/\s+/).length,
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Acasa', item: 'https://pytha3d.ro' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://pytha3d.ro/blog' },
+      { '@type': 'ListItem', position: 3, name: post.title, item: `https://pytha3d.ro/blog/${post.slug}` },
+    ],
   };
 
   return (
@@ -62,6 +88,10 @@ export default async function BlogPostPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       {/* Breadcrumb + Hero */}
@@ -91,7 +121,7 @@ export default async function BlogPostPage({
               <span>&middot;</span>
               <span>{new Date(post.date).toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
               <span>&middot;</span>
-              <span>{post.readTime} citire</span>
+              <span>{readingTime}</span>
             </div>
           </div>
         </div>
@@ -100,7 +130,12 @@ export default async function BlogPostPage({
       {/* Content + Sidebar */}
       <section className="pb-15 md:pb-20 lg:pb-24">
         <div className="container grid gap-12 lg:grid-cols-[1fr_300px] lg:gap-18">
-          <BlogContent html={html} />
+          <div>
+            <TableOfContents headings={headings} />
+            <BlogContent html={html} />
+            <AuthorBox />
+            <RelatedPosts posts={relatedPosts} />
+          </div>
           <BlogSidebar recentPosts={recentPosts} />
         </div>
       </section>
