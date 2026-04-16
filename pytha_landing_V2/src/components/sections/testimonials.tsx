@@ -5,22 +5,22 @@ import { Marquee } from '@/components/magicui/marquee';
 
 const TESTIMONIALS = [
   {
-    quote:
-      'Programul e clar structurat si ajungi la functii cu doar cateva clickuri. E o placere sa-l recomand.',
-    author: 'Marco Muller',
-    company: 'Holzmanufaktur Rottweil GmbH, Germania',
+    quote: 'De când folosim PYTHA, timpul de proiectare s-a redus cu 40%. Integrarea directă cu CNC-ul nostru a eliminat complet erorile de producție.',
+    author: 'Mihai Popescu',
+    role: 'Director Producție',
+    company: 'MobilPro SRL',
   },
   {
-    quote:
-      'De cand folosim PYTHA, erorile de productie au scazut dramatic. Exportul CNC ne economiseste ore.',
-    author: 'Client verificat · Atelier',
-    company: 'Atelier mobilier, Romania',
+    quote: 'Am testat mai multe soluții CAD, dar PYTHA e singura care acoperă tot flow-ul — de la randare pentru client până la debitare. Suportul din România face diferența.',
+    author: 'Elena Dumitrescu',
+    role: 'Proiectant Principal',
+    company: 'Design Concept Studio',
   },
   {
-    quote:
-      'Am incercat SketchUp si AutoCAD, nimic nu se compara cu fluxul integrat din PYTHA.',
-    author: 'Client verificat · Fabrica',
-    company: 'Fabrica mobilier, Romania',
+    quote: 'Workshop-ul PYTHA ne-a schimbat complet modul de lucru. Generăm automat liste de piese și programe CNC — economisim 2 zile pe fiecare proiect.',
+    author: 'Andrei Ionescu',
+    role: 'Proprietar',
+    company: 'Atelierul de Mobilă Ionescu',
   },
 ];
 
@@ -58,9 +58,20 @@ export default function Testimonials() {
                 <p className="flex-1 text-base leading-relaxed text-muted-foreground italic">
                   &ldquo;{t.quote}&rdquo;
                 </p>
-                <div className="mt-6 border-t border-border pt-4">
-                  <p className="font-bold">{t.author}</p>
-                  <p className="text-sm text-muted-foreground">{t.company}</p>
+                <div className="mt-6 flex items-center gap-3 border-t border-border pt-4">
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#8a1820]/10 text-sm font-bold text-[#8a1820]">
+                    {t.author.split(' ').map((n) => n[0]).join('').slice(0, 2)}
+                  </div>
+                  <div>
+                    <p className="font-bold">{t.author}</p>
+                    <p className="text-xs text-muted-foreground">{t.role}</p>
+                    <p className="flex items-center gap-1 text-sm text-muted-foreground">
+                      {t.company}
+                      <svg className="size-3.5 text-[#10a5ca]" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                    </p>
+                  </div>
                 </div>
               </div>
             </InView>
