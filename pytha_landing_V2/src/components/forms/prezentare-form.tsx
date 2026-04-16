@@ -10,6 +10,8 @@ import {
   RadioField,
   SelectField,
 } from '@/components/ui/form-field';
+import { analytics } from '@/lib/analytics';
+import { getLandingPage, getUtmParams } from '@/lib/utm';
 
 const TIP_FIRMA_OPTIONS = [
   { value: '', label: 'Selecteaza...' },
@@ -68,11 +70,13 @@ const initialData: FormData = {
   tipFirma: '', cnc: '', cand: '', persoane: '', software: [],
 };
 
+type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
+
 export default function PrezentareForm({ onSuccess }: { onSuccess?: () => void }) {
   const searchParams = useSearchParams();
   const [data, setData] = useState<FormData>(initialData);
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<FormStatus>('idle');
 
   const set = useCallback(<K extends keyof FormData>(key: K, value: FormData[K]) => {
     setData((prev) => ({ ...prev, [key]: value }));
@@ -90,20 +94,37 @@ export default function PrezentareForm({ onSuccess }: { onSuccess?: () => void }
     return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = (ev: React.FormEvent) => {
+  const handleSubmit = async (ev: React.FormEvent) => {
     ev.preventDefault();
     if (!validate()) return;
 
-    const modulParam = searchParams.get('modul') || '';
-    const pachetParam = searchParams.get('pachet') || '';
-    console.log('Prezentare form submission:', { ...data, modul: modulParam, pachet: pachetParam });
-    setSubmitted(true);
-    onSuccess?.();
+    setStatus('submitting');
+    try {
+      const modulParam = searchParams.get('modul') || '';
+      const pachetParam = searchParams.get('pachet') || '';
+      const payload = {
+        ...data,
+        modul: modulParam,
+        pachet: pachetParam,
+        _meta: {
+          utm: getUtmParams(),
+          landingPage: getLandingPage(),
+          submittedFrom: window.location.pathname,
+          submittedAt: new Date().toISOString(),
+        },
+      };
+      console.log('Prezentare form submission:', payload);
+      analytics.formSubmit('prezentare', window.location.pathname);
+      setStatus('success');
+      onSuccess?.();
+    } catch {
+      setStatus('error');
+    }
   };
 
-  if (submitted) {
+  if (status === 'success') {
     return (
-      <div className="py-8 text-center">
+      <div className="py-8 text-center" role="status" aria-live="polite">
         <div className="mx-auto mb-4 flex size-12 items-center justify-center rounded-full bg-[#fff1f2]">
           <svg className="size-6 text-[#8a1820]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -130,7 +151,22 @@ export default function PrezentareForm({ onSuccess }: { onSuccess?: () => void }
       <SelectField label="Când dorești prezentarea?" name="cand" options={CAND_OPTIONS} value={data.cand} onChange={(v) => set('cand', v)} />
       <SelectField label="Câte persoane proiecteaza in firma ta?" name="persoane" options={PERSOANE_OPTIONS} value={data.persoane} onChange={(v) => set('persoane', v)} />
       <CheckboxGroup label="Ce software folosesti acum?" name="software" options={SOFTWARE_OPTIONS} values={data.software} onChange={(v) => set('software', v)} />
-      <Button type="submit" className="w-full py-3">Programează demo gratuit</Button>
+      {status === 'error' && (
+        <p className="text-sm text-red-600" role="alert">
+          A aparut o eroare. Te rugam sa incerci din nou.
+        </p>
+      )}
+      <Button type="submit" className="w-full py-3" disabled={status === 'submitting'}>
+        {status === 'submitting' ? (
+          <span className="flex items-center gap-2">
+            <svg className="size-4 animate-spin" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+            </svg>
+            Se trimite...
+          </span>
+        ) : 'Programează demo gratuit'}
+      </Button>
     </form>
   );
 }
