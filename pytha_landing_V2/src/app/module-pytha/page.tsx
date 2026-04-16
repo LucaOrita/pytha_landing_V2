@@ -7,6 +7,8 @@ import ModuleSection, { type ModuleData } from '@/components/sections/module-sec
 import ModuleSidebar from '@/components/sections/module-sidebar';
 import { PricingToggle } from '@/components/sections/pricing-toggle';
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Module PYTHA | Solutii CAD 3D modulare de la 590€',
   description:

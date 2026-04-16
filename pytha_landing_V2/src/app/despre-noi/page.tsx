@@ -15,6 +15,8 @@ import {
 
 import { Button } from '@/components/ui/button';
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Despre PYTHA Romania & Adline Industries | Partener oficial',
   description:

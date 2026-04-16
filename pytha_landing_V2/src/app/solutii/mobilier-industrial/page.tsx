@@ -3,6 +3,8 @@ import { Repeat, Users, Timer } from 'lucide-react';
 
 import IndustryPage from '@/components/sections/industry-page';
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Mobilier Industrial | PYTHA 3D-CAD | Automatizare CAM Completă',
   description:

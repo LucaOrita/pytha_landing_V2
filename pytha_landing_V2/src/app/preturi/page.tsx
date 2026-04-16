@@ -21,6 +21,8 @@ import {
 } from '@/components/ui/accordion';
 import PricingTable from '@/components/sections/pricing-table';
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Prețuri PYTHA 3D-CAD | Licență de la 99€/lună | PYTHA Romania',
   description:

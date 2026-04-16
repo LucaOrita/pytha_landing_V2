@@ -3,6 +3,8 @@ import { Palette, Handshake, Zap } from 'lucide-react';
 
 import IndustryPage from '@/components/sections/industry-page';
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Software Design Interior 3D | PYTHA 3D-CAD | Vizualizare Fotorealista',
   description:

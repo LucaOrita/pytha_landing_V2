@@ -7,6 +7,8 @@ import ContactForm from '@/components/forms/contact-form';
 import { Button } from '@/components/ui/button';
 import { SOCIAL_LINKS } from '@/lib/navigation';
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Contact PYTHA Romania | Adline Industries Bucuresti',
   description:

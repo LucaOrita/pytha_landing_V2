@@ -10,6 +10,8 @@ const FaqRenderer = dynamic(() =>
   import('@/components/sections/faq-renderer').then((m) => m.FaqRenderer),
 );
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Asistenta tehnica PYTHA | Suport local Romania + Germania',
   description:

@@ -3,6 +3,8 @@ import { Clock, AlertTriangle, Eye } from 'lucide-react';
 
 import IndustryPage from '@/components/sections/industry-page';
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Mobilier la Comanda | PYTHA 3D-CAD | Design la CNC Automat',
   description:

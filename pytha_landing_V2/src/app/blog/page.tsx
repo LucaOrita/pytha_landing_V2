@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import { BlogCard } from '@/components/blog/blog-card';
 import { getAllPosts } from '@/lib/blog';
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Blog | PYTHA 3D-CAD Romania | Digitalizare Productie Mobilier',
   description:
