@@ -66,6 +66,7 @@ export default function ModuleSection({
                 loop
                 muted
                 playsInline
+                preload="metadata"
                 className="aspect-video w-full object-cover"
               />
             ) : module.image ? (
@@ -106,6 +107,7 @@ export default function ModuleSection({
                     loop
                     controls
                     playsInline
+                    preload="metadata"
                     className="h-full w-full object-contain"
                   />
                 ) : module.image ? (
