@@ -3,6 +3,8 @@ import dynamic from 'next/dynamic';
 import Hero from '@/components/sections/hero';
 import Stats from '@/components/sections/stats';
 
+export const revalidate = 3600;
+
 // Below-the-fold - dynamic imports (PERFORMANCE_STANDARDS rule 3)
 const FeaturesAlternating = dynamic(() => import('@/components/sections/features-alternating'));
 const FeaturesGrid = dynamic(() => import('@/components/sections/features-grid'));
