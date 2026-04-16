@@ -16,9 +16,29 @@ export const metadata: Metadata = {
   },
 };
 
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Mobilier la Comanda | PYTHA 3D-CAD | Design la CNC Automat',
+  description:
+    'PYTHA mobilier comanda: design 3D cu generatoare parametrice, nesting optimizat, export CNC automat. De la ideie la productie fara erori.',
+  provider: {
+    '@type': 'Organization',
+    name: 'PYTHA Romania | Adline Industries',
+    url: 'https://pytha3d.ro',
+  },
+  areaServed: { '@type': 'Country', name: 'Romania' },
+  serviceType: 'Software CAD/CAM',
+};
+
 export default function MobilierLaComandaPage() {
   return (
-    <IndustryPage
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <IndustryPage
       title="PYTHA pentru producatorii de mobilier la comanda"
       subtitle="De la ideea clientului la piesa gata de montat, fara erori, fara improvizatii."
       breadcrumbLabel="Mobilier la Comanda"
@@ -75,5 +95,6 @@ export default function MobilierLaComandaPage() {
       ]}
       ctaText="Programează o demonstrație adaptată pentru mobilier la comandă"
     />
+    </>
   );
 }

@@ -16,9 +16,29 @@ export const metadata: Metadata = {
   },
 };
 
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Software Design Interior 3D | PYTHA 3D-CAD | Vizualizare Fotorealista',
+  description:
+    'PYTHA design interior: modelare 3D, biblioteci cu 35.000+ obiecte, randare fotorealista cu RadioLab. Perfect pentru prezentari clienti.',
+  provider: {
+    '@type': 'Organization',
+    name: 'PYTHA Romania | Adline Industries',
+    url: 'https://pytha3d.ro',
+  },
+  areaServed: { '@type': 'Country', name: 'Romania' },
+  serviceType: 'Software CAD/CAM',
+};
+
 export default function DesignInteriorPage() {
   return (
-    <IndustryPage
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <IndustryPage
       title="PYTHA pentru designeri de interior si arhitecti"
       subtitle="Prezinta proiecte cu vizualizari care vand: fotorealiste, interactive, cu materiale reale."
       breadcrumbLabel="Design Interior"
@@ -75,5 +95,6 @@ export default function DesignInteriorPage() {
       ]}
       ctaText="Programează o demonstrație pentru design interior"
     />
+    </>
   );
 }

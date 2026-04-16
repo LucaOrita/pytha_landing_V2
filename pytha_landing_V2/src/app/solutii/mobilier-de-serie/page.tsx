@@ -17,9 +17,29 @@ export const metadata: Metadata = {
   },
 };
 
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Mobilier de Serie | PYTHA 3D-CAD | Productie Repetitiva Automatizata',
+  description:
+    'PYTHA pentru mobilier de serie: configurari parametrice, liste piese automate, nesting optimizat. Serii mari cu variatii, zero erori intre proiectare si productie.',
+  provider: {
+    '@type': 'Organization',
+    name: 'PYTHA Romania | Adline Industries',
+    url: 'https://pytha3d.ro',
+  },
+  areaServed: { '@type': 'Country', name: 'Romania' },
+  serviceType: 'Software CAD/CAM',
+};
+
 export default function MobilierDeSeriePage() {
   return (
-    <IndustryPage
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <IndustryPage
       title="PYTHA pentru mobilier de serie — productie repetitiva, zero erori"
       subtitle="Serii mari cu variatii mici. Automatizezi configurarile, elimini erorile manuale, scurtezi timpul de la comanda la livrare."
       breadcrumbLabel="Mobilier de Serie"
@@ -76,5 +96,6 @@ export default function MobilierDeSeriePage() {
       ]}
       ctaText="Programează o demonstrație pentru mobilier de serie"
     />
+    </>
   );
 }

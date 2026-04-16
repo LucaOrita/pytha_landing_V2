@@ -103,9 +103,25 @@ const FAQ_DATA: FaqCategory[] = [
   },
 ];
 
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ_DATA.flatMap((category) =>
+    category.faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
+  ),
+};
+
 export default function AsistentaTehnicaPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden section-padding">
         <div className="absolute -top-32 -right-32 size-96 rounded-full bg-[#10a5ca]/5 blur-3xl" />

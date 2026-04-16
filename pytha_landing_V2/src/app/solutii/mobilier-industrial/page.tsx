@@ -16,9 +16,29 @@ export const metadata: Metadata = {
   },
 };
 
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Mobilier Industrial | PYTHA 3D-CAD | Automatizare CAM Completă',
+  description:
+    'PYTHA pentru mobilier industrial: generatoare parametrice, nesting avansat, workshop CNC automat. Volume mari, termene scurte, productie fara erori.',
+  provider: {
+    '@type': 'Organization',
+    name: 'PYTHA Romania | Adline Industries',
+    url: 'https://pytha3d.ro',
+  },
+  areaServed: { '@type': 'Country', name: 'Romania' },
+  serviceType: 'Software CAD/CAM',
+};
+
 export default function MobilierIndustrialPage() {
   return (
-    <IndustryPage
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <IndustryPage
       title="PYTHA pentru mobilier industrial si amenajari interioare"
       subtitle="Volume mari, piese repetitive, termene stranse. PYTHA automatizeaza tot ce tine de proiectare."
       breadcrumbLabel="Mobilier Industrial"
@@ -75,5 +95,6 @@ export default function MobilierIndustrialPage() {
       ]}
       ctaText="Programează o demonstrație pentru mobilier industrial"
     />
+    </>
   );
 }
